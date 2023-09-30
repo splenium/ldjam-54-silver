@@ -15,10 +15,12 @@ material = SubResource("StandardMaterial3D_bwnj1")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47kvu"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("powerHuman", "powerFly")]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("powerHuman", "powerFish", "powerFly", "powerGhost")]
 script = ExtResource("1_j3srj")
-powerHuman = NodePath("")
-powerFly = NodePath("")
+powerHuman = NodePath("Power/Human")
+powerFish = NodePath("Power/Fish")
+powerFly = NodePath("Power/Fly")
+powerGhost = NodePath("Power/Ghost")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 mesh = SubResource("QuadMesh_7ba0f")
