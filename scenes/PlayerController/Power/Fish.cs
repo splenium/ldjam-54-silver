@@ -78,5 +78,6 @@ public partial class Fish : Power
 
         character.Velocity = velocity;
         character.MoveAndSlide();
+        SetRaKoonAvatarAnimation(velocity);
     }
 }

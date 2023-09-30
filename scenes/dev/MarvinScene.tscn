@@ -223,4 +223,3 @@ transform = Transform3D(23.0512, -3.67682e-14, 0, -1.63789e-13, 20.6986, 0, 0, 0
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_3gev5")]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -4.05688, 23, 5.66575)
 ToFollow = NodePath("../CharacterBody3D")
-OffsetY = 2.0

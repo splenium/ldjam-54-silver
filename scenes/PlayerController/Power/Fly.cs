@@ -62,6 +62,8 @@ public partial class Fly : Power
 
         character.Velocity = velocity;
         character.MoveAndSlide();
+
+        SetRaKoonAvatarAnimation(velocity);
     }
 }
 
