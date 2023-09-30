@@ -12,6 +12,9 @@ public enum EFaceState
 public partial class RaKoonAvatar : Node3D
 {
     private Quaternion _originalRotation;
+
+    [Export]
+    public Color LightColor;
     
     [Export]
     public int FaceSelection;
@@ -27,6 +30,8 @@ public partial class RaKoonAvatar : Node3D
 
     [Export]
     public ShaderMaterial HeadMaterial;
+    [Export]
+    public ShaderMaterial BodyMaterial;
 
     [Export]
     public Texture2D OHBackground;
@@ -102,5 +107,7 @@ public partial class RaKoonAvatar : Node3D
 
         this.Rotation = Vector3.Forward * Mathf.Sin(_totalTime* MoveRotationAnimationSpeed) * MoveRotationAnimationAmplitude*(IsMoving ? 1.0f : 0.0f);
         _totalTime += (float)delta;
+        HeadMaterial.SetShaderParameter("_lightColor", LightColor);
+        BodyMaterial.SetShaderParameter("_lightColor", LightColor);
     }
 }

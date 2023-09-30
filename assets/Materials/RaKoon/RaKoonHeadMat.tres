@@ -8,6 +8,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_dtfl6")
+shader_parameter/_lightColor = Color(1, 1, 1, 1)
 shader_parameter/_headBGTex = ExtResource("2_5evsq")
 shader_parameter/_headOutlineTex = ExtResource("4_unvyx")
 shader_parameter/_headHighLightTex = ExtResource("3_ibvrc")

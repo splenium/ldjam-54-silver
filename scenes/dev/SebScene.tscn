@@ -41,6 +41,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.43712)
 
 [node name="SceneIslands" type="Node3D" parent="."]
+visible = false
 
 [node name="SkyBG" type="CSGMesh3D" parent="SceneIslands"]
 transform = Transform3D(4.70554, 0, 0, 0, 4.70554, 0, 0, 0, 1, 0, -0.322, -0.397)
@@ -181,7 +182,6 @@ Offset = 3.0
 
 [node name="Background" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.684719)
-visible = false
 
 [node name="Wall" type="CSGMesh3D" parent="Background"]
 transform = Transform3D(4.56332, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
