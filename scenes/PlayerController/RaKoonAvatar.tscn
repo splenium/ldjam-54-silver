@@ -22,7 +22,6 @@
 [node name="RaKoonAvatar" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.13929)
 script = ExtResource("1_8pl2y")
-LightColor = Color(1, 1, 1, 0)
 FaceSelection = 123
 MoveAnimationSpeed = 8.0
 MoveRotationAnimationSpeed = 8.0

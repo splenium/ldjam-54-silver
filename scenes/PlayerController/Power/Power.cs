@@ -21,22 +21,23 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
         public override void _Ready()
         {
             Visible = false;
+            ProcessMode = ProcessModeEnum.Disabled;
             if (raKoonAvatar == null)
             {
                 GD.PrintErr("Power: raKoonAvatar is null");
             }
-            raKoonAvatar.LightColor = LightColor;
         }
 
         public override void _Process(double delta)
         {
             base._Process(delta);
-            raKoonAvatar.LightColor = LightColor;
         }
 
         public virtual void Init(CharacterBody3D character)
         {
+            ProcessMode = ProcessModeEnum.Inherit;
             Visible = true;
+            raKoonAvatar.LightColor = LightColor;
         }
         public virtual void MoveCharacter(CharacterBody3D character, double delta)
         {
@@ -45,6 +46,7 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
         public virtual void Exit(CharacterBody3D character)
         {
             Visible = false;
+            ProcessMode = ProcessModeEnum.Disabled;
         }
         public virtual bool CanChange(CharacterBody3D character)
         {
