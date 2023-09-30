@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cevwxtcp37nen"]
+
+[ext_resource type="Texture2D" uid="uid://bade4si4oxgha" path="res://assets/Textures/taylor-van-riper-yQorCngxzwI-unsplash.jpg" id="1_baf22"]
+[ext_resource type="Shader" path="res://assets/Shaders/Sky.gdshader" id="1_ltxkv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ltxkv")
+shader_parameter/_saturation = 0.194
+shader_parameter/_color = Color(0.596078, 0.741176, 0.694118, 1)
+shader_parameter/_mainTex = ExtResource("1_baf22")

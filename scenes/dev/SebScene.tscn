@@ -1,12 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=15 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="1_818dc"]
 [ext_resource type="Material" uid="uid://pfk887ida80" path="res://assets/Materials/Rock00Mat.tres" id="1_kfxe6"]
+[ext_resource type="Material" uid="uid://cevwxtcp37nen" path="res://assets/Materials/Clouds/SkyIslandsBGMat.tres" id="1_xd3yq"]
 [ext_resource type="Script" path="res://assets/Hovering.cs" id="2_njwye"]
 [ext_resource type="Material" uid="uid://d35otdohndue5" path="res://assets/Materials/Rock02Mat.tres" id="3_go02m"]
+[ext_resource type="Material" uid="uid://c8o2gti7npy26" path="res://assets/Materials/DoctorPunk.tres" id="3_sl62w"]
+[ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/CloudMat.tres" id="4_ifijn"]
 [ext_resource type="Material" uid="uid://dljll6fqoob5q" path="res://assets/Materials/Rock03Mat.tres" id="4_xkfjv"]
 [ext_resource type="Material" uid="uid://bilv08qhv513l" path="res://assets/Materials/BackgroundWallMat.tres" id="6_tmudm"]
 [ext_resource type="Material" uid="uid://6ruug3uhe6dt" path="res://assets/Materials/ConcreteMat.tres" id="7_kt5n6"]
+[ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="9_5c4k4"]
+[ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="10_4vgx5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
 
@@ -15,18 +20,54 @@
 [node name="SebScene" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.01367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
-[node name="Rock00" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0860417, -0.321805, 0)
+[node name="SceneIslands" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="SkyBG" type="CSGMesh3D" parent="SceneIslands"]
+transform = Transform3D(4.70554, 0, 0, 0, 4.70554, 0, 0, 0, 1, 0, -0.322, -0.397)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("1_xd3yq")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="DoctorPunk" type="CSGMesh3D" parent="SceneIslands"]
+transform = Transform3D(7.01592, 0, 0, 0, 7.01592, 0, 0, 0, 1, -0.0872123, -0.331487, -0.251907)
+visible = false
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("3_sl62w")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="Cloud" type="CSGMesh3D" parent="SceneIslands"]
+transform = Transform3D(3.22027, 0, 0, 0, 3.22027, 0, 0, 0, 1, -0.0860417, -0.240632, 0.155598)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("4_ifijn")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="Cloud2" type="CSGMesh3D" parent="SceneIslands"]
+transform = Transform3D(3.90738, 0, 0, 0, 4.15085, 0, 0, 0, 1, -0.0860417, -0.240632, -0.272767)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("4_ifijn")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="Rock00" type="CSGMesh3D" parent="SceneIslands"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, -0.131399, -0.550237, 0)
 mesh = SubResource("QuadMesh_qs0ii")
 material = ExtResource("1_kfxe6")
 script = ExtResource("2_njwye")
 Speed = 2.0
 Amplitude = 0.005
 
-[node name="Rock01" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266915, 0.194105, 0)
+[node name="Rock01" type="CSGMesh3D" parent="SceneIslands"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.458488, 0.311989, 0)
 mesh = SubResource("QuadMesh_qs0ii")
 material = ExtResource("1_818dc")
 script = ExtResource("2_njwye")
@@ -34,8 +75,8 @@ Speed = 1.5
 Amplitude = 0.005
 Offset = 1.0
 
-[node name="Rock02" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254764, 0.201669, 0)
+[node name="Rock02" type="CSGMesh3D" parent="SceneIslands"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, -0.41338, 0.32463, 0)
 mesh = SubResource("QuadMesh_qs0ii")
 material = ExtResource("3_go02m")
 script = ExtResource("2_njwye")
@@ -43,7 +84,77 @@ Speed = 2.0
 Amplitude = 0.005
 Offset = 2.0
 
-[node name="Rock03" type="CSGMesh3D" parent="."]
+[node name="Rock03" type="CSGMesh3D" parent="SceneIslands"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.0124002, -0.0124133, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("4_xkfjv")
+script = ExtResource("2_njwye")
+Amplitude = 0.005
+Offset = 3.0
+
+[node name="Abyss" type="Node3D" parent="."]
+
+[node name="SkyBG" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(4.70554, 0, 0, 0, 4.70554, 0, 0, 0, 1, 0, -0.322, -0.397)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("9_5c4k4")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="DoctorPunk" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(7.01592, 0, 0, 0, 7.01592, 0, 0, 0, 1, -0.0872123, -0.331487, -0.251907)
+visible = false
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("3_sl62w")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="LightRays01" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(3.22027, 0, 0, 0, 3.22027, 0, 0, 0, 1, -0.0860417, -0.240632, 0.155598)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("10_4vgx5")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="LightRays02" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(3.90738, 0, 0, 0, 4.15085, 0, 0, 0, 1, -0.0860417, -0.240632, -0.272767)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("10_4vgx5")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="Rock00" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, -0.131399, -0.550237, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("1_kfxe6")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="Rock01" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.458488, 0.311989, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("1_818dc")
+script = ExtResource("2_njwye")
+Speed = 1.5
+Amplitude = 0.005
+Offset = 1.0
+
+[node name="Rock02" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, -0.41338, 0.32463, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("3_go02m")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+Offset = 2.0
+
+[node name="Rock03" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.0124002, -0.0124133, 0)
 mesh = SubResource("QuadMesh_qs0ii")
 material = ExtResource("4_xkfjv")
 script = ExtResource("2_njwye")
@@ -52,6 +163,7 @@ Offset = 3.0
 
 [node name="Background" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.684719)
+visible = false
 
 [node name="Wall" type="CSGMesh3D" parent="Background"]
 transform = Transform3D(4.56332, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

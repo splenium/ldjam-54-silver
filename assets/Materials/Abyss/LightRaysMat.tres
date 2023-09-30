@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://w8luwihx2cxk"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/LightRays.gdshader" id="1_mx2fr"]
+[ext_resource type="Texture2D" uid="uid://cvi6lb45d7dvj" path="res://assets/Textures/Voronoise.png" id="2_3uk4x"]
+[ext_resource type="Texture2D" uid="uid://ckwfqf0hlqh01" path="res://assets/Textures/Noise.png" id="2_561gh"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_mx2fr")
+shader_parameter/_voronoiseTex = ExtResource("2_3uk4x")
+shader_parameter/_noiseTex = ExtResource("2_561gh")

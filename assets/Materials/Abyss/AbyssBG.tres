@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cmrgu55n2foir"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/Sky.gdshader" id="1_4ry7p"]
+[ext_resource type="Texture2D" uid="uid://cybpmhp0o30uk" path="res://assets/Textures/abyssBackground.jpg" id="2_n5ntc"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4ry7p")
+shader_parameter/_saturation = 1.0
+shader_parameter/_color = Color(1, 1, 1, 1)
+shader_parameter/_mainTex = ExtResource("2_n5ntc")
