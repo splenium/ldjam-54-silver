@@ -14,8 +14,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_isjr3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7718, 6.53139, 0)
-collision_layer = 0
-collision_mask = 3
 
 [node name="Camera3D" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_o8vo8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5601, 9.83155, 10.072)

@@ -66,7 +66,6 @@ public partial class Fish : Power
                     velocity.X = -MaxSpeed;
                 }
             }
-            GD.Print(velocity);
         }
         else if (!character.IsOnFloor())
         {
