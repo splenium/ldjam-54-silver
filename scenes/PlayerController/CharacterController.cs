@@ -34,6 +34,7 @@ public partial class CharacterController : CharacterBody3D
     {
         base._Ready();
         currentPower = PowerHuman;
+        currentPower.Init(this);
         if (PowerHuman == null)
         {
             GD.PrintErr("CharacterController: PowerHuman is null");

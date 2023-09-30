@@ -21,6 +21,7 @@ public partial class CameraManagment : Camera3D
     public override void _Process(double delta)
     {
         Vector3 targetPosition = new Vector3(ToFollow.Position.X, ToFollow.Position.Y + OffsetY, this.GlobalPosition.Z);
-        this.GlobalPosition = this.GlobalPosition.Slerp(targetPosition, FloatingRate);
+        Vector3 deplacment = this.GlobalPosition.Slerp(targetPosition, FloatingRate);
+        this.GlobalPosition = new Vector3(deplacment.X, deplacment.Y, this.GlobalPosition.Z);
     }
 }

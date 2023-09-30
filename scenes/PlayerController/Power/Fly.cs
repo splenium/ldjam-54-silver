@@ -1,6 +1,6 @@
-using System;
 using Godot;
 using LudumDare54Silver.scenes.PlayerController.Power;
+using System;
 
 public partial class Fly : Power
 {
@@ -62,16 +62,6 @@ public partial class Fly : Power
 
         character.Velocity = velocity;
         character.MoveAndSlide();
-    }
-
-    public override void Init(CharacterBody3D c)
-    {
-        Visible = true;
-    }
-
-    public override void Exit(CharacterBody3D c)
-    {
-        Visible = false;
     }
 }
 

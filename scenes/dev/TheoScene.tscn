@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c86mrgoxm3lqw"]
+[gd_scene load_steps=8 format=3 uid="uid://c86mrgoxm3lqw"]
 
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="1_isjr3"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_o8vo8"]
+[ext_resource type="PackedScene" uid="uid://bbjip0v5s5g52" path="res://scenes/dev/Elements/ground.tscn" id="3_hho06"]
+[ext_resource type="PackedScene" uid="uid://bbgpuj1chyp3j" path="res://scenes/dev/Elements/SpectralCollider.tscn" id="3_pyqo3"]
 [ext_resource type="Material" uid="uid://cd24x34l62pd8" path="res://assets/Test/WaterMaterial.tres" id="3_tds87"]
+[ext_resource type="PackedScene" uid="uid://1gcjhav8r0pf" path="res://scenes/dev/Elements/water.tscn" id="5_ce7lj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ijij"]
 
@@ -11,8 +14,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_isjr3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7718, 6.53139, 0)
-collision_layer = 0
-collision_mask = 3
 
 [node name="Camera3D" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_o8vo8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5601, 9.83155, 10.072)
@@ -20,12 +21,7 @@ current = true
 ToFollow = NodePath("../CharacterBody3D")
 OffsetY = 2.0
 
-[node name="Ground" type="CSGBox3D" parent="."]
-transform = Transform3D(25.223, 0, 0, 0, 1, 0, 0, 0, 1, 5.85902, -2.10017, 0)
-layers = 2
-use_collision = true
-collision_layer = 6
-collision_mask = 6
+[node name="Ground" parent="." instance=ExtResource("3_hho06")]
 
 [node name="Parcour" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07961, 0)
@@ -60,12 +56,7 @@ transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 
 spot_range = 19.5083
 spot_angle = 59.0483
 
-[node name="SpectralCollider5" type="CSGBox3D" parent="Parcour"]
-transform = Transform3D(6.0335, -0.575248, 0, 4.24309, 0.817979, 0, 0, 0, 1, 9.78988, 2.20417, 0)
-layers = 2
-use_collision = true
-collision_layer = 6
-collision_mask = 6
+[node name="SpectralCollider" parent="Parcour" instance=ExtResource("3_pyqo3")]
 
 [node name="SpectralCollider6" type="CSGBox3D" parent="Parcour"]
 transform = Transform3D(7.21049, -0.210711, 0, 1.55422, 0.977548, 0, 0, 0, 1, 16.1512, 4.96278, 0)
@@ -125,22 +116,7 @@ use_collision = true
 collision_layer = 6
 collision_mask = 6
 
-[node name="Water" type="CSGBox3D" parent="UnderWater"]
-transform = Transform3D(-2.68739e-07, 3.4573, 0, -6.14802, -1.51124e-07, 0, 0, 0, 1.02602, -9.19823, 0.637873, 0)
-layers = 2
-calculate_tangents = false
-use_collision = true
-collision_layer = 0
-collision_mask = 0
-material = ExtResource("3_tds87")
-
-[node name="Area3D" type="Area3D" parent="UnderWater/Water"]
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="UnderWater/Water/Area3D"]
-transform = Transform3D(1, 1.42109e-14, 0, 2.13163e-14, 1, 0, 0, 0, 1, 0.10826, 0, 0)
-shape = SubResource("BoxShape3D_8ijij")
+[node name="Water" parent="UnderWater" instance=ExtResource("5_ce7lj")]
 
 [node name="Water2" type="CSGBox3D" parent="UnderWater"]
 transform = Transform3D(-2.68864e-07, 91.649, 0, -6.15088, -4.0061e-06, 0, 0, 0, 0.995396, -9.19823, -5.6307, 0)

@@ -14,8 +14,14 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
 
         private bool wasInWater = false;
 
+        public override void _Ready()
+        {
+            Visible = false;
+        }
+
         public virtual void Init(CharacterBody3D character)
         {
+            Visible = true;
         }
         public virtual void MoveCharacter(CharacterBody3D character, double delta)
         {
@@ -23,7 +29,7 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
         }
         public virtual void Exit(CharacterBody3D character)
         {
-
+            Visible = false;
         }
         public virtual bool CanChange(CharacterBody3D character)
         {
@@ -49,7 +55,7 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
             else if (wasInWater)
             {
                 wasInWater = false;
-                velocity.Y -= gravityForce;
+                velocity.Y -= gravityForce * 0.9f;
             }
             return velocity;
         }

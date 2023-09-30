@@ -1,21 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjwiwl42jtnld"]
+[gd_scene load_steps=25 format=3 uid="uid://bjwiwl42jtnld"]
 
 [ext_resource type="Script" path="res://scenes/PlayerController/CharacterController.cs" id="1_j3srj"]
-[ext_resource type="Texture2D" uid="uid://cfdoygqa7bt71" path="res://assets/red.png" id="2_1h4wk"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fly.cs" id="3_3p4kr"]
-[ext_resource type="Texture2D" uid="uid://bf5nil75ohsau" path="res://assets/purple_white.png" id="4_beuvk"]
+[ext_resource type="Texture2D" uid="uid://cfdoygqa7bt71" path="res://assets/Test/PowerMaterial/racoune.png" id="3_j81i1"]
+[ext_resource type="Texture2D" uid="uid://bf5nil75ohsau" path="res://assets/Test/PowerMaterial/purple_white.png" id="4_hifw6"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Human.cs" id="4_p84tn"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fish.cs" id="5_hw2ut"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Ghost.cs" id="6_a57bf"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwnj1"]
-albedo_texture = ExtResource("2_1h4wk")
-
-[sub_resource type="QuadMesh" id="QuadMesh_7ba0f"]
-material = SubResource("StandardMaterial3D_bwnj1")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nrpe"]
-albedo_color = Color(1, 0.129412, 0.0352941, 1)
+[ext_resource type="Texture2D" uid="uid://u0ev7juxf8h2" path="res://assets/Test/PowerMaterial/fish.png" id="7_dvdap"]
+[ext_resource type="Texture2D" uid="uid://dkfqvr71bgno5" path="res://assets/Test/PowerMaterial/ghost.png" id="9_ddxob"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47kvu"]
 
@@ -119,23 +112,38 @@ _data = {
 "right_wing_up": SubResource("Animation_paf0m")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwnj1"]
+albedo_texture = ExtResource("3_j81i1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7ba0f"]
+material = SubResource("StandardMaterial3D_bwnj1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5781j"]
+albedo_texture = ExtResource("4_hifw6")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6vee"]
-albedo_texture = ExtResource("4_beuvk")
+albedo_texture = ExtResource("4_hifw6")
 
 [sub_resource type="QuadMesh" id="QuadMesh_nsvfv"]
 material = SubResource("StandardMaterial3D_r6vee")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ph4bv"]
+albedo_texture = ExtResource("3_j81i1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6orat"]
+albedo_texture = ExtResource("7_dvdap")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onuny"]
+albedo_texture = ExtResource("9_ddxob")
+
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("PowerHuman", "PowerFish", "PowerFly", "PowerGhost")]
+collision_layer = 0
+collision_mask = 3
 script = ExtResource("1_j3srj")
 PowerHuman = NodePath("Power/Human")
 PowerFish = NodePath("Power/Fish")
 PowerFly = NodePath("Power/Fly")
 PowerGhost = NodePath("Power/Ghost")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("QuadMesh_7ba0f")
-material = SubResource("StandardMaterial3D_1nrpe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_47kvu")
@@ -143,14 +151,14 @@ shape = SubResource("CapsuleShape3D_47kvu")
 [node name="Detectors" type="Node3D" parent="."]
 
 [node name="DetectorWater" type="Area3D" parent="Detectors"]
-collision_layer = 0
-collision_mask = 16
+collision_layer = 48
+collision_mask = 48
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detectors/DetectorWater"]
 shape = SubResource("CapsuleShape3D_47kvu")
 
 [node name="DetectorObstacles" type="Area3D" parent="Detectors"]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detectors/DetectorObstacles"]
@@ -158,10 +166,11 @@ shape = SubResource("CapsuleShape3D_47kvu")
 
 [node name="Power" type="Node3D" parent="."]
 
-[node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("AnimationLeftWing", "AnimationRightWing")]
+[node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("AnimationLeftWing", "AnimationRightWing", "WaterDetector")]
 script = ExtResource("3_3p4kr")
 AnimationLeftWing = NodePath("AnimationLeftWing")
 AnimationRightWing = NodePath("AnimationRightWing")
+WaterDetector = NodePath("../../Detectors/DetectorWater")
 
 [node name="AnimationLeftWing" type="AnimationPlayer" parent="Power/Fly"]
 libraries = {
@@ -172,6 +181,11 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_02j84")
 }
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Power/Fly"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_7ba0f")
+material = SubResource("StandardMaterial3D_5781j")
 
 [node name="RightWing" type="Node3D" parent="Power/Fly"]
 transform = Transform3D(-0.939693, -0.342017, 0, 0.342017, -0.939693, 0, 0, 0, 1, 0.35, 0.5, -0.1)
@@ -187,14 +201,32 @@ transform = Transform3D(-0.939693, 0.342017, 0, -0.342017, -0.939693, 0, 0, 0, 1
 transform = Transform3D(0.25, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("QuadMesh_nsvfv")
 
-[node name="Human" type="Node3D" parent="Power"]
+[node name="Human" type="Node3D" parent="Power" node_paths=PackedStringArray("WaterDetector")]
 script = ExtResource("4_p84tn")
+WaterDetector = NodePath("../../Detectors/DetectorWater")
+ContactWaterBreak = 0.4
 
-[node name="Fish" type="Node3D" parent="Power"]
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Power/Human"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_7ba0f")
+material = SubResource("StandardMaterial3D_ph4bv")
+
+[node name="Fish" type="Node3D" parent="Power" node_paths=PackedStringArray("WaterDetector")]
 script = ExtResource("5_hw2ut")
+WaterDetector = NodePath("../../Detectors/DetectorWater")
 
-[node name="Ghost" type="Node3D" parent="Power" node_paths=PackedStringArray("Detector", "PlayerMesh")]
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Power/Fish"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_7ba0f")
+material = SubResource("StandardMaterial3D_6orat")
+
+[node name="Ghost" type="Node3D" parent="Power" node_paths=PackedStringArray("Detector", "PlayerMesh", "WaterDetector")]
 script = ExtResource("6_a57bf")
 Detector = NodePath("../../Detectors/DetectorObstacles")
-PlayerMesh = NodePath("../../CSGMesh3D")
-InsideColor = Color(0, 1, 0, 1)
+PlayerMesh = NodePath("../Human/CSGMesh3D")
+WaterDetector = NodePath("../../Detectors/DetectorWater")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Power/Ghost"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_7ba0f")
+material = SubResource("StandardMaterial3D_onuny")

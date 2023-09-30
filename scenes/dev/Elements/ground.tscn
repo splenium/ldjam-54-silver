@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bbjip0v5s5g52"]
+
+[node name="Ground" type="CSGBox3D"]
+transform = Transform3D(25.223, 0, 0, 0, 1, 0, 0, 0, 1, 5.85902, -2.10017, 0)
+layers = 2
+use_collision = true
+collision_mask = 0
