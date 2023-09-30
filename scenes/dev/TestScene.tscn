@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmojig8xnpdv1"]
+[gd_scene load_steps=6 format=3 uid="uid://cmojig8xnpdv1"]
 
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_eknx0"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_705bx"]
 [ext_resource type="PackedScene" uid="uid://bbjip0v5s5g52" path="res://scenes/dev/Elements/ground.tscn" id="3_3olp8"]
-[ext_resource type="PackedScene" uid="uid://1gcjhav8r0pf" path="res://scenes/dev/Elements/water.tscn" id="4_2bvcp"]
+[ext_resource type="PackedScene" path="res://scenes/dev/Elements/WaterSurface.tscn" id="3_587j0"]
+[ext_resource type="PackedScene" path="res://scenes/dev/Elements/WaterDeep.tscn" id="4_c881m"]
 
 [node name="TestScene" type="Node3D"]
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("1_eknx0")]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2.94312, 2, 8.66575)
+current = true
 ToFollow = NodePath("../CharacterBody3D")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_705bx")]
@@ -19,9 +21,11 @@ transform = Transform3D(1, 0, 0, 0, 0.592308, 0.805711, 0, -0.805711, 0.592308, 
 
 [node name="Level" type="Node3D" parent="."]
 
-[node name="Water" parent="Level" instance=ExtResource("4_2bvcp")]
-transform = Transform3D(-2.68739e-07, 3.4573, 0, -6.14802, -1.51124e-07, 0, 0, 0, 1.02602, 39.3979, -4.67197, 0)
-operation = 2
+[node name="Water" parent="Level" instance=ExtResource("3_587j0")]
+transform = Transform3D(3.47324, -1.71613e-15, 0, -2.46788e-14, 0.966096, 0, 0, 0, 0.966096, 39.3804, -2.24217, 0)
+
+[node name="Water2" parent="Level" instance=ExtResource("4_c881m")]
+transform = Transform3D(50.0619, -1.21497e-14, 0, -3.55711e-13, 6.83963, 0, 0, 0, 1, 38.8436, -6.03481, 0)
 
 [node name="Ground" parent="Level" instance=ExtResource("3_3olp8")]
 transform = Transform3D(57.9676, 0, 0, 0, 1.00697, 0, 0, 0, 1.00697, 8.68824, -2.10017, 0)

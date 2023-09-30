@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bbjip0v5s5g52" path="res://scenes/dev/Elements/ground.tscn" id="3_hho06"]
 [ext_resource type="PackedScene" uid="uid://bbgpuj1chyp3j" path="res://scenes/dev/Elements/SpectralCollider.tscn" id="3_pyqo3"]
 [ext_resource type="Material" uid="uid://cd24x34l62pd8" path="res://assets/Test/WaterMaterial.tres" id="3_tds87"]
-[ext_resource type="PackedScene" uid="uid://1gcjhav8r0pf" path="res://scenes/dev/Elements/water.tscn" id="5_ce7lj"]
+[ext_resource type="PackedScene" path="res://scenes/dev/Elements/water.tscn" id="5_ce7lj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ijij"]
 
