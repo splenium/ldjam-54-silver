@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://b17vcnmok5kix"]
+
+[ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="1_818dc"]
+[ext_resource type="Material" uid="uid://pfk887ida80" path="res://assets/Materials/Rock00Mat.tres" id="1_kfxe6"]
+[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_njwye"]
+[ext_resource type="Material" uid="uid://d35otdohndue5" path="res://assets/Materials/Rock02Mat.tres" id="3_go02m"]
+[ext_resource type="Material" uid="uid://dljll6fqoob5q" path="res://assets/Materials/Rock03Mat.tres" id="4_xkfjv"]
+[ext_resource type="Material" uid="uid://bilv08qhv513l" path="res://assets/Materials/BackgroundWallMat.tres" id="6_tmudm"]
+[ext_resource type="Material" uid="uid://6ruug3uhe6dt" path="res://assets/Materials/ConcreteMat.tres" id="7_kt5n6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0v70s"]
+
+[node name="SebScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.01367)
+
+[node name="Rock00" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0860417, -0.321805, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("1_kfxe6")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="Rock01" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.266915, 0.194105, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("1_818dc")
+script = ExtResource("2_njwye")
+Speed = 1.5
+Amplitude = 0.005
+Offset = 1.0
+
+[node name="Rock02" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254764, 0.201669, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("3_go02m")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+Offset = 2.0
+
+[node name="Rock03" type="CSGMesh3D" parent="."]
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("4_xkfjv")
+script = ExtResource("2_njwye")
+Amplitude = 0.005
+Offset = 3.0
+
+[node name="Background" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.684719)
+
+[node name="Wall" type="CSGMesh3D" parent="Background"]
+transform = Transform3D(4.56332, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_0v70s")
+material = ExtResource("6_tmudm")
+
+[node name="Ground" type="CSGMesh3D" parent="Background"]
+transform = Transform3D(4.56332, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.5, 0.5)
+mesh = SubResource("QuadMesh_0v70s")
+material = ExtResource("7_kt5n6")
+
+[node name="Ceiling" type="CSGMesh3D" parent="Background"]
+transform = Transform3D(4.56332, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0.5)
+mesh = SubResource("QuadMesh_0v70s")
+material = ExtResource("7_kt5n6")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, -0.753281)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Background"]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, -0.688447, 0, 0.470634)
+material = ExtResource("7_kt5n6")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Background"]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, -1.376, 0, 0.471)
+material = ExtResource("7_kt5n6")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Background"]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, 0.688, 0, 0.471)
+material = ExtResource("7_kt5n6")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Background"]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, 1.376, 0, 0.471)
+material = ExtResource("7_kt5n6")
