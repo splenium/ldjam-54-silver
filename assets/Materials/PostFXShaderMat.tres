@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cq6ff316iqldq"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/PostFX.gdshader" id="1_nmuom"]
+[ext_resource type="Texture2D" uid="uid://ckwfqf0hlqh01" path="res://assets/Textures/Noise.png" id="2_dalnv"]
+
+[resource]
+shader = ExtResource("1_nmuom")
+shader_parameter/_vignetteRadius = 0.361
+shader_parameter/_vignetteSharp = 0.032
+shader_parameter/_vignetteOpacity = 1.0
+shader_parameter/_bloomRadius = 0.59
+shader_parameter/_bloomPow = 0.541
+shader_parameter/_bloomOpacity = 1.0
+shader_parameter/_noiseTex = ExtResource("2_dalnv")

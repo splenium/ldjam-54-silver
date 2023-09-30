@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=16 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="1_818dc"]
 [ext_resource type="Material" uid="uid://pfk887ida80" path="res://assets/Materials/Rock00Mat.tres" id="1_kfxe6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Material" uid="uid://6ruug3uhe6dt" path="res://assets/Materials/ConcreteMat.tres" id="7_kt5n6"]
 [ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="9_5c4k4"]
 [ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="10_4vgx5"]
+[ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="13_t3sxh"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
 
@@ -20,10 +21,10 @@
 [node name="SebScene" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.43712)
 
 [node name="SceneIslands" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+visible = false
 
 [node name="SkyBG" type="CSGMesh3D" parent="SceneIslands"]
 transform = Transform3D(4.70554, 0, 0, 0, 4.70554, 0, 0, 0, 1, 0, -0.322, -0.397)
@@ -93,6 +94,7 @@ Amplitude = 0.005
 Offset = 3.0
 
 [node name="Abyss" type="Node3D" parent="."]
+visible = false
 
 [node name="SkyBG" type="CSGMesh3D" parent="Abyss"]
 transform = Transform3D(4.70554, 0, 0, 0, 4.70554, 0, 0, 0, 1, 0, -0.322, -0.397)
@@ -163,7 +165,6 @@ Offset = 3.0
 
 [node name="Background" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.684719)
-visible = false
 
 [node name="Wall" type="CSGMesh3D" parent="Background"]
 transform = Transform3D(4.56332, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -198,3 +199,13 @@ material = ExtResource("7_kt5n6")
 [node name="CSGBox3D4" type="CSGBox3D" parent="Background"]
 transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, 1.376, 0, 0.471)
 material = ExtResource("7_kt5n6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("13_t3sxh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
