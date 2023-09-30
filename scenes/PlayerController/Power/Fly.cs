@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using LudumDare54Silver.scenes.PlayerController.Power;
 
@@ -9,16 +10,20 @@ public partial class Fly : Node3D, Power
     public float JumpVelocity = 6f;
     
     [Export]
-    public AnimationPlayer animationLeftWing;
+    public AnimationPlayer AnimationLeftWing;
     [Export]
-    public AnimationPlayer animationRightWing;
+    public AnimationPlayer AnimationRightWing;
+
+    private WingsMouvement wingsPosition = new WingsMouvement();
 
     public override void _Ready()
     {
         base._Ready();
         Visible = false;
-        animationLeftWing.Play("left_wing_down");
-        animationRightWing.Play("right_wing_down");
+        AnimationLeftWing.Play("left_wing_down");
+        AnimationRightWing.Play("right_wing_down");
+        wingsPosition.AnimationLeftWing = AnimationLeftWing;
+        wingsPosition.AnimationRightWing = AnimationRightWing;
     }
 
 
@@ -32,37 +37,18 @@ public partial class Fly : Node3D, Power
         // Add the gravity.
         if (!character.IsOnFloor())
             velocity.Y -= gravity * (float)delta;
-    
-        bool flapUpLeft = Input.IsActionJustPressed("ui_left");
-        bool flapDownLeft = Input.IsActionJustReleased("ui_left");
-        bool flapUpRight = Input.IsActionJustPressed("ui_right");
-        bool flapDownRight = Input.IsActionJustReleased("ui_right");
 
-        if (flapUpLeft)
+        var direction = wingsPosition.Update();
+
+
+        if (direction.Y != 0)
         {
-            animationLeftWing.Play("left_wing_up");
-        }
-        if (flapDownLeft)
-        {
-            animationLeftWing.Play("left_wing_down");
-        }
-        if (flapUpRight)
-        {
-            animationRightWing.Play("right_wing_up");
-        }
-        if (flapDownRight)
-        {
-            animationRightWing.Play("right_wing_down");
+            velocity.Y = direction.Y * JumpVelocity;
         }
 
-        if (flapDownLeft || flapDownRight)
+        if (direction.X != 0)
         {
-            velocity.Y = flapDownLeft && flapDownRight ? JumpVelocity * 2 : JumpVelocity;
-        }
-        if ((flapDownLeft && !flapDownRight) || (!flapDownLeft && flapDownRight))
-        {
-            var direction = flapDownLeft ? 1 : -1;
-            velocity.X = direction * Speed;
+            velocity.X = direction.X * Speed;
         }
         else
         {
@@ -87,4 +73,77 @@ public partial class Fly : Node3D, Power
     {
         return true;
     }
+}
+
+class WingsMouvement
+{
+    public WingMovement LeftWing = WingMovement.Idle;
+    public WingMovement RightWing = WingMovement.Idle;
+    public AnimationPlayer AnimationLeftWing;
+    public AnimationPlayer AnimationRightWing;
+
+    private long whenLeftWingFlapDown;
+    private long whenRightWingFlapDown;
+    private long deltaInMillisecondToAcceptUpBoost = 200;
+
+    public Vector2 Update()
+    {
+        var isFlapping = false;
+        LeftWing = WingMovement.Idle;
+        RightWing = WingMovement.Idle;
+        if (Input.IsActionJustPressed("ui_left"))
+        {
+            LeftWing = WingMovement.Up;
+            AnimationLeftWing.Play("left_wing_up");
+            whenLeftWingFlapDown = 0;
+        }
+        if (Input.IsActionJustReleased("ui_left"))
+        {
+            isFlapping = true;
+            LeftWing = WingMovement.Down;
+            AnimationLeftWing.Play("left_wing_down");
+            whenLeftWingFlapDown = (long)Time.GetTicksMsec();
+        }
+        if (Input.IsActionJustPressed("ui_right"))
+        {
+            RightWing = WingMovement.Up;
+            AnimationRightWing.Play("right_wing_up");
+            whenRightWingFlapDown = 0;
+        }
+        if (Input.IsActionJustReleased("ui_right"))
+        {
+            isFlapping = true;
+            RightWing = WingMovement.Down;
+            AnimationRightWing.Play("right_wing_down");
+            whenRightWingFlapDown = (long)Time.GetTicksMsec();
+        }
+
+        return isFlapping ? GetFlyingDirection() : new Vector2();
+    }
+
+    private Vector2 GetFlyingDirection()
+    {
+        var direction = new Vector2();
+        var hasUpBoost = Math.Abs(whenLeftWingFlapDown - whenRightWingFlapDown) < deltaInMillisecondToAcceptUpBoost;
+        if (LeftWing == WingMovement.Down || RightWing == WingMovement.Down)
+        {
+            direction.Y = hasUpBoost ? 2 : 1;
+        }
+        if (!hasUpBoost && OnlyOneWingFlap())
+        {
+            direction.X = LeftWing == WingMovement.Down ? 1 : -1;
+        }
+        return direction;
+    }
+
+    private bool OnlyOneWingFlap() =>
+        (LeftWing == WingMovement.Down && RightWing != WingMovement.Down) ||
+        (LeftWing != WingMovement.Down && RightWing == WingMovement.Down);
+}
+
+enum WingMovement
+{
+    Idle,
+    Down,
+    Up
 }
