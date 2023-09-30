@@ -1,0 +1,55 @@
+[gd_scene load_steps=18 format=3 uid="uid://cflloyk51haep"]
+
+[ext_resource type="Script" path="res://scenes/dev/RaKoonAvatar.cs" id="1_8pl2y"]
+[ext_resource type="Material" uid="uid://c3kg7kyte14ra" path="res://assets/Materials/RaKoon/RaKoonHeadMat.tres" id="2_e4rko"]
+[ext_resource type="Texture2D" uid="uid://bpxkh3ciaskcx" path="res://assets/Textures/RaKoon/rakoon_ohface_bkg.png" id="3_xit7x"]
+[ext_resource type="Texture2D" uid="uid://b3qfsys17thnc" path="res://assets/Textures/RaKoon/rakoon_ohface_outline.png" id="4_disl6"]
+[ext_resource type="Texture2D" uid="uid://cakp4raxgglre" path="res://assets/Textures/RaKoon/rakoon_ohface_hightlight.png" id="5_k2leh"]
+[ext_resource type="Texture2D" uid="uid://cno0eow2f71xb" path="res://assets/Textures/RaKoon/rakoon_happyface_bkg.png" id="6_oq6km"]
+[ext_resource type="Texture2D" uid="uid://dnefjmam7d1uu" path="res://assets/Textures/RaKoon/rakoon_happyface_outline.png" id="7_drcsx"]
+[ext_resource type="Texture2D" uid="uid://04cn3bh0xqeo" path="res://assets/Textures/RaKoon/rakoon_happyface_hightlight.png" id="8_etr1e"]
+[ext_resource type="Texture2D" uid="uid://cqiyj47vbnsb7" path="res://assets/Textures/RaKoon/rakoon_thugface_bkg.png" id="9_73d7x"]
+[ext_resource type="Texture2D" uid="uid://dwjw7smstmfb4" path="res://assets/Textures/RaKoon/rakoon_thugface_outline.png" id="10_cd117"]
+[ext_resource type="Texture2D" uid="uid://lxyhora8i61l" path="res://assets/Textures/RaKoon/rakoon_thugface_hightlight.png" id="11_rmbyu"]
+[ext_resource type="Texture2D" uid="uid://c75ywfup3lng4" path="res://assets/Textures/RaKoon/rakoon_shocked-1.png" id="12_hdmes"]
+[ext_resource type="Texture2D" uid="uid://du1pq6fjon64k" path="res://assets/Textures/RaKoon/rakoon_shocked-3.png" id="13_m0vqg"]
+[ext_resource type="Texture2D" uid="uid://r1odbc7ovewa" path="res://assets/Textures/RaKoon/rakoon_shocked-2.png" id="14_72ifo"]
+[ext_resource type="Script" path="res://assets/Hovering.cs" id="15_8o03j"]
+[ext_resource type="Material" uid="uid://dvusmv534jt1s" path="res://assets/Materials/RaKoon/RaKoonBodyMat.tres" id="16_ebflu"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_mjm0f"]
+
+[node name="RaKoonAvatar" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.13929)
+script = ExtResource("1_8pl2y")
+FaceSelection = 123
+MoveAnimationSpeed = 8.0
+MoveRotationAnimationSpeed = 8.0
+MoveRotationAnimationAmplitude = 0.05
+HeadMaterial = ExtResource("2_e4rko")
+OHBackground = ExtResource("3_xit7x")
+OHOutline = ExtResource("4_disl6")
+OHHighlight = ExtResource("5_k2leh")
+HAPPYBackground = ExtResource("6_oq6km")
+HAPPYOutline = ExtResource("7_drcsx")
+HAPPYHighlight = ExtResource("8_etr1e")
+THUGBackground = ExtResource("9_73d7x")
+THUGOutline = ExtResource("10_cd117")
+THUGHighlight = ExtResource("11_rmbyu")
+SHOCKEDBackground = ExtResource("12_hdmes")
+SHOCKEDOutline = ExtResource("13_m0vqg")
+SHOCKEDHighlight = ExtResource("14_72ifo")
+
+[node name="Head" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.356372, 0, 0, 0, 0.356372, 0, 0, 0, 1, 0, 0.0938219, 0.00403273)
+mesh = SubResource("QuadMesh_mjm0f")
+material = ExtResource("2_e4rko")
+script = ExtResource("15_8o03j")
+Speed = 2.0
+Amplitude = 0.001
+Offset = 10.0
+
+[node name="Body" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.356372, 0, 0, 0, 0.356372, 0, 0, 0, 1, 0, 0.0938219, 0)
+mesh = SubResource("QuadMesh_mjm0f")
+material = ExtResource("16_ebflu")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=32 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="1_818dc"]
 [ext_resource type="Material" uid="uid://pfk887ida80" path="res://assets/Materials/Rock00Mat.tres" id="1_kfxe6"]
@@ -13,10 +13,27 @@
 [ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="9_5c4k4"]
 [ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="10_4vgx5"]
 [ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="13_t3sxh"]
+[ext_resource type="Script" path="res://scenes/dev/RaKoonAvatar.cs" id="14_ajmat"]
+[ext_resource type="Material" uid="uid://c3kg7kyte14ra" path="res://assets/Materials/RaKoon/RaKoonHeadMat.tres" id="14_kh44d"]
+[ext_resource type="Texture2D" uid="uid://bpxkh3ciaskcx" path="res://assets/Textures/RaKoon/rakoon_ohface_bkg.png" id="15_h6t6g"]
+[ext_resource type="Material" uid="uid://dvusmv534jt1s" path="res://assets/Materials/RaKoon/RaKoonBodyMat.tres" id="15_typgg"]
+[ext_resource type="Texture2D" uid="uid://b3qfsys17thnc" path="res://assets/Textures/RaKoon/rakoon_ohface_outline.png" id="16_h5yey"]
+[ext_resource type="Texture2D" uid="uid://cakp4raxgglre" path="res://assets/Textures/RaKoon/rakoon_ohface_hightlight.png" id="17_nesk0"]
+[ext_resource type="Texture2D" uid="uid://cno0eow2f71xb" path="res://assets/Textures/RaKoon/rakoon_happyface_bkg.png" id="18_p4buy"]
+[ext_resource type="Texture2D" uid="uid://dnefjmam7d1uu" path="res://assets/Textures/RaKoon/rakoon_happyface_outline.png" id="19_iwkl1"]
+[ext_resource type="Texture2D" uid="uid://04cn3bh0xqeo" path="res://assets/Textures/RaKoon/rakoon_happyface_hightlight.png" id="20_l7dte"]
+[ext_resource type="Texture2D" uid="uid://cqiyj47vbnsb7" path="res://assets/Textures/RaKoon/rakoon_thugface_bkg.png" id="21_03t6t"]
+[ext_resource type="Texture2D" uid="uid://dwjw7smstmfb4" path="res://assets/Textures/RaKoon/rakoon_thugface_outline.png" id="22_mta4s"]
+[ext_resource type="Texture2D" uid="uid://lxyhora8i61l" path="res://assets/Textures/RaKoon/rakoon_thugface_hightlight.png" id="23_jwb3o"]
+[ext_resource type="Texture2D" uid="uid://c75ywfup3lng4" path="res://assets/Textures/RaKoon/rakoon_shocked-1.png" id="25_f6rt6"]
+[ext_resource type="Texture2D" uid="uid://du1pq6fjon64k" path="res://assets/Textures/RaKoon/rakoon_shocked-3.png" id="26_ylno1"]
+[ext_resource type="Texture2D" uid="uid://r1odbc7ovewa" path="res://assets/Textures/RaKoon/rakoon_shocked-2.png" id="27_wywfn"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_0v70s"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_mjm0f"]
 
 [node name="SebScene" type="Node3D"]
 
@@ -24,7 +41,6 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.43712)
 
 [node name="SceneIslands" type="Node3D" parent="."]
-visible = false
 
 [node name="SkyBG" type="CSGMesh3D" parent="SceneIslands"]
 transform = Transform3D(4.70554, 0, 0, 0, 4.70554, 0, 0, 0, 1, 0, -0.322, -0.397)
@@ -165,6 +181,7 @@ Offset = 3.0
 
 [node name="Background" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.684719)
+visible = false
 
 [node name="Wall" type="CSGMesh3D" parent="Background"]
 transform = Transform3D(4.56332, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -209,3 +226,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="RaKoon" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.13929)
+script = ExtResource("14_ajmat")
+FaceSelection = 119
+MoveAnimationSpeed = 8.0
+MoveRotationAnimationSpeed = 8.0
+MoveRotationAnimationAmplitude = 0.05
+HeadMaterial = ExtResource("14_kh44d")
+OHBackground = ExtResource("15_h6t6g")
+OHOutline = ExtResource("16_h5yey")
+OHHighlight = ExtResource("17_nesk0")
+HAPPYBackground = ExtResource("18_p4buy")
+HAPPYOutline = ExtResource("19_iwkl1")
+HAPPYHighlight = ExtResource("20_l7dte")
+THUGBackground = ExtResource("21_03t6t")
+THUGOutline = ExtResource("22_mta4s")
+THUGHighlight = ExtResource("23_jwb3o")
+SHOCKEDBackground = ExtResource("25_f6rt6")
+SHOCKEDOutline = ExtResource("26_ylno1")
+SHOCKEDHighlight = ExtResource("27_wywfn")
+
+[node name="Head" type="CSGMesh3D" parent="RaKoon"]
+transform = Transform3D(0.356372, 0, 0, 0, 0.356372, 0, 0, 0, 1, 0, 0.0938219, 0.00403273)
+mesh = SubResource("QuadMesh_mjm0f")
+material = ExtResource("14_kh44d")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.001
+Offset = 10.0
+
+[node name="Body" type="CSGMesh3D" parent="RaKoon"]
+transform = Transform3D(0.356372, 0, 0, 0, 0.356372, 0, 0, 0, 1, 0, 0.0938219, 0)
+mesh = SubResource("QuadMesh_mjm0f")
+material = ExtResource("15_typgg")

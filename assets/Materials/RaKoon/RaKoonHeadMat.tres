@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c3kg7kyte14ra"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/RaKoon/RaKoonHead.gdshader" id="1_dtfl6"]
+[ext_resource type="Texture2D" uid="uid://bpxkh3ciaskcx" path="res://assets/Textures/RaKoon/rakoon_ohface_bkg.png" id="2_5evsq"]
+[ext_resource type="Texture2D" uid="uid://cakp4raxgglre" path="res://assets/Textures/RaKoon/rakoon_ohface_hightlight.png" id="3_ibvrc"]
+[ext_resource type="Texture2D" uid="uid://b3qfsys17thnc" path="res://assets/Textures/RaKoon/rakoon_ohface_outline.png" id="4_unvyx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_dtfl6")
+shader_parameter/_headBGTex = ExtResource("2_5evsq")
+shader_parameter/_headOutlineTex = ExtResource("4_unvyx")
+shader_parameter/_headHighLightTex = ExtResource("3_ibvrc")

@@ -16,6 +16,7 @@ collision_mask = 3
 
 [node name="Camera3D" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_o8vo8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5601, 9.83155, 10.072)
+current = true
 ToFollow = NodePath("../CharacterBody3D")
 OffsetY = 2.0
 

@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dvusmv534jt1s"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/RaKoon/RaKoonBody.gdshader" id="1_8nr4t"]
+[ext_resource type="Texture2D" uid="uid://c20gul0kfaifi" path="res://assets/Textures/RaKoon/rakoon_suit.png" id="2_31nek"]
+[ext_resource type="Texture2D" uid="uid://ch4a3f4peflaj" path="res://assets/Textures/RaKoon/rakoon_suit_highlight_yellow.png" id="3_hw5lb"]
+[ext_resource type="Texture2D" uid="uid://cy030eeh8hnfn" path="res://assets/Textures/RaKoon/rakoon_suit_highlight_white.png" id="4_qtfbe"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8nr4t")
+shader_parameter/_bodyBGTex = ExtResource("2_31nek")
+shader_parameter/_bodyHighlightTex1 = ExtResource("3_hw5lb")
+shader_parameter/_bodyHighlightTex2 = ExtResource("4_qtfbe")
