@@ -49,6 +49,7 @@ power_ghost={
 3d_physics/layer_3="obstacle_detection"
 3d_physics/layer_4="water_collision"
 3d_physics/layer_5="water_detection"
+3d_physics/layer_6="damage_taken"
 
 [rendering]
 

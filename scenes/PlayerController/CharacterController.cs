@@ -23,7 +23,15 @@ public partial class CharacterController : CharacterBody3D
     [Export]
     public string PowerGhostAction = "power_ghost";
 
+    [Export]
+    public Area3D DamageDetector;
+
+    [Export]
+    public Timer DamageTakenTimer;
+
     private Power currentPower;
+    private bool invulernability = false;
+    private int health = 100;
 
     //private Power selectedPower;
 
@@ -50,6 +58,14 @@ public partial class CharacterController : CharacterBody3D
         if (PowerGhost == null)
         {
             GD.PrintErr("CharacterController: PowerGhost is null");
+        }
+        if (DamageDetector == null)
+        {
+            GD.PrintErr("CharacterController: DamageDetector is null");
+        }
+        if (DamageTakenTimer == null)
+        {
+            GD.PrintErr("CharacterController: DamageTakenTimer is null");
         }
     }
 
@@ -88,9 +104,21 @@ public partial class CharacterController : CharacterBody3D
         }
     }
 
-    public void _Collision()
+    public override void _Process(double delta)
     {
-        GD.Print("Collision");
+        if (!invulernability && DamageDetector.HasOverlappingAreas())
+        {
+            invulernability = true;
+            health -= 10;
+            GD.Print("Damage", health);
+            DamageTakenTimer.Start();
+        }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        invulernability = true;
+        DamageTakenTimer.Start();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -99,5 +127,11 @@ public partial class CharacterController : CharacterBody3D
         {
             currentPower.MoveCharacter(this, delta);
         }
+    }
+
+    public void _OnDamageTakenTimerTimeout()
+    {
+        invulernability = false;
+        GD.Print("Can take damage");
     }
 }

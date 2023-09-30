@@ -116,12 +116,18 @@ albedo_texture = ExtResource("4_hifw6")
 [sub_resource type="QuadMesh" id="QuadMesh_nsvfv"]
 material = SubResource("StandardMaterial3D_r6vee")
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("PowerHuman", "PowerFish", "PowerFly", "PowerGhost")]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("PowerHuman", "PowerFish", "PowerFly", "PowerGhost", "DamageDetector", "DamageTakenTimer")]
 script = ExtResource("1_j3srj")
 PowerHuman = NodePath("Power/Human")
 PowerFish = NodePath("Power/Fish")
 PowerFly = NodePath("Power/Fly")
 PowerGhost = NodePath("Power/Ghost")
+DamageDetector = NodePath("Detectors/DamageDetector")
+DamageTakenTimer = NodePath("DamageTakenTimer")
+
+[node name="DamageTakenTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_47kvu")
@@ -140,6 +146,13 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detectors/DetectorObstacles"]
+shape = SubResource("CapsuleShape3D_47kvu")
+
+[node name="DamageDetector" type="Area3D" parent="Detectors"]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detectors/DamageDetector"]
 shape = SubResource("CapsuleShape3D_47kvu")
 
 [node name="Power" type="Node3D" parent="."]
@@ -215,3 +228,5 @@ transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
 
 [node name="RaKoonAvatar" parent="Power/Ghost/Mesh" instance=ExtResource("6_w2hbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
+
+[connection signal="timeout" from="DamageTakenTimer" to="." method="_OnDamageTakenTimerTimeout"]
