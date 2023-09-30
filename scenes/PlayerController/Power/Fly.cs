@@ -14,6 +14,11 @@ public partial class Fly : Power
     [Export]
     public AnimationPlayer AnimationRightWing;
 
+    [Export]
+    public CsgMesh3D WingRight;
+    [Export]
+    public CsgMesh3D WingLeft;
+
     private WingsMouvement wingsPosition = new WingsMouvement();
 
     public override void _Ready()
@@ -24,6 +29,13 @@ public partial class Fly : Power
         AnimationRightWing.Play("right_wing_down");
         wingsPosition.AnimationLeftWing = AnimationLeftWing;
         wingsPosition.AnimationRightWing = AnimationRightWing;
+    }
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+        WingRight.Material.Set("albedo_color", LightColor);
+        WingLeft.Material.Set("albedo_color", LightColor);
     }
 
 
