@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjwiwl42jtnld"]
+[gd_scene load_steps=20 format=3 uid="uid://bjwiwl42jtnld"]
 
 [ext_resource type="Script" path="res://scenes/PlayerController/CharacterController.cs" id="1_j3srj"]
 [ext_resource type="Texture2D" uid="uid://cfdoygqa7bt71" path="res://assets/red.png" id="2_1h4wk"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fly.cs" id="3_3p4kr"]
+[ext_resource type="Texture2D" uid="uid://bf5nil75ohsau" path="res://assets/purple_white.png" id="4_beuvk"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Human.cs" id="4_p84tn"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fish.cs" id="5_hw2ut"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Ghost.cs" id="6_a57bf"]
@@ -13,35 +14,192 @@ albedo_texture = ExtResource("2_1h4wk")
 [sub_resource type="QuadMesh" id="QuadMesh_7ba0f"]
 material = SubResource("StandardMaterial3D_bwnj1")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nrpe"]
+albedo_color = Color(1, 0.129412, 0.0352941, 1)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47kvu"]
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[sub_resource type="Animation" id="Animation_xn8n4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightWing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 2.79253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftWing:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -2.79253)]
+}
+
+[sub_resource type="Animation" id="Animation_0aer6"]
+resource_name = "left_wing_down"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftWing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -2.79253), Vector3(0, 0, -0.523599)]
+}
+
+[sub_resource type="Animation" id="Animation_gsaqy"]
+resource_name = "left_wing_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftWing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.523599), Vector3(0, 0, -2.79253)]
+}
+
+[sub_resource type="Animation" id="Animation_c3nry"]
+resource_name = "right_wing_down"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightWing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 2.79253), Vector3(0, 0, 0.436332)]
+}
+
+[sub_resource type="Animation" id="Animation_paf0m"]
+resource_name = "right_wing_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightWing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.436332), Vector3(0, 0, 2.79253)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_02j84"]
+_data = {
+"RESET": SubResource("Animation_xn8n4"),
+"left_wing_down": SubResource("Animation_0aer6"),
+"left_wing_up": SubResource("Animation_gsaqy"),
+"right_wing_down": SubResource("Animation_c3nry"),
+"right_wing_up": SubResource("Animation_paf0m")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6vee"]
+albedo_texture = ExtResource("4_beuvk")
+
+[sub_resource type="QuadMesh" id="QuadMesh_nsvfv"]
+material = SubResource("StandardMaterial3D_r6vee")
+
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("PowerHuman", "PowerFish", "PowerFly", "PowerGhost")]
 script = ExtResource("1_j3srj")
+PowerHuman = NodePath("Power/Human")
+PowerFish = NodePath("Power/Fish")
+PowerFly = NodePath("Power/Fly")
+PowerGhost = NodePath("Power/Ghost")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("QuadMesh_7ba0f")
+material = SubResource("StandardMaterial3D_1nrpe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_47kvu")
 
-[node name="Power" type="Node3D" parent="."]
+[node name="Detectors" type="Node3D" parent="."]
 
-[node name="Fly" type="Node3D" parent="Power"]
-script = ExtResource("3_3p4kr")
+[node name="DetectorWater" type="Area3D" parent="Detectors"]
+collision_layer = 0
+collision_mask = 16
 
-[node name="Human" type="Node3D" parent="Power"]
-script = ExtResource("4_p84tn")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detectors/DetectorWater"]
+shape = SubResource("CapsuleShape3D_47kvu")
 
-[node name="Fish" type="Node3D" parent="Power"]
-script = ExtResource("5_hw2ut")
-
-[node name="Ghost" type="Node3D" parent="Power"]
-script = ExtResource("6_a57bf")
-
-[node name="Detector" type="Area3D" parent="Power/Ghost"]
+[node name="DetectorObstacles" type="Area3D" parent="Detectors"]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Power/Ghost/Detector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detectors/DetectorObstacles"]
 shape = SubResource("CapsuleShape3D_47kvu")
+
+[node name="Power" type="Node3D" parent="."]
+
+[node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("AnimationLeftWing", "AnimationRightWing", "WaterDetector")]
+script = ExtResource("3_3p4kr")
+AnimationLeftWing = NodePath("AnimationLeftWing")
+AnimationRightWing = NodePath("AnimationRightWing")
+WaterDetector = NodePath("../../Detectors/DetectorWater")
+
+[node name="AnimationLeftWing" type="AnimationPlayer" parent="Power/Fly"]
+libraries = {
+"": SubResource("AnimationLibrary_02j84")
+}
+
+[node name="AnimationRightWing" type="AnimationPlayer" parent="Power/Fly"]
+libraries = {
+"": SubResource("AnimationLibrary_02j84")
+}
+
+[node name="RightWing" type="Node3D" parent="Power/Fly"]
+transform = Transform3D(-0.939693, -0.342017, 0, 0.342017, -0.939693, 0, 0, 0, 1, 0.35, 0.5, -0.1)
+
+[node name="RightWingMesh" type="CSGMesh3D" parent="Power/Fly/RightWing"]
+transform = Transform3D(0.25, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("QuadMesh_nsvfv")
+
+[node name="LeftWing" type="Node3D" parent="Power/Fly"]
+transform = Transform3D(-0.939693, 0.342017, 0, -0.342017, -0.939693, 0, 0, 0, 1, -0.35, 0.5, -0.1)
+
+[node name="LeftWingMesh" type="CSGMesh3D" parent="Power/Fly/LeftWing"]
+transform = Transform3D(0.25, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("QuadMesh_nsvfv")
+
+[node name="Human" type="Node3D" parent="Power" node_paths=PackedStringArray("WaterDetector")]
+script = ExtResource("4_p84tn")
+WaterDetector = NodePath("../../Detectors/DetectorWater")
+ContactWaterBreak = 0.4
+
+[node name="Fish" type="Node3D" parent="Power" node_paths=PackedStringArray("WaterDetector")]
+script = ExtResource("5_hw2ut")
+WaterDetector = NodePath("../../Detectors/DetectorWater")
+
+[node name="Ghost" type="Node3D" parent="Power" node_paths=PackedStringArray("Detector", "PlayerMesh", "WaterDetector")]
+script = ExtResource("6_a57bf")
+Detector = NodePath("../../Detectors/DetectorObstacles")
+PlayerMesh = NodePath("../../CSGMesh3D")
+InsideColor = Color(0, 1, 0, 1)
+WaterDetector = NodePath("../../Detectors/DetectorWater")

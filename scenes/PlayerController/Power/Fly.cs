@@ -2,13 +2,13 @@ using System;
 using Godot;
 using LudumDare54Silver.scenes.PlayerController.Power;
 
-public partial class Fly : Node3D, Power
+public partial class Fly : Power
 {
     [Export]
     public float Speed = 2.0f;
     [Export]
     public float JumpVelocity = 6f;
-    
+
     [Export]
     public AnimationPlayer AnimationLeftWing;
     [Export]
@@ -30,13 +30,17 @@ public partial class Fly : Node3D, Power
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle() * 2;
 
-    public void MoveCharacter(CharacterBody3D character, double delta)
+    public override void MoveCharacter(CharacterBody3D character, double delta)
     {
         Vector3 velocity = character.Velocity;
 
+        float gravityForce = gravity * (float)delta;
+
         // Add the gravity.
         if (!character.IsOnFloor())
-            velocity.Y -= gravity * (float)delta;
+            velocity.Y -= gravityForce;
+
+        velocity = WaterBehavior(gravityForce, velocity, delta);
 
         var direction = wingsPosition.Update();
 
@@ -60,19 +64,14 @@ public partial class Fly : Node3D, Power
         character.MoveAndSlide();
     }
 
-    public void Init(CharacterBody3D c)
+    public override void Init(CharacterBody3D c)
     {
         Visible = true;
     }
 
-    public void Exit(CharacterBody3D c)
+    public override void Exit(CharacterBody3D c)
     {
         Visible = false;
-    }
-
-    public bool CanChange(CharacterBody3D c)
-    {
-        return true;
     }
 }
 
