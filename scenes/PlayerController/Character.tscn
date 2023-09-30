@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjwiwl42jtnld"]
+[gd_scene load_steps=20 format=3 uid="uid://bjwiwl42jtnld"]
 
 [ext_resource type="Script" path="res://scenes/PlayerController/CharacterController.cs" id="1_j3srj"]
 [ext_resource type="Texture2D" uid="uid://cfdoygqa7bt71" path="res://assets/red.png" id="2_1h4wk"]
@@ -14,23 +14,10 @@ albedo_texture = ExtResource("2_1h4wk")
 [sub_resource type="QuadMesh" id="QuadMesh_7ba0f"]
 material = SubResource("StandardMaterial3D_bwnj1")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47kvu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nrpe"]
+albedo_color = Color(1, 0.129412, 0.0352941, 1)
 
-[sub_resource type="Animation" id="Animation_paf0m"]
-resource_name = "right_wing_up"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RightWing:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0.436332), Vector3(0, 0, 2.79253)]
-}
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47kvu"]
 
 [sub_resource type="Animation" id="Animation_xn8n4"]
 length = 0.001
@@ -59,20 +46,20 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, -2.79253)]
 }
 
-[sub_resource type="Animation" id="Animation_c3nry"]
-resource_name = "right_wing_down"
+[sub_resource type="Animation" id="Animation_0aer6"]
+resource_name = "left_wing_down"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RightWing:rotation")
+tracks/0/path = NodePath("LeftWing:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 2.79253), Vector3(0, 0, 0.436332)]
+"values": [Vector3(0, 0, -2.79253), Vector3(0, 0, -0.523599)]
 }
 
 [sub_resource type="Animation" id="Animation_gsaqy"]
@@ -91,20 +78,36 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, -0.523599), Vector3(0, 0, -2.79253)]
 }
 
-[sub_resource type="Animation" id="Animation_0aer6"]
-resource_name = "left_wing_down"
+[sub_resource type="Animation" id="Animation_c3nry"]
+resource_name = "right_wing_down"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("LeftWing:rotation")
+tracks/0/path = NodePath("RightWing:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, -2.79253), Vector3(0, 0, -0.523599)]
+"values": [Vector3(0, 0, 2.79253), Vector3(0, 0, 0.436332)]
+}
+
+[sub_resource type="Animation" id="Animation_paf0m"]
+resource_name = "right_wing_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightWing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.436332), Vector3(0, 0, 2.79253)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_02j84"]
@@ -132,16 +135,15 @@ PowerGhost = NodePath("Power/Ghost")
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("QuadMesh_7ba0f")
+material = SubResource("StandardMaterial3D_1nrpe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_47kvu")
 
 [node name="Power" type="Node3D" parent="."]
 
-[node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("animationLeftWing", "animationRightWing")]
+[node name="Fly" type="Node3D" parent="Power"]
 script = ExtResource("3_3p4kr")
-animationLeftWing = NodePath("AnimationLeftWing")
-animationRightWing = NodePath("AnimationRightWing")
 
 [node name="AnimationLeftWing" type="AnimationPlayer" parent="Power/Fly"]
 libraries = {
@@ -154,14 +156,14 @@ libraries = {
 }
 
 [node name="RightWing" type="Node3D" parent="Power/Fly"]
-transform = Transform3D(-0.939692, -0.34202, 0, 0.34202, -0.939692, 0, 0, 0, 1, 0.35, 0.5, -0.1)
+transform = Transform3D(-0.939693, -0.342017, 0, 0.342017, -0.939693, 0, 0, 0, 1, 0.35, 0.5, -0.1)
 
 [node name="RightWingMesh" type="CSGMesh3D" parent="Power/Fly/RightWing"]
 transform = Transform3D(0.25, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("QuadMesh_nsvfv")
 
 [node name="LeftWing" type="Node3D" parent="Power/Fly"]
-transform = Transform3D(-0.939692, 0.34202, 0, -0.34202, -0.939692, 0, 0, 0, 1, -0.35, 0.5, -0.1)
+transform = Transform3D(-0.939693, 0.342017, 0, -0.342017, -0.939693, 0, 0, 0, 1, -0.35, 0.5, -0.1)
 
 [node name="LeftWingMesh" type="CSGMesh3D" parent="Power/Fly/LeftWing"]
 transform = Transform3D(0.25, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, -0.5, 0)
@@ -173,8 +175,11 @@ script = ExtResource("4_p84tn")
 [node name="Fish" type="Node3D" parent="Power"]
 script = ExtResource("5_hw2ut")
 
-[node name="Ghost" type="Node3D" parent="Power"]
+[node name="Ghost" type="Node3D" parent="Power" node_paths=PackedStringArray("Detector", "PlayerMesh")]
 script = ExtResource("6_a57bf")
+Detector = NodePath("Detector")
+PlayerMesh = NodePath("../../CSGMesh3D")
+InsideColor = Color(0, 1, 0, 1)
 
 [node name="Detector" type="Area3D" parent="Power/Ghost"]
 collision_layer = 4

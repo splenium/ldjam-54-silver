@@ -4,7 +4,7 @@ using LudumDare54Silver.scenes.PlayerController.Power;
 public partial class Ghost : Node3D, Power
 {
     [Export]
-    public float Speed = 5.0f;
+    public float Speed = 4.0f;
     [Export]
     public float JumpVelocity = 4.5f;
     [Export]
@@ -13,8 +13,61 @@ public partial class Ghost : Node3D, Power
     [Export]
     public Area3D Detector;
 
+    [Export]
+    public CsgMesh3D PlayerMesh;
+
+    [Export]
+    public Color InsideColor;
+
+    private Color originalColor;
+    private StandardMaterial3D PlayerMaterial
+    {
+        get
+        {
+            return (StandardMaterial3D)PlayerMesh.Material;
+        }
+    }
+
+    private bool active = false;
+
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+
+    public override void _Ready()
+    {
+        if (Detector == null)
+        {
+            GD.PrintErr("Ghost: Detector is null");
+        }
+        if (PlayerMesh == null)
+        {
+            GD.PrintErr("Ghost: PlayerMaterial is null");
+        }
+        else if (PlayerMesh.Material is StandardMaterial3D)
+        {
+            originalColor = ((StandardMaterial3D)PlayerMesh.Material).AlbedoColor;
+        }
+        else
+        {
+            GD.PrintErr("Ghost: Material is not reliable to StandardMaterial3D instance");
+        }
+    }
+
+    public override void _Process(double delta)
+    {
+        if (active)
+        {
+            if (!IsCollidingObject())
+            {
+
+                PlayerMaterial.AlbedoColor = InsideColor;
+            }
+            else
+            {
+                PlayerMaterial.AlbedoColor = originalColor;
+            }
+        }
+    }
 
     public void MoveCharacter(CharacterBody3D character, double delta)
     {
@@ -47,13 +100,14 @@ public partial class Ghost : Node3D, Power
 
     public void Init(CharacterBody3D c)
     {
+        active = true;
         c.SetCollisionMaskValue(2, false);
         c.SetCollisionLayerValue(2, true);
     }
 
     public void Exit(CharacterBody3D c)
     {
-
+        active = false;
         c.SetCollisionMaskValue(2, true);
         //c.SetCollisionLayerValue(2, true);
     }
@@ -63,6 +117,11 @@ public partial class Ghost : Node3D, Power
      * Object is consider overlapping if it is in the same collision layer (layer 3) settings are on detector props.
      *     */
     public bool CanChange(CharacterBody3D c)
+    {
+        return IsCollidingObject();
+    }
+
+    private bool IsCollidingObject()
     {
         return !Detector.HasOverlappingBodies();
     }
