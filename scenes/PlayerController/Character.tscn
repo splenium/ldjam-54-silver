@@ -27,8 +27,10 @@ shape = SubResource("CapsuleShape3D_47kvu")
 
 [node name="Power" type="Node3D" parent="."]
 
-[node name="Fly" type="Node3D" parent="Power"]
+[node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("AnimationLeftWing", "AnimationRightWing")]
 script = ExtResource("3_3p4kr")
+AnimationLeftWing = NodePath("AnimationLeftWing")
+AnimationRightWing = NodePath("AnimationRightWing")
 
 [node name="Human" type="Node3D" parent="Power"]
 script = ExtResource("4_p84tn")

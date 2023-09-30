@@ -1,16 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://by3b0d0geqpwg"]
+[gd_scene load_steps=3 format=3 uid="uid://by3b0d0geqpwg"]
 
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="1_jvaoj"]
+[ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_3gev5"]
 
 [node name="DevScene" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_jvaoj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 6)
-doppler_tracking = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 25.6572, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, -1.51957, 3.0514, 1.55095)
@@ -111,3 +108,8 @@ use_collision = true
 [node name="Wall2" type="CSGBox3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 31.782, 11.4032, 24.4323, -0.146515)
 use_collision = true
+
+[node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_3gev5")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2.94312, 2, 1.66575)
+ToFollow = NodePath("../CharacterBody3D")
+OffsetY = 2.0
