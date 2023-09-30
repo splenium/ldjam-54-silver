@@ -6,14 +6,108 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_jvaoj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 4.60524)
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 6)
+doppler_tracking = 2
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 0, 2.85057, 1.72712)
-spot_range = 12.3416
+[node name="DirectionnalLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, -1.51957, 3.0514, 1.55095)
+light_energy = 7.465
+light_indirect_energy = 1.6
+light_volumetric_fog_energy = 9.242
+light_specular = 0.823
+omni_range = 1000.0
+omni_shadow_mode = 0
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(24.0858, 0, 0, 0, 1, 0, 0, 0, 31.7816, 0, -1.93517, 0)
+[node name="DirectionnalLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, -0.30017, 43.0364, 1.55095)
+light_energy = 7.465
+light_indirect_energy = 1.6
+light_volumetric_fog_energy = 9.242
+light_specular = 0.823
+omni_range = 1000.0
+omni_shadow_mode = 0
+
+[node name="DirectionnalLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, 25.3163, 22.1257, 1.55095)
+light_energy = 7.465
+light_indirect_energy = 1.6
+light_volumetric_fog_energy = 9.242
+light_specular = 0.823
+omni_range = 1000.0
+omni_shadow_mode = 0
+
+[node name="DirectionnalLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, -33.4241, 22.1257, 1.55095)
+light_energy = 7.465
+light_indirect_energy = 1.6
+light_volumetric_fog_energy = 9.242
+light_specular = 0.823
+omni_range = 1000.0
+omni_shadow_mode = 0
+
+[node name="Level" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.2494)
+
+[node name="Floor" type="CSGBox3D" parent="Level"]
+transform = Transform3D(24.0858, 0, 0, 0, 1, 0, 0, 0, 31.7816, 0, 0, 0)
+use_collision = true
+
+[node name="Platform" type="CSGBox3D" parent="Level"]
+transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, -2.12197, 5.26823, 0)
+use_collision = true
+
+[node name="Platform2" type="CSGBox3D" parent="Level"]
+transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, 6.28829, 10.4053, 0)
+use_collision = true
+
+[node name="Platform3" type="CSGBox3D" parent="Level"]
+transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, -10.9383, 14.2021, 0)
+use_collision = true
+
+[node name="Platform4" type="CSGBox3D" parent="Level"]
+transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, 14.4757, 14.2021, 0)
+use_collision = true
+
+[node name="Platform5" type="CSGBox3D" parent="Level"]
+transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, -2.60058, 19.326, 0)
+use_collision = true
+
+[node name="Platform6" type="CSGBox3D" parent="Level"]
+transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, -2.39755, 24.0429, 0)
+use_collision = true
+size = Vector3(0.475507, 1, 1)
+
+[node name="Platform7" type="CSGBox3D" parent="Level"]
+transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, 12.5754, 29.4123, 0)
+use_collision = true
+
+[node name="Platform8" type="CSGBox3D" parent="Level"]
+transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, -14.0576, 36.8406, 0)
+use_collision = true
+
+[node name="Platform9" type="CSGBox3D" parent="Level"]
+transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, 14.2624, 45.053, 0)
+use_collision = true
+
+[node name="Celling" type="CSGBox3D" parent="Level"]
+transform = Transform3D(24.0858, 0, 0, 0, 1, 0, 0, 0, 31.7816, 0, 48.9477, 0)
+use_collision = true
+
+[node name="Wall" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 31.782, -12.5968, 24.4323, -0.146515)
+use_collision = true
+
+[node name="Wall3" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 5.52662, 0, 0, 0, 31.782, 7.20597, 21.5657, -0.146515)
+use_collision = true
+
+[node name="Wall4" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 5.52662, 0, 0, 0, 31.782, 2.28596, 26.6549, 0.0898209)
+use_collision = true
+
+[node name="Wall2" type="CSGBox3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 31.782, 11.4032, 24.4323, -0.146515)
 use_collision = true
