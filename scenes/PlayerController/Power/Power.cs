@@ -37,7 +37,7 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
         }
         protected virtual bool InWater()
         {
-            return WaterDetector.HasOverlappingAreas();
+            return WaterDetector.HasOverlappingAreas() || WaterDetector.HasOverlappingBodies();
         }
 
         protected virtual Vector3 WaterBehavior(float gravityForce, Vector3 velocity, double delta)
@@ -55,7 +55,7 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
             else if (wasInWater)
             {
                 wasInWater = false;
-                velocity.Y -= gravityForce * 0.9f;
+                velocity.Y -= gravityForce * 0.8f;
             }
             return velocity;
         }

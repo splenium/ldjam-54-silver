@@ -23,7 +23,7 @@ public partial class Human : Power
         velocity = WaterBehavior(gravityForce, velocity, delta);
 
         // Handle Jump.
-        if (Input.IsActionJustPressed("ui_accept") && (character.IsOnFloor() || InWater()))
+        if (Input.IsActionJustPressed("ui_up") && (character.IsOnFloor() || InWater()))
             velocity.Y = JumpVelocity;
 
         // Get the input direction and handle the movement/deceleration.

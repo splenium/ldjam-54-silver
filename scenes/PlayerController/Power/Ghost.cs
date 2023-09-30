@@ -79,7 +79,7 @@ public partial class Ghost : Power
         velocity = WaterBehavior(gravityForce, velocity, delta);
 
         // Handle Jump.
-        if (Input.IsActionJustPressed("ui_accept") && character.IsOnFloor())
+        if (Input.IsActionJustPressed("ui_up") && (character.IsOnFloor() || InWater()))
             velocity.Y = JumpVelocity;
 
         // Get the input direction and handle the movement/deceleration.
