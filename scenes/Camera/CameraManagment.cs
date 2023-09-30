@@ -20,7 +20,7 @@ public partial class CameraManagment : Camera3D
     // Will smothly move the camera to the target
     public override void _Process(double delta)
     {
-        Vector3 targetPosition = new Vector3(ToFollow.Position.X, ToFollow.Position.Y + OffsetY, this.Position.Z);
-        this.Position = this.Position.Slerp(targetPosition, FloatingRate);
+        Vector3 targetPosition = new Vector3(ToFollow.Position.X, ToFollow.Position.Y + OffsetY, this.GlobalPosition.Z);
+        this.GlobalPosition = this.GlobalPosition.Slerp(targetPosition, FloatingRate);
     }
 }

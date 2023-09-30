@@ -1,58 +1,169 @@
-[gd_scene load_steps=3 format=3 uid="uid://c86mrgoxm3lqw"]
+[gd_scene load_steps=5 format=3 uid="uid://c86mrgoxm3lqw"]
 
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="1_isjr3"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_o8vo8"]
+[ext_resource type="Material" uid="uid://cd24x34l62pd8" path="res://assets/Test/WaterMaterial.tres" id="3_tds87"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ijij"]
 
 [node name="DevScene" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_isjr3")]
-collision_layer = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7718, 6.53139, 0)
+collision_layer = 0
 collision_mask = 3
 
 [node name="Camera3D" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_o8vo8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5601, 9.83155, 10.072)
 ToFollow = NodePath("../CharacterBody3D")
 OffsetY = 2.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0173477, 0.99985, 0, -0.99985, -0.0173477, 8.83439, 10.5884, -1.93185)
-light_color = Color(0.741176, 0.164706, 0.866667, 1)
-spot_range = 24.8258
-spot_angle = 56.2295
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 0, 4.60717, 3.85838)
-spot_range = 16.476
-spot_angle = 59.0483
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 8.4688, 7.36001, 3.85838)
-spot_range = 16.476
-spot_angle = 59.0483
-
 [node name="Ground" type="CSGBox3D" parent="."]
-transform = Transform3D(24.0858, 0, 0, 0, 1, 0, 0, 0, 31.7816, 0, -1.04289, 0)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-
-[node name="SpectralCollider2" type="CSGBox3D" parent="."]
-transform = Transform3D(7.3761, 0, 0, 0, 1, 0, 0, 0, 1, 5.58208, 1.0177, 0)
+transform = Transform3D(25.223, 0, 0, 0, 1, 0, 0, 0, 1, 5.85902, -2.10017, 0)
 layers = 2
 use_collision = true
 collision_layer = 6
 collision_mask = 6
 
-[node name="SpectralCollider3" type="CSGBox3D" parent="."]
+[node name="Parcour" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07961, 0)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Parcour"]
+transform = Transform3D(0.911741, -0.00712584, 0.410704, -0.410766, -0.0158166, 0.911604, -1.11022e-16, -0.99985, -0.0173477, 10.5898, 10.5884, -1.93185)
+light_color = Color(0.164706, 1, 0.866667, 1)
+light_energy = 3.895
+spot_range = 24.8258
+spot_angle = 56.2295
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Parcour"]
+transform = Transform3D(0.911741, -0.00712584, 0.410704, -0.325887, 0.596108, 0.733794, -0.250053, -0.802873, 0.541174, 25.7692, 13.4873, 8.83039)
+light_color = Color(1, 0.733333, 0, 1)
+light_energy = 7.248
+spot_range = 44.8233
+spot_angle = 56.2295
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Parcour"]
+transform = Transform3D(0.885475, 0.00806123, -0.464617, 0.464687, -0.0153609, 0.885342, 0, -0.99985, -0.0173476, 2.23751, 6.84291, -0.0326862)
+light_color = Color(0.741176, 0.164706, 0.866667, 1)
+spot_range = 24.8258
+spot_angle = 56.2295
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Parcour"]
+transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 0, 4.60717, 3.85838)
+spot_range = 16.476
+spot_angle = 59.0483
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Parcour"]
+transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 8.4688, 7.36001, 7.15898)
+spot_range = 19.5083
+spot_angle = 59.0483
+
+[node name="SpectralCollider5" type="CSGBox3D" parent="Parcour"]
+transform = Transform3D(6.0335, -0.575248, 0, 4.24309, 0.817979, 0, 0, 0, 1, 9.78988, 2.20417, 0)
+layers = 2
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+
+[node name="SpectralCollider6" type="CSGBox3D" parent="Parcour"]
+transform = Transform3D(7.21049, -0.210711, 0, 1.55422, 0.977548, 0, 0, 0, 1, 16.1512, 4.96278, 0)
+layers = 2
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+
+[node name="SpectralCollider3" type="CSGBox3D" parent="Parcour"]
 transform = Transform3D(-3.86094, -0.214769, 0, 7.32696, -0.113173, 0, 0, 0, 1, 5.2792, 2.01859, 0.0228004)
 layers = 2
 use_collision = true
 collision_layer = 6
 collision_mask = 6
 
-[node name="SpectralCollider1" type="CSGBox3D" parent="."]
+[node name="SpectralCollider4" type="CSGBox3D" parent="Parcour"]
+transform = Transform3D(-8.24168, 0.0239218, 0, -0.816089, -0.241581, 0, 0, 0, 1, 7.49405, 6.06221, 0.0228004)
+layers = 2
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+
+[node name="SpectralCollider7" type="CSGBox3D" parent="Parcour"]
+transform = Transform3D(2.2753, -0.159239, 0, 4.04427, 0.0895869, 0, 0, 0, 1, 12.3064, 8.40725, 0.0228004)
+layers = 2
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+
+[node name="SpectralCollider1" type="CSGBox3D" parent="Parcour"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41542, -0.0500556, 0)
 layers = 2
 use_collision = true
 collision_layer = 6
 collision_mask = 6
+
+[node name="SpectralCollider2" type="CSGBox3D" parent="Parcour"]
+transform = Transform3D(7.3761, 0, 0, 0, 1, 0, 0, 0, 1, 5.58208, 1.0177, 0)
+layers = 2
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+
+[node name="UnderWater" type="Node3D" parent="."]
+
+[node name="SpectralCollider8" type="CSGBox3D" parent="UnderWater"]
+transform = Transform3D(-3.2242e-07, 1, 0, -7.3761, -4.37114e-08, 0, 0, 0, 1, -6.99303, 1.0177, 0)
+layers = 2
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+
+[node name="SpectralCollider9" type="CSGBox3D" parent="UnderWater"]
+transform = Transform3D(-3.2242e-07, 1, 0, -7.3761, -4.37114e-08, 0, 0, 0, 1, -11.5045, 1.0177, 0)
+layers = 2
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+
+[node name="Water" type="CSGBox3D" parent="UnderWater"]
+transform = Transform3D(-2.68739e-07, 3.4573, 0, -6.14802, -1.51124e-07, 0, 0, 0, 1.02602, -9.19823, 0.637873, 0)
+layers = 2
+calculate_tangents = false
+use_collision = true
+collision_layer = 0
+collision_mask = 0
+material = ExtResource("3_tds87")
+
+[node name="Area3D" type="Area3D" parent="UnderWater/Water"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UnderWater/Water/Area3D"]
+transform = Transform3D(1, 1.42109e-14, 0, 2.13163e-14, 1, 0, 0, 0, 1, 0.10826, 0, 0)
+shape = SubResource("BoxShape3D_8ijij")
+
+[node name="Water2" type="CSGBox3D" parent="UnderWater"]
+transform = Transform3D(-2.68864e-07, 91.649, 0, -6.15088, -4.0061e-06, 0, 0, 0, 0.995396, -9.19823, -5.6307, 0)
+layers = 2
+calculate_tangents = false
+use_collision = true
+collision_layer = 16
+collision_mask = 0
+material = ExtResource("3_tds87")
+
+[node name="Area3D" type="Area3D" parent="UnderWater/Water2"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UnderWater/Water2/Area3D"]
+shape = SubResource("BoxShape3D_8ijij")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="UnderWater"]
+transform = Transform3D(1, 0, 0, 0, 0.95737, 0.288865, 0, -0.288865, 0.95737, -9.54233, 2.53221, 12.8961)
+light_color = Color(0, 0.705882, 0.709804, 1)
+spot_range = 48.5886
+spot_angle = 66.5746
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="UnderWater"]
+transform = Transform3D(1, 0, 0, 0, 0.95737, 0.288865, 0, -0.288865, 0.95737, -9.54233, 14.3179, 8.09152)
+spot_range = 48.5886
+spot_angle = 66.5746

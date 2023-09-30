@@ -1,23 +1,26 @@
 using Godot;
 using LudumDare54Silver.scenes.PlayerController.Power;
 
-public partial class Human : Node3D, Power
+public partial class Human : Power
 {
     [Export]
     public float Speed = 5.0f;
     [Export]
     public float JumpVelocity = 4.5f;
-
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
-    public void MoveCharacter(CharacterBody3D character, double delta)
+    public override void MoveCharacter(CharacterBody3D character, double delta)
     {
         Vector3 velocity = character.Velocity;
 
+        float gravityForce = Gravity * (float)delta;
+
         // Add the gravity.
         if (!character.IsOnFloor())
-            velocity.Y -= Gravity * (float)delta;
+            velocity.Y -= gravityForce;
+
+        velocity = WaterBehavior(gravityForce, velocity, delta);
 
         // Handle Jump.
         if (Input.IsActionJustPressed("ui_accept") && character.IsOnFloor())
@@ -38,20 +41,5 @@ public partial class Human : Node3D, Power
 
         character.Velocity = velocity;
         character.MoveAndSlide();
-    }
-
-    public void Init(CharacterBody3D c)
-    {
-
-    }
-
-    public void Exit(CharacterBody3D c)
-    {
-
-    }
-
-    public bool CanChange(CharacterBody3D c)
-    {
-        return true;
     }
 }

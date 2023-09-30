@@ -25,25 +25,66 @@ mesh = SubResource("QuadMesh_7ba0f")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_47kvu")
 
+[node name="Detectors" type="Node3D" parent="."]
+
+[node name="DetectorWater" type="Area3D" parent="Detectors"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detectors/DetectorWater"]
+shape = SubResource("CapsuleShape3D_47kvu")
+
+[node name="DetectorObstacles" type="Area3D" parent="Detectors"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detectors/DetectorObstacles"]
+shape = SubResource("CapsuleShape3D_47kvu")
+
 [node name="Power" type="Node3D" parent="."]
 
 [node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("AnimationLeftWing", "AnimationRightWing")]
 script = ExtResource("3_3p4kr")
 AnimationLeftWing = NodePath("AnimationLeftWing")
 AnimationRightWing = NodePath("AnimationRightWing")
+WaterDetector = NodePath("../../Detectors/DetectorWater")
 
-[node name="Human" type="Node3D" parent="Power"]
+[node name="AnimationLeftWing" type="AnimationPlayer" parent="Power/Fly"]
+libraries = {
+"": SubResource("AnimationLibrary_02j84")
+}
+
+[node name="AnimationRightWing" type="AnimationPlayer" parent="Power/Fly"]
+libraries = {
+"": SubResource("AnimationLibrary_02j84")
+}
+
+[node name="RightWing" type="Node3D" parent="Power/Fly"]
+transform = Transform3D(-0.939693, -0.342017, 0, 0.342017, -0.939693, 0, 0, 0, 1, 0.35, 0.5, -0.1)
+
+[node name="RightWingMesh" type="CSGMesh3D" parent="Power/Fly/RightWing"]
+transform = Transform3D(0.25, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("QuadMesh_nsvfv")
+
+[node name="LeftWing" type="Node3D" parent="Power/Fly"]
+transform = Transform3D(-0.939693, 0.342017, 0, -0.342017, -0.939693, 0, 0, 0, 1, -0.35, 0.5, -0.1)
+
+[node name="LeftWingMesh" type="CSGMesh3D" parent="Power/Fly/LeftWing"]
+transform = Transform3D(0.25, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("QuadMesh_nsvfv")
+
+[node name="Human" type="Node3D" parent="Power" node_paths=PackedStringArray("WaterDetector")]
 script = ExtResource("4_p84tn")
+WaterDetector = NodePath("../../Detectors/DetectorWater")
+ContactWaterBreak = 0.4
 
-[node name="Fish" type="Node3D" parent="Power"]
+[node name="Fish" type="Node3D" parent="Power" node_paths=PackedStringArray("WaterDetector")]
 script = ExtResource("5_hw2ut")
+WaterDetector = NodePath("../../Detectors/DetectorWater")
 
-[node name="Ghost" type="Node3D" parent="Power"]
+[node name="Ghost" type="Node3D" parent="Power" node_paths=PackedStringArray("Detector", "PlayerMesh", "WaterDetector")]
 script = ExtResource("6_a57bf")
-
-[node name="Detector" type="Area3D" parent="Power/Ghost"]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Power/Ghost/Detector"]
-shape = SubResource("CapsuleShape3D_47kvu")
+Detector = NodePath("../../Detectors/DetectorObstacles")
+PlayerMesh = NodePath("../../CSGMesh3D")
+InsideColor = Color(0, 1, 0, 1)
+WaterDetector = NodePath("../../Detectors/DetectorWater")

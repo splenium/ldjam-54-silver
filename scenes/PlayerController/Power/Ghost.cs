@@ -1,7 +1,7 @@
 using Godot;
 using LudumDare54Silver.scenes.PlayerController.Power;
 
-public partial class Ghost : Node3D, Power
+public partial class Ghost : Power
 {
     [Export]
     public float Speed = 4.0f;
@@ -69,13 +69,16 @@ public partial class Ghost : Node3D, Power
         }
     }
 
-    public void MoveCharacter(CharacterBody3D character, double delta)
+    public override void MoveCharacter(CharacterBody3D character, double delta)
     {
         Vector3 velocity = character.Velocity;
+        float gravityForce = Gravity * (float)delta;
 
         // Add the gravity.
         if (!character.IsOnFloor())
-            velocity.Y -= Gravity * GravityScale * (float)delta;
+            velocity.Y -= gravityForce;
+
+        velocity = WaterBehavior(gravityForce, velocity, delta);
 
         // Handle Jump.
         if (Input.IsActionJustPressed("ui_accept") && character.IsOnFloor())
@@ -98,14 +101,14 @@ public partial class Ghost : Node3D, Power
         character.MoveAndSlide();
     }
 
-    public void Init(CharacterBody3D c)
+    public override void Init(CharacterBody3D c)
     {
         active = true;
         c.SetCollisionMaskValue(2, false);
-        c.SetCollisionLayerValue(2, true);
+        //c.SetCollisionLayerValue(2, true);
     }
 
-    public void Exit(CharacterBody3D c)
+    public override void Exit(CharacterBody3D c)
     {
         active = false;
         c.SetCollisionMaskValue(2, true);
@@ -116,7 +119,7 @@ public partial class Ghost : Node3D, Power
      * Ghost can only change to another power if there are no overlapping bodies.
      * Object is consider overlapping if it is in the same collision layer (layer 3) settings are on detector props.
      *     */
-    public bool CanChange(CharacterBody3D c)
+    public override bool CanChange(CharacterBody3D c)
     {
         return IsCollidingObject();
     }

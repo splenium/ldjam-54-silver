@@ -42,6 +42,14 @@ power_ghost={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="ground"
+3d_physics/layer_2="obstacle_collision"
+3d_physics/layer_3="obstacle_detection"
+3d_physics/layer_4="water_collision"
+3d_physics/layer_5="water_detection"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
