@@ -163,7 +163,6 @@ script = ExtResource("4_p84tn")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 ContactWaterBreak = 0.4
 raKoonAvatar = NodePath("Mesh/HumanRaKoonAvatar")
-LightColor = Color(1, 1, 1, 1)
 
 [node name="Mesh" type="Node3D" parent="Power/Human"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
@@ -177,7 +176,6 @@ script = ExtResource("6_a57bf")
 Detector = NodePath("../../Detectors/DetectorObstacles")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/GhostRaKoonAvatar")
-LightColor = Color(0.266667, 0.729412, 0, 1)
 
 [node name="Mesh" type="Node3D" parent="Power/Ghost"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
@@ -190,7 +188,6 @@ visible = false
 script = ExtResource("5_hw2ut")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/FishRaKoonAvatar")
-LightColor = Color(0.313726, 0.454902, 1, 1)
 
 [node name="Mesh" type="Node3D" parent="Power/Fish"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
@@ -204,7 +201,6 @@ AnimationLeftWing = NodePath("AnimationLeftWing")
 AnimationRightWing = NodePath("AnimationRightWing")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/FlyRaKoonAvatar")
-LightColor = Color(0.478431, 0.478431, 0.478431, 1)
 
 [node name="AnimationLeftWing" type="AnimationPlayer" parent="Power/Fly"]
 libraries = {

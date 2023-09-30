@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=37 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="1_818dc"]
 [ext_resource type="Material" uid="uid://pfk887ida80" path="res://assets/Materials/Rock00Mat.tres" id="1_kfxe6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="10_4vgx5"]
 [ext_resource type="PackedScene" uid="uid://h1bjyb8mpmo2" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="13_of5xy"]
 [ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="13_t3sxh"]
+[ext_resource type="Script" path="res://scenes/dev/FishAvatar.cs" id="15_umm80"]
 [ext_resource type="Material" uid="uid://2xm8v6u45jb0" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="24_x0wm6"]
 [ext_resource type="Texture2D" uid="uid://cq6k1dutx11yq" path="res://assets/Fish/Textures/Abysses_Fish_-5 2.png" id="29_d0nxv"]
 [ext_resource type="Script" path="res://scenes/dev/ShakeRotation.cs" id="29_vmhlt"]
@@ -251,6 +252,7 @@ transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, 1.376, 0, 0.471
 material = ExtResource("7_kt5n6")
 
 [node name="RaKoonAvatar" parent="." instance=ExtResource("13_of5xy")]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -262,7 +264,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Fish" type="Node3D" parent="."]
+[node name="Fish" type="Node3D" parent="." node_paths=PackedStringArray("Objects")]
+script = ExtResource("15_umm80")
+LightColor = Color(0.4, 0.262745, 0.4, 1)
+Objects = [NodePath("AntenaParent/Antena"), NodePath("FinTop"), NodePath("FinBackParent/FinBack"), NodePath("BodyBack"), NodePath("BodyTop"), NodePath("JawJoint/BodyJaw"), NodePath("JawJoint/BodyJaw/FinJoint/FinBottom")]
 
 [node name="AntenaParent" type="Node3D" parent="Fish"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0537741, 0.159916, 0)
@@ -310,12 +315,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0142294)
 mesh = SubResource("QuadMesh_kfl4q")
 material = SubResource("StandardMaterial3D_yoynq")
 
-[node name="BodyJaw" type="CSGMesh3D" parent="Fish"]
+[node name="JawJoint" type="Node3D" parent="Fish"]
+transform = Transform3D(0.996275, 0.0862342, 0, -0.0862342, 0.996275, 0, 0, 0, 1, -0.0828472, -0.00665845, 0)
+
+[node name="BodyJaw" type="CSGMesh3D" parent="Fish/JawJoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0828472, 0.00665845, 0)
 mesh = SubResource("QuadMesh_kfl4q")
 material = SubResource("StandardMaterial3D_akv2n")
 
-[node name="FinBottom" type="CSGMesh3D" parent="Fish"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0183576)
+[node name="FinJoint" type="Node3D" parent="Fish/JawJoint/BodyJaw"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0823634, -0.142021, 0)
+script = ExtResource("29_vmhlt")
+Speed = 1.4
+Amplitude = 0.02
+Offset = 3.0
+RotationAxis = Vector3(0, 0, 1)
+
+[node name="FinBottom" type="CSGMesh3D" parent="Fish/JawJoint/BodyJaw/FinJoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823634, 0.142021, 0.0183576)
 mesh = SubResource("QuadMesh_kfl4q")
 material = SubResource("StandardMaterial3D_a5c83")
 
