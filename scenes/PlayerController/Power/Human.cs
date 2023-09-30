@@ -40,7 +40,7 @@ public partial class Human : Power
         }
 
 
-        raKoonAvatar.SetFace((EFaceState)(GD.Randi() % 5));
+        raKoonAvatar.SetFace((EnumEFaceState)(GD.Randi() % 5));
 
         character.Velocity = velocity;
         character.MoveAndSlide();
