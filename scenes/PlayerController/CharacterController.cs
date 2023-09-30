@@ -4,24 +4,24 @@ using LudumDare54Silver.scenes.PlayerController.Power;
 public partial class CharacterController : CharacterBody3D
 {
     [Export]
-    public Human powerHuman;
+    public Human PowerHuman;
     [Export]
-    public string powerHumanAction = "power_human";
+    public string PowerHumanAction = "power_human";
 
     [Export]
-    public Fish powerFish;
+    public Fish PowerFish;
     [Export]
-    public string powerFishAction = "power_fish";
+    public string PowerFishAction = "power_fish";
 
     [Export]
-    public Fly powerFly;
+    public Fly PowerFly;
     [Export]
-    public string powerFlyAction = "power_fly";
+    public string PowerFlyAction = "power_fly";
 
     [Export]
-    public Ghost powerGhost;
+    public Ghost PowerGhost;
     [Export]
-    public string powerGhostAction = "power_ghost";
+    public string PowerGhostAction = "power_ghost";
 
     private Power currentPower;
 
@@ -33,7 +33,23 @@ public partial class CharacterController : CharacterBody3D
     public override void _Ready()
     {
         base._Ready();
-        currentPower = powerHuman;
+        currentPower = PowerHuman;
+        if (PowerHuman == null)
+        {
+            GD.PrintErr("CharacterController: PowerHuman is null");
+        }
+        if (PowerFish == null)
+        {
+            GD.PrintErr("CharacterController: PowerFish is null");
+        }
+        if (PowerFly == null)
+        {
+            GD.PrintErr("CharacterController: PowerFly is null");
+        }
+        if (PowerGhost == null)
+        {
+            GD.PrintErr("CharacterController: PowerGhost is null");
+        }
     }
 
     private void SetNewPower(Power newPower)
@@ -48,24 +64,24 @@ public partial class CharacterController : CharacterBody3D
         if (currentPower.CanChange(this))
         {
 
-            if (@event.IsActionReleased(powerHumanAction))
+            if (@event.IsActionReleased(PowerHumanAction))
             {
-                SetNewPower(powerHuman);
+                SetNewPower(PowerHuman);
                 GD.Print("Human");
             }
-            else if (@event.IsActionReleased(powerFlyAction))
+            else if (@event.IsActionReleased(PowerFlyAction))
             {
-                SetNewPower(powerFly);
+                SetNewPower(PowerFly);
                 GD.Print("Fly");
             }
-            else if (@event.IsActionReleased(powerFishAction))
+            else if (@event.IsActionReleased(PowerFishAction))
             {
-                SetNewPower(powerFish);
+                SetNewPower(PowerFish);
                 GD.Print("Fish");
             }
-            else if (@event.IsActionReleased(powerGhostAction))
+            else if (@event.IsActionReleased(PowerGhostAction))
             {
-                SetNewPower(powerGhost);
+                SetNewPower(PowerGhost);
                 GD.Print("Ghost");
             }
         }

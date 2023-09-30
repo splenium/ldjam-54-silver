@@ -9,7 +9,7 @@ public partial class Fish : Node3D, Power
     public float JumpVelocity = 4.5f;
 
     // Get the gravity from the project settings to be synced with RigidBody nodes.
-    public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+    public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
     public void MoveCharacter(CharacterBody3D character, double delta)
     {
@@ -17,7 +17,7 @@ public partial class Fish : Node3D, Power
 
         // Add the gravity.
         if (!character.IsOnFloor())
-            velocity.Y -= gravity * (float)delta;
+            velocity.Y -= Gravity * (float)delta;
 
         // Handle Jump.
         if (Input.IsActionJustPressed("ui_accept") && character.IsOnFloor())

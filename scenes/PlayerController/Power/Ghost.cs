@@ -7,12 +7,14 @@ public partial class Ghost : Node3D, Power
     public float Speed = 5.0f;
     [Export]
     public float JumpVelocity = 4.5f;
+    [Export]
+    public float GravityScale = 0.5f;
 
     [Export]
-    public Area3D detector;
+    public Area3D Detector;
 
     // Get the gravity from the project settings to be synced with RigidBody nodes.
-    public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+    public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
     public void MoveCharacter(CharacterBody3D character, double delta)
     {
@@ -20,7 +22,7 @@ public partial class Ghost : Node3D, Power
 
         // Add the gravity.
         if (!character.IsOnFloor())
-            velocity.Y -= gravity * (float)delta;
+            velocity.Y -= Gravity * GravityScale * (float)delta;
 
         // Handle Jump.
         if (Input.IsActionJustPressed("ui_accept") && character.IsOnFloor())
@@ -47,7 +49,6 @@ public partial class Ghost : Node3D, Power
     {
         c.SetCollisionMaskValue(2, false);
         c.SetCollisionLayerValue(2, true);
-        //GD.Print(c.);
     }
 
     public void Exit(CharacterBody3D c)
@@ -63,6 +64,6 @@ public partial class Ghost : Node3D, Power
      *     */
     public bool CanChange(CharacterBody3D c)
     {
-        return !detector.HasOverlappingBodies();
+        return !Detector.HasOverlappingBodies();
     }
 }

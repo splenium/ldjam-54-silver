@@ -122,12 +122,12 @@ albedo_texture = ExtResource("4_beuvk")
 [sub_resource type="QuadMesh" id="QuadMesh_nsvfv"]
 material = SubResource("StandardMaterial3D_r6vee")
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("powerHuman", "powerFish", "powerFly", "powerGhost")]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("PowerHuman", "PowerFish", "PowerFly", "PowerGhost")]
 script = ExtResource("1_j3srj")
-powerHuman = NodePath("Power/Human")
-powerFish = NodePath("Power/Fish")
-powerFly = NodePath("Power/Fly")
-powerGhost = NodePath("Power/Ghost")
+PowerHuman = NodePath("Power/Human")
+PowerFish = NodePath("Power/Fish")
+PowerFly = NodePath("Power/Fly")
+PowerGhost = NodePath("Power/Ghost")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
@@ -173,9 +173,8 @@ script = ExtResource("4_p84tn")
 [node name="Fish" type="Node3D" parent="Power"]
 script = ExtResource("5_hw2ut")
 
-[node name="Ghost" type="Node3D" parent="Power" node_paths=PackedStringArray("detector")]
+[node name="Ghost" type="Node3D" parent="Power"]
 script = ExtResource("6_a57bf")
-detector = NodePath("Detector")
 
 [node name="Detector" type="Area3D" parent="Power/Ghost"]
 collision_layer = 4
