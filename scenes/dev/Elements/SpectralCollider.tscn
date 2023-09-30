@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbgpuj1chyp3j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bj8aa"]
+albedo_color = Color(0.266667, 0.568627, 0.337255, 1)
+
+[node name="SpectralCollider" type="CSGBox3D"]
+transform = Transform3D(6.0335, -0.575248, 0, 4.24309, 0.817979, 0, 0, 0, 1, 9.78988, 2.20417, 0)
+layers = 2
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+material = SubResource("StandardMaterial3D_bj8aa")

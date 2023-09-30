@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfdoygqa7bt71"
-path.s3tc="res://.godot/imported/red.png-d5f39e261e8585dfbc0a32aa9fd1a167.s3tc.ctex"
+path.s3tc="res://.godot/imported/racoune.png-4cff4083e2043a13ba349129ab6eaaf2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/red.png"
-dest_files=["res://.godot/imported/red.png-d5f39e261e8585dfbc0a32aa9fd1a167.s3tc.ctex"]
+source_file="res://assets/Test/PowerMaterial/racoune.png"
+dest_files=["res://.godot/imported/racoune.png-4cff4083e2043a13ba349129ab6eaaf2.s3tc.ctex"]
 
 [params]
 

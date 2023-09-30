@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://1gcjhav8r0pf"]
+
+[ext_resource type="Material" uid="uid://cd24x34l62pd8" path="res://assets/Test/WaterMaterial.tres" id="1_i6p2y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ijij"]
+
+[node name="Water" type="CSGBox3D"]
+transform = Transform3D(-2.68739e-07, 3.4573, 0, -6.14802, -1.51124e-07, 0, 0, 0, 1.02602, -9.19823, 0.637873, 0)
+layers = 2
+calculate_tangents = false
+use_collision = true
+collision_layer = 0
+collision_mask = 0
+material = ExtResource("1_i6p2y")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 1.42109e-14, 0, 2.13163e-14, 1, 0, 0, 0, 1, 0.10826, 0, 0)
+shape = SubResource("BoxShape3D_8ijij")

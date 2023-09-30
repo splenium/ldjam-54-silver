@@ -16,9 +16,6 @@ public partial class Ghost : Power
     [Export]
     public CsgMesh3D PlayerMesh;
 
-    [Export]
-    public Color InsideColor;
-
     private Color originalColor;
     private StandardMaterial3D PlayerMaterial
     {
@@ -35,6 +32,7 @@ public partial class Ghost : Power
 
     public override void _Ready()
     {
+        base._Ready();
         if (Detector == null)
         {
             GD.PrintErr("Ghost: Detector is null");
@@ -55,7 +53,7 @@ public partial class Ghost : Power
 
     public override void _Process(double delta)
     {
-        if (active)
+        /*if (active)
         {
             if (!IsCollidingObject())
             {
@@ -66,7 +64,7 @@ public partial class Ghost : Power
             {
                 PlayerMaterial.AlbedoColor = originalColor;
             }
-        }
+        }*/
     }
 
     public override void MoveCharacter(CharacterBody3D character, double delta)
@@ -103,6 +101,7 @@ public partial class Ghost : Power
 
     public override void Init(CharacterBody3D c)
     {
+        base.Init(c);
         active = true;
         c.SetCollisionMaskValue(2, false);
         //c.SetCollisionLayerValue(2, true);
@@ -110,6 +109,7 @@ public partial class Ghost : Power
 
     public override void Exit(CharacterBody3D c)
     {
+        base.Exit(c);
         active = false;
         c.SetCollisionMaskValue(2, true);
         //c.SetCollisionLayerValue(2, true);

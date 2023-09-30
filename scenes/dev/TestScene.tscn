@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmojig8xnpdv1"]
+
+[ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_eknx0"]
+[ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_705bx"]
+
+[node name="TestScene" type="Node3D"]
+
+[node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("1_eknx0")]
+ToFollow = NodePath("../CharacterBody3D")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_705bx")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.69874, 0.715376, 0, -0.715376, 0.69874, 0, 7.73916, 7.64032)
