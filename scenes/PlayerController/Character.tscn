@@ -162,6 +162,8 @@ script = ExtResource("3_3p4kr")
 AnimationLeftWing = NodePath("AnimationLeftWing")
 AnimationRightWing = NodePath("AnimationRightWing")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
+raKoonAvatar = NodePath("Mesh/RaKoonAvatar")
+LightColor = Color(0.478431, 0.478431, 0.478431, 1)
 
 [node name="AnimationLeftWing" type="AnimationPlayer" parent="Power/Fly"]
 libraries = {
@@ -178,6 +180,7 @@ transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
 
 [node name="RaKoonAvatar" parent="Power/Fly/Mesh" instance=ExtResource("6_w2hbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
+LightColor = Color(1, 1, 1, 1)
 
 [node name="RightWing" type="Node3D" parent="Power/Fly"]
 transform = Transform3D(-0.939693, -0.342017, 0, 0.342017, -0.939693, 0, 0, 0, 1, 0.35, 0.5, -0.1)
@@ -197,32 +200,41 @@ mesh = SubResource("QuadMesh_nsvfv")
 script = ExtResource("4_p84tn")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 ContactWaterBreak = 0.4
+raKoonAvatar = NodePath("Mesh/RaKoonAvatar")
+LightColor = Color(1, 1, 1, 1)
 
 [node name="Mesh" type="Node3D" parent="Power/Human"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
 
 [node name="RaKoonAvatar" parent="Power/Human/Mesh" instance=ExtResource("6_w2hbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
+LightColor = Color(1, 1, 1, 1)
 
 [node name="Fish" type="Node3D" parent="Power" node_paths=PackedStringArray("WaterDetector")]
 script = ExtResource("5_hw2ut")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
+raKoonAvatar = NodePath("Mesh/RaKoonAvatar")
+LightColor = Color(0.313726, 0.454902, 1, 1)
 
 [node name="Mesh" type="Node3D" parent="Power/Fish"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
 
 [node name="RaKoonAvatar" parent="Power/Fish/Mesh" instance=ExtResource("6_w2hbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
+LightColor = Color(1, 1, 1, 1)
 
 [node name="Ghost" type="Node3D" parent="Power" node_paths=PackedStringArray("Detector", "WaterDetector")]
 script = ExtResource("6_a57bf")
 Detector = NodePath("../../Detectors/DetectorObstacles")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
+raKoonAvatar = NodePath("Mesh/RaKoonAvatar")
+LightColor = Color(0.266667, 0.729412, 0, 1)
 
 [node name="Mesh" type="Node3D" parent="Power/Ghost"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
 
 [node name="RaKoonAvatar" parent="Power/Ghost/Mesh" instance=ExtResource("6_w2hbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
+LightColor = Color(1, 1, 1, 1)
 
 [connection signal="timeout" from="DamageTakenTimer" to="." method="_OnDamageTakenTimerTimeout"]

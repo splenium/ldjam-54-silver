@@ -113,6 +113,7 @@ public partial class CharacterController : CharacterBody3D
             GD.Print("Damage", health);
             DamageTakenTimer.Start();
         }
+        GD.Print(currentPower.LightColor);
     }
 
     public void TakeDamage(float amount)

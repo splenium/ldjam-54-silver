@@ -13,6 +13,8 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
         public float ContactWaterBreak = 0.2f;
         [Export]
         public RaKoonAvatar raKoonAvatar;
+        [Export]
+        public Color LightColor;
 
         private bool wasInWater = false;
 
@@ -23,6 +25,13 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
             {
                 GD.PrintErr("Power: raKoonAvatar is null");
             }
+            raKoonAvatar.LightColor = LightColor;
+        }
+
+        public override void _Process(double delta)
+        {
+            base._Process(delta);
+            raKoonAvatar.LightColor = LightColor;
         }
 
         public virtual void Init(CharacterBody3D character)
