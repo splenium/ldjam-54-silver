@@ -59,7 +59,7 @@ public partial class Ghost : Node3D, Power
 
     /**
      * Ghost can only change to another power if there are no overlapping bodies.
-     * Object is consider overlapping if it is in the same collision layer (layer 3) settings on detector props.
+     * Object is consider overlapping if it is in the same collision layer (layer 3) settings are on detector props.
      *     */
     public bool CanChange(CharacterBody3D c)
     {

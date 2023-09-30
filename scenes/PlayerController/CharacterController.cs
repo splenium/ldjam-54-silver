@@ -23,9 +23,6 @@ public partial class CharacterController : CharacterBody3D
     [Export]
     public string powerGhostAction = "power_ghost";
 
-
-
-
     private Power currentPower;
 
     //private Power selectedPower;
