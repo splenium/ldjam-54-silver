@@ -12,7 +12,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 6)
 doppler_tracking = 2
 
-[node name="DirectionnalLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, -1.51957, 3.0514, 1.55095)
 light_energy = 7.465
 light_indirect_energy = 1.6
@@ -21,7 +21,7 @@ light_specular = 0.823
 omni_range = 1000.0
 omni_shadow_mode = 0
 
-[node name="DirectionnalLight3D2" type="OmniLight3D" parent="."]
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, -0.30017, 43.0364, 1.55095)
 light_energy = 7.465
 light_indirect_energy = 1.6
@@ -30,7 +30,7 @@ light_specular = 0.823
 omni_range = 1000.0
 omni_shadow_mode = 0
 
-[node name="DirectionnalLight3D3" type="OmniLight3D" parent="."]
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, 25.3163, 22.1257, 1.55095)
 light_energy = 7.465
 light_indirect_energy = 1.6
@@ -39,7 +39,7 @@ light_specular = 0.823
 omni_range = 1000.0
 omni_shadow_mode = 0
 
-[node name="DirectionnalLight3D4" type="OmniLight3D" parent="."]
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, -33.4241, 22.1257, 1.55095)
 light_energy = 7.465
 light_indirect_energy = 1.6
