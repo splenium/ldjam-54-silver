@@ -1,12 +1,12 @@
-[gd_scene load_steps=34 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=36 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="1_818dc"]
 [ext_resource type="Material" uid="uid://pfk887ida80" path="res://assets/Materials/Rock00Mat.tres" id="1_kfxe6"]
 [ext_resource type="Material" uid="uid://cevwxtcp37nen" path="res://assets/Materials/Clouds/SkyIslandsBGMat.tres" id="1_xd3yq"]
 [ext_resource type="Script" path="res://assets/Hovering.cs" id="2_njwye"]
 [ext_resource type="Material" uid="uid://d35otdohndue5" path="res://assets/Materials/Rock02Mat.tres" id="3_go02m"]
-[ext_resource type="Material" path="res://assets/Materials/DoctorPunk.tres" id="3_sl62w"]
-[ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/Clouds/CloudMat.tres" id="4_ifijn"]
+[ext_resource type="Material" uid="uid://c8o2gti7npy26" path="res://assets/Materials/DoctorPunk.tres" id="3_sl62w"]
+[ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/CloudMat.tres" id="4_ifijn"]
 [ext_resource type="Material" uid="uid://dljll6fqoob5q" path="res://assets/Materials/Rock03Mat.tres" id="4_xkfjv"]
 [ext_resource type="Material" uid="uid://bilv08qhv513l" path="res://assets/Materials/BackgroundWallMat.tres" id="6_tmudm"]
 [ext_resource type="Material" uid="uid://6ruug3uhe6dt" path="res://assets/Materials/ConcreteMat.tres" id="7_kt5n6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="10_4vgx5"]
 [ext_resource type="PackedScene" uid="uid://h1bjyb8mpmo2" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="13_of5xy"]
 [ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="13_t3sxh"]
+[ext_resource type="Material" uid="uid://2xm8v6u45jb0" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="24_x0wm6"]
 [ext_resource type="Texture2D" uid="uid://cq6k1dutx11yq" path="res://assets/Fish/Textures/Abysses_Fish_-5 2.png" id="29_d0nxv"]
 [ext_resource type="Script" path="res://scenes/dev/ShakeRotation.cs" id="29_vmhlt"]
 [ext_resource type="Material" uid="uid://dhbf8nuymy81q" path="res://assets/Fish/FishLightMat.tres" id="30_8noo8"]
@@ -64,6 +65,8 @@ albedo_texture = ExtResource("34_8xik5")
 transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("35_ovskk")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dgnp5"]
 
 [node name="SebScene" type="Node3D"]
 
@@ -315,3 +318,8 @@ material = SubResource("StandardMaterial3D_akv2n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0183576)
 mesh = SubResource("QuadMesh_kfl4q")
 material = SubResource("StandardMaterial3D_a5c83")
+
+[node name="Wing" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86135, 0, 0)
+mesh = SubResource("QuadMesh_dgnp5")
+material = ExtResource("24_x0wm6")
