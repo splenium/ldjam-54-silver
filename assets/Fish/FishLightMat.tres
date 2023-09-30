@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dhbf8nuymy81q"]
+
+[ext_resource type="Shader" path="res://assets/Fish/LightSpot.gdshader" id="1_iqt0l"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_iqt0l")
+shader_parameter/_lightColor = Color(1, 1, 1, 1)

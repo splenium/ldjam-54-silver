@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cflloyk51haep"]
+[gd_scene load_steps=18 format=3 uid="uid://h1bjyb8mpmo2"]
 
 [ext_resource type="Script" path="res://scenes/dev/RaKoonAvatar.cs" id="1_8pl2y"]
 [ext_resource type="Material" uid="uid://c3kg7kyte14ra" path="res://assets/Materials/RaKoon/RaKoonHeadMat.tres" id="2_e4rko"]
@@ -27,6 +27,7 @@ MoveAnimationSpeed = 8.0
 MoveRotationAnimationSpeed = 8.0
 MoveRotationAnimationAmplitude = 0.05
 HeadMaterial = ExtResource("2_e4rko")
+BodyMaterial = ExtResource("16_ebflu")
 OHBackground = ExtResource("3_xit7x")
 OHOutline = ExtResource("4_disl6")
 OHHighlight = ExtResource("5_k2leh")
