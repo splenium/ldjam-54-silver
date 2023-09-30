@@ -70,7 +70,6 @@ public partial class Fish : Power
         else if (!character.IsOnFloor())
         {
             velocity.Y -= Gravity * (float)delta;
-            velocity.X = Mathf.MoveToward(character.Velocity.X, 0, MaxSpeed);
         }
         else
         {
