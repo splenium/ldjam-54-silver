@@ -5,7 +5,7 @@ public partial class CameraManagment : Camera3D
     [Export]
     public Node3D ToFollow;
     [Export]
-    public float OffsetY = 5f;
+    public float OffsetY = 2f;
     [Export]
     public float FloatingRate = 0.05f;
 

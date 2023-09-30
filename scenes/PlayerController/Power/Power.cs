@@ -11,12 +11,18 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
         public float ArchimedesScale = 2f;
         [Export]
         public float ContactWaterBreak = 0.2f;
+        [Export]
+        public RaKoonAvatar raKoonAvatar;
 
         private bool wasInWater = false;
 
         public override void _Ready()
         {
             Visible = false;
+            if (raKoonAvatar == null)
+            {
+                GD.PrintErr("Power: raKoonAvatar is null");
+            }
         }
 
         public virtual void Init(CharacterBody3D character)
@@ -40,9 +46,21 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
             return WaterDetector.HasOverlappingAreas() || WaterDetector.HasOverlappingBodies();
         }
 
+        protected virtual void SetRaKoonAvatarAnimation(Vector3 velocity)
+        {
+            if (velocity.X > 0)
+            {
+                raKoonAvatar.IsLeft = false;
+            }
+            else if (velocity.X < 0)
+            {
+                raKoonAvatar.IsLeft = true;
+            }
+            raKoonAvatar.IsMoving = !velocity.IsZeroApprox();
+        }
+
         protected virtual Vector3 WaterBehavior(float gravityForce, Vector3 velocity, double delta)
         {
-
             if (InWater())
             {
                 if (!wasInWater)

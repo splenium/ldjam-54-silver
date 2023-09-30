@@ -13,20 +13,6 @@ public partial class Ghost : Power
     [Export]
     public Area3D Detector;
 
-    [Export]
-    public CsgMesh3D PlayerMesh;
-
-    private Color originalColor;
-    private StandardMaterial3D PlayerMaterial
-    {
-        get
-        {
-            return (StandardMaterial3D)PlayerMesh.Material;
-        }
-    }
-
-    private bool active = false;
-
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
@@ -37,34 +23,6 @@ public partial class Ghost : Power
         {
             GD.PrintErr("Ghost: Detector is null");
         }
-        if (PlayerMesh == null)
-        {
-            GD.PrintErr("Ghost: PlayerMaterial is null");
-        }
-        else if (PlayerMesh.Material is StandardMaterial3D)
-        {
-            originalColor = ((StandardMaterial3D)PlayerMesh.Material).AlbedoColor;
-        }
-        else
-        {
-            GD.PrintErr("Ghost: Material is not reliable to StandardMaterial3D instance");
-        }
-    }
-
-    public override void _Process(double delta)
-    {
-        /*if (active)
-        {
-            if (!IsCollidingObject())
-            {
-
-                PlayerMaterial.AlbedoColor = InsideColor;
-            }
-            else
-            {
-                PlayerMaterial.AlbedoColor = originalColor;
-            }
-        }*/
     }
 
     public override void MoveCharacter(CharacterBody3D character, double delta)
@@ -97,28 +55,22 @@ public partial class Ghost : Power
 
         character.Velocity = velocity;
         character.MoveAndSlide();
+
+        SetRaKoonAvatarAnimation(velocity);
     }
 
     public override void Init(CharacterBody3D c)
     {
         base.Init(c);
-        active = true;
         c.SetCollisionMaskValue(2, false);
-        //c.SetCollisionLayerValue(2, true);
     }
 
     public override void Exit(CharacterBody3D c)
     {
         base.Exit(c);
-        active = false;
         c.SetCollisionMaskValue(2, true);
-        //c.SetCollisionLayerValue(2, true);
     }
 
-    /**
-     * Ghost can only change to another power if there are no overlapping bodies.
-     * Object is consider overlapping if it is in the same collision layer (layer 3) settings are on detector props.
-     *     */
     public override bool CanChange(CharacterBody3D c)
     {
         return IsCollidingObject();

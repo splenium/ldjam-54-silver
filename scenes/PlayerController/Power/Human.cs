@@ -1,5 +1,6 @@
 using Godot;
 using LudumDare54Silver.scenes.PlayerController.Power;
+using System;
 
 public partial class Human : Power
 {
@@ -9,6 +10,8 @@ public partial class Human : Power
     public float JumpVelocity = 4.5f;
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+
+    private Random random = new Random();
 
     public override void MoveCharacter(CharacterBody3D character, double delta)
     {
@@ -39,7 +42,12 @@ public partial class Human : Power
             velocity.X = Mathf.MoveToward(character.Velocity.X, 0, Speed);
         }
 
+
+        raKoonAvatar.SetFace((EFaceState)random.Next(4));
+
         character.Velocity = velocity;
         character.MoveAndSlide();
+
+        SetRaKoonAvatarAnimation(velocity);
     }
 }
