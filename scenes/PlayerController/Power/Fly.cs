@@ -5,7 +5,7 @@ using LudumDare54Silver.scenes.PlayerController.Power;
 public partial class Fly : Node3D, Power
 {
     [Export]
-    public float Speed = 20.0f;
+    public float Speed = 2.0f;
     [Export]
     public float JumpVelocity = 6f;
     
@@ -48,11 +48,12 @@ public partial class Fly : Node3D, Power
 
         if (direction.X != 0)
         {
-            velocity.X = direction.X * Speed;
+            velocity.X += direction.X * Speed;
+            velocity.X = Mathf.Clamp(velocity.X, -3 * Speed, 3 * Speed);
         }
         else
         {
-            velocity.X = Mathf.MoveToward(character.Velocity.X, 0, Speed / 2);
+            velocity.X = Mathf.MoveToward(character.Velocity.X, 0, Speed * 2 * (float)delta);
         }
 
         character.Velocity = velocity;
@@ -84,22 +85,19 @@ class WingsMouvement
 
     private long whenLeftWingFlapDown;
     private long whenRightWingFlapDown;
-    private long deltaInMillisecondToAcceptUpBoost = 200;
+    private long deltaInMillisecondToAcceptUpBoost = 100;
 
     public Vector2 Update()
     {
-        var isFlapping = false;
         LeftWing = WingMovement.Idle;
         RightWing = WingMovement.Idle;
         if (Input.IsActionJustPressed("ui_left"))
         {
             LeftWing = WingMovement.Up;
             AnimationLeftWing.Play("left_wing_up");
-            whenLeftWingFlapDown = 0;
         }
         if (Input.IsActionJustReleased("ui_left"))
         {
-            isFlapping = true;
             LeftWing = WingMovement.Down;
             AnimationLeftWing.Play("left_wing_down");
             whenLeftWingFlapDown = (long)Time.GetTicksMsec();
@@ -108,17 +106,15 @@ class WingsMouvement
         {
             RightWing = WingMovement.Up;
             AnimationRightWing.Play("right_wing_up");
-            whenRightWingFlapDown = 0;
         }
         if (Input.IsActionJustReleased("ui_right"))
         {
-            isFlapping = true;
             RightWing = WingMovement.Down;
             AnimationRightWing.Play("right_wing_down");
             whenRightWingFlapDown = (long)Time.GetTicksMsec();
         }
 
-        return isFlapping ? GetFlyingDirection() : new Vector2();
+        return GetFlyingDirection();
     }
 
     private Vector2 GetFlyingDirection()
@@ -129,7 +125,7 @@ class WingsMouvement
         {
             direction.Y = hasUpBoost ? 2 : 1;
         }
-        if (!hasUpBoost && OnlyOneWingFlap())
+        if (OnlyOneWingFlap())
         {
             direction.X = LeftWing == WingMovement.Down ? 1 : -1;
         }
