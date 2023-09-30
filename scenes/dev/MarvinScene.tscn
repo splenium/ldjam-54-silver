@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://by3b0d0geqpwg"]
+[gd_scene load_steps=5 format=3 uid="uid://by3b0d0geqpwg"]
 
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="1_jvaoj"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_3gev5"]
+[ext_resource type="PackedScene" uid="uid://1gcjhav8r0pf" path="res://scenes/dev/Elements/water.tscn" id="2_sm6nr"]
+[ext_resource type="PackedScene" uid="uid://bbgpuj1chyp3j" path="res://scenes/dev/Elements/SpectralCollider.tscn" id="4_1h8ve"]
 
 [node name="DevScene" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_jvaoj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 25.6572, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 21.2784, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, -1.51957, 3.0514, 1.55095)
@@ -78,7 +80,7 @@ use_collision = true
 size = Vector3(0.475507, 1, 1)
 
 [node name="Platform7" type="CSGBox3D" parent="Level"]
-transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, 12.5754, 29.4123, 0)
+transform = Transform3D(-9.26786e-07, -1, 0, 21.2024, -4.37114e-08, 0, 0, 0, 31.7816, 2.10226, 34.926, 0)
 use_collision = true
 
 [node name="Platform8" type="CSGBox3D" parent="Level"]
@@ -86,7 +88,7 @@ transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, -14.0576, 36.8406
 use_collision = true
 
 [node name="Platform9" type="CSGBox3D" parent="Level"]
-transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, 14.2624, 45.053, 0)
+transform = Transform3D(21.2024, 0, 0, 0, 1, 0, 0, 0, 31.7816, 18.0059, 45.053, 0)
 use_collision = true
 
 [node name="Celling" type="CSGBox3D" parent="Level"]
@@ -98,7 +100,7 @@ transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 31.782, -12.5968, 24.4323, -0.1
 use_collision = true
 
 [node name="Wall3" type="CSGBox3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 5.52662, 0, 0, 0, 31.782, 7.20597, 21.5657, -0.146515)
+transform = Transform3D(1, 0, 0, 0, 5.52662, 0, 0, 0, 31.782, -0.925241, 21.5657, -0.146515)
 use_collision = true
 
 [node name="Wall4" type="CSGBox3D" parent="Level"]
@@ -106,10 +108,84 @@ transform = Transform3D(1, 0, 0, 0, 5.52662, 0, 0, 0, 31.782, 2.28596, 26.6549, 
 use_collision = true
 
 [node name="Wall2" type="CSGBox3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 31.782, 11.4032, 24.4323, -0.146515)
+transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 31.782, 11.4032, 31.1304, -0.146515)
 use_collision = true
 
+[node name="Floor2" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-24.0858, 8.74228e-08, 0, -2.10565e-06, -1, 0, 0, 0, 31.7816, 21.9157, 5.50357, 0)
+use_collision = true
+
+[node name="Platform10" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-21.2024, 8.74228e-08, 0, -1.85357e-06, -1, 0, 0, 0, 31.7816, 28.1585, 0.235339, 0)
+use_collision = true
+
+[node name="Platform11" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-21.2024, 8.74228e-08, 0, -1.85357e-06, -1, 0, 0, 0, 31.7816, 15.6274, -4.90173, 0)
+use_collision = true
+
+[node name="Platform12" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-21.2024, 8.74228e-08, 0, -1.85357e-06, -1, 0, 0, 0, 31.7816, 32.854, -8.69853, 0)
+use_collision = true
+
+[node name="Platform13" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-21.2024, 8.74228e-08, 0, -1.85357e-06, -1, 0, 0, 0, 31.7816, 7.44003, -8.69853, 0)
+use_collision = true
+
+[node name="Platform14" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-21.2024, 8.74228e-08, 0, -1.85357e-06, -1, 0, 0, 0, 31.7816, 24.5163, -13.8224, 0)
+use_collision = true
+
+[node name="Platform15" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-21.2024, 8.74228e-08, 0, -1.85357e-06, -1, 0, 0, 0, 31.7816, 24.3133, -18.5393, 0)
+use_collision = true
+size = Vector3(0.475507, 1, 1)
+
+[node name="Platform16" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-21.2024, 8.74228e-08, 0, -1.85357e-06, -1, 0, 0, 0, 31.7816, 9.34033, -23.9087, 0)
+use_collision = true
+
+[node name="Platform17" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-21.2024, 8.74228e-08, 0, -1.85357e-06, -1, 0, 0, 0, 31.7816, 35.9733, -31.337, 0)
+use_collision = true
+
+[node name="Platform18" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-21.2024, 8.74228e-08, 0, -1.85357e-06, -1, 0, 0, 0, 31.7816, 7.65333, -39.5494, 0)
+use_collision = true
+
+[node name="Celling2" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-24.0858, 8.74228e-08, 0, -2.10565e-06, -1, 0, 0, 0, 31.7816, 21.9157, -43.4441, 0)
+use_collision = true
+size = Vector3(8.11917, 1, 1)
+
+[node name="Wall5" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-1, 4.37114e-06, 0, -8.74228e-08, -50, 0, 0, 0, 31.782, 34.5125, -14.3015, -0.146515)
+use_collision = true
+
+[node name="Wall6" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-1, 4.83153e-07, 0, -8.74228e-08, -5.52662, 0, 0, 0, 31.782, 14.7098, -16.0621, -0.146515)
+use_collision = true
+
+[node name="Wall7" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-1, 4.83153e-07, 0, -8.74228e-08, -5.52662, 0, 0, 0, 31.782, 19.6298, -21.1513, 0.0898209)
+use_collision = true
+
+[node name="Wall8" type="CSGBox3D" parent="Level"]
+transform = Transform3D(-1, 4.37114e-06, 0, -8.74228e-08, -50, 0, 0, 0, 31.782, 10.5125, -25.6268, -0.146515)
+use_collision = true
+
+[node name="Water" parent="Level" instance=ExtResource("2_sm6nr")]
+transform = Transform3D(-2.68739e-07, 3.4573, 0, -6.14802, -1.51124e-07, 0, 0, 0, 1.02602, 22.5612, -30.837, 0.0374088)
+size = Vector3(3.99205, 6.70261, 31.1715)
+
+[node name="SpectralCollider" parent="Level" instance=ExtResource("4_1h8ve")]
+transform = Transform3D(7.37611, 0, 0, 0, 1, 0, 0, 0, 1, 15.4664, 0.297495, 2.62187)
+size = Vector3(1, 1.01105, 26.1193)
+
+[node name="SpectralCollider2" parent="Level" instance=ExtResource("4_1h8ve")]
+transform = Transform3D(-3.2242e-07, 1, 0, -7.37611, -4.37114e-08, 0, 0, 0, 1, 34.4878, -40.3464, 2.48737)
+size = Vector3(0.97282, 0.686068, 26.1193)
+
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_3gev5")]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2.94312, 2, 1.66575)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -4.05688, 23, 5.66575)
 ToFollow = NodePath("../CharacterBody3D")
 OffsetY = 2.0
