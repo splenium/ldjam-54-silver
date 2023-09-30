@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c86mrgoxm3lqw"]
+[gd_scene load_steps=3 format=3 uid="uid://c86mrgoxm3lqw"]
 
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="1_isjr3"]
+[ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_o8vo8"]
 
 [node name="DevScene" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
@@ -9,8 +10,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
 collision_layer = 3
 collision_mask = 3
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2.94312, 2, 8.66575)
+[node name="Camera3D" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_o8vo8")]
+ToFollow = NodePath("../CharacterBody3D")
+OffsetY = 2.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0173477, 0.99985, 0, -0.99985, -0.0173477, 8.83439, 10.5884, -1.93185)
