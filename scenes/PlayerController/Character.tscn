@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjwiwl42jtnld"]
+[gd_scene load_steps=23 format=3 uid="uid://bjwiwl42jtnld"]
 
 [ext_resource type="Script" path="res://scenes/PlayerController/CharacterController.cs" id="1_j3srj"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fly.cs" id="3_3p4kr"]
@@ -7,6 +7,12 @@
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fish.cs" id="5_hw2ut"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Ghost.cs" id="6_a57bf"]
 [ext_resource type="PackedScene" uid="uid://h1bjyb8mpmo2" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="6_w2hbn"]
+[ext_resource type="AudioStream" uid="uid://dcvbkel15rt7u" path="res://assets/Sounds/Trash/fartmeme.mp3" id="7_03txy"]
+[ext_resource type="AudioStream" uid="uid://bifb5n1wa4dl0" path="res://assets/Sounds/Trash/dry-fart.mp3" id="7_kg6g1"]
+[ext_resource type="Material" uid="uid://2xm8v6u45jb0" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="8_uvjtu"]
+[ext_resource type="AudioStream" uid="uid://202ayhffofvb" path="res://assets/Sounds/Trash/09037.mp3" id="9_av4vc"]
+[ext_resource type="AudioStream" uid="uid://dgv8ltxabfs3g" path="res://assets/Sounds/Trash/wet-fart-2.mp3" id="10_ghg27"]
+[ext_resource type="AudioStream" uid="uid://cojnhsmodjp7v" path="res://assets/Sounds/Trash/fart_2.mp3" id="11_roi0h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47kvu"]
 
@@ -50,7 +56,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, -2.79253), Vector3(0, 0, -0.523599)]
+"values": [Vector3(0, 0, -2.79253), Vector3(0, 0, -0.785398)]
 }
 
 [sub_resource type="Animation" id="Animation_gsaqy"]
@@ -66,7 +72,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, -0.523599), Vector3(0, 0, -2.79253)]
+"values": [Vector3(0, 0, -0.785398), Vector3(0, 0, -2.79253)]
 }
 
 [sub_resource type="Animation" id="Animation_c3nry"]
@@ -82,7 +88,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 2.79253), Vector3(0, 0, 0.436332)]
+"values": [Vector3(0, 0, 2.79253), Vector3(0, 0, 0.785398)]
 }
 
 [sub_resource type="Animation" id="Animation_paf0m"]
@@ -98,7 +104,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0.436332), Vector3(0, 0, 2.79253)]
+"values": [Vector3(0, 0, 0.785398), Vector3(0, 0, 2.79253)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_02j84"]
@@ -195,12 +201,19 @@ transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
 [node name="FishRaKoonAvatar" parent="Power/Fish/Mesh" instance=ExtResource("6_w2hbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
 
-[node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("AnimationLeftWing", "AnimationRightWing", "WaterDetector", "raKoonAvatar")]
+[node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("AnimationLeftWing", "AnimationRightWing", "WingRight", "WingLeft", "BoostSound", "WaterDetector", "raKoonAvatar")]
 script = ExtResource("3_3p4kr")
 AnimationLeftWing = NodePath("AnimationLeftWing")
 AnimationRightWing = NodePath("AnimationRightWing")
+WingRight = NodePath("RightWing/RightWingMesh")
+WingLeft = NodePath("LeftWing/LeftWingMesh")
+BoostSound = NodePath("BoostSound")
+BoostSounds = Array[AudioStreamMP3]([ExtResource("7_03txy"), ExtResource("7_kg6g1"), ExtResource("9_av4vc"), ExtResource("10_ghg27"), ExtResource("11_roi0h")])
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/FlyRaKoonAvatar")
+
+[node name="BoostSound" type="AudioStreamPlayer" parent="Power/Fly"]
+stream = ExtResource("7_kg6g1")
 
 [node name="AnimationLeftWing" type="AnimationPlayer" parent="Power/Fly"]
 libraries = {
@@ -222,14 +235,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
 transform = Transform3D(-0.939693, -0.342017, 0, 0.342017, -0.939693, 0, 0, 0, 1, 0.35, 0.5, -0.1)
 
 [node name="RightWingMesh" type="CSGMesh3D" parent="Power/Fly/RightWing"]
-transform = Transform3D(0.25, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(-0.534477, 1.92726, 0, -1.92726, -0.534477, 0, 0, 0, 2, -0.0273455, -0.810286, 0.0140381)
 mesh = SubResource("QuadMesh_nsvfv")
+material = ExtResource("8_uvjtu")
 
 [node name="LeftWing" type="Node3D" parent="Power/Fly"]
 transform = Transform3D(-0.939693, 0.342017, 0, -0.342017, -0.939693, 0, 0, 0, 1, -0.35, 0.5, -0.1)
 
 [node name="LeftWingMesh" type="CSGMesh3D" parent="Power/Fly/LeftWing"]
-transform = Transform3D(0.25, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(0.534477, -1.92726, 0, -1.92726, -0.534477, 0, 0, 0, 2, -0.027, -0.81, 0.014)
 mesh = SubResource("QuadMesh_nsvfv")
+material = ExtResource("8_uvjtu")
 
 [connection signal="timeout" from="DamageTakenTimer" to="." method="_OnDamageTakenTimerTimeout"]
