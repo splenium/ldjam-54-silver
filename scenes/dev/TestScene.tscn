@@ -1,14 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmojig8xnpdv1"]
+[gd_scene load_steps=5 format=3 uid="uid://cmojig8xnpdv1"]
 
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_eknx0"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_705bx"]
+[ext_resource type="PackedScene" uid="uid://bbjip0v5s5g52" path="res://scenes/dev/Elements/ground.tscn" id="3_3olp8"]
+[ext_resource type="PackedScene" uid="uid://1gcjhav8r0pf" path="res://scenes/dev/Elements/water.tscn" id="4_2bvcp"]
 
 [node name="TestScene" type="Node3D"]
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("1_eknx0")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2.94312, 2, 8.66575)
 ToFollow = NodePath("../CharacterBody3D")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_705bx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7189, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.69874, 0.715376, 0, -0.715376, 0.69874, 0, 7.73916, 7.64032)
+transform = Transform3D(1, 0, 0, 0, 0.592308, 0.805711, 0, -0.805711, 0.592308, 0, 7.73916, 7.64032)
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="Water" parent="Level" instance=ExtResource("4_2bvcp")]
+transform = Transform3D(-2.68739e-07, 3.4573, 0, -6.14802, -1.51124e-07, 0, 0, 0, 1.02602, 39.3979, -4.67197, 0)
+operation = 2
+
+[node name="Ground" parent="Level" instance=ExtResource("3_3olp8")]
+transform = Transform3D(57.9676, 0, 0, 0, 1.00697, 0, 0, 0, 1.00697, 8.68824, -2.10017, 0)
+
+[node name="Ground2" parent="Level" instance=ExtResource("3_3olp8")]
+transform = Transform3D(57.9676, 0, 0, 0, 1.00697, 0, 0, 0, 1.00697, 70.0549, -2.10017, 0)

@@ -55,7 +55,7 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
             else if (wasInWater)
             {
                 wasInWater = false;
-                velocity.Y -= gravityForce;
+                velocity.Y -= gravityForce * 0.9f;
             }
             return velocity;
         }
