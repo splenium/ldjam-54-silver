@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c86mrgoxm3lqw"]
+
+[ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="1_isjr3"]
+
+[node name="DevScene" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_isjr3")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 4.60524)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 0, 2.85057, 1.72712)
+spot_range = 12.3416
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(24.0858, 0, 0, 0, 1, 0, 0, 0, 31.7816, 0, -1.93517, 0)
+use_collision = true

@@ -1,0 +1,41 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjwiwl42jtnld"]
+
+[ext_resource type="Script" path="res://scenes/PlayerController/CharacterController.cs" id="1_j3srj"]
+[ext_resource type="Texture2D" uid="uid://cfdoygqa7bt71" path="res://assets/red.png" id="2_1h4wk"]
+[ext_resource type="Script" path="res://scenes/PlayerController/Power/Fly.cs" id="3_3p4kr"]
+[ext_resource type="Script" path="res://scenes/PlayerController/Power/Human.cs" id="4_p84tn"]
+[ext_resource type="Script" path="res://scenes/PlayerController/Power/Fish.cs" id="5_hw2ut"]
+[ext_resource type="Script" path="res://scenes/PlayerController/Power/Ghost.cs" id="6_a57bf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwnj1"]
+albedo_texture = ExtResource("2_1h4wk")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7ba0f"]
+material = SubResource("StandardMaterial3D_bwnj1")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47kvu"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("powerHuman", "powerFly")]
+script = ExtResource("1_j3srj")
+powerHuman = NodePath("")
+powerFly = NodePath("")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("QuadMesh_7ba0f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_47kvu")
+
+[node name="Power" type="Node3D" parent="."]
+
+[node name="Fly" type="Node3D" parent="Power"]
+script = ExtResource("3_3p4kr")
+
+[node name="Human" type="Node3D" parent="Power"]
+script = ExtResource("4_p84tn")
+
+[node name="Fish" type="Node3D" parent="Power"]
+script = ExtResource("5_hw2ut")
+
+[node name="Ghost" type="Node3D" parent="Power"]
+script = ExtResource("6_a57bf")
