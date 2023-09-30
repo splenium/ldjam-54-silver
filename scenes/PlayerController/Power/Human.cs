@@ -49,4 +49,9 @@ public partial class Human : Node3D, Power
     {
 
     }
+
+    public bool CanChange(CharacterBody3D c)
+    {
+        return true;
+    }
 }

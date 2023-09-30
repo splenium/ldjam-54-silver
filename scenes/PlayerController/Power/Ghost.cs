@@ -8,6 +8,9 @@ public partial class Ghost : Node3D, Power
     [Export]
     public float JumpVelocity = 4.5f;
 
+    [Export]
+    public Area3D detector;
+
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
@@ -42,11 +45,24 @@ public partial class Ghost : Node3D, Power
 
     public void Init(CharacterBody3D c)
     {
-
+        c.SetCollisionMaskValue(2, false);
+        c.SetCollisionLayerValue(2, true);
+        //GD.Print(c.);
     }
 
     public void Exit(CharacterBody3D c)
     {
 
+        c.SetCollisionMaskValue(2, true);
+        //c.SetCollisionLayerValue(2, true);
+    }
+
+    /**
+     * Ghost can only change to another power if there are no overlapping bodies.
+     * Object is consider overlapping if it is in the same collision layer (layer 3) settings on detector props.
+     *     */
+    public bool CanChange(CharacterBody3D c)
+    {
+        return !detector.HasOverlappingBodies();
     }
 }

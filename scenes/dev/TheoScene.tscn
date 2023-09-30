@@ -6,14 +6,51 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_isjr3")]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2, 4.60524)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2.94312, 2, 8.66575)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0173477, 0.99985, 0, -0.99985, -0.0173477, 8.83439, 10.5884, -1.93185)
+light_color = Color(0.741176, 0.164706, 0.866667, 1)
+spot_range = 24.8258
+spot_angle = 56.2295
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 0, 2.85057, 1.72712)
-spot_range = 12.3416
+transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 0, 4.60717, 3.85838)
+spot_range = 16.476
+spot_angle = 59.0483
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(24.0858, 0, 0, 0, 1, 0, 0, 0, 31.7816, 0, -1.93517, 0)
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 8.4688, 7.36001, 3.85838)
+spot_range = 16.476
+spot_angle = 59.0483
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(24.0858, 0, 0, 0, 1, 0, 0, 0, 31.7816, 0, -1.04289, 0)
 use_collision = true
+collision_layer = 3
+collision_mask = 3
+
+[node name="SpectralCollider2" type="CSGBox3D" parent="."]
+transform = Transform3D(7.3761, 0, 0, 0, 1, 0, 0, 0, 1, 5.58208, 1.0177, 0)
+layers = 2
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+
+[node name="SpectralCollider3" type="CSGBox3D" parent="."]
+transform = Transform3D(-3.86094, -0.214769, 0, 7.32696, -0.113173, 0, 0, 0, 1, 5.2792, 2.01859, 0.0228004)
+layers = 2
+use_collision = true
+collision_layer = 6
+collision_mask = 6
+
+[node name="SpectralCollider1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41542, -0.0500556, 0)
+layers = 2
+use_collision = true
+collision_layer = 6
+collision_mask = 6

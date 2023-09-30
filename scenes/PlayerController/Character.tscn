@@ -39,5 +39,13 @@ script = ExtResource("4_p84tn")
 [node name="Fish" type="Node3D" parent="Power"]
 script = ExtResource("5_hw2ut")
 
-[node name="Ghost" type="Node3D" parent="Power"]
+[node name="Ghost" type="Node3D" parent="Power" node_paths=PackedStringArray("detector")]
 script = ExtResource("6_a57bf")
+detector = NodePath("Detector")
+
+[node name="Detector" type="Area3D" parent="Power/Ghost"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Power/Ghost/Detector"]
+shape = SubResource("CapsuleShape3D_47kvu")

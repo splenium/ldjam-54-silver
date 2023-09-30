@@ -39,28 +39,44 @@ public partial class CharacterController : CharacterBody3D
         currentPower = powerHuman;
     }
 
+    private void SetNewPower(Power newPower)
+    {
+        currentPower.Exit(this);
+        currentPower = newPower;
+        currentPower.Init(this);
+    }
+
     public override void _Input(InputEvent @event)
     {
-        if (@event.IsActionReleased(powerHumanAction))
+        if (currentPower.CanChange(this))
         {
-            currentPower = powerHuman;
-            GD.Print("Human");
+
+            if (@event.IsActionReleased(powerHumanAction))
+            {
+                SetNewPower(powerHuman);
+                GD.Print("Human");
+            }
+            else if (@event.IsActionReleased(powerFlyAction))
+            {
+                SetNewPower(powerFly);
+                GD.Print("Fly");
+            }
+            else if (@event.IsActionReleased(powerFishAction))
+            {
+                SetNewPower(powerFish);
+                GD.Print("Fish");
+            }
+            else if (@event.IsActionReleased(powerGhostAction))
+            {
+                SetNewPower(powerGhost);
+                GD.Print("Ghost");
+            }
         }
-        else if (@event.IsActionReleased(powerFlyAction))
-        {
-            currentPower = powerFly;
-            GD.Print("Fly");
-        }
-        else if (@event.IsActionReleased(powerFishAction))
-        {
-            currentPower = powerFish;
-            GD.Print("Fish");
-        }
-        else if (@event.IsActionReleased(powerGhostAction))
-        {
-            currentPower = powerGhost;
-            GD.Print("Ghost");
-        }
+    }
+
+    public void _Collision()
+    {
+        GD.Print("Collision");
     }
 
     public override void _PhysicsProcess(double delta)
