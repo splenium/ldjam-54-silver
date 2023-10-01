@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bjwiwl42jtnld"]
+[gd_scene load_steps=19 format=3 uid="uid://bjwiwl42jtnld"]
 
 [ext_resource type="Script" path="res://scenes/PlayerController/CharacterController.cs" id="1_j3srj"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fly.cs" id="3_3p4kr"]
@@ -6,13 +6,9 @@
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Human.cs" id="4_p84tn"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fish.cs" id="5_hw2ut"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Ghost.cs" id="6_a57bf"]
-[ext_resource type="PackedScene" uid="uid://cflloyk51haep" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="6_w2hbn"]
-[ext_resource type="AudioStream" uid="uid://dcvbkel15rt7u" path="res://assets/Sounds/Trash/fartmeme.mp3" id="7_03txy"]
+[ext_resource type="PackedScene" uid="uid://h1bjyb8mpmo2" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="6_w2hbn"]
 [ext_resource type="AudioStream" uid="uid://bifb5n1wa4dl0" path="res://assets/Sounds/Trash/dry-fart.mp3" id="7_kg6g1"]
-[ext_resource type="Material" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="8_uvjtu"]
-[ext_resource type="AudioStream" uid="uid://202ayhffofvb" path="res://assets/Sounds/Trash/09037.mp3" id="9_av4vc"]
-[ext_resource type="AudioStream" uid="uid://dgv8ltxabfs3g" path="res://assets/Sounds/Trash/wet-fart-2.mp3" id="10_ghg27"]
-[ext_resource type="AudioStream" uid="uid://cojnhsmodjp7v" path="res://assets/Sounds/Trash/fart_2.mp3" id="11_roi0h"]
+[ext_resource type="Material" uid="uid://2xm8v6u45jb0" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="8_uvjtu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47kvu"]
 
@@ -203,14 +199,10 @@ transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
 [node name="FishRaKoonAvatar" parent="Power/Fish/Mesh" instance=ExtResource("6_w2hbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
 
-[node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("AnimationLeftWing", "AnimationRightWing", "WingRight", "WingLeft", "BoostSound", "WaterDetector", "raKoonAvatar")]
+[node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("AnimationLeftWing", "AnimationRightWing", "WaterDetector", "raKoonAvatar")]
 script = ExtResource("3_3p4kr")
 AnimationLeftWing = NodePath("AnimationLeftWing")
 AnimationRightWing = NodePath("AnimationRightWing")
-WingRight = NodePath("RightWing/RightWingMesh")
-WingLeft = NodePath("LeftWing/LeftWingMesh")
-BoostSound = NodePath("BoostSound")
-BoostSounds = Array[AudioStreamMP3]([ExtResource("7_03txy"), ExtResource("7_kg6g1"), ExtResource("9_av4vc"), ExtResource("10_ghg27"), ExtResource("11_roi0h")])
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/FlyRaKoonAvatar")
 

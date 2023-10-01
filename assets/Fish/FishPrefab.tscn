@@ -1,0 +1,121 @@
+[gd_scene load_steps=19 format=3 uid="uid://d3ego7ibuupbj"]
+
+[ext_resource type="Script" path="res://scenes/dev/FishAvatar.cs" id="1_10f2p"]
+[ext_resource type="Script" path="res://scenes/dev/ShakeRotation.cs" id="2_4b00u"]
+[ext_resource type="Texture2D" uid="uid://cq6k1dutx11yq" path="res://assets/Fish/Textures/Abysses_Fish_-5 2.png" id="3_lybpn"]
+[ext_resource type="Material" uid="uid://dhbf8nuymy81q" path="res://assets/Fish/FishLightMat.tres" id="4_tji0y"]
+[ext_resource type="Texture2D" uid="uid://cgbv01vkx8ayq" path="res://assets/Fish/Textures/Abysses_Fish_-7 2.png" id="5_wtlsk"]
+[ext_resource type="Texture2D" uid="uid://bjgeiy6qntqnn" path="res://assets/Fish/Textures/Abysses_Fish_-6 2.png" id="6_27r5b"]
+[ext_resource type="Texture2D" uid="uid://cja1yrd2iw1tc" path="res://assets/Fish/Textures/Abysses_Fish_-2 2.png" id="7_kr2d7"]
+[ext_resource type="Texture2D" uid="uid://uohwn4k8t1hf" path="res://assets/Fish/Textures/Abysses_Fish_-4 2.png" id="8_sseon"]
+[ext_resource type="Texture2D" uid="uid://cyqyi61aqax8k" path="res://assets/Fish/Textures/Abysses_Fish_-3 2.png" id="9_noc58"]
+[ext_resource type="Texture2D" uid="uid://dlfjuj3ysikg7" path="res://assets/Fish/Textures/Abysses_Fish_-8 2.png" id="10_u0m6i"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_kfl4q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxg2g"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("3_lybpn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtbti"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("5_wtlsk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8oju"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("6_27r5b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15g4v"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("7_kr2d7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yoynq"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("8_sseon")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akv2n"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("9_noc58")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5c83"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("10_u0m6i")
+
+[node name="Fish" type="Node3D" node_paths=PackedStringArray("Objects")]
+script = ExtResource("1_10f2p")
+LightColor = Color(0.4, 0.262745, 0.4, 1)
+Objects = [NodePath("AntenaParent/Antena"), NodePath("FinTop"), NodePath("FinBackParent/FinBack"), NodePath("BodyBack"), NodePath("BodyTop"), NodePath("JawJoint/BodyJaw"), NodePath("JawJoint/BodyJaw/FinJoint/FinBottom")]
+
+[node name="AntenaParent" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0537741, 0.159916, 0)
+script = ExtResource("2_4b00u")
+Speed = 2.0
+Amplitude = 0.04
+RotationAxis = Vector3(0, 0, 1)
+
+[node name="Antena" type="CSGMesh3D" parent="AntenaParent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0537741, -0.159916, 0)
+sorting_offset = -10.0
+mesh = SubResource("QuadMesh_kfl4q")
+material = SubResource("StandardMaterial3D_yxg2g")
+
+[node name="Light" type="CSGMesh3D" parent="AntenaParent/Antena"]
+transform = Transform3D(0.439296, 0, 0, 0, 0.439296, 0, 0, 0, 1, 0.405597, 0.11901, 0.0409898)
+sorting_offset = 10.0
+mesh = SubResource("QuadMesh_kfl4q")
+material = ExtResource("4_tji0y")
+
+[node name="FinTop" type="CSGMesh3D" parent="."]
+mesh = SubResource("QuadMesh_kfl4q")
+material = SubResource("StandardMaterial3D_vtbti")
+
+[node name="FinBackParent" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.237454, 0.231068, 0)
+script = ExtResource("2_4b00u")
+Speed = 1.5
+Amplitude = 0.03
+Offset = 1.0
+RotationAxis = Vector3(0, 0, 1)
+
+[node name="FinBack" type="CSGMesh3D" parent="FinBackParent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.237454, -0.231068, 0)
+mesh = SubResource("QuadMesh_kfl4q")
+material = SubResource("StandardMaterial3D_f8oju")
+
+[node name="BodyBack" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0149151)
+mesh = SubResource("QuadMesh_kfl4q")
+material = SubResource("StandardMaterial3D_15g4v")
+
+[node name="BodyTop" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0142294)
+mesh = SubResource("QuadMesh_kfl4q")
+material = SubResource("StandardMaterial3D_yoynq")
+
+[node name="JawJoint" type="Node3D" parent="."]
+transform = Transform3D(0.996275, 0.0862342, 0, -0.0862342, 0.996275, 0, 0, 0, 1, -0.0828472, -0.00665845, 0)
+
+[node name="BodyJaw" type="CSGMesh3D" parent="JawJoint"]
+transform = Transform3D(1, 7.45058e-09, 0, -7.45058e-09, 1, 0, 0, 0, 1, 0.0828472, 0.00665845, 0)
+mesh = SubResource("QuadMesh_kfl4q")
+material = SubResource("StandardMaterial3D_akv2n")
+
+[node name="FinJoint" type="Node3D" parent="JawJoint/BodyJaw"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0823634, -0.142021, 0)
+script = ExtResource("2_4b00u")
+Speed = 1.4
+Amplitude = 0.02
+Offset = 3.0
+RotationAxis = Vector3(0, 0, 1)
+
+[node name="FinBottom" type="CSGMesh3D" parent="JawJoint/BodyJaw/FinJoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823634, 0.142021, 0.0183576)
+mesh = SubResource("QuadMesh_kfl4q")
+material = SubResource("StandardMaterial3D_a5c83")

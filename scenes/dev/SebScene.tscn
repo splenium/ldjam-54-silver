@@ -1,73 +1,37 @@
-[gd_scene load_steps=37 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=26 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="1_818dc"]
 [ext_resource type="Material" uid="uid://pfk887ida80" path="res://assets/Materials/Rock00Mat.tres" id="1_kfxe6"]
 [ext_resource type="Material" uid="uid://cevwxtcp37nen" path="res://assets/Materials/Clouds/SkyIslandsBGMat.tres" id="1_xd3yq"]
 [ext_resource type="Script" path="res://assets/Hovering.cs" id="2_njwye"]
 [ext_resource type="Material" uid="uid://d35otdohndue5" path="res://assets/Materials/Rock02Mat.tres" id="3_go02m"]
-[ext_resource type="Material" path="res://assets/Materials/DoctorPunk.tres" id="3_sl62w"]
-[ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/Clouds/CloudMat.tres" id="4_ifijn"]
+[ext_resource type="Material" uid="uid://c8o2gti7npy26" path="res://assets/Materials/DoctorPunk.tres" id="3_sl62w"]
+[ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/CloudMat.tres" id="4_ifijn"]
 [ext_resource type="Material" uid="uid://dljll6fqoob5q" path="res://assets/Materials/Rock03Mat.tres" id="4_xkfjv"]
+[ext_resource type="PackedScene" uid="uid://nm2sr4lmlw7d" path="res://assets/Rocks/rock_00.tscn" id="5_l8viv"]
+[ext_resource type="PackedScene" uid="uid://bmhh7ku8pp5ul" path="res://assets/Rocks/rock_01.tscn" id="6_3qrg0"]
 [ext_resource type="Material" uid="uid://bilv08qhv513l" path="res://assets/Materials/BackgroundWallMat.tres" id="6_tmudm"]
+[ext_resource type="PackedScene" uid="uid://c57gr1e2oucuk" path="res://assets/Rocks/rock_02.tscn" id="7_26c7r"]
 [ext_resource type="Material" uid="uid://6ruug3uhe6dt" path="res://assets/Materials/ConcreteMat.tres" id="7_kt5n6"]
+[ext_resource type="PackedScene" uid="uid://ci4lfh0uevk5q" path="res://assets/Rocks/rock_03.tscn" id="8_yn3o7"]
 [ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="9_5c4k4"]
 [ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="10_4vgx5"]
 [ext_resource type="PackedScene" uid="uid://h1bjyb8mpmo2" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="13_of5xy"]
 [ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="13_t3sxh"]
-[ext_resource type="Script" path="res://scenes/dev/FishAvatar.cs" id="15_umm80"]
+[ext_resource type="PackedScene" uid="uid://d3ego7ibuupbj" path="res://assets/Fish/FishPrefab.tscn" id="15_s0v4d"]
 [ext_resource type="Material" uid="uid://2xm8v6u45jb0" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="24_x0wm6"]
-[ext_resource type="Texture2D" uid="uid://cq6k1dutx11yq" path="res://assets/Fish/Textures/Abysses_Fish_-5 2.png" id="29_d0nxv"]
-[ext_resource type="Script" path="res://scenes/dev/ShakeRotation.cs" id="29_vmhlt"]
-[ext_resource type="Material" uid="uid://dhbf8nuymy81q" path="res://assets/Fish/FishLightMat.tres" id="30_8noo8"]
-[ext_resource type="Texture2D" uid="uid://cgbv01vkx8ayq" path="res://assets/Fish/Textures/Abysses_Fish_-7 2.png" id="30_sar0n"]
-[ext_resource type="Texture2D" uid="uid://bjgeiy6qntqnn" path="res://assets/Fish/Textures/Abysses_Fish_-6 2.png" id="31_5inbe"]
-[ext_resource type="Texture2D" uid="uid://cja1yrd2iw1tc" path="res://assets/Fish/Textures/Abysses_Fish_-2 2.png" id="32_6x50o"]
-[ext_resource type="Texture2D" uid="uid://uohwn4k8t1hf" path="res://assets/Fish/Textures/Abysses_Fish_-4 2.png" id="33_sljr8"]
-[ext_resource type="Texture2D" uid="uid://cyqyi61aqax8k" path="res://assets/Fish/Textures/Abysses_Fish_-3 2.png" id="34_8xik5"]
-[ext_resource type="Texture2D" uid="uid://dlfjuj3ysikg7" path="res://assets/Fish/Textures/Abysses_Fish_-8 2.png" id="35_ovskk"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_574u7"]
+
 [sub_resource type="QuadMesh" id="QuadMesh_0v70s"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_kfl4q"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxg2g"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("29_d0nxv")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtbti"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("30_sar0n")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8oju"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("31_5inbe")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15g4v"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("32_6x50o")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yoynq"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("33_sljr8")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akv2n"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("34_8xik5")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5c83"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("35_ovskk")
-
 [sub_resource type="QuadMesh" id="QuadMesh_dgnp5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqnb8"]
+transparency = 1
+albedo_color = Color(0.627451, 1, 1, 0.431373)
 
 [node name="SebScene" type="Node3D"]
 
@@ -110,46 +74,19 @@ script = ExtResource("2_njwye")
 Speed = 2.0
 Amplitude = 0.005
 
-[node name="Rock00" type="CSGMesh3D" parent="SceneIslands"]
-transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, -0.131399, -0.550237, 0)
-mesh = SubResource("QuadMesh_qs0ii")
-material = ExtResource("1_kfxe6")
-script = ExtResource("2_njwye")
-Speed = 2.0
-Amplitude = 0.005
+[node name="Rock00" parent="SceneIslands" instance=ExtResource("5_l8viv")]
 
-[node name="Rock01" type="CSGMesh3D" parent="SceneIslands"]
-transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.458488, 0.311989, 0)
-mesh = SubResource("QuadMesh_qs0ii")
-material = ExtResource("1_818dc")
-script = ExtResource("2_njwye")
-Speed = 1.5
-Amplitude = 0.005
-Offset = 1.0
+[node name="Rock01" parent="SceneIslands" instance=ExtResource("6_3qrg0")]
 
-[node name="Rock02" type="CSGMesh3D" parent="SceneIslands"]
-transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, -0.41338, 0.32463, 0)
-mesh = SubResource("QuadMesh_qs0ii")
-material = ExtResource("3_go02m")
-script = ExtResource("2_njwye")
-Speed = 2.0
-Amplitude = 0.005
-Offset = 2.0
+[node name="Rock02" parent="SceneIslands" instance=ExtResource("7_26c7r")]
 
-[node name="Rock03" type="CSGMesh3D" parent="SceneIslands"]
-transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.0124002, -0.0124133, 0)
-mesh = SubResource("QuadMesh_qs0ii")
-material = ExtResource("4_xkfjv")
-script = ExtResource("2_njwye")
-Amplitude = 0.005
-Offset = 3.0
+[node name="Rock03" parent="SceneIslands" instance=ExtResource("8_yn3o7")]
 
 [node name="Abyss" type="Node3D" parent="."]
-visible = false
 
 [node name="SkyBG" type="CSGMesh3D" parent="Abyss"]
-transform = Transform3D(4.70554, 0, 0, 0, 4.70554, 0, 0, 0, 1, 0, -0.322, -0.397)
-mesh = SubResource("QuadMesh_qs0ii")
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.322, -0.397)
+mesh = SubResource("QuadMesh_574u7")
 material = ExtResource("9_5c4k4")
 script = ExtResource("2_njwye")
 Speed = 2.0
@@ -215,7 +152,7 @@ Amplitude = 0.005
 Offset = 3.0
 
 [node name="Background" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.684719)
+transform = Transform3D(3.26746, 0, 0, 0, 4.9591, 0, 0, 0, 1, 0, 0, -2.38924)
 
 [node name="Wall" type="CSGMesh3D" parent="Background"]
 transform = Transform3D(4.56332, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -264,79 +201,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Fish" type="Node3D" parent="." node_paths=PackedStringArray("Objects")]
-script = ExtResource("15_umm80")
-LightColor = Color(0.4, 0.262745, 0.4, 1)
-Objects = [NodePath("AntenaParent/Antena"), NodePath("FinTop"), NodePath("FinBackParent/FinBack"), NodePath("BodyBack"), NodePath("BodyTop"), NodePath("JawJoint/BodyJaw"), NodePath("JawJoint/BodyJaw/FinJoint/FinBottom")]
-
-[node name="AntenaParent" type="Node3D" parent="Fish"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0537741, 0.159916, 0)
-script = ExtResource("29_vmhlt")
-Speed = 2.0
-Amplitude = 0.04
-RotationAxis = Vector3(0, 0, 1)
-
-[node name="Antena" type="CSGMesh3D" parent="Fish/AntenaParent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0537741, -0.159916, 0)
-sorting_offset = -10.0
-mesh = SubResource("QuadMesh_kfl4q")
-material = SubResource("StandardMaterial3D_yxg2g")
-
-[node name="Light" type="CSGMesh3D" parent="Fish/AntenaParent/Antena"]
-transform = Transform3D(0.439296, 0, 0, 0, 0.439296, 0, 0, 0, 1, 0.405597, 0.11901, 0.0409898)
-sorting_offset = 10.0
-mesh = SubResource("QuadMesh_kfl4q")
-material = ExtResource("30_8noo8")
-
-[node name="FinTop" type="CSGMesh3D" parent="Fish"]
-mesh = SubResource("QuadMesh_kfl4q")
-material = SubResource("StandardMaterial3D_vtbti")
-
-[node name="FinBackParent" type="Node3D" parent="Fish"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.237454, 0.231068, 0)
-script = ExtResource("29_vmhlt")
-Speed = 1.5
-Amplitude = 0.03
-Offset = 1.0
-RotationAxis = Vector3(0, 0, 1)
-
-[node name="FinBack" type="CSGMesh3D" parent="Fish/FinBackParent"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.237454, -0.231068, 0)
-mesh = SubResource("QuadMesh_kfl4q")
-material = SubResource("StandardMaterial3D_f8oju")
-
-[node name="BodyBack" type="CSGMesh3D" parent="Fish"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0149151)
-mesh = SubResource("QuadMesh_kfl4q")
-material = SubResource("StandardMaterial3D_15g4v")
-
-[node name="BodyTop" type="CSGMesh3D" parent="Fish"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0142294)
-mesh = SubResource("QuadMesh_kfl4q")
-material = SubResource("StandardMaterial3D_yoynq")
-
-[node name="JawJoint" type="Node3D" parent="Fish"]
-transform = Transform3D(0.996275, 0.0862342, 0, -0.0862342, 0.996275, 0, 0, 0, 1, -0.0828472, -0.00665845, 0)
-
-[node name="BodyJaw" type="CSGMesh3D" parent="Fish/JawJoint"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0828472, 0.00665845, 0)
-mesh = SubResource("QuadMesh_kfl4q")
-material = SubResource("StandardMaterial3D_akv2n")
-
-[node name="FinJoint" type="Node3D" parent="Fish/JawJoint/BodyJaw"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0823634, -0.142021, 0)
-script = ExtResource("29_vmhlt")
-Speed = 1.4
-Amplitude = 0.02
-Offset = 3.0
-RotationAxis = Vector3(0, 0, 1)
-
-[node name="FinBottom" type="CSGMesh3D" parent="Fish/JawJoint/BodyJaw/FinJoint"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823634, 0.142021, 0.0183576)
-mesh = SubResource("QuadMesh_kfl4q")
-material = SubResource("StandardMaterial3D_a5c83")
+[node name="Fish" parent="." instance=ExtResource("15_s0v4d")]
 
 [node name="Wing" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86135, 0, 0)
 mesh = SubResource("QuadMesh_dgnp5")
 material = ExtResource("24_x0wm6")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(10.4676, 0, 0, 0, 10.4676, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+sorting_offset = 100.0
+material = SubResource("StandardMaterial3D_dqnb8")
