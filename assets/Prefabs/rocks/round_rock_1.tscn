@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cu6ackaeydlfq"]
+[gd_scene load_steps=9 format=3 uid="uid://cfmpjoge2fq70"]
 
 [ext_resource type="Shader" path="res://assets/Shaders/Rock.gdshader" id="1_oabrs"]
 [ext_resource type="Texture2D" uid="uid://dpwemcwwdnctm" path="res://assets/Textures/Rocks/Roches.png" id="2_aoxs1"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://5sk85n3veo0o"]
+
+[ext_resource type="Texture2D" uid="uid://mk70o23vpga0" path="res://assets/Textures/graveyard/Tombes-3.png" id="1_jaqjh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_h3bwe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8d5u"]
+transparency = 1
+albedo_texture = ExtResource("1_jaqjh")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pdb2u"]
+size = Vector3(0.282567, 0.361397, 6.03145)
+
+[node name="Cemetery2" type="CSGMesh3D"]
+transform = Transform3D(4.97652, 0, 0, 0, 4.97652, 0, 0, 0, 1, 35.912, -18.208, -0.0552242)
+sorting_offset = -5.0
+mesh = SubResource("QuadMesh_h3bwe")
+material = SubResource("StandardMaterial3D_i8d5u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, -2.38758e-16, 0, -2.38741e-16, 1, 9.71445e-17, 2.27374e-13, -1.16707e-12, 1, -0.276041, -0.223117, 0.302587)
+shape = SubResource("BoxShape3D_pdb2u")

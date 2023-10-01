@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0ix6en3173nk"]
+
+[ext_resource type="Texture2D" uid="uid://bgq2b82veecag" path="res://assets/Textures/graveyard/Cemetery_decor-4.png" id="1_tgrcy"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4xcwb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxat1"]
+transparency = 1
+albedo_texture = ExtResource("1_tgrcy")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6pntc"]
+size = Vector3(0.130797, 0.289426, 10.2768)
+
+[node name="ReverseTree" type="CSGMesh3D"]
+transform = Transform3D(-17.8134, -5.84167, 0, 5.57863, -18.6534, 0, 0, 0, 1, 32.6645, -13.9487, 0)
+sorting_offset = -13.0
+mesh = SubResource("QuadMesh_4xcwb")
+material = SubResource("StandardMaterial3D_dxat1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, 0.00083828, -0.0993955, 0)
+shape = SubResource("BoxShape3D_6pntc")

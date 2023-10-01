@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cuqngsngyeab1"]
+[gd_scene load_steps=11 format=3 uid="uid://cuqngsngyeab1"]
 
 [ext_resource type="Texture2D" uid="uid://hy5nnuoid1sd" path="res://assets/Textures/Cliff/Enter_Cliff_1.png" id="1_8megx"]
+[ext_resource type="Shader" path="res://assets/Shaders/Rock.gdshader" id="1_uymav"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_jq4r0"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6pdgm"]
-transparency = 1
-albedo_texture = ExtResource("1_8megx")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ailxg"]
+render_priority = 0
+shader = ExtResource("1_uymav")
+shader_parameter/_mainTex = ExtResource("1_8megx")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_inl0n"]
 size = Vector3(0.485704, 0.0354242, 17.2531)
@@ -30,7 +32,7 @@ size = Vector3(0.0404821, 0.115386, 15.7703)
 transform = Transform3D(15.1367, 0, 0, 0, 15.1367, 0, 0, 0, 1, 2.14499, 0.025305, -0.0557756)
 sorting_offset = -10.0
 mesh = SubResource("QuadMesh_jq4r0")
-material = SubResource("StandardMaterial3D_6pdgm")
+material = SubResource("ShaderMaterial_ailxg")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

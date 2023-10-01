@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cq6v2etphhni"]
+[gd_scene load_steps=9 format=3 uid="uid://cq6v2etphhni"]
 
 [ext_resource type="Texture2D" uid="uid://c5p1krh7mdulr" path="res://assets/Textures/Rocks/FlatRock01/roches_plates_1.png" id="1_q5fa2"]
+[ext_resource type="Shader" path="res://assets/Shaders/Rock.gdshader" id="1_xpphm"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_l6bia"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28g7t"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("1_q5fa2")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3n7pv"]
+render_priority = 0
+shader = ExtResource("1_xpphm")
+shader_parameter/_mainTex = ExtResource("1_q5fa2")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qnijo"]
 size = Vector3(0.679082, 0.0476185, 1)
@@ -24,7 +25,7 @@ size = Vector3(0.128829, 0.0668459, 1)
 [node name="FlatRock1" type="CSGMesh3D"]
 transform = Transform3D(9.38845, 0, 0, 0, 9.38845, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("QuadMesh_l6bia")
-material = SubResource("StandardMaterial3D_28g7t")
+material = SubResource("ShaderMaterial_3n7pv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

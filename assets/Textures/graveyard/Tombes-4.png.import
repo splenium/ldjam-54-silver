@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c65183b3y77my"
-path.s3tc="res://.godot/imported/Cemetery_Ground_Details_1.png-dfddb8177772e7ae0b84e29ed9458f10.s3tc.ctex"
+uid="uid://ba5snr5o013p5"
+path="res://.godot/imported/Tombes-4.png-45de5729fca9ba530e09e99fe89ebe93.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Textures/graveyard/Cemetery_Ground_Details_1.png"
-dest_files=["res://.godot/imported/Cemetery_Ground_Details_1.png-dfddb8177772e7ae0b84e29ed9458f10.s3tc.ctex"]
+source_file="res://assets/Textures/graveyard/Tombes-4.png"
+dest_files=["res://.godot/imported/Tombes-4.png-45de5729fca9ba530e09e99fe89ebe93.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

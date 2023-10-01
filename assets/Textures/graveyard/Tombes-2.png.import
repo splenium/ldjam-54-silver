@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c65183b3y77my"
-path.s3tc="res://.godot/imported/Cemetery_Ground_Details_1.png-dfddb8177772e7ae0b84e29ed9458f10.s3tc.ctex"
+uid="uid://rf3pnedo65ke"
+path.s3tc="res://.godot/imported/Tombes-2.png-4b8b38a591bbffe46a6a7797ae43a762.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Textures/graveyard/Cemetery_Ground_Details_1.png"
-dest_files=["res://.godot/imported/Cemetery_Ground_Details_1.png-dfddb8177772e7ae0b84e29ed9458f10.s3tc.ctex"]
+source_file="res://assets/Textures/graveyard/Tombes-2.png"
+dest_files=["res://.godot/imported/Tombes-2.png-4b8b38a591bbffe46a6a7797ae43a762.s3tc.ctex"]
 
 [params]
 

@@ -14,6 +14,9 @@ public partial class GameManager : Node
 
     public static string NextScene = "";
 
+    public static int MaxHealth = 100;
+    public static int DefaultAmountOfDamage = 50;
+
     public override void _Ready()
     {
         InitAudio();

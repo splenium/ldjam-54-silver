@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bavh3ckhsnifc"]
+
+[ext_resource type="Texture2D" uid="uid://cyd3s3osefo5s" path="res://assets/Textures/graveyard/dino-1.png" id="1_bmxtd"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_kml0s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3wyk"]
+transparency = 1
+albedo_texture = ExtResource("1_bmxtd")
+
+[node name="Dino" type="CSGMesh3D"]
+transform = Transform3D(428.192, 0, 0, 0, 428.192, 0, 0, 0, 1, 42.601, 0, 5.43367)
+mesh = SubResource("QuadMesh_kml0s")
+material = SubResource("StandardMaterial3D_r3wyk")
