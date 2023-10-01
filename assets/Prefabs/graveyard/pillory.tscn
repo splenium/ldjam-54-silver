@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://doiucep0m80t1"]
+
+[ext_resource type="Texture2D" uid="uid://ftoe11u8f4nd" path="res://assets/Textures/graveyard/pillory.png" id="1_d1oxj"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_16qyx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_web14"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_d1oxj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pnl1h"]
+size = Vector3(0.18198, 0.79507, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sk61f"]
+size = Vector3(0.18198, 0.223751, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5rsg0"]
+size = Vector3(0.0818748, 0.776933, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lysrn"]
+size = Vector3(0.0642471, 0.215439, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4fert"]
+size = Vector3(0.0500965, 0.15451, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uvnht"]
+size = Vector3(0.0500965, 0.0735817, 1)
+
+[node name="Pillory" type="CSGMesh3D"]
+transform = Transform3D(8.36697, 0, 0, 0, 8.36697, 0, 0, 0, 1, 32.9808, 1.47493, 0)
+mesh = SubResource("QuadMesh_16qyx")
+material = SubResource("StandardMaterial3D_web14")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0612144, 0.00453424, 0)
+shape = SubResource("BoxShape3D_pnl1h")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222181, -0.301529, 0)
+shape = SubResource("BoxShape3D_sk61f")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.996854, -0.0792594, 0, 0.0792594, 0.996854, 0, 0, 0, 1, 0.0317421, 0.0861516, 0)
+shape = SubResource("BoxShape3D_5rsg0")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.805028, -0.593236, 0, 0.593236, 0.805028, 0, 0, 0, 1, -0.0351353, 0.204705, 0)
+shape = SubResource("BoxShape3D_lysrn")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.420244, -0.907411, 0, 0.907411, 0.420244, 0, 0, 0, 1, -0.150375, 0.319945, 0)
+shape = SubResource("BoxShape3D_4fert")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.0446482, -0.999003, 0, 0.999003, 0.0446482, 0, 0, 0, 1, -0.24671, 0.346054, 0)
+shape = SubResource("BoxShape3D_uvnht")
