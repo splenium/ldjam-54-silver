@@ -162,11 +162,11 @@ shape = SubResource("CapsuleShape3D_47kvu")
 [node name="Power" type="Node3D" parent="."]
 
 [node name="Human" type="Node3D" parent="Power" node_paths=PackedStringArray("WaterDetector", "raKoonAvatar")]
-visible = false
 script = ExtResource("4_p84tn")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 ContactWaterBreak = 0.4
 raKoonAvatar = NodePath("Mesh/HumanRaKoonAvatar")
+LightColor = Color(1, 1, 1, 1)
 
 [node name="Mesh" type="Node3D" parent="Power/Human"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
@@ -175,11 +175,11 @@ transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
 
 [node name="Ghost" type="Node3D" parent="Power" node_paths=PackedStringArray("Detector", "WaterDetector", "raKoonAvatar")]
-visible = false
 script = ExtResource("6_a57bf")
 Detector = NodePath("../../Detectors/DetectorObstacles")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/GhostRaKoonAvatar")
+LightColor = Color(1, 1, 1, 1)
 
 [node name="Mesh" type="Node3D" parent="Power/Ghost"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
@@ -188,10 +188,10 @@ transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
 
 [node name="Fish" type="Node3D" parent="Power" node_paths=PackedStringArray("WaterDetector", "raKoonAvatar")]
-visible = false
 script = ExtResource("5_hw2ut")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/FishRaKoonAvatar")
+LightColor = Color(0, 0.956863, 0.960784, 1)
 
 [node name="Mesh" type="Node3D" parent="Power/Fish"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
@@ -199,12 +199,17 @@ transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
 [node name="FishRaKoonAvatar" parent="Power/Fish/Mesh" instance=ExtResource("6_w2hbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
 
-[node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("AnimationLeftWing", "AnimationRightWing", "WaterDetector", "raKoonAvatar")]
+[node name="Fly" type="Node3D" parent="Power" node_paths=PackedStringArray("AnimationLeftWing", "AnimationRightWing", "WingRight", "WingLeft", "BoostSound", "WaterDetector", "raKoonAvatar")]
 script = ExtResource("3_3p4kr")
 AnimationLeftWing = NodePath("AnimationLeftWing")
 AnimationRightWing = NodePath("AnimationRightWing")
+WingRight = NodePath("RightWing/RightWingMesh")
+WingLeft = NodePath("LeftWing/LeftWingMesh")
+BoostSound = NodePath("BoostSound")
+BoostSounds = Array[AudioStreamMP3]([])
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/FlyRaKoonAvatar")
+LightColor = Color(0.545098, 0.545098, 0.545098, 1)
 
 [node name="BoostSound" type="AudioStreamPlayer" parent="Power/Fly"]
 stream = ExtResource("7_kg6g1")

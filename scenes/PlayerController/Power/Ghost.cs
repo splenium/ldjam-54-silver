@@ -62,12 +62,14 @@ public partial class Ghost : Power
     public override void Init(CharacterBody3D c)
     {
         base.Init(c);
+        raKoonAvatar.IsGhost = true;
         c.SetCollisionMaskValue(2, false);
     }
 
     public override void Exit(CharacterBody3D c)
     {
         base.Exit(c);
+        raKoonAvatar.IsGhost = false;
         c.SetCollisionMaskValue(2, true);
     }
 
