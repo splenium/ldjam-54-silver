@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://o3eje0au3pu8"]
+
+[ext_resource type="Script" path="res://scenes/dev/StartingMenu.cs" id="1_6lhjk"]
+[ext_resource type="FontFile" uid="uid://bd68enjsgi778" path="res://assets/FontStyle/Geosteam-eJap.ttf" id="1_rkvb0"]
+[ext_resource type="FontFile" uid="uid://mg8l38ygan5q" path="res://assets/FontStyle/JackOfGears.ttf" id="2_bfru4"]
+[ext_resource type="PackedScene" uid="uid://cmojig8xnpdv1" path="res://scenes/dev/TestScene.tscn" id="4_83cfh"]
+
+[node name="StartingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = -1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6lhjk")
+StartingScene = ExtResource("4_83cfh")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.196
+offset_top = 2.0
+offset_bottom = -0.00800323
+theme_override_fonts/font = ExtResource("1_rkvb0")
+theme_override_font_sizes/font_size = 55
+text = "Chimical Rakoon"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.385
+anchor_top = 0.289
+anchor_right = 0.641
+anchor_bottom = 0.815
+offset_left = -0.52002
+offset_top = -0.272003
+offset_right = 0.567993
+offset_bottom = -0.120056
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("2_bfru4")
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "START
+"
+flat = true
+icon_alignment = 1
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bfru4")
+theme_override_font_sizes/font_size = 40
+text = "CREDITS
+"
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

@@ -278,6 +278,10 @@ ToFollow = NodePath("../CharacterBody3D")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_isjr3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7189, 0, 0)
+IsPowerHumanUnlock = true
+IsPowerFishUnlock = true
+IsPowerFlyUnlock = true
+IsPowerGhostUnlock = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.592308, 0.805711, 0, -0.805711, 0.592308, 0, 7.73916, 7.64032)
