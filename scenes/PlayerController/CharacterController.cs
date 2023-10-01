@@ -1,6 +1,6 @@
-using System.Collections.Generic;
 using Godot;
 using LudumDare54Silver.scenes.PlayerController.Power;
+using System.Collections.Generic;
 
 public partial class CharacterController : CharacterBody3D
 {
@@ -8,7 +8,8 @@ public partial class CharacterController : CharacterBody3D
     public Human PowerHuman;
     public string PowerHumanAction = "power_human";
     [Export]
-    public bool IsPowerHumanUnlock {
+    public bool IsPowerHumanUnlock
+    {
         get => isPowerUnlock[PowerEnum.Human];
         set => isPowerUnlock[PowerEnum.Human] = value;
     }
@@ -17,7 +18,8 @@ public partial class CharacterController : CharacterBody3D
     public Fish PowerFish;
     public string PowerFishAction = "power_fish";
     [Export]
-    public bool IsPowerFishUnlock {
+    public bool IsPowerFishUnlock
+    {
         get => isPowerUnlock[PowerEnum.Fish];
         set => isPowerUnlock[PowerEnum.Fish] = value;
     }
@@ -26,7 +28,8 @@ public partial class CharacterController : CharacterBody3D
     public Fly PowerFly;
     public string PowerFlyAction = "power_fly";
     [Export]
-    public bool IsPowerFlyUnlock {
+    public bool IsPowerFlyUnlock
+    {
         get => isPowerUnlock[PowerEnum.Fly];
         set => isPowerUnlock[PowerEnum.Fly] = value;
     }
@@ -36,7 +39,8 @@ public partial class CharacterController : CharacterBody3D
     public Ghost PowerGhost;
     public string PowerGhostAction = "power_ghost";
     [Export]
-    public bool IsPowerGhostUnlock {
+    public bool IsPowerGhostUnlock
+    {
         get => isPowerUnlock[PowerEnum.Ghost];
         set => isPowerUnlock[PowerEnum.Ghost] = value;
     }
@@ -57,12 +61,20 @@ public partial class CharacterController : CharacterBody3D
     [Export]
     public Timer DamageTakenTimer;
 
+    [Export]
+    public Area3D VortexDetector;
+
+    [Export]
+    public Resource NextScene;
+
     [Signal]
     public delegate void PlayerDiedEventHandler();
 
     private Power currentPower;
     private bool invulernability = false;
     private int health = 100;
+
+    private bool hasTeleport = false;
 
     //private Power selectedPower;
 
@@ -150,6 +162,13 @@ public partial class CharacterController : CharacterBody3D
             GD.Print("Bim: ", health);
             TakeDamage(50);
         }
+
+        if (!hasTeleport && VortexDetector.HasOverlappingAreas())
+        {
+            hasTeleport = true;
+            GD.Print("Vortex");
+            LoadNewLevel("res://scenes/VortexTravel.tscn");
+        }
     }
 
     public void Reset()
@@ -201,4 +220,10 @@ public partial class CharacterController : CharacterBody3D
         SelectPower(powerByEnum[power]);
     }
 
+    private void LoadNewLevel(string path)
+    {
+        GameManager.NextScene = NextScene.ResourcePath;
+        GD.Print("currentSceneName: ", GetTree().CurrentScene.Name);
+        GetTree().ChangeSceneToFile(path);
+    }
 }

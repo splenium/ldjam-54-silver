@@ -1,11 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjrxx0g68e18x"]
+[gd_scene load_steps=15 format=3 uid="uid://bjrxx0g68e18x"]
 
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_m1iqt"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_dnp53"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="3_3521m"]
+[ext_resource type="PackedScene" path="res://scenes/Levels/AbyssScene.tscn" id="3_bf4l3"]
 [ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="4_n1t4r"]
 [ext_resource type="PackedScene" uid="uid://fa27lkyj3wa7" path="res://assets/Prefabs/rocks/flat_rock_2.tscn" id="5_652ma"]
 [ext_resource type="PackedScene" uid="uid://doiucep0m80t1" path="res://assets/Prefabs/graveyard/pillory.tscn" id="6_y8d85"]
+[ext_resource type="PackedScene" uid="uid://m2g3tkiocfl5" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="7_e2s7j"]
+[ext_resource type="PackedScene" uid="uid://bgj0n06q1fhte" path="res://scenes/UnlockPower.tscn" id="7_e478l"]
+[ext_resource type="PackedScene" uid="uid://dtowie7wu0ypl" path="res://assets/vortex_animation.tscn" id="8_mmgsx"]
+[ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="8_msd53"]
+[ext_resource type="PackedScene" uid="uid://ba1spgb6o1um" path="res://assets/Prefabs/grid/ground_grid.tscn" id="10_atb5u"]
+[ext_resource type="PackedScene" uid="uid://cb01jbet33cp1" path="res://assets/Prefabs/grid/vertical_grid.tscn" id="11_vjdio"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2srgw"]
+radius = 0.938056
 
 [node name="graveyard" type="Node3D"]
 
@@ -15,9 +25,7 @@ ToFollow = NodePath("../CharacterBody3D")
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_dnp53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.319693, 8.10785, 0)
 IsPowerHumanUnlock = true
-IsPowerFishUnlock = true
-IsPowerFlyUnlock = true
-IsPowerGhostUnlock = true
+NextScene = ExtResource("3_bf4l3")
 
 [node name="CliffRock" parent="." instance=ExtResource("3_3521m")]
 
@@ -31,7 +39,7 @@ transform = Transform3D(9.38845, 0, 0, 0, 9.38845, 0, 0, 0, 1, 6.81492, -1.4121,
 sorting_offset = -10.0
 
 [node name="FlatRock3" parent="." instance=ExtResource("4_n1t4r")]
-transform = Transform3D(-14, -2.11394e-06, -8.74228e-08, -2.11394e-06, 14, 0, -1.22392e-06, -1.84807e-13, 1, 30.5083, -2.34585, 0)
+transform = Transform3D(-14, -2.11394e-06, -8.74228e-08, -2.11394e-06, 14, 0, -1.22392e-06, -1.84807e-13, 1, 7.1441, -4.78592, 0)
 sorting_offset = -9.0
 
 [node name="FlatRock2" parent="." instance=ExtResource("5_652ma")]
@@ -39,7 +47,45 @@ transform = Transform3D(13.8138, 0, 0, 0, 13.8138, 0, 0, 0, 1.07385, 14.5543, -7
 sorting_offset = -8.0
 
 [node name="FlatRock4" parent="." instance=ExtResource("5_652ma")]
-transform = Transform3D(-13, -1.1365e-06, 0, -1.1365e-06, 13, 0, 0, 0, 1.074, 19.9968, -6.89668, 0)
+transform = Transform3D(-13, -1.1365e-06, 0, -1.1365e-06, 13, 0, 0, 0, 1.074, 28.3914, -19.0493, 0)
 sorting_offset = -13.0
 
-[node name="Pillory" parent="." instance=ExtResource("6_y8d85")]
+[node name="TriangleRock2" parent="." instance=ExtResource("7_e2s7j")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 22.8282, -5.89522, 0)
+
+[node name="HighRock" parent="." instance=ExtResource("8_msd53")]
+transform = Transform3D(9.44433, -0.787344, 0, 0.807174, 9.21231, 0, 0, 0, 8, 24.2827, -10.8384, -0.0642548)
+
+[node name="CliffRock2" parent="." instance=ExtResource("3_3521m")]
+transform = Transform3D(-3.96434, 14.6083, 0, -14.6083, -3.96434, 0, 0, 0, 1, 36.2915, -18.1281, -0.0557756)
+
+[node name="BundleGrid" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4544, 0, 0)
+
+[node name="Pillory" parent="BundleGrid" instance=ExtResource("6_y8d85")]
+transform = Transform3D(8.36697, 0, 0, 0, 8.36697, 0, 0, 0, 1, 5.38547, -0.376605, 0)
+
+[node name="UnlockPower" parent="BundleGrid/Pillory" instance=ExtResource("7_e478l")]
+transform = Transform3D(0.119518, 0, 0, 0, 0.119518, 0, 0, 0, 1, -0.1821, 0.0391123, 0)
+power = 3
+
+[node name="TriangleRock1" parent="BundleGrid" instance=ExtResource("7_e2s7j")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 9.21374, -6.23827, 0.00613785)
+
+[node name="GroundGrid" parent="BundleGrid" instance=ExtResource("10_atb5u")]
+
+[node name="GroundGrid3" parent="BundleGrid" instance=ExtResource("11_vjdio")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5.63733, -12.8275, -1.43791)
+
+[node name="Vortex" type="Node3D" parent="."]
+
+[node name="VortexAnimation" parent="Vortex" instance=ExtResource("8_mmgsx")]
+transform = Transform3D(0.415858, 0, 0, 0, 0.415858, 0, 0, 0, 1, 4.61157, 8.43432, 0)
+
+[node name="Area3D" type="Area3D" parent="Vortex"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5374, 8.38557, 0)
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Vortex/Area3D"]
+shape = SubResource("SphereShape3D_2srgw")
