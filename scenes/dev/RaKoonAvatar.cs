@@ -59,6 +59,8 @@ public partial class RaKoonAvatar : Node3D
     public bool IsMoving;
     [Export]
     public bool IsLeft;
+    [Export]
+    public bool IsGhost;
     public void SetFace(EnumEFaceState state)
     {
         switch (state)
@@ -107,6 +109,10 @@ public partial class RaKoonAvatar : Node3D
 		_totalTime += (float)delta;
 		HeadMaterial.SetShaderParameter("_lightColor", LightColor);
 		BodyMaterial.SetShaderParameter("_lightColor", LightColor);
+        float ghostness = (IsGhost ? 1.0f : 0.0f);
+        HeadMaterial.SetShaderParameter("_ghostness", ghostness);
+        BodyMaterial.SetShaderParameter("_ghostness", ghostness);
+        
 
     }
 }
