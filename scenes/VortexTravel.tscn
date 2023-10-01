@@ -6,6 +6,7 @@
 [node name="VortexTravel" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
+current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

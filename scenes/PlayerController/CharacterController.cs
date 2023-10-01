@@ -64,6 +64,9 @@ public partial class CharacterController : CharacterBody3D
     [Export]
     public Area3D VortexDetector;
 
+    [Export]
+    public Resource NextScene;
+
     [Signal]
     public delegate void PlayerDiedEventHandler();
 
@@ -213,51 +216,10 @@ public partial class CharacterController : CharacterBody3D
         SelectPower(powerByEnum[power]);
     }
 
-    public async void AddLevelNextFrame(Node level)
-    {
-        await ToSignal(GetTree(), "idle_frame");
-        await ToSignal(GetTree(), "idle_frame");
-        await ToSignal(GetTree(), "idle_frame");
-        await ToSignal(GetTree(), "idle_frame");
-        await ToSignal(GetTree(), "idle_frame");
-        await ToSignal(GetTree(), "idle_frame");
-        GetTree().Root.AddChild(level);
-    }
-
     private void LoadNewLevel(string path)
     {
-        //var level = GD.Load<PackedScene>(path);
-        //var newLevelInstance = level.Instantiate();
+        GameManager.NextScene = NextScene.ResourcePath;
         GD.Print("currentSceneName: ", GetTree().CurrentScene.Name);
         GetTree().ChangeSceneToFile(path);
-        GetTree().GetNodesInGroup("vortexManager")[0].SceneFilePath = "res://scenes/Levels/AbyssScene.tscn";
-        /*if (GetRecursiveChildren(GetTree().CurrentScene) == null)
-        {
-            GD.Print("null NOT FOUND");
-        }
-        else
-        {
-            GD.Print("FOUND", GetRecursiveChildren(GetTree().CurrentScene).Name);
-        }
-        GetRecursiveChildren(GetTree().CurrentScene).SceneFilePath = "res://scenes/Levels/AbyssScene.tscn";*/
-        //GetTree().;
-        //GetTree().Root.RemoveChild(GetTree().CurrentScene);
-        //AddLevelNextFrame(newLevelInstance);
-        //GetTree().Root.AddChild(newLevelInstance);
-        //        GetTree().Root.AddChild(newLevelInstance);
     }
-
-    private VortexTravel GetRecursiveChildren(Node node)
-    {
-        if (node is VortexTravel)
-        {
-            return node as VortexTravel;
-        }
-        foreach (Node child in node.GetChildren())
-        {
-            return GetRecursiveChildren(child);
-        }
-        return null;
-    }
-
 }

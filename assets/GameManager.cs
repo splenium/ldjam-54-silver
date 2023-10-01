@@ -12,6 +12,8 @@ public partial class GameManager : Node
 
     private static int simultaneousAudioEffect = 10;
 
+    public static string NextScene = "";
+
     public override void _Ready()
     {
         InitAudio();

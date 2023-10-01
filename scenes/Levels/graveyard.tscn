@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjrxx0g68e18x"]
+[gd_scene load_steps=15 format=3 uid="uid://bjrxx0g68e18x"]
 
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_m1iqt"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_dnp53"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="3_3521m"]
+[ext_resource type="PackedScene" path="res://scenes/Levels/AbyssScene.tscn" id="3_bf4l3"]
 [ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="4_n1t4r"]
 [ext_resource type="PackedScene" uid="uid://fa27lkyj3wa7" path="res://assets/Prefabs/rocks/flat_rock_2.tscn" id="5_652ma"]
 [ext_resource type="PackedScene" uid="uid://doiucep0m80t1" path="res://assets/Prefabs/graveyard/pillory.tscn" id="6_y8d85"]
@@ -24,6 +25,7 @@ ToFollow = NodePath("../CharacterBody3D")
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_dnp53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.319693, 8.10785, 0)
 IsPowerHumanUnlock = true
+NextScene = ExtResource("3_bf4l3")
 
 [node name="CliffRock" parent="." instance=ExtResource("3_3521m")]
 

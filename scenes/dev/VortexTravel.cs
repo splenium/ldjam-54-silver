@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class VortexTravel : Node3D
 {
@@ -20,9 +19,9 @@ public partial class VortexTravel : Node3D
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
-	{
-        _originalRotation = new Vector3(0, 0,-20);// RaKoonAvatar.Rotation;
-        _originalPosition = new Vector3(-1, 0,0);
+    {
+        _originalRotation = new Vector3(0, 0, -20);// RaKoonAvatar.Rotation;
+        _originalPosition = new Vector3(-1, 0, 0);
     }
 
     public override void _Process(double delta)
@@ -31,7 +30,7 @@ public partial class VortexTravel : Node3D
         RaKoonAvatar.IsLeft = false;
         var moveObject = (RaKoonAvatar.GetParent() as Node3D);
         moveObject.Rotation = _originalRotation.Lerp(new Vector3(0, 0, 10), TravelPercent);
-        moveObject.Position = _originalPosition.Lerp(new Vector3(1,0,0), TravelPercent);
+        moveObject.Position = _originalPosition.Lerp(new Vector3(1, 0, 0), TravelPercent);
         if (Button)
         {
             Button = false;
@@ -52,7 +51,7 @@ public partial class VortexTravel : Node3D
             TravelPercent = time / duration;
             await ToSignal(GetTree().CreateTimer(delay), "timeout");
         }
-        GD.Print("Travel anim finished, loading scene...");
-        GetTree().ChangeSceneToFile(NextScenePath);
+        GD.Print("Travel anim finished, loading scene...", NextScenePath);
+        GetTree().ChangeSceneToFile(GameManager.NextScene);
     }
 }
