@@ -27,9 +27,11 @@ public partial class RaKoonAvatar : Node3D
 
 
     [Export]
-    public ShaderMaterial HeadMaterial;
+    public CsgMesh3D HeadMesh;
+    public ShaderMaterial HeadMaterial => (ShaderMaterial)HeadMesh.Material;
     [Export]
-    public ShaderMaterial BodyMaterial;
+    public CsgMesh3D BodyMesh;
+    public ShaderMaterial BodyMaterial => (ShaderMaterial)BodyMesh.Material;
 
     [Export]
     public Texture2D OHBackground;
@@ -109,7 +111,7 @@ public partial class RaKoonAvatar : Node3D
 		_totalTime += (float)delta;
 		HeadMaterial.SetShaderParameter("_lightColor", LightColor);
 		BodyMaterial.SetShaderParameter("_lightColor", LightColor);
-        float ghostness = (IsGhost ? 1.0f : 0.0f);
+        float ghostness = IsGhost ? 1.0f : 0.0f;
         HeadMaterial.SetShaderParameter("_ghostness", ghostness);
         BodyMaterial.SetShaderParameter("_ghostness", ghostness);
         

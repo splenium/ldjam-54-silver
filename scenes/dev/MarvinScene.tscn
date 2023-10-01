@@ -229,7 +229,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 12.055, 23.4295, 2.49512, 13.462
 power = 3
 
 [node name="UnlockPowerFish" parent="Level" instance=ExtResource("5_wyrmu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 12.055, 12.7187, -12.8875, 13.4624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 12.055, 12.4824, -13.8328, 13.4624)
 power = 1
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_3gev5")]

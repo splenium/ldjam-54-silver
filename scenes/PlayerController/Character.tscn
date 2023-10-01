@@ -199,7 +199,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
 script = ExtResource("5_hw2ut")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/FishRaKoonAvatar")
-LightColor = Color(0, 0.956863, 0.960784, 1)
+LightColor = Color(0.176471, 0.607843, 0.964706, 1)
 
 [node name="Mesh" type="Node3D" parent="Power/Fish"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)

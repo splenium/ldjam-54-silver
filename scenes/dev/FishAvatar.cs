@@ -18,7 +18,7 @@ public partial class FishAvatar : Area3D
 	{
         foreach (var child in Objects)
         {
-            child.Material.Set("albedo_color", LightColor);
+            child?.Material?.Set("albedo_color", LightColor);
         }
         if (HasOverlappingBodies())
         {
