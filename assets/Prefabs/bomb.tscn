@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpr26nm017exs"]
+
+[ext_resource type="Texture2D" uid="uid://esfdqkt102lb" path="res://assets/Textures/Bomb/bombes-head.png" id="1_dqo6v"]
+[ext_resource type="Script" path="res://scenes/dev/ShakeRotation.cs" id="2_wxwci"]
+[ext_resource type="Material" uid="uid://dxdji0emkp10m" path="res://assets/Materials/BombChain.tres" id="3_n0ngt"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_5a6uc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8do3"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_dqo6v")
+
+[node name="Bomb" type="Node3D"]
+
+[node name="BombHead" type="CSGMesh3D" parent="."]
+mesh = SubResource("QuadMesh_5a6uc")
+material = SubResource("StandardMaterial3D_k8do3")
+script = ExtResource("2_wxwci")
+Speed = 1.5
+Amplitude = 0.05
+Offset = 1.0
+RotationAxis = Vector3(0, 0, 1)
+
+[node name="BombChain" type="CSGMesh3D" parent="."]
+transform = Transform3D(2.18228, 0, 0, 0, 2.18228, 0, 0, 0, 1, -0.0332268, -1.05731, 0)
+mesh = SubResource("QuadMesh_5a6uc")
+material = ExtResource("3_n0ngt")
