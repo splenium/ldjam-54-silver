@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpwemcwwdnctm"
-path="res://.godot/imported/Roches.png-708aedd12f6215e7f3078d4064f2ec8c.ctex"
+uid="uid://cg5f0qoa6kkvf"
+path="res://.godot/imported/Roches-1.png-690f958306cd20a7f0ee02dab394999f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Textures/Roches.png"
-dest_files=["res://.godot/imported/Roches.png-708aedd12f6215e7f3078d4064f2ec8c.ctex"]
+source_file="res://assets/Textures/Rocks/Roches-1.png"
+dest_files=["res://.godot/imported/Roches-1.png-690f958306cd20a7f0ee02dab394999f.ctex"]
 
 [params]
 

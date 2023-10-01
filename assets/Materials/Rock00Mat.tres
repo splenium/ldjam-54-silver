@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://pfk887ida80"]
 
 [ext_resource type="Shader" path="res://assets/Shaders/Rock.gdshader" id="1_nlir3"]
-[ext_resource type="Texture2D" uid="uid://ektoxrp6j624" path="res://assets/Textures/Rock1.png" id="2_yxcwm"]
+[ext_resource type="Texture2D" uid="uid://ektoxrp6j624" path="res://assets/Textures/Rocks/Rock1.png" id="2_yxcwm"]
 
 [resource]
 render_priority = 0

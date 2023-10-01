@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y0f564ayc726"
-path="res://.godot/imported/roches-petite_3.png-9139ac0691ff201aaee61250f0ae4ba1.ctex"
+uid="uid://dpwemcwwdnctm"
+path="res://.godot/imported/Roches.png-9e1402e5771f96f778f052e3d3e35b63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Textures/roches-petite_3.png"
-dest_files=["res://.godot/imported/roches-petite_3.png-9139ac0691ff201aaee61250f0ae4ba1.ctex"]
+source_file="res://assets/Textures/Rocks/Roches.png"
+dest_files=["res://.godot/imported/Roches.png-9e1402e5771f96f778f052e3d3e35b63.ctex"]
 
 [params]
 
