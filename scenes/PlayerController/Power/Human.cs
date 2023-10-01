@@ -4,9 +4,9 @@ using LudumDare54Silver.scenes.PlayerController.Power;
 public partial class Human : Power
 {
     [Export]
-    public float Speed = 5.0f;
+    public float Speed = 6f;
     [Export]
-    public float JumpVelocity = 4.5f;
+    public float JumpVelocity = 7f;
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
