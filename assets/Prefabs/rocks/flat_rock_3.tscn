@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbi87oktsqyqr"]
+
+[ext_resource type="Texture2D" uid="uid://dysam8vf6m3ox" path="res://assets/Textures/Rocks/FlatRock03/roches_plates_5.png" id="1_pu1hn"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2rupe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpqkn"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_pu1hn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hxan8"]
+size = Vector3(0.48439, 0.0191059, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x58fu"]
+size = Vector3(0.314432, 0.0217094, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkuup"]
+size = Vector3(0.111666, 0.0256453, 1)
+
+[node name="FlatRock3" type="CSGMesh3D"]
+transform = Transform3D(14.2501, 0, 0, 0, 14.2501, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -10.0
+mesh = SubResource("QuadMesh_2rupe")
+material = SubResource("StandardMaterial3D_lpqkn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0881901, -0.249568, 0)
+shape = SubResource("BoxShape3D_hxan8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.862514, -0.506034, 0, 0.506034, 0.862514, 0, 0, 0, 1, 0.0134697, -0.330409, 0)
+shape = SubResource("BoxShape3D_x58fu")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.97487, 0.222774, 0, -0.222774, 0.97487, 0, 0, 0, 1, -0.16781, -0.387978, 0)
+shape = SubResource("BoxShape3D_qkuup")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.697152, 0.716923, 0, -0.716923, 0.697152, 0, 0, 0, 1, -0.249876, -0.334084, 0)
+shape = SubResource("BoxShape3D_qkuup")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.634798, 0.772678, 0, -0.772678, 0.634798, 0, 0, 0, 1, -0.285398, -0.293663, 0)
+shape = SubResource("BoxShape3D_qkuup")

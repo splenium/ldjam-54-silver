@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjrxx0g68e18x"]
+
+[ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_m1iqt"]
+[ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_dnp53"]
+[ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="3_3521m"]
+[ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="4_n1t4r"]
+[ext_resource type="PackedScene" uid="uid://fa27lkyj3wa7" path="res://assets/Prefabs/rocks/flat_rock_2.tscn" id="5_652ma"]
+[ext_resource type="PackedScene" uid="uid://doiucep0m80t1" path="res://assets/Prefabs/graveyard/pillory.tscn" id="6_y8d85"]
+
+[node name="graveyard" type="Node3D"]
+
+[node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("1_m1iqt")]
+ToFollow = NodePath("../CharacterBody3D")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_dnp53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.319693, 8.10785, 0)
+IsPowerHumanUnlock = true
+IsPowerFishUnlock = true
+IsPowerFlyUnlock = true
+IsPowerGhostUnlock = true
+
+[node name="CliffRock" parent="." instance=ExtResource("3_3521m")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.89661, 10.4934, 9.48252)
+light_energy = 2.846
+omni_range = 65.0654
+
+[node name="FlatRock1" parent="." instance=ExtResource("4_n1t4r")]
+transform = Transform3D(9.38845, 0, 0, 0, 9.38845, 0, 0, 0, 1, 6.81492, -1.4121, 0)
+sorting_offset = -10.0
+
+[node name="FlatRock3" parent="." instance=ExtResource("4_n1t4r")]
+transform = Transform3D(-14, -2.11394e-06, -8.74228e-08, -2.11394e-06, 14, 0, -1.22392e-06, -1.84807e-13, 1, 30.5083, -2.34585, 0)
+sorting_offset = -9.0
+
+[node name="FlatRock2" parent="." instance=ExtResource("5_652ma")]
+transform = Transform3D(13.8138, 0, 0, 0, 13.8138, 0, 0, 0, 1.07385, 14.5543, -7.11152, 0)
+sorting_offset = -8.0
+
+[node name="FlatRock4" parent="." instance=ExtResource("5_652ma")]
+transform = Transform3D(-13, -1.1365e-06, 0, -1.1365e-06, 13, 0, 0, 0, 1.074, 19.9968, -6.89668, 0)
+sorting_offset = -13.0
+
+[node name="Pillory" parent="." instance=ExtResource("6_y8d85")]

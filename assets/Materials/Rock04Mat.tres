@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cklkxu588qufj"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/Rock.gdshader" id="1_fw6pv"]
+[ext_resource type="Texture2D" uid="uid://dey8i2fgiv8y7" path="res://assets/Textures/Rocks/Roches-3.png" id="2_quoee"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fw6pv")
+shader_parameter/_mainTex = ExtResource("2_quoee")

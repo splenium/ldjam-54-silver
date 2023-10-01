@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://cq6v2etphhni"]
+
+[ext_resource type="Texture2D" uid="uid://c5p1krh7mdulr" path="res://assets/Textures/Rocks/FlatRock01/roches_plates_1.png" id="1_q5fa2"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_l6bia"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28g7t"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_q5fa2")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qnijo"]
+size = Vector3(0.679082, 0.0476185, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bc32p"]
+size = Vector3(0.479763, 0.0349226, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xkd37"]
+size = Vector3(0.240235, 0.0349226, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tirvq"]
+size = Vector3(0.128829, 0.0668459, 1)
+
+[node name="FlatRock1" type="CSGMesh3D"]
+transform = Transform3D(9.38845, 0, 0, 0, 9.38845, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_l6bia")
+material = SubResource("StandardMaterial3D_28g7t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0395389, 0.0152315, 0)
+shape = SubResource("BoxShape3D_qnijo")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.972014, -0.234922, 0, 0.234922, 0.972014, 0, 0, 0, 1, 0.0594664, -0.0444253, 0)
+shape = SubResource("BoxShape3D_bc32p")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.905621, 0.424089, 0, -0.424089, 0.905621, 0, 0, 0, 1, -0.268013, -0.0456946, 0)
+shape = SubResource("BoxShape3D_xkd37")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.376354, 0.926476, 0, -0.926476, -0.376354, 0, 0, 0, 1, -0.237549, -0.0660033, 0)
+shape = SubResource("BoxShape3D_tirvq")

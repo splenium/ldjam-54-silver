@@ -12,6 +12,6 @@ public partial class MaterialAnimation : AnimatedSprite3D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
-        (MaterialOverride as StandardMaterial3D).AlbedoTexture = this.SpriteFrames.GetFrameTexture("default", Frame);
+        (MaterialOverride as ShaderMaterial).SetShaderParameter("albedo_texture", this.SpriteFrames.GetFrameTexture("default", Frame));
     }
 }

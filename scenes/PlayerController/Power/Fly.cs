@@ -21,7 +21,7 @@ public partial class Fly : Power
     [Export]
     public AudioStreamPlayer BoostSound;
     [Export]
-    public AudioStreamMP3[] BoostSounds;
+    public AudioStream[] BoostSounds;
 
     private WingsMouvement wingsPosition = null;
 
@@ -85,13 +85,13 @@ public partial class Fly : Power
 
     public void PlayBoostSound()
     {
-        if (BoostSound.Playing)
+        /*if (BoostSound.Playing)
         {
             return;
         }
-        AudioStreamMP3 RngBoostSound = BoostSounds[GD.Randi() % BoostSounds.Length];
+        AudioStream RngBoostSound = BoostSounds[GD.Randi() % BoostSounds.Length];
         BoostSound.Stream = RngBoostSound;
-        BoostSound.Play();
+        BoostSound.Play();*/
     }
 
 }

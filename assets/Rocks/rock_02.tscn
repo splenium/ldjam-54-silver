@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c57gr1e2oucuk"]
+
+[ext_resource type="Material" uid="uid://d35otdohndue5" path="res://assets/Materials/Rock02Mat.tres" id="1_2fyls"]
+[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_dbgts"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
+
+[node name="Rock02" type="CSGMesh3D"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, -0.41338, 0.32463, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("1_2fyls")
+script = ExtResource("2_dbgts")
+Speed = 2.0
+Amplitude = 0.005
+Offset = 2.0

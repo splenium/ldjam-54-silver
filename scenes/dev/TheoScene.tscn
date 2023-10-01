@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="1_isjr3"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_o8vo8"]
-[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="3_2wap5"]
+[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/Checkpoint.tscn" id="3_2wap5"]
 [ext_resource type="PackedScene" uid="uid://bbjip0v5s5g52" path="res://scenes/dev/Elements/ground.tscn" id="3_hho06"]
 [ext_resource type="PackedScene" uid="uid://bqyehv8bne1wf" path="res://scenes/dev/Elements/WaterSurface.tscn" id="4_kcxxi"]
 [ext_resource type="PackedScene" uid="uid://bo0wkwm03omsg" path="res://scenes/dev/Elements/WaterDeep.tscn" id="5_0ema3"]
-[ext_resource type="Material" uid="uid://cstbo7t8i64uc" path="res://assets/Materials/DnaMat.tres" id="7_qu61k"]
+[ext_resource type="Material" path="res://assets/Materials/DnaMat.tres" id="7_qu61k"]
 [ext_resource type="Texture2D" uid="uid://xhbctfyvhpuh" path="res://assets/Textures/DNA/img00.png" id="8_xc0ht"]
 [ext_resource type="Texture2D" uid="uid://bg7o82yau1nlb" path="res://assets/Textures/DNA/img01.png" id="9_2gi2i"]
 [ext_resource type="Texture2D" uid="uid://3hvhxfcvlgn8" path="res://assets/Textures/DNA/img02.png" id="10_o6jcq"]

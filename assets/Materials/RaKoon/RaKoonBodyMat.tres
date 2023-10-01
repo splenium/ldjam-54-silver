@@ -9,6 +9,7 @@
 render_priority = 0
 shader = ExtResource("1_8nr4t")
 shader_parameter/_lightColor = Color(1, 1, 1, 1)
+shader_parameter/_ghostness = null
 shader_parameter/_bodyBGTex = ExtResource("2_31nek")
 shader_parameter/_bodyHighlightTex1 = ExtResource("3_hw5lb")
 shader_parameter/_bodyHighlightTex2 = ExtResource("4_qtfbe")

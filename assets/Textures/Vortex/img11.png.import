@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbqm505di82vf"
-path.s3tc="res://.godot/imported/Rock3.png-65c0d1191e88230a33eb25495ebbdf0e.s3tc.ctex"
+uid="uid://do8c0btx445q0"
+path.s3tc="res://.godot/imported/img11.png-2e5d44c6a319e53805a5e0512834f6fc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Textures/Rock3.png"
-dest_files=["res://.godot/imported/Rock3.png-65c0d1191e88230a33eb25495ebbdf0e.s3tc.ctex"]
+source_file="res://assets/Textures/Vortex/img11.png"
+dest_files=["res://.godot/imported/img11.png-2e5d44c6a319e53805a5e0512834f6fc.s3tc.ctex"]
 
 [params]
 
