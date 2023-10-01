@@ -11,7 +11,7 @@ albedo_texture = ExtResource("2_434wc")
 [sub_resource type="QuadMesh" id="QuadMesh_q1s2q"]
 material = SubResource("StandardMaterial3D_rpbyx")
 
-[node name="UnlockPower" type="Area3D" groups=["checkpoint"]]
+[node name="UnlockPower" type="Area3D"]
 collision_layer = 0
 collision_mask = 128
 script = ExtResource("1_pkdks")
