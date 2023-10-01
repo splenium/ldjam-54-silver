@@ -10,8 +10,6 @@ public partial class FishPathFollow3D : PathFollow3D
     public float speed = 0.04f;
 
     private Vector3 previousPosition;
-    private bool wasGoingRight = false;
-
     public override void _Ready()
     {
         previousPosition = GlobalPosition;
