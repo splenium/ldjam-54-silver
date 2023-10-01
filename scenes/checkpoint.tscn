@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2a0djlko57o0"]
+
+[ext_resource type="Script" path="res://scenes/dev/Checkpoint.cs" id="1_dthgv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohf0s"]
+
+[node name="CheckpointArea" type="Area3D" groups=["checkpoint"]]
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_dthgv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ohf0s")

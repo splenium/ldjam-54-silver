@@ -29,6 +29,9 @@ public partial class CharacterController : CharacterBody3D
     [Export]
     public Timer DamageTakenTimer;
 
+    [Signal]
+    public delegate void PlayerDiedEventHandler();
+
     private Power currentPower;
     private bool invulernability = false;
     private int health = 100;
@@ -108,18 +111,34 @@ public partial class CharacterController : CharacterBody3D
     {
         if (!invulernability && DamageDetector.HasOverlappingAreas())
         {
-            invulernability = true;
-            health -= 10;
-            GD.Print("Damage", health);
-            DamageTakenTimer.Start();
+            GD.Print("Bim: ", health);
+            TakeDamage(50);
         }
-        GD.Print(currentPower.LightColor);
     }
 
-    public void TakeDamage(float amount)
+    public void Reset()
     {
-        invulernability = true;
-        DamageTakenTimer.Start();
+        health = 100;
+        // invulernability = false;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        GD.Print("Check ", health);
+        if (health <= 0)
+        {
+            GD.Print("Mort");
+            DamageTakenTimer.Stop();
+            EmitSignal(nameof(PlayerDiedEventHandler));
+            GameManager.OnPlayerRespawn(this);
+        }
+        else
+        {
+            GD.Print("Tranquille");
+            invulernability = true;
+            DamageTakenTimer.Start();
+        }
     }
 
     public override void _PhysicsProcess(double delta)

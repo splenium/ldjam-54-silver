@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmojig8xnpdv1"]
+[gd_scene load_steps=8 format=3 uid="uid://cmojig8xnpdv1"]
 
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_eknx0"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_705bx"]
 [ext_resource type="PackedScene" uid="uid://bbjip0v5s5g52" path="res://scenes/dev/Elements/ground.tscn" id="3_3olp8"]
 [ext_resource type="PackedScene" uid="uid://bqyehv8bne1wf" path="res://scenes/dev/Elements/WaterSurface.tscn" id="3_587j0"]
 [ext_resource type="PackedScene" uid="uid://bo0wkwm03omsg" path="res://scenes/dev/Elements/WaterDeep.tscn" id="4_c881m"]
+[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="6_btjhh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_powy6"]
 
@@ -23,8 +24,19 @@ transform = Transform3D(1, 0, 0, 0, 0.592308, 0.805711, 0, -0.805711, 0.592308, 
 
 [node name="Level" type="Node3D" parent="."]
 
+[node name="CheckpointArea" parent="Level" instance=ExtResource("6_btjhh")]
+transform = Transform3D(5.015, 0, 0, 0, 5.015, 0, 0, 0, 5.015, 0, 0, 0)
+
+[node name="Node3D1" type="Node3D" parent="Level/CheckpointArea" groups=["respown_point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60587, 0, 0)
+
 [node name="Water" parent="Level" instance=ExtResource("3_587j0")]
 transform = Transform3D(3.47324, -1.71613e-15, 0, -2.46788e-14, 0.966096, 0, 0, 0, 0.966096, 39.3804, -2.24217, 0)
+
+[node name="CheckpointArea2" parent="Level" instance=ExtResource("6_btjhh")]
+transform = Transform3D(25.1502, 0, 0, 0, 25.1502, 0, 0, 0, 25.1502, 29.3115, 0, 0)
+
+[node name="Node3D2" type="Node3D" parent="Level/CheckpointArea2" groups=["respown_point"]]
 
 [node name="Water2" parent="Level" instance=ExtResource("4_c881m")]
 transform = Transform3D(50.0619, -1.21497e-14, 0, -3.55711e-13, 6.83963, 0, 0, 0, 1, 38.8436, -6.03481, 0)
