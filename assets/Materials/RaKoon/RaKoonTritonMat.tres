@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://n8hrwrrpg5jn"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/RaKoon/RaKoonTriton.gdshader" id="1_7su3k"]
+[ext_resource type="Texture2D" uid="uid://dro211l2m6h2r" path="res://assets/Textures/RaKoon/Triton/Rakoon_Triton-1.png" id="2_yg12m"]
+[ext_resource type="Texture2D" uid="uid://bvp54hipcr25g" path="res://assets/Textures/RaKoon/Triton/Rakoon_Triton-2.png" id="3_mn3k7"]
+[ext_resource type="Texture2D" uid="uid://enfc2k2vtxgw" path="res://assets/Textures/RaKoon/Triton/Rakoon_Triton-3.png" id="4_h1cm7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7su3k")
+shader_parameter/_lightColor = Color(0.352941, 0.552941, 0.819608, 1)
+shader_parameter/_bodyBGTex = ExtResource("2_yg12m")
+shader_parameter/_bodyHighlightTex1 = ExtResource("3_mn3k7")
+shader_parameter/_bodyHighlightTex2 = ExtResource("4_h1cm7")

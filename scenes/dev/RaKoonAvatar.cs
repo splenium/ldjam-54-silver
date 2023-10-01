@@ -32,6 +32,9 @@ public partial class RaKoonAvatar : Node3D
     [Export]
     public CsgMesh3D BodyMesh;
     public ShaderMaterial BodyMaterial => (ShaderMaterial)BodyMesh.Material;
+    [Export]
+    public CsgMesh3D TritonBodyMesh;
+    public ShaderMaterial TritonBodyMaterial => (ShaderMaterial)TritonBodyMesh.Material;
 
     [Export]
     public Texture2D OHBackground;
@@ -63,6 +66,8 @@ public partial class RaKoonAvatar : Node3D
     public bool IsLeft;
     [Export]
     public bool IsGhost;
+    [Export]
+    public bool IsTriton;
     public void SetFace(EnumEFaceState state)
     {
         switch (state)
@@ -109,11 +114,25 @@ public partial class RaKoonAvatar : Node3D
 
 		this.Rotation = Vector3.Forward * Mathf.Sin(_totalTime * MoveRotationAnimationSpeed) * MoveRotationAnimationAmplitude * (IsMoving ? 1.0f : 0.0f);
 		_totalTime += (float)delta;
-		HeadMaterial.SetShaderParameter("_lightColor", LightColor);
-		BodyMaterial.SetShaderParameter("_lightColor", LightColor);
         float ghostness = IsGhost ? 1.0f : 0.0f;
+
+		HeadMaterial.SetShaderParameter("_lightColor", LightColor);
         HeadMaterial.SetShaderParameter("_ghostness", ghostness);
-        BodyMaterial.SetShaderParameter("_ghostness", ghostness);
+
+        if (IsTriton)
+        {
+            BodyMesh.Visible = false;
+            TritonBodyMesh.Visible = true;
+            TritonBodyMaterial.SetShaderParameter("_lightColor", LightColor);
+            TritonBodyMaterial.SetShaderParameter("_ghostness", ghostness);
+        }
+        else
+        {
+            BodyMesh.Visible = true;
+            TritonBodyMesh.Visible = false;
+            BodyMaterial.SetShaderParameter("_lightColor", LightColor);
+            BodyMaterial.SetShaderParameter("_ghostness", ghostness);
+        }
         
 
     }

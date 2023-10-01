@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://h1bjyb8mpmo2"]
+[gd_scene load_steps=24 format=3 uid="uid://h1bjyb8mpmo2"]
 
 [ext_resource type="Script" path="res://scenes/dev/RaKoonAvatar.cs" id="1_8pl2y"]
 [ext_resource type="Texture2D" uid="uid://bpxkh3ciaskcx" path="res://assets/Textures/RaKoon/rakoon_ohface_bkg.png" id="3_xit7x"]
@@ -18,6 +18,7 @@
 [ext_resource type="Shader" path="res://assets/Shaders/RaKoon/RaKoonBody.gdshader" id="18_hejbd"]
 [ext_resource type="Texture2D" uid="uid://c20gul0kfaifi" path="res://assets/Textures/RaKoon/rakoon_suit.png" id="19_rncvf"]
 [ext_resource type="Texture2D" uid="uid://ch4a3f4peflaj" path="res://assets/Textures/RaKoon/rakoon_suit_highlight_yellow.png" id="20_52m1h"]
+[ext_resource type="Material" uid="uid://n8hrwrrpg5jn" path="res://assets/Materials/RaKoon/RaKoonTritonMat.tres" id="20_oir68"]
 [ext_resource type="Texture2D" uid="uid://cy030eeh8hnfn" path="res://assets/Textures/RaKoon/rakoon_suit_highlight_white.png" id="21_2q83t"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_mjm0f"]
@@ -40,7 +41,7 @@ shader_parameter/_bodyBGTex = ExtResource("19_rncvf")
 shader_parameter/_bodyHighlightTex1 = ExtResource("20_52m1h")
 shader_parameter/_bodyHighlightTex2 = ExtResource("21_2q83t")
 
-[node name="RaKoonAvatar" type="Node3D" node_paths=PackedStringArray("HeadMesh", "BodyMesh")]
+[node name="RaKoonAvatar" type="Node3D" node_paths=PackedStringArray("HeadMesh", "BodyMesh", "TritonBodyMesh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.13929)
 script = ExtResource("1_8pl2y")
 FaceSelection = 123
@@ -49,6 +50,7 @@ MoveRotationAnimationSpeed = 8.0
 MoveRotationAnimationAmplitude = 0.05
 HeadMesh = NodePath("Head")
 BodyMesh = NodePath("Body")
+TritonBodyMesh = NodePath("TritonBody")
 OHBackground = ExtResource("3_xit7x")
 OHOutline = ExtResource("4_disl6")
 OHHighlight = ExtResource("5_k2leh")
@@ -75,3 +77,8 @@ Offset = 10.0
 transform = Transform3D(0.356372, 0, 0, 0, 0.356372, 0, 0, 0, 1, 0, 0.0938219, 0)
 mesh = SubResource("QuadMesh_mjm0f")
 material = SubResource("ShaderMaterial_1we3y")
+
+[node name="TritonBody" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.356372, 0, 0, 0, 0.356372, 0, 0, 0, 1, 0, 0.0938219, 0)
+mesh = SubResource("QuadMesh_mjm0f")
+material = ExtResource("20_oir68")

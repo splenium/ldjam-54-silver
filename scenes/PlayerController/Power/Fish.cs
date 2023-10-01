@@ -13,7 +13,17 @@ public partial class Fish : Power
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float Gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
-    private bool active = false;
+    public override void Init(CharacterBody3D c)
+    {
+        base.Init(c);
+        raKoonAvatar.IsTriton = true;
+    }
+
+    public override void Exit(CharacterBody3D c)
+    {
+        base.Exit(c);
+        raKoonAvatar.IsTriton = false;
+    }
 
     public override void MoveCharacter(CharacterBody3D character, double delta)
     {
