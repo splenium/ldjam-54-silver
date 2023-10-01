@@ -9,17 +9,21 @@ uniform vec4 _lightColor : source_color = vec4(1.);
 uniform float _ghostness;
 #define sat(a) clamp(a, 0., 1.)
 void fragment() {
-	vec4 col = texture(_bodyBGTex, UV);
-	float highlight1 = texture(_bodyHighlightTex1, UV).a;
-	float highlight2 = texture(_bodyHighlightTex2, UV).a;
+	bool isGhost = _ghostness > 0.5;
+	vec2 uv = UV;
+	if (isGhost)
+		uv+= vec2(0.,0.07+0.01*sin(TIME));
+	vec4 col = texture(_bodyBGTex, uv);
+	float highlight1 = texture(_bodyHighlightTex1, uv).a;
+	float highlight2 = texture(_bodyHighlightTex2, uv).a;
 
 	vec3 lightCol = _lightColor.xyz;
 	vec3 baseCol = vec3(.5,.4,.2)*2.*lightCol;
 	col.xyz *= baseCol*.85;
 	col.xyz = mix(col.xyz, baseCol, highlight1); 
 	col.xyz = mix(col.xyz, vec3(1.), highlight2);
-	bool isGhost = _ghostness > 0.5;
-	float ghostLight = length(UV-.5)-0.2;
+
+	float ghostLight = length(uv-.5)-0.2;
 	if (isGhost)
 		col.w += (1.-sat(ghostLight/.3))*.5;
 	float alphaMod = 1.0f;
