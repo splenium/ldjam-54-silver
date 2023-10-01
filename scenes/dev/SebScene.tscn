@@ -1,12 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=30 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="1_818dc"]
 [ext_resource type="Material" uid="uid://pfk887ida80" path="res://assets/Materials/Rock00Mat.tres" id="1_kfxe6"]
 [ext_resource type="Material" uid="uid://cevwxtcp37nen" path="res://assets/Materials/Clouds/SkyIslandsBGMat.tres" id="1_xd3yq"]
 [ext_resource type="Script" path="res://assets/Hovering.cs" id="2_njwye"]
 [ext_resource type="Material" uid="uid://d35otdohndue5" path="res://assets/Materials/Rock02Mat.tres" id="3_go02m"]
-[ext_resource type="Material" path="res://assets/Materials/DoctorPunk.tres" id="3_sl62w"]
-[ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/Clouds/CloudMat.tres" id="4_ifijn"]
+[ext_resource type="Material" uid="uid://c8o2gti7npy26" path="res://assets/Materials/DoctorPunk.tres" id="3_sl62w"]
+[ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/CloudMat.tres" id="4_ifijn"]
 [ext_resource type="Material" uid="uid://dljll6fqoob5q" path="res://assets/Materials/Rock03Mat.tres" id="4_xkfjv"]
 [ext_resource type="PackedScene" uid="uid://nm2sr4lmlw7d" path="res://assets/Rocks/rock_00.tscn" id="5_l8viv"]
 [ext_resource type="PackedScene" uid="uid://bmhh7ku8pp5ul" path="res://assets/Rocks/rock_01.tscn" id="6_3qrg0"]
@@ -20,6 +20,9 @@
 [ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="13_t3sxh"]
 [ext_resource type="PackedScene" uid="uid://d3ego7ibuupbj" path="res://assets/Fish/FishPrefab.tscn" id="15_s0v4d"]
 [ext_resource type="PackedScene" uid="uid://b6l40hdajspul" path="res://assets/Prefabs/dna.tscn" id="21_3i0re"]
+[ext_resource type="PackedScene" uid="uid://b5kt0qi8enc7p" path="res://assets/Particles/get_dna_particle.tscn" id="22_y6vwf"]
+[ext_resource type="PackedScene" uid="uid://cs30kb25itfdt" path="res://assets/Particles/explode_particle.tscn" id="23_c0hwu"]
+[ext_resource type="PackedScene" uid="uid://bpr26nm017exs" path="res://assets/Prefabs/bomb.tscn" id="24_mgek1"]
 [ext_resource type="Material" uid="uid://2xm8v6u45jb0" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="24_x0wm6"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
@@ -153,9 +156,46 @@ script = ExtResource("2_njwye")
 Amplitude = 0.005
 Offset = 3.0
 
+[node name="Labo" type="Node3D" parent="."]
+
+[node name="SkyBG" type="CSGMesh3D" parent="Labo"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.322, -0.397)
+visible = false
+mesh = SubResource("QuadMesh_574u7")
+material = ExtResource("9_5c4k4")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="DoctorPunk" type="CSGMesh3D" parent="Labo"]
+transform = Transform3D(7.01592, 0, 0, 0, 7.01592, 0, 0, 0, 1, -0.0872123, -0.331487, -0.251907)
+visible = false
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("3_sl62w")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="LightRays01" type="CSGMesh3D" parent="Labo"]
+transform = Transform3D(3.22027, 0, 0, 0, 3.22027, 0, 0, 0, 1, -0.0860417, -0.240632, 0.155598)
+visible = false
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("10_4vgx5")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="LightRays02" type="CSGMesh3D" parent="Labo"]
+transform = Transform3D(3.90738, 0, 0, 0, 4.15085, 0, 0, 0, 1, -0.0860417, -0.240632, -0.272767)
+visible = false
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("10_4vgx5")
+script = ExtResource("2_njwye")
+Speed = 2.0
+Amplitude = 0.005
+
 [node name="Background" type="Node3D" parent="."]
 transform = Transform3D(3.26746, 0, 0, 0, 4.9591, 0, 0, 0, 1, 0, 0, -2.38924)
-visible = false
 
 [node name="Wall" type="CSGMesh3D" parent="Background"]
 transform = Transform3D(4.56332, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -221,3 +261,13 @@ material = SubResource("StandardMaterial3D_dqnb8")
 
 [node name="DNA" parent="." instance=ExtResource("21_3i0re")]
 transform = Transform3D(0.309228, 0, 0, 0, 0.309228, 0, 0, 0, 1, 0.201824, 4.76837e-07, -0.191338)
+visible = false
+
+[node name="GetDNAParticle" parent="." instance=ExtResource("22_y6vwf")]
+visible = false
+
+[node name="ExplodeParticle" parent="." instance=ExtResource("23_c0hwu")]
+visible = false
+
+[node name="Bomb" parent="." instance=ExtResource("24_mgek1")]
+visible = false

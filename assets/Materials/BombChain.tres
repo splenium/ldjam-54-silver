@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dxdji0emkp10m"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/BombChain.gdshader" id="1_tcw04"]
+[ext_resource type="Texture2D" uid="uid://c8ksfqotjp762" path="res://assets/Textures/Bomb/bombes-chain_x1.png" id="2_clmln"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tcw04")
+shader_parameter/_texture = ExtResource("2_clmln")
