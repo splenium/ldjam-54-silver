@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmojig8xnpdv1"]
+[gd_scene load_steps=9 format=3 uid="uid://cmojig8xnpdv1"]
 
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_eknx0"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_705bx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqyehv8bne1wf" path="res://scenes/dev/Elements/WaterSurface.tscn" id="3_587j0"]
 [ext_resource type="PackedScene" uid="uid://bo0wkwm03omsg" path="res://scenes/dev/Elements/WaterDeep.tscn" id="4_c881m"]
 [ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="6_btjhh"]
+[ext_resource type="Texture2D" uid="uid://cer5fws1vqy3n" path="res://scenes/dev/UI/Rakoon_Head.png" id="7_xmggj"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_powy6"]
 
@@ -16,12 +17,13 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 current = true
 ToFollow = NodePath("../CharacterBody3D")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_705bx")]
+[node name="CharacterBody3D" parent="." node_paths=PackedStringArray("_rakoonStatesLabel") instance=ExtResource("2_705bx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7189, 0, 0)
 IsPowerHumanUnlock = true
 IsPowerFishUnlock = true
 IsPowerFlyUnlock = true
 IsPowerGhostUnlock = true
+_rakoonStatesLabel = NodePath("../Panel/Etats")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.592308, 0.805711, 0, -0.805711, 0.592308, 0, 7.73916, 7.64032)
@@ -60,3 +62,23 @@ collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pic"]
 shape = SubResource("CylinderShape3D_powy6")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 149.0
+offset_bottom = 157.0
+
+[node name="RakoonHead" type="Sprite2D" parent="Panel"]
+position = Vector2(77, 70)
+scale = Vector2(0.13085, 0.171008)
+texture = ExtResource("7_xmggj")
+
+[node name="Etats" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+offset_top = 121.0
+offset_right = 149.0
+offset_bottom = 160.0
+text = "Rakoon
+"
+horizontal_alignment = 1
+vertical_alignment = 1
