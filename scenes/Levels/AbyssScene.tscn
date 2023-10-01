@@ -1,0 +1,237 @@
+[gd_scene load_steps=26 format=3 uid="uid://b17vcnmok5kix"]
+
+[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_7v4yc"]
+[ext_resource type="Material" path="res://assets/Materials/DoctorPunk.tres" id="3_kxwng"]
+[ext_resource type="Material" uid="uid://cklkxu588qufj" path="res://assets/Materials/Rock04Mat.tres" id="9_n3kvx"]
+[ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="9_xxpnm"]
+[ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="10_ya163"]
+[ext_resource type="Material" uid="uid://pfk887ida80" path="res://assets/Materials/Rock00Mat.tres" id="11_qq17p"]
+[ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="12_u7fbe"]
+[ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="13_bvndj"]
+[ext_resource type="Material" uid="uid://d35otdohndue5" path="res://assets/Materials/Rock02Mat.tres" id="13_pxdjr"]
+[ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="14_j8xgx"]
+[ext_resource type="Material" uid="uid://dljll6fqoob5q" path="res://assets/Materials/Rock03Mat.tres" id="14_tw2lf"]
+[ext_resource type="Material" uid="uid://bilv08qhv513l" path="res://assets/Materials/BackgroundWallMat.tres" id="15_8qahw"]
+[ext_resource type="Material" uid="uid://6ruug3uhe6dt" path="res://assets/Materials/ConcreteMat.tres" id="16_we5u8"]
+[ext_resource type="PackedScene" path="res://assets/Fish/FishPrefab.tscn" id="19_fqt13"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6r3kb"]
+size = Vector3(0.539923, 0.418585, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_og37n"]
+size = Vector3(0.26, 0.222, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cl67u"]
+size = Vector3(0.26, 0.299, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_574u7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qwxuk"]
+size = Vector3(10, 10, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2u84e"]
+size = Vector3(0.962159, 0.249729, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rlg0l"]
+size = Vector3(0.619227, 0.240566, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohxja"]
+size = Vector3(0.598399, 0.240566, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_0v70s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqnb8"]
+transparency = 1
+albedo_color = Color(0.627451, 1, 1, 0.431373)
+
+[node name="SebScene" type="Node3D"]
+
+[node name="Abyss" type="Node3D" parent="."]
+
+[node name="DoctorPunk" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(7.01592, 0, 0, 0, 7.01592, 0, 0, 0, 1, -0.0872123, -0.331487, -0.251907)
+visible = false
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("3_kxwng")
+script = ExtResource("2_7v4yc")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="Rock00" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, -0.131399, -0.550237, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("11_qq17p")
+script = ExtResource("2_7v4yc")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="Rock01" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.458488, 0.311989, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("12_u7fbe")
+script = ExtResource("2_7v4yc")
+Speed = 1.5
+Amplitude = 0.005
+Offset = 1.0
+
+[node name="Rock02" type="CSGMesh3D" parent="Abyss"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, -0.41338, 0.32463, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("13_pxdjr")
+script = ExtResource("2_7v4yc")
+Speed = 2.0
+Amplitude = 0.005
+Offset = 2.0
+
+[node name="HighRock" type="StaticBody3D" parent="Abyss"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -9.23778, 21.5807, 0)
+collision_mask = 129
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="RockMesh03" type="CSGMesh3D" parent="Abyss/HighRock"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.0124002, -0.0124133, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("14_tw2lf")
+script = ExtResource("2_7v4yc")
+Amplitude = 0.005
+Offset = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Abyss/HighRock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0638894, -0.0361114, 0)
+shape = SubResource("BoxShape3D_6r3kb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Abyss/HighRock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0822668, 0.233425, 0)
+shape = SubResource("BoxShape3D_og37n")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Abyss/HighRock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.067816, -0.317899, 0)
+shape = SubResource("BoxShape3D_cl67u")
+
+[node name="Water" type="Area3D" parent="Abyss"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+collision_layer = 16
+collision_mask = 0
+
+[node name="SkyBG" type="CSGMesh3D" parent="Abyss/Water"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = 10.0
+mesh = SubResource("QuadMesh_574u7")
+material = ExtResource("9_xxpnm")
+script = ExtResource("2_7v4yc")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="LightRays01" type="CSGMesh3D" parent="Abyss/Water"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = 10.0
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("10_ya163")
+script = ExtResource("2_7v4yc")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="LightRays02" type="CSGMesh3D" parent="Abyss/Water"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, -0.0860417, -0.240632, -0.272767)
+sorting_offset = 10.0
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("10_ya163")
+script = ExtResource("2_7v4yc")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Abyss/Water"]
+shape = SubResource("BoxShape3D_qwxuk")
+
+[node name="TriangleRock1" type="StaticBody3D" parent="Abyss"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -3.99417, 39.0092, 0)
+collision_layer = 129
+collision_mask = 129
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="RockMesh" type="CSGMesh3D" parent="Abyss/TriangleRock1"]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.0124002, -0.0124133, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("9_n3kvx")
+script = ExtResource("2_7v4yc")
+Amplitude = 0.005
+Offset = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Abyss/TriangleRock1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0657859, 0.150642, 0)
+shape = SubResource("BoxShape3D_2u84e")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Abyss/TriangleRock1"]
+transform = Transform3D(0.694596, -0.7194, 0, 0.7194, 0.694596, 0, 0, 0, 1, -0.0167794, -0.143528, 0)
+shape = SubResource("BoxShape3D_rlg0l")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Abyss/TriangleRock1"]
+transform = Transform3D(-0.563339, -0.826226, 0, 0.826226, -0.563339, 0, 0, 0, 1, -0.261812, -0.149653, 0)
+shape = SubResource("BoxShape3D_ohxja")
+
+[node name="Background" type="Node3D" parent="."]
+transform = Transform3D(3.26746, 0, 0, 0, 4.9591, 0, 0, 0, 1, 0, 0, -2.38924)
+visible = false
+
+[node name="Wall" type="CSGMesh3D" parent="Background"]
+transform = Transform3D(4.56332, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_0v70s")
+material = ExtResource("15_8qahw")
+
+[node name="Ground" type="CSGMesh3D" parent="Background"]
+transform = Transform3D(4.56332, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.5, 0.5)
+mesh = SubResource("QuadMesh_0v70s")
+material = ExtResource("16_we5u8")
+
+[node name="Ceiling" type="CSGMesh3D" parent="Background"]
+transform = Transform3D(4.56332, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0.5)
+mesh = SubResource("QuadMesh_0v70s")
+material = ExtResource("16_we5u8")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, -0.753281)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Background"]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, -0.688447, 0, 0.470634)
+material = ExtResource("16_we5u8")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Background"]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, -1.376, 0, 0.471)
+material = ExtResource("16_we5u8")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Background"]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, 0.688, 0, 0.471)
+material = ExtResource("16_we5u8")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Background"]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, 1.376, 0, 0.471)
+material = ExtResource("16_we5u8")
+
+[node name="Fish" parent="." instance=ExtResource("19_fqt13")]
+visible = false
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 11.986, 0.00497195, 0.00961852, -0.00138998)
+visible = false
+sorting_offset = 100.0
+material = SubResource("StandardMaterial3D_dqnb8")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("13_bvndj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1265, 46.3249, 0)
+IsPowerFishUnlock = true
+
+[node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("14_j8xgx")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -4.09963, 46.7176, 8.66575)
+ToFollow = NodePath("../CharacterBody3D")

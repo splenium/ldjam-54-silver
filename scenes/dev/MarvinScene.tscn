@@ -11,7 +11,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_jvaoj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.044, 2.5152, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.956, 21.0807, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, -1.51957, 3.0514, 1.55095)
