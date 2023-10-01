@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Ghost.cs" id="6_a57bf"]
 [ext_resource type="PackedScene" uid="uid://h1bjyb8mpmo2" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="6_w2hbn"]
 [ext_resource type="AudioStream" uid="uid://bifb5n1wa4dl0" path="res://assets/Sounds/Trash/dry-fart.mp3" id="7_kg6g1"]
-[ext_resource type="Material" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="8_uvjtu"]
+[ext_resource type="Material" uid="uid://2xm8v6u45jb0" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="8_uvjtu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47kvu"]
 
@@ -199,7 +199,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0206356)
 script = ExtResource("5_hw2ut")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/FishRaKoonAvatar")
-LightColor = Color(0.176471, 0.607843, 0.964706, 1)
+LightColor = Color(0, 0.956863, 0.960784, 1)
 
 [node name="Mesh" type="Node3D" parent="Power/Fish"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
