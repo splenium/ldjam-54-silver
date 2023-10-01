@@ -2,13 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://dysam8vf6m3ox" path="res://assets/Textures/Rocks/FlatRock03/roches_plates_5.png" id="1_pu1hn"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_2rupe"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpqkn"]
 transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("1_pu1hn")
-
-[sub_resource type="QuadMesh" id="QuadMesh_2rupe"]
-material = SubResource("StandardMaterial3D_lpqkn")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hxan8"]
 size = Vector3(0.48439, 0.0191059, 1)
@@ -19,10 +18,11 @@ size = Vector3(0.314432, 0.0217094, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkuup"]
 size = Vector3(0.111666, 0.0256453, 1)
 
-[node name="FlatRock3" type="MeshInstance3D"]
-transform = Transform3D(14.2501, 0, 0, 0, 14.2501, 0, 0, 0, 1, 23.8851, 1.6653, 0)
+[node name="FlatRock3" type="CSGMesh3D"]
+transform = Transform3D(14.2501, 0, 0, 0, 14.2501, 0, 0, 0, 1, 0, 0, 0)
 sorting_offset = -10.0
 mesh = SubResource("QuadMesh_2rupe")
+material = SubResource("StandardMaterial3D_lpqkn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
