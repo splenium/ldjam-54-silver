@@ -216,22 +216,23 @@ collision_mask = 0
 size = Vector3(0.97282, 0.686068, 26.1193)
 
 [node name="WaterSurface" parent="Level" instance=ExtResource("3_eq67j")]
-transform = Transform3D(23.9095, -8.04684e-15, 0, -1.69887e-13, 4.52996, 0, 0, 0, 29.9841, 22.6521, -21.3331, 0)
+transform = Transform3D(1, 7.10542e-15, 0, -7.10542e-15, 1, 0, 0, 0, 1, 22.6521, -21.3331, 0)
 
 [node name="WaterDeep" parent="Level" instance=ExtResource("4_pdwmr")]
-transform = Transform3D(23.0512, -3.67682e-14, 0, -1.63789e-13, 20.6986, 0, 0, 0, 29.684, 22.6161, -34.032, 0)
+transform = Transform3D(1, 7.10544e-15, 0, -7.10544e-15, 1, 0, 0, 0, 1, 22.6161, -34.032, 0)
 
 [node name="UnlockPowerFly" parent="Level" instance=ExtResource("5_wyrmu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 12.055, -5.09483, 21.6934, 13.4624)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.09483, 21.6934, 13.4624)
 
 [node name="UnlockPowerGhost" parent="Level" instance=ExtResource("5_wyrmu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 12.055, 23.4295, 2.49512, 13.4624)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 23.4295, 2.49512, 13.4624)
 power = 3
 
 [node name="UnlockPowerFish" parent="Level" instance=ExtResource("5_wyrmu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 12.055, 12.4824, -13.8328, 13.4624)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 12.4824, -13.8328, 13.4624)
 power = 1
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_3gev5")]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -4.05688, 23, 5.66575)
+current = true
 ToFollow = NodePath("../CharacterBody3D")

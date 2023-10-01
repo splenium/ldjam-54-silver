@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Godot;
 using LudumDare54Silver.scenes.PlayerController.Power;
-using System.Collections.Generic;
+
 
 public partial class CharacterController : CharacterBody3D
 {
@@ -79,12 +78,9 @@ public partial class CharacterController : CharacterBody3D
 
     private bool hasTeleport = false;
 
-    //private Power selectedPower;
-
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
-	[Export]
-	private Label _rakoonStatesLabel;
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -140,25 +136,21 @@ public partial class CharacterController : CharacterBody3D
 			if (@event.IsActionReleased(PowerHumanAction) && isPowerUnlock[PowerEnum.Human])
 			{
 				SelectPower(PowerHuman);
-				_rakoonStatesLabel.Text = "Rakoon";
 				GD.Print("Human");
 			}
 			else if (@event.IsActionReleased(PowerFlyAction) && isPowerUnlock[PowerEnum.Fly])
 			{
 				SelectPower(PowerFly);
-				_rakoonStatesLabel.Text = "Flykoon";
 				GD.Print("Fly");
 			}
 			else if (@event.IsActionReleased(PowerFishAction) && isPowerUnlock[PowerEnum.Fish])
 			{
 				SelectPower(PowerFish);
-				_rakoonStatesLabel.Text = "Fishkoon";
 				GD.Print("Fish");
 			}
 			else if (@event.IsActionReleased(PowerGhostAction) && isPowerUnlock[PowerEnum.Ghost])
 			{
 				SelectPower(PowerGhost);
-				_rakoonStatesLabel.Text = "Gostkoon";
 				GD.Print("Ghost");
 			}
 		}

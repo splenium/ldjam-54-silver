@@ -1,3 +1,4 @@
+using System.Linq;
 using Godot;
 
 public partial class FishAvatar : Area3D
@@ -22,7 +23,8 @@ public partial class FishAvatar : Area3D
         }
         if (HasOverlappingBodies())
         {
-            var player = (CharacterController)GetOverlappingBodies()[0];
+            var overlappingBodies = GetOverlappingBodies();
+            var player = (CharacterController) overlappingBodies.FirstOrDefault(b => b is CharacterController);
             if (player != null)
             {
                 AttackAnimation.Play("attack");
