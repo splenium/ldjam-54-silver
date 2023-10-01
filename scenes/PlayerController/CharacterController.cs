@@ -160,6 +160,10 @@ public partial class CharacterController : CharacterBody3D
 
     public void TakeDamage(int amount)
     {
+        if (invulernability)
+        {
+            return;
+        }
         health -= amount;
         GD.Print("Check ", health);
         if (health <= 0)

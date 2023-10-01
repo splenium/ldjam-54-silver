@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr7dnvxx3vg4j"]
+
+[ext_resource type="Script" path="res://assets/Fish/FishPathFollow3D.cs" id="1_uu5lv"]
+[ext_resource type="PackedScene" uid="uid://1j402scygycu" path="res://assets/Fish/FishPrefab.tscn" id="2_tu2qc"]
+
+[sub_resource type="Curve3D" id="Curve3D_bywup"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.8837, 0.895769, 0, 0, 0, 0, 0, 0, 0, 7.1163, 32.8958, 0, 0, 0, 0, 0, 0, 0, 1.1163, 0.895769, 0),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="MovingFish" type="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1163, -13.8958, 0)
+curve = SubResource("Curve3D_bywup")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="." node_paths=PackedStringArray("FishAvatar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8837, 0.895769, 0)
+rotation_mode = 0
+script = ExtResource("1_uu5lv")
+FishAvatar = NodePath("Fish")
+
+[node name="Fish" parent="PathFollow3D" node_paths=PackedStringArray("Objects") instance=ExtResource("2_tu2qc")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+Objects = [null, null, null, null, null, null, null]
