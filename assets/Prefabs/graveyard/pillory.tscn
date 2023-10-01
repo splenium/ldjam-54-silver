@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://doiucep0m80t1"]
 
-[ext_resource type="Texture2D" uid="uid://ftoe11u8f4nd" path="res://assets/Textures/graveyard/pillory.png" id="1_d1oxj"]
+[ext_resource type="Texture2D" uid="uid://dsbrkyi1mx6uv" path="res://assets/Textures/graveyard/Potence_1.png" id="1_kelo1"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_16qyx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_web14"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("1_d1oxj")
+albedo_texture = ExtResource("1_kelo1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pnl1h"]
 size = Vector3(0.18198, 0.79507, 1)

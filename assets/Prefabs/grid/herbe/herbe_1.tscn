@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmj6j77am7ymb"]
+
+[ext_resource type="Texture2D" uid="uid://c3l7r8jga7shk" path="res://assets/Textures/grille/grille_texture herbe vue du dessus3.png" id="1_c8gfc"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_fvaow"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hem4"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_c8gfc")
+
+[node name="Herbe1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -3.55271e-15, 0, 3.55271e-15, 1, 23.6532, -3.83305, 0.443637)
+
+[node name="Herbe1" type="CSGMesh3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, 1, 0, -5, -4.37112e-08, -1.18351, 0.0697665, 1.59375)
+sorting_offset = -10.0
+mesh = SubResource("QuadMesh_fvaow")
+material = SubResource("StandardMaterial3D_1hem4")
