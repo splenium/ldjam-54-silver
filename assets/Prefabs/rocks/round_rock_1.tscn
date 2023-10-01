@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://cu6ackaeydlfq"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/Rock.gdshader" id="1_oabrs"]
+[ext_resource type="Texture2D" uid="uid://dpwemcwwdnctm" path="res://assets/Textures/Rocks/Roches.png" id="2_aoxs1"]
+[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_ckomv"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhdbu"]
+render_priority = 0
+shader = ExtResource("1_oabrs")
+shader_parameter/_mainTex = ExtResource("2_aoxs1")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vpoxv"]
+size = Vector3(0.502969, 0.602918, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vm4vw"]
+size = Vector3(0.374003, 0.680298, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1tblg"]
+size = Vector3(0.374003, 0.595219, 1)
+
+[node name="RoundRock1" type="StaticBody3D"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+collision_layer = 129
+collision_mask = 129
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="RockMesh" type="CSGMesh3D" parent="."]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.0124002, -0.0124133, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = SubResource("ShaderMaterial_vhdbu")
+script = ExtResource("2_ckomv")
+Amplitude = 0.005
+Offset = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.183777, 0.15476, 0)
+shape = SubResource("BoxShape3D_vpoxv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15476, 0.0225692, 0)
+shape = SubResource("BoxShape3D_vm4vw")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.711805, -0.702377, 0, 0.702377, 0.711805, 0, 0, 0, 1, -0.0806043, -0.17088, 0)
+shape = SubResource("BoxShape3D_1tblg")
