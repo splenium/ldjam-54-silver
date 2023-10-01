@@ -15,7 +15,7 @@ size = Vector3(0.619227, 0.240566, 1)
 size = Vector3(0.598399, 0.240566, 1)
 
 [node name="TriangleRock1" type="StaticBody3D"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -3.99417, 39.0092, 0)
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 collision_layer = 129
 collision_mask = 129
 axis_lock_linear_x = true

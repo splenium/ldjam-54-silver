@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://oj24k1fqxnu4"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/Rock.gdshader" id="1_3wg2m"]
+[ext_resource type="Texture2D" uid="uid://h4jk8qe476me" path="res://assets/Textures/Rocks/roches-petite_1.png" id="1_dvelx"]
+[ext_resource type="Script" path="res://assets/Hovering.cs" id="3_x0ghk"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1xdf0"]
+render_priority = 0
+shader = ExtResource("1_3wg2m")
+shader_parameter/_mainTex = ExtResource("1_dvelx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4beuy"]
+size = Vector3(0.273, 0.206, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tfcma"]
+size = Vector3(0.130063, 0.295184, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_44lv5"]
+size = Vector3(0.077, 0.313, 1)
+
+[node name="SmallRock1" type="StaticBody3D"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+collision_layer = 129
+collision_mask = 129
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="RockMesh" type="CSGMesh3D" parent="."]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.0124002, -0.0124133, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = SubResource("ShaderMaterial_1xdf0")
+script = ExtResource("3_x0ghk")
+Amplitude = 0.005
+Offset = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.75078, 0.660552, 0, -0.660552, 0.75078, 0, 0, 0, 1, 0.00726804, 0.113675, 0)
+shape = SubResource("BoxShape3D_4beuy")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.887711, 0.460401, 0, -0.460401, 0.887711, 0, 0, 0, 1, 0.045885, 0.0246234, 0)
+shape = SubResource("BoxShape3D_tfcma")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.857472, -0.51453, 0, 0.51453, 0.857472, 0, 0, 0, 1, -0.0538992, -0.0106487, 0)
+shape = SubResource("BoxShape3D_44lv5")

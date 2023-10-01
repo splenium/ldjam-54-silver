@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://2kdeoux4tqc"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/Rock.gdshader" id="1_sc6e1"]
+[ext_resource type="Texture2D" uid="uid://bumfxwkui6bqa" path="res://assets/Textures/Rocks/roches-petite_2.png" id="2_aqcn2"]
+[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_kewx0"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ovlnn"]
+render_priority = 0
+shader = ExtResource("1_sc6e1")
+shader_parameter/_mainTex = ExtResource("2_aqcn2")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4beuy"]
+size = Vector3(0.32598, 0.306041, 1)
+
+[node name="SmallRock2" type="StaticBody3D"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+collision_layer = 129
+collision_mask = 129
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="RockMesh" type="CSGMesh3D" parent="."]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.0124002, -0.0124133, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = SubResource("ShaderMaterial_ovlnn")
+script = ExtResource("2_kewx0")
+Amplitude = 0.005
+Offset = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.623579, 0.78176, 0, -0.78176, 0.623579, 0, 0, 0, 1, 0.015485, 0.121892, 0)
+shape = SubResource("BoxShape3D_4beuy")

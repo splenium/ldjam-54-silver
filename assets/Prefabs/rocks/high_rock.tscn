@@ -15,7 +15,7 @@ size = Vector3(0.26, 0.222, 1)
 size = Vector3(0.26, 0.299, 1)
 
 [node name="HighRock" type="StaticBody3D"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -9.23778, 21.5807, 0)
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 collision_mask = 129
 axis_lock_linear_x = true
 axis_lock_linear_y = true
