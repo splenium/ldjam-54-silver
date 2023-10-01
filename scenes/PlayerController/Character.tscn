@@ -118,7 +118,7 @@ albedo_texture = ExtResource("4_hifw6")
 [sub_resource type="QuadMesh" id="QuadMesh_nsvfv"]
 material = SubResource("StandardMaterial3D_r6vee")
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("PowerHuman", "PowerFish", "PowerFly", "PowerGhost", "DamageDetector", "DamageTakenTimer")]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("PowerHuman", "PowerFish", "PowerFly", "PowerGhost", "DamageDetector", "DamageTakenTimer", "VortexDetector")]
 collision_layer = 129
 collision_mask = 67
 script = ExtResource("1_j3srj")
@@ -128,6 +128,7 @@ PowerFly = NodePath("Power/Fly")
 PowerGhost = NodePath("Power/Ghost")
 DamageDetector = NodePath("Detectors/DamageDetector")
 DamageTakenTimer = NodePath("DamageTakenTimer")
+VortexDetector = NodePath("Detectors/DetectorVortex")
 
 [node name="DamageTakenTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -143,6 +144,13 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detectors/DetectorWater"]
+shape = SubResource("CapsuleShape3D_47kvu")
+
+[node name="DetectorVortex" type="Area3D" parent="Detectors"]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detectors/DetectorVortex"]
 shape = SubResource("CapsuleShape3D_47kvu")
 
 [node name="DetectorObstacles" type="Area3D" parent="Detectors"]

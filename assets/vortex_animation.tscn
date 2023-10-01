@@ -1,6 +1,6 @@
-[gd_scene load_steps=66 format=3 uid="uid://v0rqj47u12wc"]
+[gd_scene load_steps=66 format=3 uid="uid://dtowie7wu0ypl"]
 
-[ext_resource type="Material" uid="uid://dqmoa2san6so5" path="res://assets/Materials/VortexShaderMat.tres" id="1_1c776"]
+[ext_resource type="Material" path="res://assets/Materials/VortexShaderMat.tres" id="1_1c776"]
 [ext_resource type="Texture2D" uid="uid://bd5p0xbkm7ets" path="res://assets/Textures/Vortex/img00.png" id="2_rpjm6"]
 [ext_resource type="Texture2D" uid="uid://0r8e20ju2qxh" path="res://assets/Textures/Vortex/img01.png" id="3_sd6mj"]
 [ext_resource type="Texture2D" uid="uid://cuvqhe6iw4wss" path="res://assets/Textures/Vortex/img02.png" id="4_51nb6"]

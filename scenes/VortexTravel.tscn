@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://i7u3obxblro2"]
+[gd_scene load_steps=3 format=3 uid="uid://c5340gv2mgayt"]
 
 [ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="1_p06xh"]
-[ext_resource type="PackedScene" uid="uid://bdr2dpbrdavcn" path="res://assets/Prefabs/vortex_travel_anim.tscn" id="2_tnkk8"]
+[ext_resource type="PackedScene" uid="uid://b2qnjj4q7bmss" path="res://assets/Prefabs/vortex_travel_anim.tscn" id="2_tnkk8"]
 
 [node name="VortexTravel" type="Node3D"]
 
@@ -17,5 +17,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VortexTravelAnim" parent="." instance=ExtResource("2_tnkk8")]
+[node name="VortexTravelAnim" parent="." groups=["vortexManager"] instance=ExtResource("2_tnkk8")]
 Button = true

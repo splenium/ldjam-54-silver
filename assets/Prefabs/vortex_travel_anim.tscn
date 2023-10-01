@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdr2dpbrdavcn"]
+[gd_scene load_steps=7 format=3 uid="uid://b2qnjj4q7bmss"]
 
 [ext_resource type="Script" path="res://scenes/dev/VortexTravel.cs" id="1_2a2k4"]
 [ext_resource type="Shader" path="res://scenes/dev/VortexBackground.gdshader" id="2_tggvs"]
@@ -15,7 +15,6 @@ shader_parameter/iChannel0 = ExtResource("3_s00we")
 [node name="VortexTravelAnim" type="Node3D" node_paths=PackedStringArray("RaKoonAvatar")]
 transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, 0, -2.267)
 script = ExtResource("1_2a2k4")
-TravelPercent = 0.775
 RaKoonAvatar = NodePath("Parent/RaKoonAvatar")
 
 [node name="Background" type="CSGMesh3D" parent="."]
