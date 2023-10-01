@@ -6,7 +6,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6pdgm"]
 transparency = 1
-shading_mode = 0
 albedo_texture = ExtResource("1_8megx")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_inl0n"]
