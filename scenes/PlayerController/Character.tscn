@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Human.cs" id="4_p84tn"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fish.cs" id="5_hw2ut"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Ghost.cs" id="6_a57bf"]
-[ext_resource type="PackedScene" uid="uid://h1bjyb8mpmo2" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="6_w2hbn"]
+[ext_resource type="PackedScene" uid="uid://cflloyk51haep" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="6_w2hbn"]
 [ext_resource type="AudioStream" uid="uid://dcvbkel15rt7u" path="res://assets/Sounds/Trash/fartmeme.mp3" id="7_03txy"]
 [ext_resource type="AudioStream" uid="uid://bifb5n1wa4dl0" path="res://assets/Sounds/Trash/dry-fart.mp3" id="7_kg6g1"]
-[ext_resource type="Material" uid="uid://2xm8v6u45jb0" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="8_uvjtu"]
+[ext_resource type="Material" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="8_uvjtu"]
 [ext_resource type="AudioStream" uid="uid://202ayhffofvb" path="res://assets/Sounds/Trash/09037.mp3" id="9_av4vc"]
 [ext_resource type="AudioStream" uid="uid://dgv8ltxabfs3g" path="res://assets/Sounds/Trash/wet-fart-2.mp3" id="10_ghg27"]
 [ext_resource type="AudioStream" uid="uid://cojnhsmodjp7v" path="res://assets/Sounds/Trash/fart_2.mp3" id="11_roi0h"]
@@ -123,8 +123,8 @@ albedo_texture = ExtResource("4_hifw6")
 material = SubResource("StandardMaterial3D_r6vee")
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("PowerHuman", "PowerFish", "PowerFly", "PowerGhost", "DamageDetector", "DamageTakenTimer")]
-collision_layer = 65
-collision_mask = 65
+collision_layer = 129
+collision_mask = 67
 script = ExtResource("1_j3srj")
 PowerHuman = NodePath("Power/Human")
 PowerFish = NodePath("Power/Fish")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgj0n06q1fhte"]
+
+[ext_resource type="Script" path="res://scenes/UnlockPower.cs" id="1_pkdks"]
+[ext_resource type="Texture2D" uid="uid://bf5nil75ohsau" path="res://assets/Test/PowerMaterial/purple_white.png" id="2_434wc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohf0s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rpbyx"]
+albedo_texture = ExtResource("2_434wc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_q1s2q"]
+material = SubResource("StandardMaterial3D_rpbyx")
+
+[node name="UnlockPower" type="Area3D" groups=["checkpoint"]]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_pkdks")
+power = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ohf0s")
+
+[node name="Sprite3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_q1s2q")

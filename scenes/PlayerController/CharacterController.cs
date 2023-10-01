@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 using LudumDare54Silver.scenes.PlayerController.Power;
 
@@ -5,23 +6,50 @@ public partial class CharacterController : CharacterBody3D
 {
     [Export]
     public Human PowerHuman;
-    [Export]
     public string PowerHumanAction = "power_human";
+    [Export]
+    public bool IsPowerHumanUnlock {
+        get => isPowerUnlock[PowerEnum.Human];
+        set => isPowerUnlock[PowerEnum.Human] = value;
+    }
 
     [Export]
     public Fish PowerFish;
-    [Export]
     public string PowerFishAction = "power_fish";
+    [Export]
+    public bool IsPowerFishUnlock {
+        get => isPowerUnlock[PowerEnum.Fish];
+        set => isPowerUnlock[PowerEnum.Fish] = value;
+    }
 
     [Export]
     public Fly PowerFly;
-    [Export]
     public string PowerFlyAction = "power_fly";
+    [Export]
+    public bool IsPowerFlyUnlock {
+        get => isPowerUnlock[PowerEnum.Fly];
+        set => isPowerUnlock[PowerEnum.Fly] = value;
+    }
+
 
     [Export]
     public Ghost PowerGhost;
-    [Export]
     public string PowerGhostAction = "power_ghost";
+    [Export]
+    public bool IsPowerGhostUnlock {
+        get => isPowerUnlock[PowerEnum.Ghost];
+        set => isPowerUnlock[PowerEnum.Ghost] = value;
+    }
+
+    private Dictionary<PowerEnum, bool> isPowerUnlock = new Dictionary<PowerEnum, bool>()
+    {
+        { PowerEnum.Human, true },
+        { PowerEnum.Fish, false },
+        { PowerEnum.Fly, false },
+        { PowerEnum.Ghost, false }
+    };
+
+    private Dictionary<PowerEnum, Power> powerByEnum;
 
     [Export]
     public Area3D DamageDetector;
@@ -70,9 +98,17 @@ public partial class CharacterController : CharacterBody3D
         {
             GD.PrintErr("CharacterController: DamageTakenTimer is null");
         }
+
+        powerByEnum = new Dictionary<PowerEnum, Power>()
+        {
+            { PowerEnum.Human, PowerHuman },
+            { PowerEnum.Fish, PowerFish },
+            { PowerEnum.Fly, PowerFly },
+            { PowerEnum.Ghost, PowerGhost }
+        };
     }
 
-    private void SetNewPower(Power newPower)
+    private void SelectPower(Power newPower)
     {
         currentPower.Exit(this);
         currentPower = newPower;
@@ -84,24 +120,24 @@ public partial class CharacterController : CharacterBody3D
         if (currentPower.CanChange(this))
         {
 
-            if (@event.IsActionReleased(PowerHumanAction))
+            if (@event.IsActionReleased(PowerHumanAction) && isPowerUnlock[PowerEnum.Human])
             {
-                SetNewPower(PowerHuman);
+                SelectPower(PowerHuman);
                 GD.Print("Human");
             }
-            else if (@event.IsActionReleased(PowerFlyAction))
+            else if (@event.IsActionReleased(PowerFlyAction) && isPowerUnlock[PowerEnum.Fly])
             {
-                SetNewPower(PowerFly);
+                SelectPower(PowerFly);
                 GD.Print("Fly");
             }
-            else if (@event.IsActionReleased(PowerFishAction))
+            else if (@event.IsActionReleased(PowerFishAction) && isPowerUnlock[PowerEnum.Fish])
             {
-                SetNewPower(PowerFish);
+                SelectPower(PowerFish);
                 GD.Print("Fish");
             }
-            else if (@event.IsActionReleased(PowerGhostAction))
+            else if (@event.IsActionReleased(PowerGhostAction) && isPowerUnlock[PowerEnum.Ghost])
             {
-                SetNewPower(PowerGhost);
+                SelectPower(PowerGhost);
                 GD.Print("Ghost");
             }
         }
@@ -154,4 +190,11 @@ public partial class CharacterController : CharacterBody3D
         invulernability = false;
         GD.Print("Can take damage");
     }
+
+    public void UnlockPower(PowerEnum power)
+    {
+        isPowerUnlock[power] = true;
+        SelectPower(powerByEnum[power]);
+    }
+
 }

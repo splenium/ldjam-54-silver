@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bbjip0v5s5g52" path="res://scenes/dev/Elements/ground.tscn" id="3_3olp8"]
 [ext_resource type="PackedScene" uid="uid://bqyehv8bne1wf" path="res://scenes/dev/Elements/WaterSurface.tscn" id="3_587j0"]
 [ext_resource type="PackedScene" uid="uid://bo0wkwm03omsg" path="res://scenes/dev/Elements/WaterDeep.tscn" id="4_c881m"]
-[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="6_btjhh"]
+[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/Checkpoint.tscn" id="6_btjhh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_powy6"]
 

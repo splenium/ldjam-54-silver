@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://by3b0d0geqpwg"]
+[gd_scene load_steps=7 format=3 uid="uid://by3b0d0geqpwg"]
 
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="1_jvaoj"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_3gev5"]
 [ext_resource type="PackedScene" uid="uid://bqyehv8bne1wf" path="res://scenes/dev/Elements/WaterSurface.tscn" id="3_eq67j"]
 [ext_resource type="PackedScene" uid="uid://bbgpuj1chyp3j" path="res://scenes/dev/Elements/SpectralCollider.tscn" id="4_1h8ve"]
 [ext_resource type="PackedScene" uid="uid://bo0wkwm03omsg" path="res://scenes/dev/Elements/WaterDeep.tscn" id="4_pdwmr"]
+[ext_resource type="PackedScene" uid="uid://bgj0n06q1fhte" path="res://scenes/UnlockPower.tscn" id="5_wyrmu"]
 
 [node name="DevScene" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_jvaoj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.95598, 23.5152, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.044, 2.5152, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.759907, 0.650032, 0, -0.650032, 0.759907, -1.51957, 3.0514, 1.55095)
@@ -219,6 +220,17 @@ transform = Transform3D(23.9095, -8.04684e-15, 0, -1.69887e-13, 4.52996, 0, 0, 0
 
 [node name="WaterDeep" parent="Level" instance=ExtResource("4_pdwmr")]
 transform = Transform3D(23.0512, -3.67682e-14, 0, -1.63789e-13, 20.6986, 0, 0, 0, 29.684, 22.6161, -34.032, 0)
+
+[node name="UnlockPowerFly" parent="Level" instance=ExtResource("5_wyrmu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 12.055, -5.09483, 21.6934, 13.4624)
+
+[node name="UnlockPowerGhost" parent="Level" instance=ExtResource("5_wyrmu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 12.055, 23.4295, 2.49512, 13.4624)
+power = 3
+
+[node name="UnlockPowerFish" parent="Level" instance=ExtResource("5_wyrmu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 12.055, 12.7187, -12.8875, 13.4624)
+power = 1
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_3gev5")]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -4.05688, 23, 5.66575)

@@ -15,6 +15,8 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
         public RaKoonAvatar raKoonAvatar;
         [Export]
         public Color LightColor;
+        [Export]
+        public PowerEnum PowerEnum;
 
         private bool wasInWater = false;
 
@@ -89,4 +91,12 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
             return velocity;
         }
     }
+}
+
+public enum PowerEnum
+{
+    Human,
+    Fish,
+    Fly,
+    Ghost
 }
