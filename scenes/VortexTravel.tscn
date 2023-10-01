@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://i7u3obxblro2"]
+
+[ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="1_p06xh"]
+[ext_resource type="PackedScene" uid="uid://bdr2dpbrdavcn" path="res://assets/Prefabs/vortex_travel_anim.tscn" id="2_tnkk8"]
+
+[node name="VortexTravel" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("1_p06xh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VortexTravelAnim" parent="." instance=ExtResource("2_tnkk8")]
+Button = true

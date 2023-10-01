@@ -3,11 +3,16 @@ using System;
 
 public partial class VortexTravel : Node3D
 {
-    [Export]
     public float TravelPercent; // From 0 to 1
 
     [Export]
+    public string NextScenePath;
+
+    [Export]
     public RaKoonAvatar RaKoonAvatar;
+
+    [Export]
+    public bool Button;
 
 
     private Vector3 _originalRotation;
@@ -27,6 +32,30 @@ public partial class VortexTravel : Node3D
         var moveObject = (RaKoonAvatar.GetParent() as Node3D);
         moveObject.Rotation = _originalRotation.Lerp(new Vector3(0, 0, 10), TravelPercent);
         moveObject.Position = _originalPosition.Lerp(new Vector3(1,0,0), TravelPercent);
+        if (Button)
+        {
+            Button = false;
+            StartAnim();
+        }
     }
 
+
+    public async void StartAnim()
+    {
+        GD.Print("Start travel anim...");
+        float delay = 1.0f / 30.0f;
+        float duration = 5.0f;
+        float time = 0.0f;
+        while (time < duration)
+        {
+            time += delay;
+            TravelPercent = time / duration;
+            await ToSignal(GetTree().CreateTimer(delay), "timeout");
+        }
+        GD.Print("Travel anim finished, loading scene...");
+        var level = GD.Load<PackedScene>(NextScenePath);
+        var newLevelInstance = level.Instantiate();
+        GetTree().Root.AddChild(newLevelInstance);
+        QueueFree();
+    }
 }

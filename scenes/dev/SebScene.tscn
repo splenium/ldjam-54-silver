@@ -1,5 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://bvu2s2q0oqyiw"]
+[gd_scene load_steps=32 format=3 uid="uid://bvu2s2q0oqyiw"]
 
+[ext_resource type="PackedScene" uid="uid://bdr2dpbrdavcn" path="res://assets/Prefabs/vortex_travel_anim.tscn" id="1_4vhh4"]
 [ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="1_818dc"]
 [ext_resource type="Material" uid="uid://pfk887ida80" path="res://assets/Materials/Rock00Mat.tres" id="1_kfxe6"]
 [ext_resource type="Material" uid="uid://cevwxtcp37nen" path="res://assets/Materials/Clouds/SkyIslandsBGMat.tres" id="1_xd3yq"]
@@ -25,16 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://bpr26nm017exs" path="res://assets/Prefabs/bomb.tscn" id="24_mgek1"]
 [ext_resource type="Material" uid="uid://2xm8v6u45jb0" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="24_x0wm6"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/vortex_anim.tscn" id="25_5dv4w"]
-[ext_resource type="Shader" path="res://scenes/dev/VortexBackground.gdshader" id="26_1qdpl"]
-[ext_resource type="Script" path="res://scenes/dev/VortexTravel.cs" id="26_4s5sm"]
-[ext_resource type="Texture2D" uid="uid://ckwfqf0hlqh01" path="res://assets/Textures/Noise.png" id="27_2sxen"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_hl4i6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4h6d"]
-render_priority = 0
-shader = ExtResource("26_1qdpl")
-shader_parameter/iChannel0 = ExtResource("27_2sxen")
 
 [sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
 
@@ -53,21 +44,7 @@ albedo_color = Color(0.627451, 1, 1, 0.431373)
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.267)
 
-[node name="VortexTravelAnim" type="Node3D" parent="Camera3D" node_paths=PackedStringArray("RaKoonAvatar")]
-transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, 0, -2.267)
-script = ExtResource("26_4s5sm")
-TravelPercent = 0.775
-RaKoonAvatar = NodePath("Parent/RaKoonAvatar")
-
-[node name="Background" type="CSGMesh3D" parent="Camera3D/VortexTravelAnim"]
-transform = Transform3D(1.45, 0, 0, 0, 1.45, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("QuadMesh_hl4i6")
-material = SubResource("ShaderMaterial_y4h6d")
-
-[node name="Parent" type="Node3D" parent="Camera3D/VortexTravelAnim"]
-transform = Transform3D(0.892358, 0, 0, 0, 0.892358, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="RaKoonAvatar" parent="Camera3D/VortexTravelAnim/Parent" instance=ExtResource("13_of5xy")]
+[node name="VortexTravelAnim" parent="Camera3D" instance=ExtResource("1_4vhh4")]
 
 [node name="SceneIslands" type="Node3D" parent="."]
 visible = false

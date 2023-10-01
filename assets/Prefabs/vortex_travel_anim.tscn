@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdr2dpbrdavcn"]
+
+[ext_resource type="Script" path="res://scenes/dev/VortexTravel.cs" id="1_2a2k4"]
+[ext_resource type="Shader" path="res://scenes/dev/VortexBackground.gdshader" id="2_tggvs"]
+[ext_resource type="Texture2D" uid="uid://ckwfqf0hlqh01" path="res://assets/Textures/Noise.png" id="3_s00we"]
+[ext_resource type="PackedScene" uid="uid://h1bjyb8mpmo2" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="4_nq6wo"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_hl4i6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4h6d"]
+render_priority = 0
+shader = ExtResource("2_tggvs")
+shader_parameter/iChannel0 = ExtResource("3_s00we")
+
+[node name="VortexTravelAnim" type="Node3D" node_paths=PackedStringArray("RaKoonAvatar")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, 0, -2.267)
+script = ExtResource("1_2a2k4")
+TravelPercent = 0.775
+RaKoonAvatar = NodePath("Parent/RaKoonAvatar")
+
+[node name="Background" type="CSGMesh3D" parent="."]
+transform = Transform3D(1.45, 0, 0, 0, 1.45, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_hl4i6")
+material = SubResource("ShaderMaterial_y4h6d")
+
+[node name="Parent" type="Node3D" parent="."]
+transform = Transform3D(0.892358, 0, 0, 0, 0.892358, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="RaKoonAvatar" parent="Parent" instance=ExtResource("4_nq6wo")]
