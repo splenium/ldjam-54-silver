@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_m1iqt"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_dnp53"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="3_3521m"]
-[ext_resource type="PackedScene" uid="uid://b17vcnmok5kix" path="res://scenes/Levels/AbyssScene.tscn" id="3_cljbr"]
+[ext_resource type="PackedScene" uid="uid://b17vcnmok5kix" path="res://scenes/Levels/AbyssScene.tscn" id="3_jtbn2"]
 [ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="4_n1t4r"]
 [ext_resource type="PackedScene" uid="uid://fa27lkyj3wa7" path="res://assets/Prefabs/rocks/flat_rock_2.tscn" id="5_652ma"]
 [ext_resource type="PackedScene" uid="uid://doiucep0m80t1" path="res://assets/Prefabs/graveyard/pillory.tscn" id="6_y8d85"]
@@ -29,14 +29,15 @@ ToFollow = NodePath("../CharacterBody3D")
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_dnp53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.319693, 8.10785, 0)
 IsPowerHumanUnlock = true
-NextScene = ExtResource("3_cljbr")
+NextScene = ExtResource("3_jtbn2")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 7)
-spot_range = 21.0
-spot_angle = 67.3238
+spot_range = 14.1454
+spot_angle = 72.1121
 
 [node name="CliffRock" parent="." instance=ExtResource("3_3521m")]
+transform = Transform3D(15.1367, 0, 0, 0, 15.1367, 0, 0, 0, 1, 2.14499, 0.025305, -0.00264688)
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -90,37 +91,37 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 9.21374, -6.23827, 0.00613785
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5.63733, -12.8275, -1.43791)
 
 [node name="Vortex" parent="." instance=ExtResource("12_psa0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, -12, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, -13.2564, 0)
 
 [node name="DinoLayer" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -109.969)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -98.4816, -109.969)
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="DinoLayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5675, -21.4499, 33.8758)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.36, -21.4499, 33.8758)
 light_energy = 2.846
 omni_range = 135.359
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="DinoLayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.389, -21.4499, 33.8758)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.181, -21.4499, 33.8758)
 light_energy = 2.846
 omni_range = 90.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="DinoLayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2246, -21.4499, 28.0234)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0171, -21.4499, 28.0234)
 light_energy = 2.846
 omni_range = 135.359
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="DinoLayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.7629, -21.4499, 34.3098)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9704, -21.4499, 34.3098)
 light_energy = 2.846
 omni_range = 135.359
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="DinoLayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.89661, 55.8941, 59.2275)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6891, 55.8941, 59.2275)
 light_energy = 2.846
 omni_range = 98.531
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="DinoLayer"]
-transform = Transform3D(500.495, 0, 0, 0, 500.495, 0, 0, 0, 1, 14.6876, 0, 5.43367)
+transform = Transform3D(428.192, 0, 0, 0, 428.192, 0, 0, 0, 1, 42.601, 0, 5.43367)
 mesh = SubResource("QuadMesh_kml0s")
 material = SubResource("StandardMaterial3D_r3wyk")

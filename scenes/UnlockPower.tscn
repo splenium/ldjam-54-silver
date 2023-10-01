@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgj0n06q1fhte"]
+[gd_scene load_steps=7 format=3 uid="uid://bgj0n06q1fhte"]
 
 [ext_resource type="Script" path="res://scenes/UnlockPower.cs" id="1_pkdks"]
 [ext_resource type="Texture2D" uid="uid://bf5nil75ohsau" path="res://assets/Test/PowerMaterial/purple_white.png" id="2_434wc"]
+[ext_resource type="PackedScene" uid="uid://b6l40hdajspul" path="res://assets/Prefabs/dna.tscn" id="3_7hvur"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ohf0s"]
 
@@ -21,4 +22,8 @@ power = 2
 shape = SubResource("BoxShape3D_ohf0s")
 
 [node name="Sprite3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("QuadMesh_q1s2q")
+
+[node name="DNA" parent="." instance=ExtResource("3_7hvur")]
+transform = Transform3D(0.219754, 0, 0, 0, 0.219754, 0, 0, 0, 1, -0.00685924, 4.76837e-07, -0.191338)
