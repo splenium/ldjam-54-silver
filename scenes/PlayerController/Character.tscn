@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Human.cs" id="4_p84tn"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fish.cs" id="5_hw2ut"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Ghost.cs" id="6_a57bf"]
-[ext_resource type="PackedScene" uid="uid://cflloyk51haep" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="6_w2hbn"]
+[ext_resource type="PackedScene" uid="uid://h1bjyb8mpmo2" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="6_w2hbn"]
 [ext_resource type="AudioStream" uid="uid://bifb5n1wa4dl0" path="res://assets/Sounds/Trash/dry-fart.mp3" id="7_kg6g1"]
-[ext_resource type="Material" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="8_uvjtu"]
+[ext_resource type="Material" uid="uid://2xm8v6u45jb0" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="8_uvjtu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_47kvu"]
 

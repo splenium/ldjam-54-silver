@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://h1bjyb8mpmo2"]
+[gd_scene load_steps=25 format=3 uid="uid://h1bjyb8mpmo2"]
 
 [ext_resource type="Script" path="res://scenes/dev/RaKoonAvatar.cs" id="1_8pl2y"]
 [ext_resource type="Material" uid="uid://c3kg7kyte14ra" path="res://assets/Materials/RaKoon/RaKoonHeadMat.tres" id="2_e4rko"]
@@ -16,8 +16,31 @@
 [ext_resource type="Texture2D" uid="uid://r1odbc7ovewa" path="res://assets/Textures/RaKoon/rakoon_shocked-2.png" id="14_72ifo"]
 [ext_resource type="Script" path="res://assets/Hovering.cs" id="15_8o03j"]
 [ext_resource type="Material" uid="uid://dvusmv534jt1s" path="res://assets/Materials/RaKoon/RaKoonBodyMat.tres" id="16_ebflu"]
+[ext_resource type="Shader" path="res://assets/Shaders/RaKoon/RaKoonHead.gdshader" id="16_xrsie"]
+[ext_resource type="Shader" path="res://assets/Shaders/RaKoon/RaKoonBody.gdshader" id="18_hejbd"]
+[ext_resource type="Texture2D" uid="uid://c20gul0kfaifi" path="res://assets/Textures/RaKoon/rakoon_suit.png" id="19_rncvf"]
+[ext_resource type="Texture2D" uid="uid://ch4a3f4peflaj" path="res://assets/Textures/RaKoon/rakoon_suit_highlight_yellow.png" id="20_52m1h"]
+[ext_resource type="Texture2D" uid="uid://cy030eeh8hnfn" path="res://assets/Textures/RaKoon/rakoon_suit_highlight_white.png" id="21_2q83t"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_mjm0f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_skqla"]
+render_priority = 0
+shader = ExtResource("16_xrsie")
+shader_parameter/_lightColor = Color(1, 0, 0.768627, 0.247059)
+shader_parameter/_ghostness = null
+shader_parameter/_headBGTex = ExtResource("3_xit7x")
+shader_parameter/_headOutlineTex = ExtResource("4_disl6")
+shader_parameter/_headHighLightTex = ExtResource("5_k2leh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1we3y"]
+render_priority = 0
+shader = ExtResource("18_hejbd")
+shader_parameter/_lightColor = Color(1, 1, 1, 1)
+shader_parameter/_ghostness = null
+shader_parameter/_bodyBGTex = ExtResource("19_rncvf")
+shader_parameter/_bodyHighlightTex1 = ExtResource("20_52m1h")
+shader_parameter/_bodyHighlightTex2 = ExtResource("21_2q83t")
 
 [node name="RaKoonAvatar" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.13929)
@@ -44,7 +67,7 @@ SHOCKEDHighlight = ExtResource("14_72ifo")
 [node name="Head" type="CSGMesh3D" parent="."]
 transform = Transform3D(0.356372, 0, 0, 0, 0.356372, 0, 0, 0, 1, 0, 0.0938219, 0.00403273)
 mesh = SubResource("QuadMesh_mjm0f")
-material = ExtResource("2_e4rko")
+material = SubResource("ShaderMaterial_skqla")
 script = ExtResource("15_8o03j")
 Speed = 2.0
 Amplitude = 0.001
@@ -53,4 +76,4 @@ Offset = 10.0
 [node name="Body" type="CSGMesh3D" parent="."]
 transform = Transform3D(0.356372, 0, 0, 0, 0.356372, 0, 0, 0, 1, 0, 0.0938219, 0)
 mesh = SubResource("QuadMesh_mjm0f")
-material = ExtResource("16_ebflu")
+material = SubResource("ShaderMaterial_1we3y")
