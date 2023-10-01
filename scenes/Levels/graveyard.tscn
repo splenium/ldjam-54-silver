@@ -1,18 +1,25 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjrxx0g68e18x"]
+[gd_scene load_steps=17 format=3 uid="uid://bjrxx0g68e18x"]
 
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_m1iqt"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_dnp53"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="3_3521m"]
-[ext_resource type="PackedScene" uid="uid://b17vcnmok5kix" path="res://scenes/Levels/AbyssScene.tscn" id="3_osj7o"]
+[ext_resource type="PackedScene" uid="uid://b17vcnmok5kix" path="res://scenes/Levels/AbyssScene.tscn" id="3_cljbr"]
 [ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="4_n1t4r"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/flat_rock_2.tscn" id="5_652ma"]
+[ext_resource type="PackedScene" uid="uid://fa27lkyj3wa7" path="res://assets/Prefabs/rocks/flat_rock_2.tscn" id="5_652ma"]
 [ext_resource type="PackedScene" uid="uid://doiucep0m80t1" path="res://assets/Prefabs/graveyard/pillory.tscn" id="6_y8d85"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="7_e2s7j"]
 [ext_resource type="PackedScene" uid="uid://bgj0n06q1fhte" path="res://scenes/UnlockPower.tscn" id="7_e478l"]
-[ext_resource type="PackedScene" uid="uid://ddcwgvsbfvspb" path="res://assets/Prefabs/rocks/high_rock.tscn" id="8_msd53"]
+[ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="8_msd53"]
 [ext_resource type="PackedScene" uid="uid://ba1spgb6o1um" path="res://assets/Prefabs/grid/ground_grid.tscn" id="10_atb5u"]
 [ext_resource type="PackedScene" uid="uid://cb01jbet33cp1" path="res://assets/Prefabs/grid/vertical_grid.tscn" id="11_vjdio"]
 [ext_resource type="PackedScene" uid="uid://duiqbyhuvxb7v" path="res://assets/Prefabs/vortex.tscn" id="12_psa0m"]
+[ext_resource type="Texture2D" uid="uid://cyd3s3osefo5s" path="res://assets/Textures/graveyard/dino-1.png" id="14_i1jxw"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_kml0s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3wyk"]
+transparency = 1
+albedo_texture = ExtResource("14_i1jxw")
 
 [node name="graveyard" type="Node3D"]
 
@@ -22,14 +29,22 @@ ToFollow = NodePath("../CharacterBody3D")
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_dnp53")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.319693, 8.10785, 0)
 IsPowerHumanUnlock = true
-NextScene = ExtResource("3_osj7o")
+NextScene = ExtResource("3_cljbr")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 7)
+spot_range = 21.0
+spot_angle = 67.3238
 
 [node name="CliffRock" parent="." instance=ExtResource("3_3521m")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.89661, 10.4934, 9.48252)
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.89661, 10.4934, 22.1598)
+visible = false
 light_energy = 2.846
-omni_range = 65.0654
+omni_range = 69.833
 
 [node name="FlatRock1" parent="." instance=ExtResource("4_n1t4r")]
 transform = Transform3D(9.38845, 0, 0, 0, 9.38845, 0, 0, 0, 1, 6.81492, -1.4121, 0)
@@ -51,7 +66,7 @@ sorting_offset = -13.0
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 22.8282, -5.89522, 0)
 
 [node name="HighRock" parent="." instance=ExtResource("8_msd53")]
-transform = Transform3D(9.44433, -0.787344, 0, 0.807174, 9.21231, 0, 0, 0, 8, 24.2827, -10.8384, -0.0642548)
+transform = Transform3D(9.96368, -0.851561, 0, 0.851561, 9.96368, 0, 0, 0, 10, 24.2827, -10.8384, -0.0642548)
 
 [node name="CliffRock2" parent="." instance=ExtResource("3_3521m")]
 transform = Transform3D(-3.96434, 14.6083, 0, -14.6083, -3.96434, 0, 0, 0, 1, 36.2915, -18.1281, -0.0557756)
@@ -76,3 +91,36 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5.6373
 
 [node name="Vortex" parent="." instance=ExtResource("12_psa0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, -12, 0)
+
+[node name="DinoLayer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -109.969)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="DinoLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5675, -21.4499, 33.8758)
+light_energy = 2.846
+omni_range = 135.359
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="DinoLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.389, -21.4499, 33.8758)
+light_energy = 2.846
+omni_range = 90.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="DinoLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2246, -21.4499, 28.0234)
+light_energy = 2.846
+omni_range = 135.359
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="DinoLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.7629, -21.4499, 34.3098)
+light_energy = 2.846
+omni_range = 135.359
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="DinoLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.89661, 55.8941, 59.2275)
+light_energy = 2.846
+omni_range = 98.531
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="DinoLayer"]
+transform = Transform3D(500.495, 0, 0, 0, 500.495, 0, 0, 0, 1, 14.6876, 0, 5.43367)
+mesh = SubResource("QuadMesh_kml0s")
+material = SubResource("StandardMaterial3D_r3wyk")
