@@ -53,9 +53,6 @@ public partial class VortexTravel : Node3D
             await ToSignal(GetTree().CreateTimer(delay), "timeout");
         }
         GD.Print("Travel anim finished, loading scene...");
-        var level = GD.Load<PackedScene>(NextScenePath);
-        var newLevelInstance = level.Instantiate();
-        GetTree().Root.AddChild(newLevelInstance);
-        QueueFree();
+        GetTree().ChangeSceneToFile(NextScenePath);
     }
 }
