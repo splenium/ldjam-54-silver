@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dqmoa2san6so5"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/DNAUnlit.gdshader" id="1_m77k8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_m77k8")
+shader_parameter/_color = Color(0.435294, 0.341176, 0.992157, 1)
