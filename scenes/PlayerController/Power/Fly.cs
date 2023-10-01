@@ -18,12 +18,17 @@ public partial class Fly : Power
     public CsgMesh3D WingRight;
     [Export]
     public CsgMesh3D WingLeft;
+    [Export]
+    public AudioStreamPlayer BoostSound;
+    [Export]
+    public AudioStreamMP3[] BoostSounds;
 
-    private WingsMouvement wingsPosition = new WingsMouvement();
+    private WingsMouvement wingsPosition = null;
 
     public override void _Ready()
     {
         base._Ready();
+        wingsPosition = new WingsMouvement(this);
         Visible = false;
         AnimationLeftWing.Play("left_wing_down");
         AnimationRightWing.Play("right_wing_down");
@@ -77,42 +82,60 @@ public partial class Fly : Power
 
         SetRaKoonAvatarAnimation(velocity);
     }
+
+    public void PlayBoostSound()
+    {
+        if (BoostSound.Playing)
+        {
+            return;
+        }
+        AudioStreamMP3 RngBoostSound = BoostSounds[GD.Randi() % BoostSounds.Length];
+        BoostSound.Stream = RngBoostSound;
+        BoostSound.Play();
+    }
+
 }
 
 class WingsMouvement
 {
-    public WingMovement LeftWing = WingMovement.Idle;
-    public WingMovement RightWing = WingMovement.Idle;
+    public EnumWingMovement LeftWing = EnumWingMovement.Idle;
+    public EnumWingMovement RightWing = EnumWingMovement.Idle;
     public AnimationPlayer AnimationLeftWing;
     public AnimationPlayer AnimationRightWing;
 
     private long whenLeftWingFlapDown;
     private long whenRightWingFlapDown;
     private long deltaInMillisecondToAcceptUpBoost = 100;
+    private Fly parent;
+
+    public WingsMouvement(Fly parent)
+    {
+        this.parent = parent;
+    }
 
     public Vector2 Update()
     {
-        LeftWing = WingMovement.Idle;
-        RightWing = WingMovement.Idle;
+        LeftWing = EnumWingMovement.Idle;
+        RightWing = EnumWingMovement.Idle;
         if (Input.IsActionJustPressed("ui_left"))
         {
-            LeftWing = WingMovement.Up;
+            LeftWing = EnumWingMovement.Up;
             AnimationLeftWing.Play("left_wing_up");
         }
         if (Input.IsActionJustReleased("ui_left"))
         {
-            LeftWing = WingMovement.Down;
+            LeftWing = EnumWingMovement.Down;
             AnimationLeftWing.Play("left_wing_down");
             whenLeftWingFlapDown = (long)Time.GetTicksMsec();
         }
         if (Input.IsActionJustPressed("ui_right"))
         {
-            RightWing = WingMovement.Up;
+            RightWing = EnumWingMovement.Up;
             AnimationRightWing.Play("right_wing_up");
         }
         if (Input.IsActionJustReleased("ui_right"))
         {
-            RightWing = WingMovement.Down;
+            RightWing = EnumWingMovement.Down;
             AnimationRightWing.Play("right_wing_down");
             whenRightWingFlapDown = (long)Time.GetTicksMsec();
         }
@@ -124,23 +147,27 @@ class WingsMouvement
     {
         var direction = new Vector2();
         var hasUpBoost = Math.Abs(whenLeftWingFlapDown - whenRightWingFlapDown) < deltaInMillisecondToAcceptUpBoost;
-        if (LeftWing == WingMovement.Down || RightWing == WingMovement.Down)
+        if (LeftWing == EnumWingMovement.Down || RightWing == EnumWingMovement.Down)
         {
             direction.Y = hasUpBoost ? 2 : 1;
+            if (hasUpBoost)
+            {
+                parent.PlayBoostSound();
+            }
         }
         if (OnlyOneWingFlap())
         {
-            direction.X = LeftWing == WingMovement.Down ? 1 : -1;
+            direction.X = LeftWing == EnumWingMovement.Down ? 1 : -1;
         }
         return direction;
     }
 
     private bool OnlyOneWingFlap() =>
-        (LeftWing == WingMovement.Down && RightWing != WingMovement.Down) ||
-        (LeftWing != WingMovement.Down && RightWing == WingMovement.Down);
+        (LeftWing == EnumWingMovement.Down && RightWing != EnumWingMovement.Down) ||
+        (LeftWing != EnumWingMovement.Down && RightWing == EnumWingMovement.Down);
 }
 
-enum WingMovement
+enum EnumWingMovement
 {
     Idle,
     Down,
