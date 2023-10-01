@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=29 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Script" path="res://assets/Hovering.cs" id="2_7v4yc"]
 [ext_resource type="PackedScene" uid="uid://ddcwgvsbfvspb" path="res://assets/Prefabs/rocks/high_rock.tscn" id="6_g6kci"]
@@ -11,11 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://oj24k1fqxnu4" path="res://assets/Prefabs/rocks/small_rock_1.tscn" id="12_3t6ba"]
 [ext_resource type="PackedScene" uid="uid://dr7dnvxx3vg4j" path="res://assets/Prefabs/moving_fish.tscn" id="12_x5gt4"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="13_bvndj"]
+[ext_resource type="PackedScene" uid="uid://duiqbyhuvxb7v" path="res://assets/Prefabs/vortex.tscn" id="13_eej2v"]
 [ext_resource type="PackedScene" uid="uid://2kdeoux4tqc" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="13_g7n7f"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="14_j8xgx"]
+[ext_resource type="PackedScene" uid="uid://cb01jbet33cp1" path="res://assets/Prefabs/grid/vertical_grid.tscn" id="14_qf5nq"]
 [ext_resource type="Material" uid="uid://bilv08qhv513l" path="res://assets/Materials/BackgroundWallMat.tres" id="15_8qahw"]
+[ext_resource type="PackedScene" uid="uid://bgj0n06q1fhte" path="res://scenes/UnlockPower.tscn" id="15_a5vqh"]
 [ext_resource type="Material" uid="uid://6ruug3uhe6dt" path="res://assets/Materials/ConcreteMat.tres" id="16_we5u8"]
+[ext_resource type="PackedScene" uid="uid://bjrxx0g68e18x" path="res://scenes/Levels/graveyard.tscn" id="19_6d6aa"]
 [ext_resource type="PackedScene" uid="uid://b366ihuo6l2x" path="res://assets/Prefabs/rocks/small_rock_3.tscn" id="19_avl3v"]
+[ext_resource type="PackedScene" uid="uid://cljg31i83ncu7" path="res://assets/Prefabs/vortex_anim.tscn" id="21_xlwu7"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_574u7"]
 
@@ -95,6 +100,9 @@ transform = Transform3D(7.93405, -1.0251, 0, 1.0251, 7.93405, 0, 0, 0, 8, -1.193
 [node name="RoundRock67" parent="Abyss/Wall" instance=ExtResource("10_0xoww")]
 transform = Transform3D(7.93405, -1.0251, 0, 1.0251, 7.93405, 0, 0, 0, 8, -17.9722, 53.5457, 0)
 
+[node name="RoundRock68" parent="Abyss/Wall" instance=ExtResource("10_0xoww")]
+transform = Transform3D(7.93405, -1.0251, 0, 1.0251, 7.93405, 0, 0, 0, 8, -27.8908, 59.0059, 0)
+
 [node name="RoundRock6" parent="Abyss/Wall" instance=ExtResource("10_0xoww")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0.414456, 40.2682, 0)
 
@@ -169,6 +177,9 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 19.6668, 2.15716, 0)
 
 [node name="RoundRock2" parent="Abyss/Wall" instance=ExtResource("11_x3ou6")]
 transform = Transform3D(7.75453, 1.96652, 0, -1.96652, 7.75453, 0, 0, 0, 8, -26.8376, 43.8412, 0)
+
+[node name="RoundRock38" parent="Abyss/Wall" instance=ExtResource("11_x3ou6")]
+transform = Transform3D(7.92032, -1.12624, 0, 1.12624, 7.92032, 0, 0, 0, 8, -21.3273, 60.3722, 0)
 
 [node name="RoundRock3" parent="Abyss/Wall" instance=ExtResource("11_x3ou6")]
 transform = Transform3D(7.99967, -0.0731633, 0, 0.0731633, 7.99967, 0, 0, 0, 8, -27.8883, 48.6276, 0)
@@ -405,6 +416,16 @@ curve = SubResource("Curve3D_xmn3l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 curve = SubResource("Curve3D_2pvvu")
 
+[node name="GroundGrid" parent="Abyss" instance=ExtResource("14_qf5nq")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 30.7293, -24.4035, -1.43791)
+
+[node name="Vortex" parent="Abyss" instance=ExtResource("13_eej2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6905, -26.5225, 0)
+
+[node name="UnlockPower" parent="Abyss" instance=ExtResource("15_a5vqh")]
+transform = Transform3D(6.12, 0, 0, 0, 6.12, 0, 0, 0, 6.12, -15.534, 44.649, 0)
+power = 1
+
 [node name="Background" type="Node3D" parent="."]
 transform = Transform3D(3.26746, 0, 0, 0, 4.9591, 0, 0, 0, 1, 0, 0, -2.38924)
 visible = false
@@ -449,9 +470,13 @@ sorting_offset = 100.0
 material = SubResource("StandardMaterial3D_dqnb8")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("13_bvndj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0384, 43.5231, 0)
-IsPowerFishUnlock = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0904, 53.7924, 0)
+IsPowerGhostUnlock = true
+NextScene = ExtResource("19_6d6aa")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("14_j8xgx")]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -23.419, 45.895, 8)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -24.2205, 53.8599, 8)
 ToFollow = NodePath("../CharacterBody3D")
+
+[node name="VortexAnim" parent="." instance=ExtResource("21_xlwu7")]
+transform = Transform3D(0.259188, 0, 0, 0, 0.259188, 0, 0, 0, 1, -24.162, 54.29, 0)
