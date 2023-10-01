@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="LudumDare54Silver"
-run/main_scene="res://scenes/dev/TheoScene.tscn"
 config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 

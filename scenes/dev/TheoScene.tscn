@@ -1,146 +1,332 @@
-[gd_scene load_steps=8 format=3 uid="uid://c86mrgoxm3lqw"]
+[gd_scene load_steps=74 format=3 uid="uid://be6n66clvr80y"]
 
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="1_isjr3"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_o8vo8"]
+[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="3_2wap5"]
 [ext_resource type="PackedScene" uid="uid://bbjip0v5s5g52" path="res://scenes/dev/Elements/ground.tscn" id="3_hho06"]
-[ext_resource type="PackedScene" uid="uid://bbgpuj1chyp3j" path="res://scenes/dev/Elements/SpectralCollider.tscn" id="3_pyqo3"]
-[ext_resource type="Material" uid="uid://cd24x34l62pd8" path="res://assets/Test/WaterMaterial.tres" id="3_tds87"]
-[ext_resource type="PackedScene" path="res://scenes/dev/Elements/water.tscn" id="5_ce7lj"]
+[ext_resource type="PackedScene" uid="uid://bqyehv8bne1wf" path="res://scenes/dev/Elements/WaterSurface.tscn" id="4_kcxxi"]
+[ext_resource type="PackedScene" uid="uid://bo0wkwm03omsg" path="res://scenes/dev/Elements/WaterDeep.tscn" id="5_0ema3"]
+[ext_resource type="Material" uid="uid://cstbo7t8i64uc" path="res://assets/Materials/DnaMat.tres" id="7_qu61k"]
+[ext_resource type="Texture2D" uid="uid://xhbctfyvhpuh" path="res://assets/Textures/DNA/img00.png" id="8_xc0ht"]
+[ext_resource type="Texture2D" uid="uid://bg7o82yau1nlb" path="res://assets/Textures/DNA/img01.png" id="9_2gi2i"]
+[ext_resource type="Texture2D" uid="uid://3hvhxfcvlgn8" path="res://assets/Textures/DNA/img02.png" id="10_o6jcq"]
+[ext_resource type="Texture2D" uid="uid://dvosbs3fq6miw" path="res://assets/Textures/DNA/img03.png" id="11_7wd1k"]
+[ext_resource type="Texture2D" uid="uid://bffai70s1sxon" path="res://assets/Textures/DNA/img04.png" id="12_2isor"]
+[ext_resource type="Texture2D" uid="uid://dkp1osgw63kqv" path="res://assets/Textures/DNA/img05.png" id="13_bnjte"]
+[ext_resource type="Texture2D" uid="uid://7w243i505nib" path="res://assets/Textures/DNA/img06.png" id="14_vtf60"]
+[ext_resource type="Texture2D" uid="uid://bxouaycyg5p0r" path="res://assets/Textures/DNA/img07.png" id="15_dt4xb"]
+[ext_resource type="Texture2D" uid="uid://ddj02raa84e1k" path="res://assets/Textures/DNA/img08.png" id="16_u20hu"]
+[ext_resource type="Texture2D" uid="uid://i12w3x0bi4y1" path="res://assets/Textures/DNA/img09.png" id="17_enw5r"]
+[ext_resource type="Texture2D" uid="uid://brw2stklifvu1" path="res://assets/Textures/DNA/img10.png" id="18_so1fo"]
+[ext_resource type="Texture2D" uid="uid://b8qdv8q7grlb3" path="res://assets/Textures/DNA/img11.png" id="19_jrcl0"]
+[ext_resource type="Texture2D" uid="uid://dlaeidn1qbi8t" path="res://assets/Textures/DNA/img12.png" id="20_biuuj"]
+[ext_resource type="Texture2D" uid="uid://bxhiec3lcy0iq" path="res://assets/Textures/DNA/img13.png" id="21_4d25s"]
+[ext_resource type="Texture2D" uid="uid://1m4h12gpbt01" path="res://assets/Textures/DNA/img14.png" id="22_6hmnb"]
+[ext_resource type="Texture2D" uid="uid://xwl2dewuycfd" path="res://assets/Textures/DNA/img15.png" id="23_rmvmk"]
+[ext_resource type="Texture2D" uid="uid://dblnju6jxw0pn" path="res://assets/Textures/DNA/img16.png" id="24_m5540"]
+[ext_resource type="Texture2D" uid="uid://cmiyexc156kd1" path="res://assets/Textures/DNA/img17.png" id="25_ku4v6"]
+[ext_resource type="Texture2D" uid="uid://djqeeb0b1njs7" path="res://assets/Textures/DNA/img18.png" id="26_2nrkx"]
+[ext_resource type="Texture2D" uid="uid://btqmla00hlxwc" path="res://assets/Textures/DNA/img19.png" id="27_2w8m6"]
+[ext_resource type="Texture2D" uid="uid://djm7unhcjaoll" path="res://assets/Textures/DNA/img20.png" id="28_csufi"]
+[ext_resource type="Texture2D" uid="uid://dpjiqxubmfnj3" path="res://assets/Textures/DNA/img21.png" id="29_uikcq"]
+[ext_resource type="Texture2D" uid="uid://dyxjyov2n7g51" path="res://assets/Textures/DNA/img22.png" id="30_tco4i"]
+[ext_resource type="Texture2D" uid="uid://bieeox5efy0ye" path="res://assets/Textures/DNA/img23.png" id="31_vjav0"]
+[ext_resource type="Texture2D" uid="uid://b3m4srfyxb06o" path="res://assets/Textures/DNA/img24.png" id="32_dvc0m"]
+[ext_resource type="Texture2D" uid="uid://ci2xhghp0uxak" path="res://assets/Textures/DNA/img25.png" id="33_ea27w"]
+[ext_resource type="Texture2D" uid="uid://cswt8wk3ykvmk" path="res://assets/Textures/DNA/img26.png" id="34_cvqlq"]
+[ext_resource type="Texture2D" uid="uid://pfott0c202c7" path="res://assets/Textures/DNA/img27.png" id="35_fret8"]
+[ext_resource type="Texture2D" uid="uid://d3iovnmn2vwqb" path="res://assets/Textures/DNA/img28.png" id="36_wb435"]
+[ext_resource type="Texture2D" uid="uid://1heuqlxc3m3m" path="res://assets/Textures/DNA/img29.png" id="37_8ahti"]
+[ext_resource type="Texture2D" uid="uid://ce0pbar7irluc" path="res://assets/Textures/DNA/img30.png" id="38_0k0kp"]
+[ext_resource type="Texture2D" uid="uid://croyuuq20gygp" path="res://assets/Textures/DNA/img31.png" id="39_8uocx"]
+[ext_resource type="Texture2D" uid="uid://cyir2up36mx5e" path="res://assets/Textures/DNA/img32.png" id="40_kw0ai"]
+[ext_resource type="Texture2D" uid="uid://utmf4fw5jhl4" path="res://assets/Textures/DNA/img33.png" id="41_slkrd"]
+[ext_resource type="Texture2D" uid="uid://c802mwhel54kr" path="res://assets/Textures/DNA/img34.png" id="42_0svku"]
+[ext_resource type="Texture2D" uid="uid://chufmfwvgyklg" path="res://assets/Textures/DNA/img35.png" id="43_3i3g1"]
+[ext_resource type="Texture2D" uid="uid://ba36s161f2fti" path="res://assets/Textures/DNA/img36.png" id="44_bft16"]
+[ext_resource type="Texture2D" uid="uid://cpa8d408pt830" path="res://assets/Textures/DNA/img37.png" id="45_8s80k"]
+[ext_resource type="Texture2D" uid="uid://b5ededl6cujmo" path="res://assets/Textures/DNA/img38.png" id="46_gq2yt"]
+[ext_resource type="Texture2D" uid="uid://r8sf08rbk5ru" path="res://assets/Textures/DNA/img39.png" id="47_kmw7h"]
+[ext_resource type="Texture2D" uid="uid://fihm47fctl2d" path="res://assets/Textures/DNA/img40.png" id="48_5a6yd"]
+[ext_resource type="Texture2D" uid="uid://bhh8xl64oklmd" path="res://assets/Textures/DNA/img41.png" id="49_s7xbb"]
+[ext_resource type="Texture2D" uid="uid://duaw5d4hl8rdi" path="res://assets/Textures/DNA/img42.png" id="50_0vtc5"]
+[ext_resource type="Texture2D" uid="uid://dmn5px5mjq7ry" path="res://assets/Textures/DNA/img43.png" id="51_m0ii1"]
+[ext_resource type="Texture2D" uid="uid://hjbk1pjsyjpm" path="res://assets/Textures/DNA/img44.png" id="52_fgger"]
+[ext_resource type="Texture2D" uid="uid://cxir5lku6m3ih" path="res://assets/Textures/DNA/img45.png" id="53_ngisq"]
+[ext_resource type="Texture2D" uid="uid://3hwxbtaoymyn" path="res://assets/Textures/DNA/img46.png" id="54_lkkpn"]
+[ext_resource type="Texture2D" uid="uid://btsyk50wluxml" path="res://assets/Textures/DNA/img47.png" id="55_2adye"]
+[ext_resource type="Texture2D" uid="uid://cwj5eccluo53a" path="res://assets/Textures/DNA/img48.png" id="56_vbmg1"]
+[ext_resource type="Texture2D" uid="uid://ce8av66emvg68" path="res://assets/Textures/DNA/img49.png" id="57_8yuil"]
+[ext_resource type="Texture2D" uid="uid://dkutgqunu4dou" path="res://assets/Textures/DNA/img50.png" id="58_ck4b4"]
+[ext_resource type="Texture2D" uid="uid://dpa5krci4b68y" path="res://assets/Textures/DNA/img51.png" id="59_1rtp5"]
+[ext_resource type="Texture2D" uid="uid://8h1jis8k4rqs" path="res://assets/Textures/DNA/img52.png" id="60_8tc53"]
+[ext_resource type="Texture2D" uid="uid://cy2s30ym2nvk2" path="res://assets/Textures/DNA/img53.png" id="61_qnrh4"]
+[ext_resource type="Texture2D" uid="uid://c8ya1pfo8g6sv" path="res://assets/Textures/DNA/img54.png" id="62_6yq5x"]
+[ext_resource type="Texture2D" uid="uid://bpaonsg6beihs" path="res://assets/Textures/DNA/img55.png" id="63_dkdd5"]
+[ext_resource type="Texture2D" uid="uid://c5r5vb3f0t3q3" path="res://assets/Textures/DNA/img56.png" id="64_ug6oo"]
+[ext_resource type="Texture2D" uid="uid://dst7ls56i82ms" path="res://assets/Textures/DNA/img57.png" id="65_85cn2"]
+[ext_resource type="Texture2D" uid="uid://yywdl8xmbiqh" path="res://assets/Textures/DNA/img58.png" id="66_35ckj"]
+[ext_resource type="Texture2D" uid="uid://blgvi43b535qm" path="res://assets/Textures/DNA/img59.png" id="67_s2ntv"]
+[ext_resource type="Texture2D" uid="uid://dnf27ssx8ttgm" path="res://assets/Textures/DNA/img60.png" id="68_p1f5l"]
+[ext_resource type="Texture2D" uid="uid://dopd7goes71e8" path="res://assets/Textures/DNA/img61.png" id="69_yjfy5"]
+[ext_resource type="Script" path="res://assets/Scripts/MaterialAnimation.cs" id="70_322ja"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8ijij"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_powy6"]
 
-[node name="DevScene" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.20216)
+[sub_resource type="QuadMesh" id="QuadMesh_njb8o"]
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_isjr3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7718, 6.53139, 0)
+[sub_resource type="SpriteFrames" id="SpriteFrames_r72mm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xc0ht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2gi2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o6jcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7wd1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2isor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bnjte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vtf60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dt4xb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_u20hu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_enw5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_so1fo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_jrcl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_biuuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_4d25s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_6hmnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_rmvmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_m5540")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ku4v6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_2nrkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_2w8m6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_csufi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_uikcq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_tco4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vjav0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_dvc0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_ea27w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_cvqlq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_fret8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_wb435")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_8ahti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_0k0kp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_8uocx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_kw0ai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_slkrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_0svku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_3i3g1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_bft16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_8s80k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_gq2yt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_kmw7h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_5a6yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_s7xbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_0vtc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_m0ii1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_fgger")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_ngisq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_lkkpn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_2adye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_vbmg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_8yuil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_ck4b4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_1rtp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_8tc53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_qnrh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_6yq5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_dkdd5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_ug6oo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_85cn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_35ckj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_s2ntv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_p1f5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_yjfy5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
 
-[node name="Camera3D" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_o8vo8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5601, 9.83155, 10.072)
+[node name="TestScene" type="Node3D"]
+
+[node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_o8vo8")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2.943, 2, 8)
 current = true
 ToFollow = NodePath("../CharacterBody3D")
-OffsetY = 2.0
 
-[node name="Ground" parent="." instance=ExtResource("3_hho06")]
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_isjr3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7189, 0, 0)
 
-[node name="Parcour" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07961, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.592308, 0.805711, 0, -0.805711, 0.592308, 0, 7.73916, 7.64032)
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Parcour"]
-transform = Transform3D(0.911741, -0.00712584, 0.410704, -0.410766, -0.0158166, 0.911604, -1.11022e-16, -0.99985, -0.0173477, 10.5898, 10.5884, -1.93185)
-light_color = Color(0.164706, 1, 0.866667, 1)
-light_energy = 3.895
-spot_range = 24.8258
-spot_angle = 56.2295
+[node name="Level" type="Node3D" parent="."]
 
-[node name="SpotLight3D5" type="SpotLight3D" parent="Parcour"]
-transform = Transform3D(0.911741, -0.00712584, 0.410704, -0.325887, 0.596108, 0.733794, -0.250053, -0.802873, 0.541174, 25.7692, 13.4873, 8.83039)
-light_color = Color(1, 0.733333, 0, 1)
-light_energy = 7.248
-spot_range = 44.8233
-spot_angle = 56.2295
+[node name="CheckpointArea" parent="Level" instance=ExtResource("3_2wap5")]
+transform = Transform3D(5.015, 0, 0, 0, 5.015, 0, 0, 0, 5.015, 0, 0, 0)
 
-[node name="SpotLight3D4" type="SpotLight3D" parent="Parcour"]
-transform = Transform3D(0.885475, 0.00806123, -0.464617, 0.464687, -0.0153609, 0.885342, 0, -0.99985, -0.0173476, 2.23751, 6.84291, -0.0326862)
-light_color = Color(0.741176, 0.164706, 0.866667, 1)
-spot_range = 24.8258
-spot_angle = 56.2295
+[node name="Node3D1" type="Node3D" parent="Level/CheckpointArea" groups=["respown_point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60587, 0, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Parcour"]
-transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 0, 4.60717, 3.85838)
-spot_range = 16.476
-spot_angle = 59.0483
+[node name="Water" parent="Level" instance=ExtResource("4_kcxxi")]
+transform = Transform3D(3.47324, -1.71613e-15, 0, -2.46788e-14, 0.966096, 0, 0, 0, 0.966096, 39.3804, -2.24217, 0)
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="Parcour"]
-transform = Transform3D(1, 0, 0, 0, 0.700947, 0.713214, 0, -0.713214, 0.700947, 8.4688, 7.36001, 7.15898)
-spot_range = 19.5083
-spot_angle = 59.0483
+[node name="CheckpointArea2" parent="Level" instance=ExtResource("3_2wap5")]
+transform = Transform3D(25.1502, 0, 0, 0, 25.1502, 0, 0, 0, 25.1502, 29.3115, 0, 0)
 
-[node name="SpectralCollider" parent="Parcour" instance=ExtResource("3_pyqo3")]
+[node name="Node3D2" type="Node3D" parent="Level/CheckpointArea2" groups=["respown_point"]]
 
-[node name="SpectralCollider6" type="CSGBox3D" parent="Parcour"]
-transform = Transform3D(7.21049, -0.210711, 0, 1.55422, 0.977548, 0, 0, 0, 1, 16.1512, 4.96278, 0)
-layers = 2
-use_collision = true
-collision_layer = 6
-collision_mask = 6
+[node name="Water2" parent="Level" instance=ExtResource("5_0ema3")]
+transform = Transform3D(50.0619, -1.21497e-14, 0, -3.55711e-13, 6.83963, 0, 0, 0, 1, 38.8436, -6.03481, 0)
 
-[node name="SpectralCollider3" type="CSGBox3D" parent="Parcour"]
-transform = Transform3D(-3.86094, -0.214769, 0, 7.32696, -0.113173, 0, 0, 0, 1, 5.2792, 2.01859, 0.0228004)
-layers = 2
-use_collision = true
-collision_layer = 6
-collision_mask = 6
+[node name="Ground" parent="Level" instance=ExtResource("3_hho06")]
+transform = Transform3D(57.9676, 0, 0, 0, 1.00697, 0, 0, 0, 1.00697, 8.68824, -2.10017, 0)
 
-[node name="SpectralCollider4" type="CSGBox3D" parent="Parcour"]
-transform = Transform3D(-8.24168, 0.0239218, 0, -0.816089, -0.241581, 0, 0, 0, 1, 7.49405, 6.06221, 0.0228004)
-layers = 2
-use_collision = true
-collision_layer = 6
-collision_mask = 6
+[node name="Ground2" parent="Level" instance=ExtResource("3_hho06")]
+transform = Transform3D(57.9676, 0, 0, 0, 1.00697, 0, 0, 0, 1.00697, 70.0549, -2.10017, 0)
 
-[node name="SpectralCollider7" type="CSGBox3D" parent="Parcour"]
-transform = Transform3D(2.2753, -0.159239, 0, 4.04427, 0.0895869, 0, 0, 0, 1, 12.3064, 8.40725, 0.0228004)
-layers = 2
-use_collision = true
-collision_layer = 6
-collision_mask = 6
-
-[node name="SpectralCollider1" type="CSGBox3D" parent="Parcour"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41542, -0.0500556, 0)
-layers = 2
-use_collision = true
-collision_layer = 6
-collision_mask = 6
-
-[node name="SpectralCollider2" type="CSGBox3D" parent="Parcour"]
-transform = Transform3D(7.3761, 0, 0, 0, 1, 0, 0, 0, 1, 5.58208, 1.0177, 0)
-layers = 2
-use_collision = true
-collision_layer = 6
-collision_mask = 6
-
-[node name="UnderWater" type="Node3D" parent="."]
-
-[node name="SpectralCollider8" type="CSGBox3D" parent="UnderWater"]
-transform = Transform3D(-3.2242e-07, 1, 0, -7.3761, -4.37114e-08, 0, 0, 0, 1, -6.99303, 1.0177, 0)
-layers = 2
-use_collision = true
-collision_layer = 6
-collision_mask = 6
-
-[node name="SpectralCollider9" type="CSGBox3D" parent="UnderWater"]
-transform = Transform3D(-3.2242e-07, 1, 0, -7.3761, -4.37114e-08, 0, 0, 0, 1, -11.5045, 1.0177, 0)
-layers = 2
-use_collision = true
-collision_layer = 6
-collision_mask = 6
-
-[node name="Water" parent="UnderWater" instance=ExtResource("5_ce7lj")]
-
-[node name="Water2" type="CSGBox3D" parent="UnderWater"]
-transform = Transform3D(-2.68864e-07, 91.649, 0, -6.15088, -4.0061e-06, 0, 0, 0, 0.995396, -9.19823, -5.6307, 0)
-layers = 2
-calculate_tangents = false
-use_collision = true
-collision_layer = 16
-collision_mask = 0
-material = ExtResource("3_tds87")
-
-[node name="Area3D" type="Area3D" parent="UnderWater/Water2"]
-collision_layer = 16
+[node name="Pic" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7772, -0.611796, 0)
+collision_layer = 32
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="UnderWater/Water2/Area3D"]
-shape = SubResource("BoxShape3D_8ijij")
+[node name="Damage" type="CSGCylinder3D" parent="Pic"]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="UnderWater"]
-transform = Transform3D(1, 0, 0, 0, 0.95737, 0.288865, 0, -0.288865, 0.95737, -9.54233, 2.53221, 12.8961)
-light_color = Color(0, 0.705882, 0.709804, 1)
-spot_range = 48.5886
-spot_angle = 66.5746
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pic"]
+shape = SubResource("CylinderShape3D_powy6")
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="UnderWater"]
-transform = Transform3D(1, 0, 0, 0, 0.95737, 0.288865, 0, -0.288865, 0.95737, -9.54233, 14.3179, 8.09152)
-spot_range = 48.5886
-spot_angle = 66.5746
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("QuadMesh_njb8o")
+material = ExtResource("7_qu61k")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.671, 4.76837e-07, -0.191338)
+material_override = ExtResource("7_qu61k")
+sprite_frames = SubResource("SpriteFrames_r72mm")
+frame = 53
+frame_progress = 0.501672
+script = ExtResource("70_322ja")
+
+[node name="Node3D" type="Node3D" parent="AnimatedSprite3D"]
