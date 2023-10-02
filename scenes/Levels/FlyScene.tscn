@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="17_5kkkm"]
 [ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="18_wvb40"]
 [ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="19_mobml"]
-[ext_resource type="PackedScene" uid="uid://2kdeoux4tqc" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
 [ext_resource type="PackedScene" uid="uid://cit38600ld0bf" path="res://assets/Prefabs/rocks/ronce_rock_1.tscn" id="20_q0d6v"]
 [ext_resource type="PackedScene" uid="uid://c8hr021ps6kxh" path="res://assets/Prefabs/rocks/ronce_rock_2.tscn" id="21_6x68i"]
 [ext_resource type="PackedScene" uid="uid://chv16tknq2slg" path="res://assets/Prefabs/rocks/ronce_rock_3.tscn" id="22_aao76"]
@@ -29,8 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://c00p7i4u0838g" path="res://scenes/dev/UI/Player/Power_icons_off/wings_off.png" id="27_lmkye"]
 [ext_resource type="Texture2D" uid="uid://be82ov5jbieuw" path="res://scenes/dev/UI/Player/Power_icons_off/ghost_off.png" id="28_qmx03"]
 [ext_resource type="Texture2D" uid="uid://b5kba0ahv2m1s" path="res://scenes/dev/UI/Player/Power_icons_off/triton_off.png" id="29_jbago"]
-[ext_resource type="PackedScene" uid="uid://bdm8xiupqcdao" path="res://scenes/cloud.tscn" id="30_r46xj"]
-[ext_resource type="Material" uid="uid://cojkc4x7vek57" path="res://assets/Materials/Clouds/CloudFlyMat.tres" id="31_iqc4m"]
+[ext_resource type="PackedScene" path="res://scenes/cloud.tscn" id="30_r46xj"]
+[ext_resource type="Material" path="res://assets/Materials/Clouds/CloudFlyMat.tres" id="31_iqc4m"]
 [ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="32_6hkvu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4m4ox"]
@@ -106,6 +106,7 @@ albedo_texture = ExtResource("23_7c1w1")
 script = ExtResource("1_ic4qb")
 LevelSound = ExtResource("2_6o5do")
 DefaultCheckpoint = NodePath("CheckpointArea")
+NextLevelNumber = 3
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_qlhiq")]
 IsPowerHumanUnlock = true

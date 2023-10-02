@@ -22,7 +22,7 @@
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="21_45mk3"]
 [ext_resource type="Texture2D" uid="uid://b5nkw674mex7f" path="res://assets/Textures/Background/Illustration_sans_titre.png" id="22_cb1ys"]
 [ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="22_lkcxd"]
-[ext_resource type="PackedScene" uid="uid://bdm8xiupqcdao" path="res://scenes/cloud.tscn" id="23_g1kro"]
+[ext_resource type="PackedScene" path="res://scenes/cloud.tscn" id="23_g1kro"]
 [ext_resource type="Texture2D" uid="uid://5o6nrueppwqm" path="res://scenes/dev/UI/Player/Power_on/racoon_on.png" id="23_ppqbr"]
 [ext_resource type="Texture2D" uid="uid://c00p7i4u0838g" path="res://scenes/dev/UI/Player/Power_icons_off/wings_off.png" id="24_sfhj6"]
 [ext_resource type="Texture2D" uid="uid://be82ov5jbieuw" path="res://scenes/dev/UI/Player/Power_icons_off/ghost_off.png" id="25_h7kep"]
