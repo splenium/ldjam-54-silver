@@ -49,6 +49,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -0.150024
 offset_bottom = 0.199951
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Credit" type="TextureRect" parent="Control"]
 top_level = true

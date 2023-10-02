@@ -43,6 +43,7 @@ DefaultCheckpoint = NodePath("CheckpointArea2")
 VolumeDb = -5.0
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("1_m1iqt")]
+current = true
 ToFollow = NodePath("../CharacterBody3D")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_dnp53")]
