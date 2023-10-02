@@ -1,12 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://o3eje0au3pu8"]
+[gd_scene load_steps=8 format=3 uid="uid://o3eje0au3pu8"]
 
 [ext_resource type="Script" path="res://scenes/dev/StartingMenu.cs" id="1_6lhjk"]
 [ext_resource type="Texture2D" uid="uid://071dl0433mep" path="res://scenes/dev/UI/button.png" id="4_4g3iy"]
-[ext_resource type="PackedScene" uid="uid://cmojig8xnpdv1" path="res://scenes/dev/TestScene.tscn" id="4_83cfh"]
 [ext_resource type="Texture2D" uid="uid://dkb0j0gd8i3aq" path="res://scenes/dev/UI/MenuIcon.png" id="4_fiw1k"]
 [ext_resource type="FontFile" uid="uid://cqdve6tquq85u" path="res://assets/FontStyle/ariblk.ttf" id="4_lv1b4"]
+[ext_resource type="Texture2D" uid="uid://bjrrxk4cb2wnr" path="res://scenes/dev/UI/Credits.png" id="6_s40ho"]
 
-[node name="StartingMenu" type="Control"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba4y5"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ovptl"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
+[node name="StartingMenu" type="Control" node_paths=PackedStringArray("CreditsControl", "BoxContainer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,37 +25,88 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6lhjk")
-StartingScene = ExtResource("4_83cfh")
+CreditsControl = NodePath("Control")
+BoxContainer = NodePath("VBoxContainer2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 1.0
-offset_bottom = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.109804, 0.0980392, 0.121569, 1)
 
-[node name="MenuIcon" type="Sprite2D" parent="ColorRect"]
-position = Vector2(588, 225)
-scale = Vector2(0.712121, 0.694981)
-texture = ExtResource("4_fiw1k")
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.150024
+offset_bottom = 0.199951
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-clip_contents = true
+[node name="Credit" type="TextureRect" parent="Control"]
+top_level = true
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.150024
+offset_bottom = -0.199951
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_s40ho")
+expand_mode = 2
+
+[node name="BackButton" type="Button" parent="Control/Credit"]
+top_level = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.354
-anchor_top = 0.618
-anchor_right = 0.61
-anchor_bottom = 0.943
-offset_left = -0.45401
-offset_top = -0.318024
-offset_right = 51.3139
-offset_bottom = 35.332
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 0.15
+offset_left = -1.72003
+offset_right = -1.71997
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("4_lv1b4")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ba4y5")
+action_mode = 0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BACK
+"
+flat = true
+icon_alignment = 1
+
+[node name="MenuIcon" type="TextureRect" parent="."]
+layout_mode = 2
+anchor_left = 0.219
+anchor_top = 0.088
+anchor_right = 0.793
+anchor_bottom = 0.549
+offset_left = 0.149994
+offset_top = -0.200005
+offset_right = 0.0499268
+offset_bottom = 0.149994
+texture = ExtResource("4_fiw1k")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+top_level = true
+clip_contents = true
+layout_mode = 2
+anchor_top = 0.654
+anchor_right = 1.0
+anchor_bottom = 0.968
+offset_top = -0.125061
+offset_bottom = -0.225037
 alignment = 1
 
-[node name="StartButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="StartButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
 auto_translate = false
 localize_numeral_system = false
@@ -65,16 +123,20 @@ icon = ExtResource("4_4g3iy")
 flat = true
 icon_alignment = 1
 
-[node name="CreditsButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
+mouse_force_pass_scroll_events = false
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_lv1b4")
 theme_override_font_sizes/font_size = 48
+theme_override_styles/pressed = SubResource("StyleBoxLine_ovptl")
 text = "CREDITS
 "
 icon = ExtResource("4_4g3iy")
 flat = true
 icon_alignment = 1
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/Credit/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/CreditsButton" to="." method="_on_credits_button_pressed"]
