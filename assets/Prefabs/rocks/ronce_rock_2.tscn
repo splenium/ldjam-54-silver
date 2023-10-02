@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=3 uid="uid://c8hr021ps6kxh"]
+
+[ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="1_8h5q5"]
+[ext_resource type="Shader" path="res://assets/Shaders/Rock.gdshader" id="1_duw1p"]
+[ext_resource type="Texture2D" uid="uid://busm054d1m6ye" path="res://assets/Textures/Rocks/RocherRonce2.png" id="3_cik04"]
+[ext_resource type="Script" path="res://assets/Hovering.cs" id="3_x7kfp"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqkp2"]
+render_priority = 0
+shader = ExtResource("1_duw1p")
+shader_parameter/_mainTex = ExtResource("3_cik04")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6p2fc"]
+size = Vector3(0.278121, 0.568411, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uru7p"]
+size = Vector3(0.278121, 0.520209, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fcusu"]
+size = Vector3(0.192994, 0.694708, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wb0o"]
+size = Vector3(0.278121, 0.64992, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lxv4b"]
+size = Vector3(1.14018, 1.12799, 1)
+
+[node name="RonceRock1" type="StaticBody3D"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+collision_layer = 129
+collision_mask = 129
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_8h5q5")
+AmountOfDamage = 10
+
+[node name="RockMesh" type="CSGMesh3D" parent="."]
+transform = Transform3D(1.67127, 0, 0, 0, 1.67127, 0, 0, 0, 1, 0.0124002, -0.0124133, 0)
+mesh = SubResource("QuadMesh_qs0ii")
+material = SubResource("ShaderMaterial_bqkp2")
+script = ExtResource("3_x7kfp")
+Amplitude = 0.005
+Offset = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.322315, 0.946632, 0, -0.946632, 0.322315, 0, 0, 0, 1, 0.43075, -0.703034, 0)
+shape = SubResource("BoxShape3D_6p2fc")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.317917, 0.948119, 0, -0.948119, 0.317917, 0, 0, 0, 1, -0.213236, 0.333781, 0)
+shape = SubResource("BoxShape3D_uru7p")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.949387, 0.314109, 0, -0.314109, -0.949387, 0, 0, 0, 1, -0.531847, 0.383322, 0)
+shape = SubResource("BoxShape3D_fcusu")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.958963, 0.28353, 0, -0.28353, -0.958963, 0, 0, 0, 1, 0.040556, 0.515105, 0)
+shape = SubResource("BoxShape3D_6wb0o")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.299457, -0.95411, 0, 0.95411, -0.299457, 0, 0, 0, 1, -0.0429913, -0.215565, 0)
+shape = SubResource("BoxShape3D_lxv4b")
