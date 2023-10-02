@@ -88,6 +88,7 @@ public partial class CharacterController : CharacterBody3D
     public override void _Ready()
     {
         base._Ready();
+        GameManager.MyPlayer = this;
         forcedZ = this.GlobalPosition.Z;
         currentPower = PowerHuman;
         currentPower.Init(this);

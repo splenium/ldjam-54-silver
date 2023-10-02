@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bdaojckf405t1"]
+[gd_scene load_steps=26 format=3 uid="uid://bdaojckf405t1"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
 [ext_resource type="AudioStream" uid="uid://c3c6v6d2jabsw" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
@@ -24,12 +24,26 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_4m4ox"]
 size = Vector3(0.11869, 0.872872, 22.2889)
 
-[sub_resource type="Curve3D" id="Curve3D_petv7"]
+[sub_resource type="Curve3D" id="Curve3D_i2n38"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 11.0695, -1.27351, -0.00500488, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -18.2639, 2.64718, -1.12695),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_r7rsu"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -18.264, -17.493, -1.127),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_petv7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, -6.125, 4.585, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -12.13, -0.477, -0.094, -12.835, 0, 0, 0, 0, 0, -15.8641, -7.67709, -0.357422, 4.235, -11, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tvi1f"]
 size = Vector3(3387.83, 17.8482, 224.205)
@@ -41,18 +55,20 @@ NextScene = ExtResource("3_8st7c")
 DefaultCheckpoint = NodePath("CheckpointArea")
 
 [node name="CheckpointArea" parent="." node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_27gc2")]
-transform = Transform3D(4.985, 0, 0, 0, 4.985, 0, 0, 0, 4.985, 0, -3.46989, 0)
+transform = Transform3D(4.725, 0, 0, 0, 4.725, 0, 0, 0, 4.725, 0, -3.46989, 0)
 SpawnPoint = NodePath("SpawnPoint")
 
 [node name="SpawnPoint" type="Node3D" parent="CheckpointArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66472, -1.10619, 0)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("4_obfiy")]
+transform = Transform3D(1, 0, 0, 0, 0.980574, 0.196151, 0, -0.196151, 0.980574, 2.94312, 2, 17.7572)
 ToFollow = NodePath("../CharacterBody3D")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_qlhiq")]
 IsPowerHumanUnlock = true
 IsPowerFishUnlock = true
+IsPowerFlyUnlock = true
 IsPowerGhostUnlock = true
 
 [node name="VortexAnim" parent="." instance=ExtResource("4_n1qjr")]
@@ -63,9 +79,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5817, 12.1011)
 omni_range = 271.62
 
 [node name="GameLayer" type="Node3D" parent="."]
-
-[node name="RoundRock1" parent="GameLayer" instance=ExtResource("7_r7847")]
-transform = Transform3D(16.27, 0, 0, 0, 16.27, 0, 0, 0, 16.27, 44.6738, -44.4812, 0)
 
 [node name="CliffRock" parent="GameLayer" instance=ExtResource("7_7mstk")]
 transform = Transform3D(35.287, 0, 0, 0, 35.287, 0, 0, 0, 2.331, 27.1542, -100.793, -0.700063)
@@ -80,13 +93,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120928, -0.0162813, 0)
 shape = SubResource("BoxShape3D_4m4ox")
 
 [node name="Vortex" parent="GameLayer" instance=ExtResource("8_yqpp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7764, -5.67995, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1398, -1.55953, 0)
 
 [node name="FlatRock2" parent="GameLayer" instance=ExtResource("8_sarw3")]
 transform = Transform3D(29.0487, 7.49467, 0, -7.49467, 29.0487, 0, 0, 0, 30, -2.20481, -93.1949, 0)
 
 [node name="CheckpointArea2" parent="GameLayer" node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_27gc2")]
-transform = Transform3D(23.115, 0, 0, 0, 23.115, 0, 0, 0, 23.115, 0, -85.1677, 0)
+transform = Transform3D(20.61, 0, 0, 0, 20.61, 0, 0, 0, 20.61, 0, -85.1677, 0)
 SpawnPoint = NodePath("SpawnPoint")
 
 [node name="SpawnPoint" type="Node3D" parent="GameLayer/CheckpointArea2"]
@@ -118,16 +131,67 @@ transform = Transform3D(6.05359, 5.23011, 0, -5.23011, 6.05359, 0, 0, 0, 8, -31.
 transform = Transform3D(20.545, 0, 0, 0, 20.545, 0, 0, 0, 20.545, 2.96498, -17.8525, 0)
 
 [node name="Path3D" type="Path3D" parent="GameLayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.90938, -6.82144, 0)
-curve = SubResource("Curve3D_petv7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6499, -29.3172, 0)
+curve = SubResource("Curve3D_i2n38")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D"]
-transform = Transform3D(-0.000452173, 0.114289, 0.993442, -3.72503e-09, 0.993414, -0.114293, -0.99993, -5.16859e-05, -0.000449239, 11.0695, -1.27351, -0.00500488)
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 0, 0, 0)
+progress = 18.4891
+rotation_mode = 0
+cubic_interp = false
+loop = false
 script = ExtResource("18_wvb40")
 speed = 0.375
 
 [node name="RoundRock2" parent="GameLayer/Path3D/PathFollow3D" instance=ExtResource("19_mobml")]
-transform = Transform3D(-0.00361764, -2.98314e-08, -8, 0.914344, 7.94758, -0.000413501, 7.94758, -0.914344, -0.00359393, -0.0950817, 2.5396, -10.3708)
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+
+[node name="Path3D3" type="Path3D" parent="GameLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6499, -56.8412, 0)
+curve = SubResource("Curve3D_r7rsu")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D3"]
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 0, 0, 0)
+progress = 18.4891
+rotation_mode = 0
+cubic_interp = false
+loop = false
+script = ExtResource("18_wvb40")
+speed = 0.375
+
+[node name="RoundRock2" parent="GameLayer/Path3D3/PathFollow3D" instance=ExtResource("19_mobml")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+
+[node name="Path3D4" type="Path3D" parent="GameLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5771, -56.8412, 0)
+curve = SubResource("Curve3D_r7rsu")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D4"]
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, -13.3393, -12.7762, -0.823119)
+progress = 18.4891
+rotation_mode = 0
+cubic_interp = false
+loop = false
+script = ExtResource("18_wvb40")
+speed = 0.375
+
+[node name="RoundRock2" parent="GameLayer/Path3D4/PathFollow3D" instance=ExtResource("19_mobml")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+
+[node name="Path3D2" type="Path3D" parent="GameLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7612, -3.89774, 0)
+curve = SubResource("Curve3D_petv7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D2"]
+transform = Transform3D(0.999861, 0, 0, 0, 0.999932, 0, 0, 0, 0.999979, 0, 0, 0)
+progress = 30.857
+rotation_mode = 0
+script = ExtResource("18_wvb40")
+speed = 0.1
+Reverse = false
+
+[node name="RoundRock1" parent="GameLayer/Path3D2/PathFollow3D" instance=ExtResource("7_r7847")]
+transform = Transform3D(16.27, 0, 0, 0, 16.27, 0, 0, 0, 16.27, 0, -0.0809288, 0.151729)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9158, -150.038, 0)

@@ -11,6 +11,7 @@ public partial class GameManager : Node
     public static AudioStreamPlayer[] MyAudioEffect = null;
 
     private static GameManager instance;
+    public static CharacterController MyPlayer = null;
 
     private static int simultaneousAudioEffect = 10;
 
