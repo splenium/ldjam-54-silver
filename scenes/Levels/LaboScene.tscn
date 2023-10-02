@@ -116,6 +116,7 @@ transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 7.62
 transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 11.563, 3.24251, 0)
 
 [node name="AcidTrap" type="Node3D" parent="GameLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.251766, 0.452789, 0)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="GameLayer/AcidTrap"]
 transform = Transform3D(5.20632, 0, 0, 0, 5.20632, 0, 0, 0, 1, 18.8742, -4.76159, 0)
