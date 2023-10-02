@@ -119,7 +119,7 @@ albedo_texture = ExtResource("4_hifw6")
 [sub_resource type="QuadMesh" id="QuadMesh_nsvfv"]
 material = SubResource("StandardMaterial3D_r6vee")
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("PowerHuman", "PowerFish", "PowerFly", "PowerGhost", "DamageDetector", "DamageTakenTimer", "VortexDetector")]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("PowerHuman", "PowerFish", "PowerFly", "PowerGhost", "DamageDetector", "DamageTakenTimer", "BlinkTimer", "VortexDetector")]
 collision_layer = 129
 collision_mask = 67
 script = ExtResource("1_j3srj")
@@ -129,11 +129,16 @@ PowerFly = NodePath("Power/Fly")
 PowerGhost = NodePath("Power/Ghost")
 DamageDetector = NodePath("Detectors/DamageDetector")
 DamageTakenTimer = NodePath("DamageTakenTimer")
+BlinkTimer = NodePath("BlinkTimer")
 VortexDetector = NodePath("Detectors/DetectorVortex")
 DeathSoundEffect = ExtResource("2_hm35p")
 
 [node name="DamageTakenTimer" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
+
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 0.1
 one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -260,3 +265,4 @@ mesh = SubResource("QuadMesh_nsvfv")
 material = ExtResource("8_uvjtu")
 
 [connection signal="timeout" from="DamageTakenTimer" to="." method="_OnDamageTakenTimerTimeout"]
+[connection signal="timeout" from="BlinkTimer" to="." method="_OnBlinkTimerTimeout"]

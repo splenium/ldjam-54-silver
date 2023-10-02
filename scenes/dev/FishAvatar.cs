@@ -5,26 +5,30 @@ public partial class FishAvatar : Area3D
 {
     [Export]
     public Color LightColor;
-	[Export]
-	public CsgMesh3D[] Objects;
+    [Export]
+    public CsgMesh3D[] Objects;
     [Export]
     public AnimationPlayer AttackAnimation;
 
-	public override void _Ready()
-	{
+    public override void _Ready()
+    {
 
-	}
+    }
 
-	public override void _Process(double delta)
-	{
+    public override void _Process(double delta)
+    {
         foreach (var child in Objects)
         {
-            child?.Material?.Set("albedo_color", LightColor);
+            if (child != null && child.Material != null)
+            {
+                child.Material.Set("albedo_color", LightColor);
+
+            }
         }
         if (HasOverlappingBodies())
         {
             var overlappingBodies = GetOverlappingBodies();
-            var player = (CharacterController) overlappingBodies.FirstOrDefault(b => b is CharacterController);
+            var player = (CharacterController)overlappingBodies.FirstOrDefault(b => b is CharacterController);
             if (player != null)
             {
                 AttackAnimation.Play("attack");
