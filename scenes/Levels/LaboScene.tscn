@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bumcdmvd7ixqg"]
+[gd_scene load_steps=28 format=3 uid="uid://bumcdmvd7ixqg"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_qvpa6"]
 [ext_resource type="AudioStream" uid="uid://sygfgtatf6ri" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
@@ -10,10 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://csqy06lqwxbw6" path="res://assets/Prefabs/labo/pipe_end.tscn" id="7_evvvk"]
 [ext_resource type="PackedScene" uid="uid://bg23uknq8tfnl" path="res://assets/Prefabs/labo/pipe_direction.tscn" id="7_om5uh"]
 [ext_resource type="Texture2D" uid="uid://b2vnex87uvvb5" path="res://assets/Textures/Labo/Acid_Puddle_3.png" id="10_7ax1p"]
-[ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="11_qvavh"]
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="12_27u8p"]
+[ext_resource type="PackedScene" uid="uid://b8qs4aal6rgc0" path="res://assets/Prefabs/labo/labo_rock.tscn" id="12_qfl84"]
 [ext_resource type="PackedScene" uid="uid://cdb8xqvybjof" path="res://assets/Prefabs/labo/glass_pipe.tscn" id="13_nxapa"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/water_abyss.tscn" id="14_474ug"]
+[ext_resource type="PackedScene" uid="uid://cbkelh6dh2hpe" path="res://assets/Prefabs/labo/glass_pipe_straight.tscn" id="14_mcc2e"]
+[ext_resource type="PackedScene" uid="uid://dw1fon23wnduo" path="res://assets/Prefabs/labo/background_laboratory.tscn" id="15_2ftgi"]
+[ext_resource type="Texture2D" uid="uid://d0yhqwi1arnf3" path="res://assets/Textures/Labo/Roches_tubes_3.png" id="17_0joh7"]
+[ext_resource type="Texture2D" uid="uid://bikhbfv1s6qdf" path="res://assets/Textures/Labo/Roches_tubes_2.png" id="18_ey5mn"]
+[ext_resource type="Texture2D" uid="uid://bunu0hm2e0a48" path="res://assets/Textures/Labo/Roches_tubes_1.png" id="19_urygm"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gjm3u"]
 
@@ -28,6 +33,23 @@ size = Vector3(0.850991, 0.229751, 3.80733)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cj8ei"]
 size = Vector3(3387.83, 17.8482, 224.205)
 
+[sub_resource type="QuadMesh" id="QuadMesh_pwah0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7halu"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("17_0joh7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gbah"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("18_ey5mn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7ftw"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("19_urygm")
+
 [node name="LaboScene" type="Node3D" node_paths=PackedStringArray("DefaultCheckpoint")]
 script = ExtResource("1_qvpa6")
 LevelSound = ExtResource("2_qsi0h")
@@ -41,6 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.86588, 0)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("2_umr85")]
 transform = Transform3D(1, 0, 0, 0, 0.980574, 0.196151, 0, -0.196151, 0.980574, 2.94312, 2, 10.7964)
+current = true
 ToFollow = NodePath("../CharacterBody3D")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_b8ktn")]
@@ -133,9 +156,7 @@ AmountOfDamage = 20
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00229669, -0.373784, 0)
 shape = SubResource("BoxShape3D_qaw0t")
 
-[node name="FlatRock1" parent="GameLayer/AcidTrap" instance=ExtResource("11_qvavh")]
-transform = Transform3D(9.38845, 0, 0, 0, 9.38845, 0, 0, 0, 1, 20.1726, -6.90132, 0)
-sorting_offset = -1.0
+[node name="LaboRock" parent="GameLayer/AcidTrap" instance=ExtResource("12_qfl84")]
 
 [node name="PipeSecond" type="Node3D" parent="GameLayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9976, 0, 0)
@@ -170,6 +191,9 @@ transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 30.8
 [node name="PipeStraight15" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
 transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 30.8306, -17.9127, 0)
 
+[node name="PipeStraight18" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 30.8306, -30.5464, 0)
+
 [node name="PipeStraight10" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
 transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 19.8586, -7.13046, 0)
 
@@ -188,6 +212,45 @@ transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 8.09
 [node name="PipeStraight9" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
 transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 11.3321, -1.58288, 0)
 
+[node name="PipeStraight11" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 25.641, -34.742, 0)
+
+[node name="PipeStraight19" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 22.474, -34.742, 0)
+
+[node name="PipeStraight20" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 19.3071, -34.742, 0)
+
+[node name="PipeStraight21" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 16.36, -34.742, 0)
+
+[node name="PipeStraight22" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 13.2371, -34.742, 0)
+
+[node name="PipeStraight23" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 10.1581, -34.742, 0)
+
+[node name="PipeStraight24" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 7.03513, -34.742, 0)
+
+[node name="PipeStraight25" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 4.04411, -34.742, 0)
+
+[node name="PipeStraight26" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, 1.09709, -34.742, 0)
+
+[node name="PipeStraight27" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, -2.06986, -34.742, 0)
+
+[node name="PipeStraight28" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, -3.69732, -34.742, 0)
+
+[node name="PipeStraight29" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, -5.72065, -36.4135, 0)
+
+[node name="PipeStraight30" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, -5.72065, -39.4485, 0)
+
 [node name="PipeDirection3" parent="GameLayer/PipeSecond" instance=ExtResource("7_om5uh")]
 transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, -4.80233, 2.25575, 0)
 
@@ -196,6 +259,15 @@ transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 1, 9.18557, -12.6238, 0)
 
 [node name="PipeDirection10" parent="GameLayer/PipeSecond" instance=ExtResource("7_om5uh")]
 transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 30.2462, -7.79825, 0)
+
+[node name="PipeDirection12" parent="GameLayer/PipeSecond" instance=ExtResource("7_om5uh")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, -6.38939, -34.0078, 0)
+
+[node name="PipeDirection14" parent="GameLayer/PipeSecond" instance=ExtResource("7_om5uh")]
+transform = Transform3D(-0.569235, -35.9955, 0, 35.9955, -0.569235, 0, 0, 0, 1, -6.24602, -35.6602, 0)
+
+[node name="PipeDirection11" parent="GameLayer/PipeSecond" instance=ExtResource("7_om5uh")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 1, 30.2462, -34.1126, 0)
 
 [node name="PipeDirection7" parent="GameLayer/PipeSecond" instance=ExtResource("7_om5uh")]
 transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 15.9418, -2.26678, 0)
@@ -224,6 +296,113 @@ transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 16.2
 [node name="PipeEnd3" parent="GameLayer/PipeSecond" instance=ExtResource("7_evvvk")]
 transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 1, 31.0022, -21.5561, 0)
 
+[node name="GlassPipe2" parent="GameLayer/PipeSecond" instance=ExtResource("14_mcc2e")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, -8.66521, -22.3045, 0)
+
+[node name="GlassPipe3" parent="GameLayer/PipeSecond" instance=ExtResource("14_mcc2e")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, -8.66521, -25.7197, 0)
+
+[node name="GlassPipe4" parent="GameLayer/PipeSecond" instance=ExtResource("14_mcc2e")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, -8.66521, -29.1217, 0)
+
+[node name="GlassPipe5" parent="GameLayer/PipeSecond" instance=ExtResource("14_mcc2e")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, -8.66521, -32.5229, 0)
+
+[node name="GlassPipe6" parent="GameLayer/PipeSecond" instance=ExtResource("14_mcc2e")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, -8.66521, -35.9291, 0)
+
+[node name="FinalPipe" type="Node3D" parent="GameLayer"]
+
+[node name="PipeStraight31" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 29.277, -42.6154, 0)
+
+[node name="PipeStraight32" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 29.277, -45.6504, 0)
+
+[node name="PipeStraight33" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 23.6796, -13.1732, 0)
+
+[node name="PipeStraight34" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 20.6082, -13.1732, 0)
+
+[node name="PipeStraight35" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 17.3105, -13.1732, 0)
+
+[node name="PipeStraight36" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 14.0128, -13.1732, 0)
+
+[node name="PipeStraight37" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 10.812, -13.1732, 0)
+
+[node name="PipeStraight38" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 7.45577, -13.1732, 0)
+
+[node name="PipeStraight42" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 1, -5.41025, -17.9605, 0)
+
+[node name="PipeStraight43" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 1, -5.41025, -20.8329, 0)
+
+[node name="PipeStraight44" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 1, -5.41025, -23.9447, 0)
+
+[node name="PipeStraight45" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 1, -5.41025, -26.9966, 0)
+
+[node name="PipeStraight46" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 1, -5.41025, -29.8691, 0)
+
+[node name="PipeStraight57" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 1, -5.41025, -32.0234, 0)
+
+[node name="PipeStraight39" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 4.25038, -13.1732, 0)
+
+[node name="PipeStraight40" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 0.931843, -13.1732, 0)
+
+[node name="PipeStraight47" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 24.8686, -34.9556, 0)
+
+[node name="PipeStraight48" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 21.6372, -34.9556, 0)
+
+[node name="PipeStraight49" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 18.6451, -34.9556, 0)
+
+[node name="PipeStraight50" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 15.4136, -34.9556, 0)
+
+[node name="PipeStraight51" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 12.3018, -34.9556, 0)
+
+[node name="PipeStraight52" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 9.07035, -34.9556, 0)
+
+[node name="PipeStraight53" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 6.07825, -34.9556, 0)
+
+[node name="PipeStraight54" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 2.96647, -34.9556, 0)
+
+[node name="PipeStraight55" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, -0.025629, -34.9556, 0)
+
+[node name="PipeStraight56" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, -1.94057, -34.9556, 0)
+
+[node name="PipeStraight41" parent="GameLayer/FinalPipe" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, -2.34898, -13.1732, 0)
+
+[node name="PipeDirection13" parent="GameLayer/FinalPipe" instance=ExtResource("7_om5uh")]
+transform = Transform3D(-1.57361e-06, -36, 0, 36, -1.57361e-06, 0, 0, 0, 1, 27.3669, -14.0054, 0)
+
+[node name="PipeDirection15" parent="GameLayer/FinalPipe" instance=ExtResource("7_om5uh")]
+transform = Transform3D(-1.57361e-06, 36, 0, -36, -1.57361e-06, 0, 0, 0, 1, -4.82812, -34.2918, 0)
+
+[node name="PipeDirection14" parent="GameLayer/FinalPipe" instance=ExtResource("7_om5uh")]
+transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, -4.70844, -13.8259, 0)
+
 [node name="Water" parent="GameLayer" instance=ExtResource("14_474ug")]
 transform = Transform3D(3.655, 0, 0, 0, 1.985, 0, 0, 0, 1.935, 46.8863, -24.0019, 0)
 
@@ -235,3 +414,35 @@ script = ExtResource("12_27u8p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_cj8ei")
+
+[node name="BackgroundLaboratory" parent="." instance=ExtResource("15_2ftgi")]
+transform = Transform3D(36.3484, 0, 0, 0, 53.3921, 0, 0, 0, 14.809, 18.537, 0, -13.9185)
+visible = false
+
+[node name="IsleLabo" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.3744)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="IsleLabo"]
+transform = Transform3D(7.96418, 0, 0, 0, 7.96418, 0, 0, 0, 1, -7.30001, 16.5321, -0.153893)
+mesh = SubResource("QuadMesh_pwah0")
+material = SubResource("StandardMaterial3D_7halu")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="IsleLabo"]
+transform = Transform3D(7.96418, 0, 0, 0, 7.96418, 0, 0, 0, 1, -47.9219, -59.3154, 0)
+mesh = SubResource("QuadMesh_pwah0")
+material = SubResource("StandardMaterial3D_7halu")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="IsleLabo"]
+transform = Transform3D(32.7353, 0, 0, 0, 32.7353, 0, 0, 0, 1, -14.6387, 8.36246, 0)
+mesh = SubResource("QuadMesh_pwah0")
+material = SubResource("StandardMaterial3D_5gbah")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="IsleLabo"]
+transform = Transform3D(32.7353, 0, 0, 0, 32.7353, 0, 0, 0, 1, 37.7749, -14.6701, 0)
+mesh = SubResource("QuadMesh_pwah0")
+material = SubResource("StandardMaterial3D_c7ftw")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="IsleLabo"]
+transform = Transform3D(32.7353, 0, 0, 0, 32.7353, 0, 0, 0, 1, -29.1828, -79.213, 0)
+mesh = SubResource("QuadMesh_pwah0")
+material = SubResource("StandardMaterial3D_c7ftw")

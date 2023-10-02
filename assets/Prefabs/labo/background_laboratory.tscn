@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw1fon23wnduo"]
+
+[ext_resource type="Material" uid="uid://bilv08qhv513l" path="res://assets/Materials/BackgroundWallMat.tres" id="1_30vxt"]
+[ext_resource type="Material" uid="uid://6ruug3uhe6dt" path="res://assets/Materials/ConcreteMat.tres" id="2_2w535"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0v70s"]
+
+[node name="BackgroundLaboratory" type="Node3D"]
+transform = Transform3D(3.26746, 0, 0, 0, 4.9591, 0, 0, 0, 1, 0, 0, -2.38924)
+
+[node name="Wall" type="CSGMesh3D" parent="."]
+transform = Transform3D(4.56332, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_0v70s")
+material = ExtResource("1_30vxt")
+
+[node name="Ground" type="CSGMesh3D" parent="."]
+transform = Transform3D(4.56332, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.5, 0.5)
+mesh = SubResource("QuadMesh_0v70s")
+material = ExtResource("2_2w535")
+
+[node name="Ceiling" type="CSGMesh3D" parent="."]
+transform = Transform3D(4.56332, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0.5)
+mesh = SubResource("QuadMesh_0v70s")
+material = ExtResource("2_2w535")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, -0.753281)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, -0.688447, 0, 0.470634)
+material = ExtResource("2_2w535")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, -1.376, 0, 0.471)
+material = ExtResource("2_2w535")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, 0.688, 0, 0.471)
+material = ExtResource("2_2w535")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, 1.376, 0, 0.471)
+material = ExtResource("2_2w535")
