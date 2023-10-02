@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_tyxh0"]
-[ext_resource type="AudioStream" uid="uid://bjp8y250kq4n4" path="res://assets/Sounds/Songs/Aqua.mp3" id="2_267br"]
+[ext_resource type="AudioStream" uid="uid://jai6f6em3a64" path="res://assets/Sounds/Songs/Aqua.mp3" id="2_267br"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/water_abyss.tscn" id="4_piyot"]
 [ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="6_g6kci"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="9_d5e16"]

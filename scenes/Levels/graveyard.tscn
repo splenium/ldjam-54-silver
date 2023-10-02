@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_m1iqt"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_dnp53"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="3_3521m"]
-[ext_resource type="AudioStream" uid="uid://drcd14w2koeif" path="res://assets/Sounds/Songs/Cimetiere.mp3" id="4_75pdb"]
+[ext_resource type="AudioStream" uid="uid://bclrgxrqgjqa0" path="res://assets/Sounds/Songs/Cimetiere.mp3" id="4_75pdb"]
 [ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="4_n1t4r"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/graveyard/dino.tscn" id="4_oksl1"]
+[ext_resource type="PackedScene" uid="uid://bavh3ckhsnifc" path="res://assets/Prefabs/graveyard/dino.tscn" id="4_oksl1"]
 [ext_resource type="PackedScene" uid="uid://fa27lkyj3wa7" path="res://assets/Prefabs/rocks/flat_rock_2.tscn" id="5_652ma"]
 [ext_resource type="PackedScene" uid="uid://doiucep0m80t1" path="res://assets/Prefabs/graveyard/pillory.tscn" id="6_y8d85"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="7_e2s7j"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://duiqbyhuvxb7v" path="res://assets/Prefabs/vortex.tscn" id="12_psa0m"]
 [ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="13_on7le"]
 [ext_resource type="PackedScene" uid="uid://5sk85n3veo0o" path="res://assets/Textures/graveyard/cemetery_2.tscn" id="16_bpv66"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/graveyard/reverse_tree.tscn" id="18_l218n"]
+[ext_resource type="PackedScene" uid="uid://b0ix6en3173nk" path="res://assets/Prefabs/graveyard/reverse_tree.tscn" id="18_l218n"]
 [ext_resource type="PackedScene" uid="uid://8l8ep2gwc1i0" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="19_gq5en"]
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="21_45mk3"]
 [ext_resource type="Texture2D" uid="uid://b5nkw674mex7f" path="res://assets/Textures/Background/Illustration_sans_titre.png" id="22_cb1ys"]
@@ -225,12 +225,12 @@ offset_top = 184.0
 offset_right = -91.864
 offset_bottom = 0.264008
 
-[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
+[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
 position = Vector2(30, 30)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("25_h7kep")
+texture = ExtResource("23_ppqbr")
 
-[node name="Label" type="Label" parent="Power_icons/GhostOff"]
+[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
 anchors_preset = -1
 anchor_left = 0.774
 anchor_top = 0.732
@@ -283,12 +283,12 @@ text = "3
 "
 horizontal_alignment = 1
 
-[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
+[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
 position = Vector2(30, 180)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("23_ppqbr")
+texture = ExtResource("25_h7kep")
 
-[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
+[node name="Label" type="Label" parent="Power_icons/GhostOff"]
 anchors_preset = -1
 anchor_left = 0.774
 anchor_top = 0.732
