@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ba1spgb6o1um" path="res://assets/Prefabs/grid/ground_grid.tscn" id="10_atb5u"]
 [ext_resource type="PackedScene" uid="uid://cb01jbet33cp1" path="res://assets/Prefabs/grid/vertical_grid.tscn" id="11_vjdio"]
 [ext_resource type="PackedScene" uid="uid://duiqbyhuvxb7v" path="res://assets/Prefabs/vortex.tscn" id="12_psa0m"]
-[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="13_on7le"]
+[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/Checkpoint.tscn" id="13_on7le"]
 [ext_resource type="PackedScene" uid="uid://5sk85n3veo0o" path="res://assets/Textures/graveyard/cemetery_2.tscn" id="16_bpv66"]
 [ext_resource type="PackedScene" uid="uid://b0ix6en3173nk" path="res://assets/Prefabs/graveyard/reverse_tree.tscn" id="18_l218n"]
 [ext_resource type="PackedScene" uid="uid://8l8ep2gwc1i0" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="19_gq5en"]

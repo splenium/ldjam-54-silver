@@ -131,6 +131,7 @@ public partial class CharacterController : CharacterBody3D
 	{
 		currentPower.Exit(this);
 		currentPower = newPower;
+		_rakoonStatesLabel.Text = newPower.PowerLabel;
 		currentPower.Init(this);
 	}
 
@@ -142,25 +143,21 @@ public partial class CharacterController : CharacterBody3D
 			if (@event.IsActionReleased(PowerHumanAction) && isPowerUnlock[PowerEnum.Human])
 			{
 				SelectPower(PowerHuman);
-				_rakoonStatesLabel.Text = "Rakoon";
 				GD.Print("Human");
 			}
 			else if (@event.IsActionReleased(PowerFlyAction) && isPowerUnlock[PowerEnum.Fly])
 			{
 				SelectPower(PowerFly);
-				_rakoonStatesLabel.Text = "Flykoon";
 				GD.Print("Fly");
 			}
 			else if (@event.IsActionReleased(PowerFishAction) && isPowerUnlock[PowerEnum.Fish])
 			{
 				SelectPower(PowerFish);
-				_rakoonStatesLabel.Text = "Fishkoon";
 				GD.Print("Fish");
 			}
 			else if (@event.IsActionReleased(PowerGhostAction) && isPowerUnlock[PowerEnum.Ghost])
 			{
 				SelectPower(PowerGhost);
-				_rakoonStatesLabel.Text = "Gostkoon";
 				GD.Print("Ghost");
 			}
 		}

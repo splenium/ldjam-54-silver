@@ -96,7 +96,6 @@ albedo_texture = ExtResource("23_7c1w1")
 [node name="FlyScene" type="Node3D" node_paths=PackedStringArray("DefaultCheckpoint")]
 script = ExtResource("1_ic4qb")
 LevelSound = ExtResource("2_6o5do")
-NextScene = ExtResource("3_8st7c")
 DefaultCheckpoint = NodePath("CheckpointArea")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_qlhiq")]

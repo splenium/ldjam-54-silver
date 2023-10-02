@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://1ji2t3u75r1o"]
+
+[ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="1_un2g2"]
+[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_f4lj8"]
+[ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="3_1jge5"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_574u7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qwxuk"]
+size = Vector3(10, 10, 1)
+
+[node name="Water" type="Area3D"]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+collision_layer = 16
+collision_mask = 0
+
+[node name="SkyBG" type="CSGMesh3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, -0.1)
+sorting_offset = 50.0
+mesh = SubResource("QuadMesh_574u7")
+material = ExtResource("1_un2g2")
+script = ExtResource("2_f4lj8")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="LightRays01" type="CSGMesh3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0.1)
+sorting_offset = 50.0
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("3_1jge5")
+script = ExtResource("2_f4lj8")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="LightRays02" type="CSGMesh3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0.1)
+sorting_offset = 50.0
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("3_1jge5")
+script = ExtResource("2_f4lj8")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+shape = SubResource("BoxShape3D_qwxuk")

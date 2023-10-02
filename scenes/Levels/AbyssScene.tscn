@@ -1,35 +1,26 @@
-[gd_scene load_steps=31 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=25 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_tyxh0"]
-[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_7v4yc"]
 [ext_resource type="AudioStream" uid="uid://jai6f6em3a64" path="res://assets/Sounds/Songs/Aqua.mp3" id="2_267br"]
-[ext_resource type="PackedScene" uid="uid://bdaojckf405t1" path="res://scenes/Levels/FlyScene.tscn" id="3_u3y20"]
+[ext_resource type="PackedScene" uid="uid://bdaojckf405t1" path="res://scenes/Levels/FlyScene.tscn" id="3_68tv1"]
+[ext_resource type="PackedScene" uid="uid://1ji2t3u75r1o" path="res://assets/Prefabs/water_abyss.tscn" id="4_piyot"]
 [ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="6_g6kci"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="9_d5e16"]
-[ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="9_xxpnm"]
 [ext_resource type="PackedScene" uid="uid://cfmpjoge2fq70" path="res://assets/Prefabs/rocks/round_rock_1.tscn" id="10_0xoww"]
-[ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="10_ya163"]
-[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="11_kaorx"]
+[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/Checkpoint.tscn" id="11_kaorx"]
 [ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="11_x3ou6"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_1.tscn" id="12_3t6ba"]
+[ext_resource type="PackedScene" uid="uid://oj24k1fqxnu4" path="res://assets/Prefabs/rocks/small_rock_1.tscn" id="12_3t6ba"]
 [ext_resource type="PackedScene" uid="uid://ddhpxwdtfedwg" path="res://assets/Prefabs/moving_fish.tscn" id="12_x5gt4"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="13_bvndj"]
 [ext_resource type="PackedScene" uid="uid://duiqbyhuvxb7v" path="res://assets/Prefabs/vortex.tscn" id="13_eej2v"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="13_g7n7f"]
+[ext_resource type="PackedScene" uid="uid://2kdeoux4tqc" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="13_g7n7f"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="14_j8xgx"]
 [ext_resource type="PackedScene" uid="uid://cb01jbet33cp1" path="res://assets/Prefabs/grid/vertical_grid.tscn" id="14_qf5nq"]
 [ext_resource type="Material" uid="uid://bilv08qhv513l" path="res://assets/Materials/BackgroundWallMat.tres" id="15_8qahw"]
 [ext_resource type="PackedScene" uid="uid://bgj0n06q1fhte" path="res://scenes/UnlockPower.tscn" id="15_a5vqh"]
 [ext_resource type="Material" uid="uid://6ruug3uhe6dt" path="res://assets/Materials/ConcreteMat.tres" id="16_we5u8"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_3.tscn" id="19_avl3v"]
+[ext_resource type="PackedScene" uid="uid://b366ihuo6l2x" path="res://assets/Prefabs/rocks/small_rock_3.tscn" id="19_avl3v"]
 [ext_resource type="PackedScene" uid="uid://cljg31i83ncu7" path="res://assets/Prefabs/vortex_anim.tscn" id="21_xlwu7"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_574u7"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qwxuk"]
-size = Vector3(10, 10, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_xmn3l"]
 _data = {
@@ -47,57 +38,20 @@ point_count = 10
 
 [sub_resource type="QuadMesh" id="QuadMesh_0v70s"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqnb8"]
-transparency = 1
-albedo_color = Color(0.627451, 1, 1, 0.431373)
-
 [node name="SebScene" type="Node3D" node_paths=PackedStringArray("DefaultCheckpoint")]
 script = ExtResource("1_tyxh0")
 LevelSound = ExtResource("2_267br")
-NextScene = ExtResource("3_u3y20")
+NextScene = ExtResource("3_68tv1")
 DefaultCheckpoint = NodePath("Abyss/CheckpointArea")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("13_bvndj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0904, 53.7924, 0)
+IsPowerHumanUnlock = true
 IsPowerGhostUnlock = true
 
 [node name="Abyss" type="Node3D" parent="."]
 
-[node name="Water" type="Area3D" parent="Abyss"]
-transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-collision_layer = 16
-collision_mask = 0
-
-[node name="SkyBG" type="CSGMesh3D" parent="Abyss/Water"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, -0.1)
-sorting_offset = 50.0
-mesh = SubResource("QuadMesh_574u7")
-material = ExtResource("9_xxpnm")
-script = ExtResource("2_7v4yc")
-Speed = 2.0
-Amplitude = 0.005
-
-[node name="LightRays01" type="CSGMesh3D" parent="Abyss/Water"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0.1)
-sorting_offset = 50.0
-mesh = SubResource("QuadMesh_qs0ii")
-material = ExtResource("10_ya163")
-script = ExtResource("2_7v4yc")
-Speed = 2.0
-Amplitude = 0.005
-
-[node name="LightRays02" type="CSGMesh3D" parent="Abyss/Water"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0, 0, 0.1)
-sorting_offset = 50.0
-mesh = SubResource("QuadMesh_qs0ii")
-material = ExtResource("10_ya163")
-script = ExtResource("2_7v4yc")
-Speed = 2.0
-Amplitude = 0.005
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Abyss/Water"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
-shape = SubResource("BoxShape3D_qwxuk")
+[node name="Water" parent="Abyss" instance=ExtResource("4_piyot")]
 
 [node name="Wall" type="Node3D" parent="Abyss"]
 
@@ -160,6 +114,12 @@ transform = Transform3D(7.99738, -0.204809, 0, 0.204809, 7.99738, 0, 0, 0, 8, 12
 
 [node name="RoundRock44" parent="Abyss/Wall" instance=ExtResource("10_0xoww")]
 transform = Transform3D(7.21122, 3.46386, 0, -3.46386, 7.21122, 0, 0, 0, 8, 21.4291, -32.6122, 0)
+
+[node name="RoundRock60" parent="Abyss/Wall" instance=ExtResource("10_0xoww")]
+transform = Transform3D(7.21122, 3.46386, 0, -3.46386, 7.21122, 0, 0, 0, 8, 39.6834, -32.6122, 0)
+
+[node name="RoundRock61" parent="Abyss/Wall" instance=ExtResource("10_0xoww")]
+transform = Transform3D(7.21122, 3.46386, 0, -3.46386, 7.21122, 0, 0, 0, 8, 41.4651, -27.4914, 0)
 
 [node name="RoundRock45" parent="Abyss/Wall" instance=ExtResource("10_0xoww")]
 transform = Transform3D(6.84248, -4.14493, 0, 4.14493, 6.84248, 0, 0, 0, 8, 25.7387, -32.6122, 0)
@@ -308,6 +268,9 @@ transform = Transform3D(7.47329, 2.85482, 0, -2.85482, 7.47329, 0, 0, 0, 8, 40.0
 [node name="RoundRock52" parent="Abyss/Wall" instance=ExtResource("10_0xoww")]
 transform = Transform3D(7.47329, 2.85482, 0, -2.85482, 7.47329, 0, 0, 0, 8, 36.806, -15.8031, 0)
 
+[node name="RoundRock69" parent="Abyss/Wall" instance=ExtResource("10_0xoww")]
+transform = Transform3D(7.47329, 2.85482, 0, -2.85482, 7.47329, 0, 0, 0, 8, 40.4817, -22.1636, 0)
+
 [node name="RoundRock53" parent="Abyss/Wall" instance=ExtResource("11_x3ou6")]
 transform = Transform3D(6.70526, 4.36343, 0, -4.36343, 6.70526, 0, 0, 0, 8, 39.2695, -7.4436, 0)
 
@@ -433,7 +396,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 30.729
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6905, -26.5225, 0)
 
 [node name="UnlockPower" parent="Abyss" instance=ExtResource("15_a5vqh")]
-transform = Transform3D(6.12, 0, 0, 0, 6.12, 0, 0, 0, 6.12, -15.534, 44.649, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2221, 41.4718, 0)
 power = 1
 
 [node name="Background" type="Node3D" parent="."]
@@ -473,11 +436,6 @@ material = ExtResource("16_we5u8")
 [node name="CSGBox3D4" type="CSGBox3D" parent="Background"]
 transform = Transform3D(0.176788, 0, 0, 0, 1, 0, 0, 0, 0.176788, 1.376, 0, 0.471)
 material = ExtResource("16_we5u8")
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 11.986, 0.00497195, 0.00961852, -0.00138998)
-sorting_offset = 100.0
-material = SubResource("StandardMaterial3D_dqnb8")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("14_j8xgx")]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -24.2205, 53.8599, 8)
