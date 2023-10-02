@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bma5xr6b147gp"
-path="res://.godot/imported/nuage_-3.png-20f0c75f031a217195cdbc10955f9c59.ctex"
+uid="uid://but40s5gb663d"
+path="res://.godot/imported/Glass_pipes_1.png-3b936b70819302a40e7ed2675658cf00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Textures/Nuage/2/nuage_-3.png"
-dest_files=["res://.godot/imported/nuage_-3.png-20f0c75f031a217195cdbc10955f9c59.ctex"]
+source_file="res://assets/Textures/Labo/Glass_pipes_1.png"
+dest_files=["res://.godot/imported/Glass_pipes_1.png-3b936b70819302a40e7ed2675658cf00.ctex"]
 
 [params]
 

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdb8xqvybjof"]
+
+[ext_resource type="Texture2D" uid="uid://crkh3jnwv7qxy" path="res://assets/Textures/Labo/Glass_pipes_2.png" id="1_crsie"]
+[ext_resource type="Texture2D" uid="uid://byouav5poajli" path="res://assets/Textures/Labo/Tuyau_lab_mur_6.png" id="2_6a4aw"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_wyrc5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3o2r"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_crsie")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f25kc"]
+size = Vector3(0.113808, 0.0374298, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_trms2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pha5n"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.490196, 1, 1, 0.188235)
+albedo_texture = ExtResource("2_6a4aw")
+
+[node name="GlassPipe" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5758, -11.2227, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160988, -0.00849724, 0)
+mesh = SubResource("QuadMesh_wyrc5")
+material = SubResource("StandardMaterial3D_v3o2r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 6
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0314445, -0.0104828, 0)
+shape = SubResource("BoxShape3D_f25kc")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.00674438, 0.0277042, 0)
+shape = SubResource("BoxShape3D_f25kc")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.346647, -0.292361, 0)
+mesh = SubResource("QuadMesh_trms2")
+material = SubResource("StandardMaterial3D_pha5n")

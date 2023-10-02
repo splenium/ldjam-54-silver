@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg23uknq8tfnl"]
+
+[ext_resource type="Texture2D" uid="uid://byouav5poajli" path="res://assets/Textures/Labo/Tuyau_lab_mur_6.png" id="1_xpofk"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_iw6ae"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evg6b"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_xpofk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x66mg"]
+size = Vector3(0.101729, 0.0369356, 1)
+
+[node name="PipeDirection" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.53262, 0.298706, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329422, -0.298706, 0)
+mesh = SubResource("QuadMesh_iw6ae")
+material = SubResource("StandardMaterial3D_evg6b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0201731, -0.0166347, 0)
+shape = SubResource("BoxShape3D_x66mg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.0206623, 0.0157453, 0)
+shape = SubResource("BoxShape3D_x66mg")
