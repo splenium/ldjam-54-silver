@@ -1,12 +1,12 @@
-[gd_scene load_steps=38 format=3 uid="uid://bdaojckf405t1"]
+[gd_scene load_steps=40 format=3 uid="uid://bdaojckf405t1"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
-[ext_resource type="AudioStream" uid="uid://c3c6v6d2jabsw" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
+[ext_resource type="AudioStream" uid="uid://ci8d3loueh2s7" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_qlhiq"]
-[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/Checkpoint.tscn" id="4_27gc2"]
+[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="4_27gc2"]
 [ext_resource type="PackedScene" uid="uid://cljg31i83ncu7" path="res://assets/Prefabs/vortex_anim.tscn" id="4_n1qjr"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="4_obfiy"]
-[ext_resource type="PackedScene" uid="uid://8l8ep2gwc1i0" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="7_1rq4q"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="7_1rq4q"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="7_7mstk"]
 [ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="8_8nu4s"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="8_85xnk"]
@@ -18,12 +18,13 @@
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="17_5kkkm"]
 [ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="18_wvb40"]
 [ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="19_mobml"]
-[ext_resource type="PackedScene" uid="uid://2kdeoux4tqc" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
-[ext_resource type="PackedScene" uid="uid://cit38600ld0bf" path="res://assets/Prefabs/rocks/ronce_rock_1.tscn" id="20_q0d6v"]
-[ext_resource type="PackedScene" uid="uid://c8hr021ps6kxh" path="res://assets/Prefabs/rocks/ronce_rock_2.tscn" id="21_6x68i"]
-[ext_resource type="PackedScene" uid="uid://chv16tknq2slg" path="res://assets/Prefabs/rocks/ronce_rock_3.tscn" id="22_aao76"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/ronce_rock_1.tscn" id="20_q0d6v"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/ronce_rock_2.tscn" id="21_6x68i"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/ronce_rock_3.tscn" id="22_aao76"]
 [ext_resource type="Texture2D" uid="uid://mpyvxdyanc1" path="res://assets/Textures/Nuage/1/nuage_-1.png" id="22_pt53c"]
 [ext_resource type="Texture2D" uid="uid://b5nkw674mex7f" path="res://assets/Textures/Background/Illustration_sans_titre.png" id="23_7c1w1"]
+[ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="23_crks4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4m4ox"]
 size = Vector3(0.11869, 0.872872, 22.2889)
@@ -516,3 +517,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -269.921)
 transform = Transform3D(741.673, 0, 0, 0, 320.67, 0, 0, 0, 143.543, 0, -191.9, 128.853)
 mesh = SubResource("QuadMesh_fdabl")
 material = SubResource("StandardMaterial3D_hp628")
+
+[node name="Rakoon_Power" type="Sprite2D" parent="."]
+position = Vector2(91.75, 81.25)
+scale = Vector2(0.635231, 0.628405)
+texture = ExtResource("23_crks4")
