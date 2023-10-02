@@ -5,4 +5,4 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_iqt0l")
-shader_parameter/_lightColor = Color(1, 1, 1, 1)
+shader_parameter/_lightColor = Color(0.717647, 0.427451, 1, 1)

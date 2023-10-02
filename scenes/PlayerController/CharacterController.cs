@@ -88,8 +88,6 @@ public partial class CharacterController : CharacterBody3D
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
-
-
 	
 	private Sprite2D rakoon_Power;
 	private Texture2D rakoon_base_texture;
@@ -97,7 +95,15 @@ public partial class CharacterController : CharacterBody3D
 	private Texture2D rakoon_ghost_texture;
 	private Texture2D rakoon_triton_texture;
 
-	public override void _Ready()
+	private Sprite2D wingsOff;
+    private Sprite2D ghostOff;
+    private Sprite2D tritonOff;
+
+    private Texture2D wingsOn;
+    private Texture2D ghostOn;
+    private Texture2D tritonOn;
+
+    public override void _Ready()
 	{
 		base._Ready();
 		GameManager.MyPlayer = this;
@@ -142,7 +148,28 @@ public partial class CharacterController : CharacterBody3D
 		rakoon_wing_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/rakoon_wing.png");
 		rakoon_ghost_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/rakoon_ghost.png");
 		rakoon_triton_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/rakoon_triton.png");
-	}
+
+        wingsOff = GetParent().GetNode<Sprite2D>("Power_icons/WingsOff");
+        wingsOn = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Power_on/wings_on.png");
+        if (isPowerUnlock[PowerEnum.Fly])
+        {
+            wingsOff.Texture = wingsOn;
+        }
+
+        ghostOff = GetParent().GetNode<Sprite2D>("Power_icons/GhostOff");
+        ghostOn = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Power_on/ghost_on.png");
+        if (isPowerUnlock[PowerEnum.Ghost])
+        {
+            ghostOff.Texture = ghostOn;
+        }
+
+        tritonOff = GetParent().GetNode<Sprite2D>("Power_icons/TritonOff");
+        tritonOn = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Power_on/triton_on.png");
+        if (isPowerUnlock[PowerEnum.Fish])
+        {
+            tritonOff.Texture = tritonOn;
+        }
+    }
 
 	private void SelectPower(Power newPower)
 	{
@@ -285,7 +312,20 @@ public partial class CharacterController : CharacterBody3D
 	public void UnlockPower(PowerEnum power)
 	{
 		isPowerUnlock[power] = true;
-		SelectPower(powerByEnum[power]);
+		if (power == PowerEnum.Ghost)
+		{
+			ghostOff.Texture = ghostOn;
+		}
+		else if (power == PowerEnum.Fish)
+		{
+			tritonOff.Texture = tritonOn;
+        }
+        else if (power == PowerEnum.Fly)
+        {
+            wingsOff.Texture = wingsOn;
+        }
+        SelectPower(powerByEnum[power]);
+
 		//UnlockPowerParticle.Emitting = true;
 	}
 

@@ -1,12 +1,12 @@
-[gd_scene load_steps=39 format=3 uid="uid://bdaojckf405t1"]
+[gd_scene load_steps=43 format=3 uid="uid://bdaojckf405t1"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
-[ext_resource type="AudioStream" uid="uid://c3c6v6d2jabsw" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
+[ext_resource type="AudioStream" uid="uid://ci8d3loueh2s7" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_qlhiq"]
-[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/Checkpoint.tscn" id="4_27gc2"]
+[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="4_27gc2"]
 [ext_resource type="PackedScene" uid="uid://cljg31i83ncu7" path="res://assets/Prefabs/vortex_anim.tscn" id="4_n1qjr"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="4_obfiy"]
-[ext_resource type="PackedScene" uid="uid://8l8ep2gwc1i0" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="7_1rq4q"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="7_1rq4q"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="7_7mstk"]
 [ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="8_8nu4s"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="8_85xnk"]
@@ -18,13 +18,17 @@
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="17_5kkkm"]
 [ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="18_wvb40"]
 [ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="19_mobml"]
-[ext_resource type="PackedScene" uid="uid://2kdeoux4tqc" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
-[ext_resource type="PackedScene" uid="uid://cit38600ld0bf" path="res://assets/Prefabs/rocks/ronce_rock_1.tscn" id="20_q0d6v"]
-[ext_resource type="PackedScene" uid="uid://c8hr021ps6kxh" path="res://assets/Prefabs/rocks/ronce_rock_2.tscn" id="21_6x68i"]
-[ext_resource type="PackedScene" uid="uid://chv16tknq2slg" path="res://assets/Prefabs/rocks/ronce_rock_3.tscn" id="22_aao76"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/ronce_rock_1.tscn" id="20_q0d6v"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/ronce_rock_2.tscn" id="21_6x68i"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/ronce_rock_3.tscn" id="22_aao76"]
 [ext_resource type="Texture2D" uid="uid://mpyvxdyanc1" path="res://assets/Textures/Nuage/1/nuage_-1.png" id="22_pt53c"]
 [ext_resource type="Texture2D" uid="uid://b5nkw674mex7f" path="res://assets/Textures/Background/Illustration_sans_titre.png" id="23_7c1w1"]
 [ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="23_crks4"]
+[ext_resource type="Texture2D" uid="uid://5o6nrueppwqm" path="res://scenes/dev/UI/Player/Power_on/racoon_on.png" id="26_4so7b"]
+[ext_resource type="Texture2D" uid="uid://c00p7i4u0838g" path="res://scenes/dev/UI/Player/Power_icons_off/wings_off.png" id="27_lmkye"]
+[ext_resource type="Texture2D" uid="uid://be82ov5jbieuw" path="res://scenes/dev/UI/Player/Power_icons_off/ghost_off.png" id="28_qmx03"]
+[ext_resource type="Texture2D" uid="uid://b5kba0ahv2m1s" path="res://scenes/dev/UI/Player/Power_icons_off/triton_off.png" id="29_jbago"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4m4ox"]
 size = Vector3(0.11869, 0.872872, 22.2889)
@@ -99,7 +103,6 @@ albedo_texture = ExtResource("23_7c1w1")
 script = ExtResource("1_ic4qb")
 LevelSound = ExtResource("2_6o5do")
 DefaultCheckpoint = NodePath("CheckpointArea")
-NextLevelNumber = 3
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_qlhiq")]
 IsPowerHumanUnlock = true
@@ -523,3 +526,89 @@ material = SubResource("StandardMaterial3D_hp628")
 position = Vector2(91.75, 81.25)
 scale = Vector2(0.635231, 0.628405)
 texture = ExtResource("23_crks4")
+
+[node name="Power_icons" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.157
+anchor_bottom = 0.657
+offset_left = 25.0
+offset_top = 184.0
+offset_right = -91.864
+offset_bottom = 0.264008
+
+[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 30)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("26_4so7b")
+
+[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="TritonOff" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 80)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("29_jbago")
+
+[node name="Label" type="Label" parent="Power_icons/TritonOff"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "2"
+horizontal_alignment = 1
+
+[node name="WingsOff" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 130)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("27_lmkye")
+
+[node name="Label" type="Label" parent="Power_icons/WingsOff"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 180)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("28_qmx03")
+
+[node name="Label" type="Label" parent="Power_icons/GhostOff"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "4"
+horizontal_alignment = 1
