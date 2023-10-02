@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="11_kaorx"]
 [ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="11_x3ou6"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_1.tscn" id="12_3t6ba"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/moving_fish.tscn" id="12_x5gt4"]
+[ext_resource type="PackedScene" uid="uid://ddhpxwdtfedwg" path="res://assets/Prefabs/moving_fish.tscn" id="12_x5gt4"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="13_bvndj"]
 [ext_resource type="PackedScene" uid="uid://duiqbyhuvxb7v" path="res://assets/Prefabs/vortex.tscn" id="13_eej2v"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="13_g7n7f"]

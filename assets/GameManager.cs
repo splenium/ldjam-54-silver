@@ -8,7 +8,7 @@ public partial class GameManager : Node
     private static Checkpoint lastCheckpoint = null;
 
     public static AudioStreamPlayer AudioMusic = null;
-    public static AudioStreamPlayer[] AudioEffect = null;
+    public static AudioStreamPlayer[] MyAudioEffect = null;
 
     private static GameManager instance;
 
@@ -52,12 +52,12 @@ public partial class GameManager : Node
         GD.Print("AudioMusic: " + AudioMusic + AudioMusic.VolumeDb);
         AddChild(AudioMusic);
 
-        AudioEffect = new AudioStreamPlayer[simultaneousAudioEffect];
+        MyAudioEffect = new AudioStreamPlayer[simultaneousAudioEffect];
         for (int i = 0; i < simultaneousAudioEffect; i++)
         {
-            AudioEffect[i] = new AudioStreamPlayer();
-            AudioEffect[i].Name = "AudioEffect" + i;
-            AddChild(GameManager.AudioEffect[i]);
+            MyAudioEffect[i] = new AudioStreamPlayer();
+            MyAudioEffect[i].Name = "MyAudioEffect" + i;
+            AddChild(GameManager.MyAudioEffect[i]);
         }
     }
 
@@ -71,7 +71,7 @@ public partial class GameManager : Node
 
     public static bool PlaySoundEffect(AudioStream audioStream, float volume = 0, float time = 0)
     {
-        foreach (AudioStreamPlayer audioSrc in AudioEffect)
+        foreach (AudioStreamPlayer audioSrc in MyAudioEffect)
         {
             if (!audioSrc.Playing)
             {

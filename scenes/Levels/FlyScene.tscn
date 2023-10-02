@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bdaojckf405t1"]
+[gd_scene load_steps=24 format=3 uid="uid://bdaojckf405t1"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
 [ext_resource type="AudioStream" uid="uid://c3c6v6d2jabsw" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="4_obfiy"]
 [ext_resource type="PackedScene" uid="uid://8l8ep2gwc1i0" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="7_1rq4q"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="7_7mstk"]
+[ext_resource type="PackedScene" uid="uid://cfmpjoge2fq70" path="res://assets/Prefabs/rocks/round_rock_1.tscn" id="7_r7847"]
 [ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="8_8nu4s"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="8_85xnk"]
 [ext_resource type="PackedScene" uid="uid://fa27lkyj3wa7" path="res://assets/Prefabs/rocks/flat_rock_2.tscn" id="8_sarw3"]
@@ -17,9 +18,18 @@
 [ext_resource type="PackedScene" uid="uid://bgj0n06q1fhte" path="res://scenes/UnlockPower.tscn" id="12_rtldl"]
 [ext_resource type="PackedScene" uid="uid://ba1spgb6o1um" path="res://assets/Prefabs/grid/ground_grid.tscn" id="13_f6p48"]
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="17_5kkkm"]
+[ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="18_wvb40"]
+[ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="19_mobml"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4m4ox"]
 size = Vector3(0.11869, 0.872872, 22.2889)
+
+[sub_resource type="Curve3D" id="Curve3D_petv7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 11.0695, -1.27351, -0.00500488, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tvi1f"]
 size = Vector3(3387.83, 17.8482, 224.205)
@@ -54,8 +64,11 @@ omni_range = 271.62
 
 [node name="GameLayer" type="Node3D" parent="."]
 
+[node name="RoundRock1" parent="GameLayer" instance=ExtResource("7_r7847")]
+transform = Transform3D(16.27, 0, 0, 0, 16.27, 0, 0, 0, 16.27, 44.6738, -44.4812, 0)
+
 [node name="CliffRock" parent="GameLayer" instance=ExtResource("7_7mstk")]
-transform = Transform3D(35.287, 0, 0, 0, 35.287, 0, 0, 0, 2.331, 27.0146, -100.793, -0.700063)
+transform = Transform3D(35.287, 0, 0, 0, 35.287, 0, 0, 0, 2.331, 27.1542, -100.793, -0.700063)
 
 [node name="Tree1" parent="GameLayer" instance=ExtResource("7_1rq4q")]
 transform = Transform3D(16.6694, -2.24431, 0, 2.24431, 16.6694, 0, 0, 0, 1, -7.81616, -3.43306, 0)
@@ -80,7 +93,7 @@ SpawnPoint = NodePath("SpawnPoint")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.256719, -0.0306807, 0)
 
 [node name="UnlockIsle" type="Node3D" parent="GameLayer"]
-transform = Transform3D(29.0487, 7.49467, 0, -7.49467, 29.0487, 0, 0, 0, 30, 54.5901, -93.1087, 0)
+transform = Transform3D(29.0487, 7.49467, 0, -7.49467, 29.0487, 0, 0, 0, 30, 47.3907, -84.4042, -0.698061)
 
 [node name="UnlockPower" parent="GameLayer/UnlockIsle" instance=ExtResource("12_rtldl")]
 transform = Transform3D(0.0322764, -0.00832741, 0, 0.00832741, 0.0322764, 0, 0, 0, 0.0333333, -0.0442502, 0.0506377, 0)
@@ -103,6 +116,18 @@ transform = Transform3D(6.05359, 5.23011, 0, -5.23011, 6.05359, 0, 0, 0, 8, -31.
 
 [node name="TriangleRock1" parent="GameLayer" instance=ExtResource("8_85xnk")]
 transform = Transform3D(20.545, 0, 0, 0, 20.545, 0, 0, 0, 20.545, 2.96498, -17.8525, 0)
+
+[node name="Path3D" type="Path3D" parent="GameLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.90938, -6.82144, 0)
+curve = SubResource("Curve3D_petv7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D"]
+transform = Transform3D(-0.000452173, 0.114289, 0.993442, -3.72503e-09, 0.993414, -0.114293, -0.99993, -5.16859e-05, -0.000449239, 11.0695, -1.27351, -0.00500488)
+script = ExtResource("18_wvb40")
+speed = 0.375
+
+[node name="RoundRock2" parent="GameLayer/Path3D/PathFollow3D" instance=ExtResource("19_mobml")]
+transform = Transform3D(-0.00361764, -2.98314e-08, -8, 0.914344, 7.94758, -0.000413501, 7.94758, -0.914344, -0.00359393, -0.0950817, 2.5396, -10.3708)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9158, -150.038, 0)

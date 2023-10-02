@@ -46,6 +46,9 @@ public partial class CharacterController : CharacterBody3D
         set => isPowerUnlock[PowerEnum.Ghost] = value;
     }
 
+    //[Export]
+    //public CpuParticles2D UnlockPowerParticle;
+
     private Dictionary<PowerEnum, bool> isPowerUnlock = new Dictionary<PowerEnum, bool>()
     {
         { PowerEnum.Human, true },
@@ -238,6 +241,7 @@ public partial class CharacterController : CharacterBody3D
     {
         isPowerUnlock[power] = true;
         SelectPower(powerByEnum[power]);
+        //UnlockPowerParticle.Emitting = true;
     }
 
     private void LoadNewLevel(string path)
