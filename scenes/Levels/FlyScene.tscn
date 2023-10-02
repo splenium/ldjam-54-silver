@@ -1,0 +1,114 @@
+[gd_scene load_steps=20 format=3 uid="uid://bdaojckf405t1"]
+
+[ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
+[ext_resource type="AudioStream" uid="uid://c3c6v6d2jabsw" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
+[ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_qlhiq"]
+[ext_resource type="PackedScene" uid="uid://bjrxx0g68e18x" path="res://scenes/Levels/graveyard.tscn" id="3_8st7c"]
+[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="4_27gc2"]
+[ext_resource type="PackedScene" uid="uid://cljg31i83ncu7" path="res://assets/Prefabs/vortex_anim.tscn" id="4_n1qjr"]
+[ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="4_obfiy"]
+[ext_resource type="PackedScene" uid="uid://8l8ep2gwc1i0" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="7_1rq4q"]
+[ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="7_7mstk"]
+[ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="8_8nu4s"]
+[ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="8_85xnk"]
+[ext_resource type="PackedScene" uid="uid://fa27lkyj3wa7" path="res://assets/Prefabs/rocks/flat_rock_2.tscn" id="8_sarw3"]
+[ext_resource type="PackedScene" uid="uid://duiqbyhuvxb7v" path="res://assets/Prefabs/vortex.tscn" id="8_yqpp2"]
+[ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="9_1fsf8"]
+[ext_resource type="PackedScene" uid="uid://bgj0n06q1fhte" path="res://scenes/UnlockPower.tscn" id="12_rtldl"]
+[ext_resource type="PackedScene" uid="uid://ba1spgb6o1um" path="res://assets/Prefabs/grid/ground_grid.tscn" id="13_f6p48"]
+[ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="17_5kkkm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4m4ox"]
+size = Vector3(0.11869, 0.872872, 22.2889)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tvi1f"]
+size = Vector3(3387.83, 17.8482, 224.205)
+
+[node name="FlyScene" type="Node3D" node_paths=PackedStringArray("DefaultCheckpoint")]
+script = ExtResource("1_ic4qb")
+LevelSound = ExtResource("2_6o5do")
+NextScene = ExtResource("3_8st7c")
+DefaultCheckpoint = NodePath("CheckpointArea")
+
+[node name="CheckpointArea" parent="." node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_27gc2")]
+transform = Transform3D(4.985, 0, 0, 0, 4.985, 0, 0, 0, 4.985, 0, -3.46989, 0)
+SpawnPoint = NodePath("SpawnPoint")
+
+[node name="SpawnPoint" type="Node3D" parent="CheckpointArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66472, -1.10619, 0)
+
+[node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("4_obfiy")]
+ToFollow = NodePath("../CharacterBody3D")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_qlhiq")]
+IsPowerHumanUnlock = true
+IsPowerFishUnlock = true
+IsPowerGhostUnlock = true
+
+[node name="VortexAnim" parent="." instance=ExtResource("4_n1qjr")]
+transform = Transform3D(0.402202, 0, 0, 0, 0.402202, 0, 0, 0, 1, 0, 0.420532, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5817, 12.1011)
+omni_range = 271.62
+
+[node name="GameLayer" type="Node3D" parent="."]
+
+[node name="CliffRock" parent="GameLayer" instance=ExtResource("7_7mstk")]
+transform = Transform3D(35.287, 0, 0, 0, 35.287, 0, 0, 0, 2.331, 27.0146, -100.793, -0.700063)
+
+[node name="Tree1" parent="GameLayer" instance=ExtResource("7_1rq4q")]
+transform = Transform3D(16.6694, -2.24431, 0, 2.24431, 16.6694, 0, 0, 0, 1, -7.81616, -3.43306, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GameLayer/Tree1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GameLayer/Tree1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.120928, -0.0162813, 0)
+shape = SubResource("BoxShape3D_4m4ox")
+
+[node name="Vortex" parent="GameLayer" instance=ExtResource("8_yqpp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7764, -5.67995, 0)
+
+[node name="FlatRock2" parent="GameLayer" instance=ExtResource("8_sarw3")]
+transform = Transform3D(29.0487, 7.49467, 0, -7.49467, 29.0487, 0, 0, 0, 30, -2.20481, -93.1949, 0)
+
+[node name="CheckpointArea2" parent="GameLayer" node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_27gc2")]
+transform = Transform3D(23.115, 0, 0, 0, 23.115, 0, 0, 0, 23.115, 0, -85.1677, 0)
+SpawnPoint = NodePath("SpawnPoint")
+
+[node name="SpawnPoint" type="Node3D" parent="GameLayer/CheckpointArea2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.256719, -0.0306807, 0)
+
+[node name="UnlockIsle" type="Node3D" parent="GameLayer"]
+transform = Transform3D(29.0487, 7.49467, 0, -7.49467, 29.0487, 0, 0, 0, 30, 54.5901, -93.1087, 0)
+
+[node name="UnlockPower" parent="GameLayer/UnlockIsle" instance=ExtResource("12_rtldl")]
+transform = Transform3D(0.0322764, -0.00832741, 0, 0.00832741, 0.0322764, 0, 0, 0, 0.0333333, -0.0442502, 0.0506377, 0)
+
+[node name="FlatRock1" parent="GameLayer/UnlockIsle" instance=ExtResource("9_1fsf8")]
+transform = Transform3D(1.0678, -0.275496, 0, 0.275496, 1.0678, 0, 0, 0, 0.117467, 0.0633094, -0.0440047, 0.00161743)
+sorting_offset = -10.0
+
+[node name="GroundGrid2" parent="GameLayer/UnlockIsle" instance=ExtResource("13_f6p48")]
+transform = Transform3D(-0.00832742, -0.0322764, 0, 0.0322764, -0.00832742, 0, 0, 0, 0.0333333, 0.0276155, 0.0937946, -0.0479303)
+
+[node name="GroundGrid" parent="GameLayer/UnlockIsle" instance=ExtResource("13_f6p48")]
+transform = Transform3D(-0.00832742, -0.0322764, 0, 0.0322764, -0.00832742, 0, 0, 0, 0.0333333, -0.132936, 0.0523717, -0.0479303)
+
+[node name="GroundGrid3" parent="GameLayer/UnlockIsle" instance=ExtResource("13_f6p48")]
+transform = Transform3D(0.0322764, -0.00832741, 0, 0.00832741, 0.0322764, 0, 0, 0, 0.0333333, -0.073271, 0.154012, -0.0479303)
+
+[node name="HighRock" parent="GameLayer" instance=ExtResource("8_8nu4s")]
+transform = Transform3D(6.05359, 5.23011, 0, -5.23011, 6.05359, 0, 0, 0, 8, -31.7723, -5.6028, 0)
+
+[node name="TriangleRock1" parent="GameLayer" instance=ExtResource("8_85xnk")]
+transform = Transform3D(20.545, 0, 0, 0, 20.545, 0, 0, 0, 20.545, 2.96498, -17.8525, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9158, -150.038, 0)
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("17_5kkkm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_tvi1f")

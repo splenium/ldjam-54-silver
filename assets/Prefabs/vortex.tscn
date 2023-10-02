@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://duiqbyhuvxb7v"]
 
-[ext_resource type="PackedScene" uid="uid://v0rqj47u12wc" path="res://assets/vortex_animation.tscn" id="1_5p33g"]
+[ext_resource type="PackedScene" uid="uid://dtowie7wu0ypl" path="res://assets/vortex_animation.tscn" id="1_5p33g"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2srgw"]
 radius = 0.938056

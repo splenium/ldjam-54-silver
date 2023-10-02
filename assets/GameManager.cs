@@ -4,11 +4,13 @@ using System.Linq;
 public partial class GameManager : Node
 {
     private static Control pauseMenu;
-    private static List<Checkpoint> checkpoints = new List<Checkpoint>();
+    private static List<Checkpoint> checkpoints;
     private static Checkpoint lastCheckpoint = null;
 
     public static AudioStreamPlayer AudioMusic = null;
     public static AudioStreamPlayer[] AudioEffect = null;
+
+    private static GameManager instance;
 
     private static int simultaneousAudioEffect = 10;
 
@@ -19,12 +21,9 @@ public partial class GameManager : Node
 
     public override void _Ready()
     {
+        instance = this;
         InitAudio();
-        checkpoints.AddRange(GetTree().GetNodesInGroup("checkpoint").Select(x => (Checkpoint)x));
-        foreach (var checkpoint in checkpoints)
-        {
-            checkpoint.BodyEntered += (Node3D player) => OnCheckpointEnter(checkpoint);
-        }
+
         ProcessMode = ProcessModeEnum.Always;
         pauseMenu = (Control)GetParent().FindChild("PauseMenu", true, false);
         if (pauseMenu == null)
@@ -32,6 +31,17 @@ public partial class GameManager : Node
             var pauseMenuScene = GD.Load<PackedScene>("res://scenes/HUD/pause_menu.tscn");
             pauseMenu = pauseMenuScene.Instantiate<Control>();
             AddChild(pauseMenu);
+        }
+    }
+
+    public static void InitializeCheckpoint(Checkpoint defaultCheckpoint)
+    {
+        checkpoints = new List<Checkpoint>();
+        checkpoints.AddRange(instance.GetTree().GetNodesInGroup("checkpoint").Select(x => (Checkpoint)x));
+        OnCheckpointEnter(defaultCheckpoint);
+        foreach (var checkpoint in checkpoints)
+        {
+            checkpoint.BodyEntered += (Node3D player) => OnCheckpointEnter(checkpoint);
         }
     }
 

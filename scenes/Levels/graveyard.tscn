@@ -36,10 +36,11 @@ transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("22_cb1ys")
 
-[node name="graveyard" type="Node3D" groups=["level"]]
+[node name="graveyard" type="Node3D" node_paths=PackedStringArray("DefaultCheckpoint") groups=["level"]]
 script = ExtResource("1_2xoni")
 LevelSound = ExtResource("4_75pdb")
 NextScene = ExtResource("3_jtbn2")
+DefaultCheckpoint = NodePath("CheckpointArea2")
 VolumeDb = -5.0
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("1_m1iqt")]
@@ -53,6 +54,13 @@ IsPowerHumanUnlock = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 7)
 spot_range = 14.1454
 spot_angle = 72.1121
+
+[node name="CheckpointArea2" parent="." node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("13_on7le")]
+transform = Transform3D(5.77404, 0, 0, 0, 5.77404, 0, 0, 0, 1, -0.227501, 20.3556, 0)
+SpawnPoint = NodePath("SpawnPoint")
+
+[node name="SpawnPoint" type="Node3D" parent="CheckpointArea2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231537, -2.45279, 0)
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -100,10 +108,6 @@ transform = Transform3D(15.1367, 0, 0, 0, 15.1367, 0, 0, 0, 1, 2.14499, 0.025305
 [node name="FlatRock1" parent="GameLayer" instance=ExtResource("4_n1t4r")]
 transform = Transform3D(9.38845, 0, 0, 0, 9.38845, 0, 0, 0, 1, 6.81492, -1.4121, 0)
 sorting_offset = -10.0
-
-[node name="FlatRock3" parent="GameLayer" instance=ExtResource("4_n1t4r")]
-transform = Transform3D(-14, -2.11394e-06, -8.74228e-08, -2.11394e-06, 14, 0, -1.22392e-06, -1.84807e-13, 1, 7.1441, -4.78592, 0)
-sorting_offset = -9.0
 
 [node name="FlatRock2" parent="GameLayer" instance=ExtResource("5_652ma")]
 transform = Transform3D(8.72869, 0, 0, 0, 8.72869, 0, 0, 0, 7.5, 15.167, -3.70662, 0)

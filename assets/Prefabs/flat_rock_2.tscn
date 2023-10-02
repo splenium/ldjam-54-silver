@@ -11,16 +11,16 @@ albedo_texture = ExtResource("1_68r0b")
 material = SubResource("StandardMaterial3D_56r1o")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lywwu"]
-size = Vector3(0.141155, 0.0345082, 1)
+size = Vector3(0.141155, 0.0345082, 6.91114)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8pvmp"]
-size = Vector3(0.114626, 0.0496483, 1)
+size = Vector3(0.114626, 0.0496483, 6.87649)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f702p"]
-size = Vector3(0.295153, 0.0192803, 1)
+size = Vector3(0.295153, 0.0192803, 6.12524)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bxxer"]
-size = Vector3(0.109144, 0.0192803, 1)
+size = Vector3(0.109144, 0.0192803, 5.79448)
 
 [node name="FlatRock2" type="MeshInstance3D"]
 transform = Transform3D(13.8138, 0, 0, 0, 13.8138, 0, 0, 0, 1.07385, 14.33, -0.901168, 0)
@@ -28,6 +28,7 @@ sorting_offset = -10.0
 mesh = SubResource("QuadMesh_b12qq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1.85, 0, 0, 0, 1.85, 0, 0, 0, 1.85, -0.0221232, -0.415557, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(0.994638, -0.103418, 0, 0.103418, 0.994638, 0, 0, 0, 1, -0.0746384, 0.275384, 0)
