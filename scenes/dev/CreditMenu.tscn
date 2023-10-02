@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbq4tm8efb2yo"]
+
+[ext_resource type="Script" path="res://scenes/dev/StartingMenu.cs" id="1_lx7v6"]
+[ext_resource type="PackedScene" uid="uid://cmojig8xnpdv1" path="res://scenes/dev/TestScene.tscn" id="2_anf7h"]
+[ext_resource type="FontFile" uid="uid://bd68enjsgi778" path="res://assets/FontStyle/Geosteam-eJap.ttf" id="3_rnoq7"]
+[ext_resource type="FontFile" uid="uid://mg8l38ygan5q" path="res://assets/FontStyle/JackOfGears.ttf" id="4_jkfla"]
+
+[node name="StartingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = -1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lx7v6")
+StartingScene = ExtResource("2_anf7h")
+
+[node name="Panel" type="Panel" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.039
+anchor_top = 0.226
+anchor_right = 0.952
+anchor_bottom = 0.949
+offset_left = 0.149998
+offset_top = 0.0999908
+offset_right = 0.199951
+offset_bottom = 0.149963
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.956
+anchor_top = 0.003
+anchor_right = 1.0
+anchor_bottom = 0.101
+offset_left = 0.376404
+offset_top = 0.046349
+offset_right = 0.0960693
+offset_bottom = 0.128056
+theme_override_fonts/font = ExtResource("4_jkfla")
+theme_override_font_sizes/font_size = 30
+text = "X"
+flat = true
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.2
+theme_override_fonts/font = ExtResource("3_rnoq7")
+theme_override_font_sizes/font_size = 50
+text = "Rakoons team"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="z0rg" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.4
+offset_top = 0.165749
+offset_bottom = -0.14032
+theme_override_fonts/font = ExtResource("3_rnoq7")
+text = " z0rg"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Andy-Link" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.4
+theme_override_fonts/font = ExtResource("3_rnoq7")
+text = "Andy-Link"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Shenoit" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 0.8
+theme_override_fonts/font = ExtResource("3_rnoq7")
+text = "Shenoit"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Nougato" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.8
+theme_override_fonts/font = ExtResource("3_rnoq7")
+text = "Nougato "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="KatanaJellyfish" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.6
+theme_override_fonts/font = ExtResource("3_rnoq7")
+text = "KatanaJellyfish "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

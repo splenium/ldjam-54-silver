@@ -23,6 +23,7 @@ IsPowerHumanUnlock = true
 IsPowerFishUnlock = true
 IsPowerFlyUnlock = true
 IsPowerGhostUnlock = true
+DeathSoundEffect = null
 _rakoonStatesLabel = NodePath("../Panel/Etats")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

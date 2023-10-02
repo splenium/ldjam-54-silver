@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjwiwl42jtnld"]
+[gd_scene load_steps=19 format=3 uid="uid://bjwiwl42jtnld"]
 
 [ext_resource type="Script" path="res://scenes/PlayerController/CharacterController.cs" id="1_j3srj"]
-[ext_resource type="AudioStream" uid="uid://b1si46nqj8m3v" path="res://assets/Sounds/648976__atomediadesign__oh-ouch.wav" id="2_hm35p"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fly.cs" id="3_3p4kr"]
 [ext_resource type="Texture2D" uid="uid://bf5nil75ohsau" path="res://assets/Test/PowerMaterial/purple_white.png" id="4_hifw6"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Human.cs" id="4_p84tn"]
@@ -130,7 +129,6 @@ PowerGhost = NodePath("Power/Ghost")
 DamageDetector = NodePath("Detectors/DamageDetector")
 DamageTakenTimer = NodePath("DamageTakenTimer")
 VortexDetector = NodePath("Detectors/DetectorVortex")
-DeathSoundEffect = ExtResource("2_hm35p")
 
 [node name="DamageTakenTimer" type="Timer" parent="."]
 wait_time = 2.0
