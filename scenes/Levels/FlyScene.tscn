@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bdaojckf405t1"]
+[gd_scene load_steps=38 format=3 uid="uid://bdaojckf405t1"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
 [ext_resource type="AudioStream" uid="uid://c3c6v6d2jabsw" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
@@ -28,13 +28,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_4m4ox"]
 size = Vector3(0.11869, 0.872872, 22.2889)
 
-[sub_resource type="Curve3D" id="Curve3D_i2n38"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -18.2639, 2.64718, -1.12695),
-"tilts": PackedFloat32Array(0, 0)
-}
-point_count = 2
-
 [sub_resource type="Curve3D" id="Curve3D_r7rsu"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14.5743, -13.9462, -1.12695),
@@ -44,7 +37,7 @@ point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_ow4w5"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -13.8776, -3.86041, 0, 0, 0, 0, 0, 0, 0, 16.1224, -1.86041, -1),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -9.47457, -3.866, 0, 0, 0, 0, 0, 0, 0, 20.7435, -2.57528, -1),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -70,12 +63,12 @@ _data = {
 }
 point_count = 4
 
-[sub_resource type="Curve3D" id="Curve3D_qi1b0"]
+[sub_resource type="Curve3D" id="Curve3D_yymqe"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, -6.125, 4.585, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -12.13, -0.477, -0.094, -12.835, 0, 0, 0, 0, 0, -16.109, -7.677, -0.357, 4.235, -11, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, -6.125, 4.585, 0, 0.476178, -0.238724, 0, 0, 0, 0, 0, 0, 0, -12.8443, 1.74353, -0.0939941, -12.835, 0, 0, 0, 0, 0, -15.8641, -7.67709, -0.357422, 8.20316, -12.6878, 0, 0, 0, 0, 5.3742, -4.24588, 0, 0, 0, 0, -6.125, 4.585, 0, 0.476178, -0.238724, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
-point_count = 4
+point_count = 5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tvi1f"]
 size = Vector3(3387.83, 17.8482, 224.205)
@@ -112,11 +105,11 @@ IsPowerFishUnlock = true
 IsPowerGhostUnlock = true
 
 [node name="CheckpointArea" parent="." node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_27gc2")]
-transform = Transform3D(4.725, 0, 0, 0, 4.725, 0, 0, 0, 4.725, 0, -3.46989, 0)
+transform = Transform3D(4.725, 0, 0, 0, 4.725, 0, 0, 0, 4.725, 1.99733, -82.9341, 0)
 SpawnPoint = NodePath("SpawnPoint")
 
 [node name="SpawnPoint" type="Node3D" parent="CheckpointArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66472, -1.10619, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0111943, 0.00985909, 0)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("4_obfiy")]
 transform = Transform3D(1, 0, 0, 0, 0.980574, 0.196151, 0, -0.196151, 0.980574, 2.943, -3.777, 18.494)
@@ -136,7 +129,7 @@ omni_range = 271.62
 transform = Transform3D(35.287, 0, 0, 0, 35.287, 0, 0, 0, 2.331, 27.1542, -100.793, -0.700063)
 
 [node name="Tree1" parent="GameLayer" instance=ExtResource("7_1rq4q")]
-transform = Transform3D(16.6694, -2.24431, 0, 2.24431, 16.6694, 0, 0, 0, 1, -7.81616, -3.43306, 0)
+transform = Transform3D(16.6694, -2.24431, 0, 2.24431, 16.6694, 0, 0, 0, 1, -30.9692, 6.40142, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="GameLayer/Tree1"]
 
@@ -149,13 +142,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1398, -1.55953, 0)
 
 [node name="FlatRock2" parent="GameLayer" instance=ExtResource("8_sarw3")]
 transform = Transform3D(29.0487, 7.49467, 0, -7.49467, 29.0487, 0, 0, 0, 30, -2.20481, -93.1949, 0)
-
-[node name="CheckpointArea2" parent="GameLayer" node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_27gc2")]
-transform = Transform3D(20.61, 0, 0, 0, 20.61, 0, 0, 0, 20.61, 0, -85.1677, 0)
-SpawnPoint = NodePath("SpawnPoint")
-
-[node name="SpawnPoint" type="Node3D" parent="GameLayer/CheckpointArea2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.256719, -0.0306807, 0)
 
 [node name="UnlockIsle" type="Node3D" parent="GameLayer"]
 transform = Transform3D(29.0487, 7.49467, 0, -7.49467, 29.0487, 0, 0, 0, 30, 47.3907, -84.4042, -0.698061)
@@ -177,32 +163,17 @@ transform = Transform3D(-0.00832742, -0.0322764, 0, 0.0322764, -0.00832742, 0, 0
 transform = Transform3D(0.0322764, -0.00832741, 0, 0.00832741, 0.0322764, 0, 0, 0, 0.0333333, -0.073271, 0.154012, -0.0479303)
 
 [node name="HighRock" parent="GameLayer" instance=ExtResource("8_8nu4s")]
-transform = Transform3D(6.05359, 5.23011, 0, -5.23011, 6.05359, 0, 0, 0, 8, -31.7723, -5.6028, 0)
+transform = Transform3D(6.05359, 5.23011, 0, -5.23011, 6.05359, 0, 0, 0, 8, 14.3047, 4.40077, 0)
 
 [node name="TriangleRock1" parent="GameLayer" instance=ExtResource("8_85xnk")]
-transform = Transform3D(20.545, 0, 0, 0, 20.545, 0, 0, 0, 20.545, 2.96498, -17.8525, 0)
-
-[node name="Path3D" type="Path3D" parent="GameLayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6499, -29.3172, 0)
-curve = SubResource("Curve3D_i2n38")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D"]
-transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, -18.2639, 2.64718, -1.12695)
-progress = 18.4891
-rotation_mode = 0
-cubic_interp = false
-loop = false
-script = ExtResource("18_wvb40")
-speed = 0.375
-
-[node name="RoundRock2" parent="GameLayer/Path3D/PathFollow3D" instance=ExtResource("19_mobml")]
+transform = Transform3D(20.545, 0, 0, 0, 20.545, 0, 0, 0, 20.545, -21.7243, -7.23978, 0)
 
 [node name="Path3D3" type="Path3D" parent="GameLayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0169811, -69.9438, 0)
 curve = SubResource("Curve3D_r7rsu")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D3"]
-transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 14.8385, -10.9833, -1.01561)
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 13.3377, -12.7628, -1.03133)
 progress = 18.4891
 rotation_mode = 0
 cubic_interp = false
@@ -217,8 +188,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87757, -47.1396, 0)
 curve = SubResource("Curve3D_ow4w5")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D8"]
-transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 14.8385, -10.9833, -1.01561)
-progress = 18.4891
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 16.1224, -1.86041, -1)
+progress = 30.0832
 rotation_mode = 0
 cubic_interp = false
 loop = false
@@ -226,7 +197,22 @@ script = ExtResource("18_wvb40")
 speed = 0.375
 
 [node name="RonceRock45" parent="GameLayer/Path3D8/PathFollow3D" instance=ExtResource("20_q0d6v")]
-transform = Transform3D(7.85501, 1.51621, 0, -1.51621, 7.85501, 0, 0, 0, 8, -27.1049, 9.45427, 1.01561)
+transform = Transform3D(7.85501, 1.51621, 0, -1.51621, 7.85501, 0, 0, 0, 8, 0, 0, 0)
+
+[node name="Path3D9" type="Path3D" parent="GameLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.19045, -20.621, 0)
+curve = SubResource("Curve3D_ow4w5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D9"]
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, -9.47457, -3.866, 0)
+rotation_mode = 0
+cubic_interp = false
+loop = false
+script = ExtResource("18_wvb40")
+speed = 0.375
+
+[node name="RonceRock45" parent="GameLayer/Path3D9/PathFollow3D" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.85501, 1.51621, 0, -1.51621, 7.85501, 0, 0, 0, 8, 0, 0, 0)
 
 [node name="Path3D4" type="Path3D" parent="GameLayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5771, -56.8412, 0)
@@ -272,39 +258,27 @@ speed = 0.1
 Reverse = false
 
 [node name="RonceRock45" parent="GameLayer/Path3D2/PathFollow3D" instance=ExtResource("21_6x68i")]
-transform = Transform3D(9.35385, 6.18722, 0, -6.18722, 9.35385, 0, 0, 0, 11.215, 0, 0.112155, 0.152)
+transform = Transform3D(9.35385, 6.18722, 0, -6.18722, 9.35385, 0, 0, 0, 11.215, 0, 0, 0)
 
 [node name="Path3D7" type="Path3D" parent="GameLayer"]
-transform = Transform3D(-0.831528, 0.555483, 0, -0.555483, -0.831528, 0, 0, 0, 1, 21.0868, -39.9616, 0)
-curve = SubResource("Curve3D_petv7")
+transform = Transform3D(-0.931431, 0.363918, 0, -0.363918, -0.931431, 0, 0, 0, 1, 22.2723, -36.3045, 0)
+curve = SubResource("Curve3D_yymqe")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D7"]
-transform = Transform3D(0.999861, 0, 0, 0, 0.999932, 0, 0, 0, 0.999979, -14.1538, -7.89887, -0.326562)
-progress = 30.857
+transform = Transform3D(0.999861, 0, 0, 0, 0.999932, 0, 0, 0, 0.999979, -16.8953, -1.0132, -0.17108)
+progress = 18.8833
 rotation_mode = 0
 script = ExtResource("18_wvb40")
 speed = 0.1
 Reverse = false
 
 [node name="RonceRock44" parent="GameLayer/Path3D7/PathFollow3D" instance=ExtResource("22_aao76")]
-transform = Transform3D(-6.65315, -4.44448, 0, 4.44417, -6.65267, 0, 0, 0, 8.00017, -0.0185833, 5.61066, 0.326569)
-
-[node name="Path3D5" type="Path3D" parent="GameLayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.7836, -37.3491, 0)
-curve = SubResource("Curve3D_qi1b0")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D5"]
-transform = Transform3D(0.999861, 0, 0, 0, 0.999932, 0, 0, 0, 0.999979, -14.5189, -7.88357, -0.328713)
-progress = 30.857
-rotation_mode = 0
-script = ExtResource("18_wvb40")
-speed = -0.1
-Reverse = false
-
-[node name="SmallRock2" parent="GameLayer/Path3D5/PathFollow3D" instance=ExtResource("20_7g17g")]
-transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, 0, 0, -0.334603)
+transform = Transform3D(-6.65237, -4.44365, 0, 4.44365, -6.65237, 0, 0, 0, 8, 0, 0, 0)
 
 [node name="Border" type="Node3D" parent="GameLayer"]
+
+[node name="SmallRock2" parent="GameLayer/Border" instance=ExtResource("20_7g17g")]
+transform = Transform3D(35, 0, 0, 0, 35, 0, 0, 0, 35, 33.243, -46.1984, -0.328713)
 
 [node name="RonceRock1" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -24.7246, -134.292, 0)
@@ -352,16 +326,16 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -25.8159, -45.8172, 0)
 transform = Transform3D(7.91607, 1.15582, 0, -1.15582, 7.91607, 0, 0, 0, 8, -38.1808, -15.5825, 0)
 
 [node name="RonceRock14" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
-transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, -41.3037, -2.52548, 0)
+transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, -41.6502, -1.91906, 0)
 
 [node name="RonceRock15" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
-transform = Transform3D(7.99337, -0.325658, 0, 0.325658, 7.99337, 0, 0, 0, 8, -28.5199, 16.7198, 0)
+transform = Transform3D(7.09293, 3.70006, 0, -3.70006, 7.09293, 0, 0, 0, 8, -33.0076, 19.8263, 0)
 
 [node name="RonceRock16" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
-transform = Transform3D(7.99806, -0.176054, 0, 0.176054, 7.99806, 0, 0, 0, 8, -20.1118, 22.093, 0)
+transform = Transform3D(7.4596, -2.89039, 0, 2.89039, 7.4596, 0, 0, 0, 8, -21.624, 21.4056, 0)
 
 [node name="RonceRock17" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
-transform = Transform3D(7.99459, -0.294266, 0, 0.294266, 7.99459, 0, 0, 0, 8, -35.8265, 7.8666, 0)
+transform = Transform3D(7.99459, -0.294266, 0, 0.294266, 7.99459, 0, 0, 0, 8, -40.1239, 11.1489, 0)
 
 [node name="HighRock2" parent="GameLayer/Border" instance=ExtResource("8_8nu4s")]
 transform = Transform3D(6.05359, 5.23011, 0, -5.23011, 6.05359, 0, 0, 0, 8, 81.4171, -20.566, 0)
@@ -370,10 +344,7 @@ transform = Transform3D(6.05359, 5.23011, 0, -5.23011, 6.05359, 0, 0, 0, 8, 81.4
 transform = Transform3D(7.62932, 2.40698, 0, -2.40698, 7.62932, 0, 0, 0, 8, 74.1325, -50.5206, 0)
 
 [node name="RonceRock35" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
-transform = Transform3D(7.85498, 1.51633, 0, -1.51633, 7.85498, 0, 0, 0, 8, -17.1494, -63.4397, 0)
-
-[node name="RonceRock44" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
-transform = Transform3D(7.85498, 1.51633, 0, -1.51633, 7.85498, 0, 0, 0, 8, -3.76595, -30.9516, 0)
+transform = Transform3D(7.85498, 1.51633, 0, -1.51633, 7.85498, 0, 0, 0, 8, -9.66803, -63.3898, 0)
 
 [node name="RonceRock34" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
 transform = Transform3D(7.62932, 2.40698, 0, -2.40698, 7.62932, 0, 0, 0, 8, 74.4873, -70.2113, 0)
@@ -412,13 +383,22 @@ transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, 65.8
 transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, 40.8367, 12.9574, 0)
 
 [node name="RonceRock37" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
-transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, 51.8351, -18.0865, 0)
+transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, 48.5431, -28.3089, 0)
+
+[node name="RonceRock44" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, 9.03402, -8.80697, 0)
+
+[node name="RonceRock45" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, -7.4131, -42.0924, 0)
 
 [node name="RonceRock32" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
 transform = Transform3D(7.99337, -0.325658, 0, 0.325658, 7.99337, 0, 0, 0, 8, 61.5293, -4.16817, 0)
 
 [node name="RonceRock33" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
 transform = Transform3D(7.99459, -0.294266, 0, 0.294266, 7.99459, 0, 0, 0, 8, 59.5886, 4.86471, 0)
+
+[node name="RonceRock46" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(7.99459, -0.294266, 0, 0.294266, 7.99459, 0, 0, 0, 8, 11.5861, -36.7496, 0)
 
 [node name="RonceRock18" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
 transform = Transform3D(7.99459, -0.294266, 0, 0.294266, 7.99459, 0, 0, 0, 8, -8.81101, 20.0947, 0)
