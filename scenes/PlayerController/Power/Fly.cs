@@ -94,10 +94,3 @@ public partial class Fly : Power
     }
 
 }
-
-enum EnumWingMovement
-{
-    Idle,
-    Down,
-    Up
-}

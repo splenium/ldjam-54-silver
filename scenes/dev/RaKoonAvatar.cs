@@ -1,13 +1,5 @@
 using Godot;
 
-public enum EnumEFaceState
-{
-    OH,
-    HAPPY,
-    THUG,
-    SHOCKED,
-}
-
 public partial class RaKoonAvatar : Node3D
 {
     private Quaternion _originalRotation;
@@ -112,11 +104,11 @@ public partial class RaKoonAvatar : Node3D
 
         SetFace((EnumEFaceState)(FaceSelection % 4));
 
-		this.Rotation = Vector3.Forward * Mathf.Sin(_totalTime * MoveRotationAnimationSpeed) * MoveRotationAnimationAmplitude * (IsMoving ? 1.0f : 0.0f);
-		_totalTime += (float)delta;
+        this.Rotation = Vector3.Forward * Mathf.Sin(_totalTime * MoveRotationAnimationSpeed) * MoveRotationAnimationAmplitude * (IsMoving ? 1.0f : 0.0f);
+        _totalTime += (float)delta;
         float ghostness = IsGhost ? 1.0f : 0.0f;
 
-		HeadMaterial.SetShaderParameter("_lightColor", LightColor);
+        HeadMaterial.SetShaderParameter("_lightColor", LightColor);
         HeadMaterial.SetShaderParameter("_ghostness", ghostness);
 
         if (IsTriton)
@@ -133,7 +125,7 @@ public partial class RaKoonAvatar : Node3D
             BodyMaterial.SetShaderParameter("_lightColor", LightColor);
             BodyMaterial.SetShaderParameter("_ghostness", ghostness);
         }
-        
+
 
     }
 }
