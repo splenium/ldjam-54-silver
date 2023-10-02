@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjwiwl42jtnld"]
+[gd_scene load_steps=20 format=3 uid="uid://bjwiwl42jtnld"]
 
 [ext_resource type="Script" path="res://scenes/PlayerController/CharacterController.cs" id="1_j3srj"]
+[ext_resource type="AudioStream" uid="uid://b1si46nqj8m3v" path="res://assets/Sounds/648976__atomediadesign__oh-ouch.wav" id="2_hm35p"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Fly.cs" id="3_3p4kr"]
 [ext_resource type="Texture2D" uid="uid://bf5nil75ohsau" path="res://assets/Test/PowerMaterial/purple_white.png" id="4_hifw6"]
 [ext_resource type="Script" path="res://scenes/PlayerController/Power/Human.cs" id="4_p84tn"]
@@ -129,6 +130,7 @@ PowerGhost = NodePath("Power/Ghost")
 DamageDetector = NodePath("Detectors/DamageDetector")
 DamageTakenTimer = NodePath("DamageTakenTimer")
 VortexDetector = NodePath("Detectors/DetectorVortex")
+DeathSoundEffect = ExtResource("2_hm35p")
 
 [node name="DamageTakenTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -188,6 +190,7 @@ Detector = NodePath("../../Detectors/DetectorObstacles")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/GhostRaKoonAvatar")
 LightColor = Color(1, 1, 1, 1)
+PowerLabel = "Gostkoon"
 
 [node name="Mesh" type="Node3D" parent="Power/Ghost"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
@@ -200,6 +203,7 @@ script = ExtResource("5_hw2ut")
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/FishRaKoonAvatar")
 LightColor = Color(0, 0.956863, 0.960784, 1)
+PowerLabel = "Fishkoon"
 
 [node name="Mesh" type="Node3D" parent="Power/Fish"]
 transform = Transform3D(11.9579, 0, 0, 0, 11.9579, 0, 0, 0, 1, 0, -1.02945, 0)
@@ -218,6 +222,7 @@ BoostSounds = Array[AudioStreamMP3]([])
 WaterDetector = NodePath("../../Detectors/DetectorWater")
 raKoonAvatar = NodePath("Mesh/FlyRaKoonAvatar")
 LightColor = Color(0.545098, 0.545098, 0.545098, 1)
+PowerLabel = "Flykoon"
 
 [node name="BoostSound" type="AudioStreamPlayer" parent="Power/Fly"]
 stream = ExtResource("7_kg6g1")

@@ -15,7 +15,12 @@ public partial class GameManager : Node
 
     private static int simultaneousAudioEffect = 10;
 
-    public static string NextScene = "";
+    public static int SceneToLoad = 1;
+
+    public static string NextScene;
+
+    // Scene ORDER
+    public static string[] AllScenePath = new string[] { "res://scenes/Levels/graveyard.tscn", "res://scenes/Levels/AbyssScene.tscn", "res://scenes/Levels/FlyScene.tscn", "res://scenes/Levels/LaboScene.tscn" };
 
     public static int MaxHealth = 100;
     public static int DefaultAmountOfDamage = 50;

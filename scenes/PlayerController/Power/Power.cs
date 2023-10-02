@@ -15,7 +15,11 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
         public RaKoonAvatar raKoonAvatar;
         [Export]
         public Color LightColor;
+        [Export]
+        public string PowerLabel = "RaKoon";
         private bool wasInWater = false;
+
+
 
         public override void _Ready()
         {

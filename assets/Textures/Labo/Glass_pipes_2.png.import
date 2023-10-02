@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2vnex87uvvb5"
-path.s3tc="res://.godot/imported/Acid_Puddle_3.png-be1d3c68f1958252298d18998e5fcb0a.s3tc.ctex"
+uid="uid://crkh3jnwv7qxy"
+path.s3tc="res://.godot/imported/Glass_pipes_2.png-dab1311b5b4d445a595515df1f035049.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Textures/Labo/Acid_Puddle_3.png"
-dest_files=["res://.godot/imported/Acid_Puddle_3.png-be1d3c68f1958252298d18998e5fcb0a.s3tc.ctex"]
+source_file="res://assets/Textures/Labo/Glass_pipes_2.png"
+dest_files=["res://.godot/imported/Glass_pipes_2.png-dab1311b5b4d445a595515df1f035049.s3tc.ctex"]
 
 [params]
 
