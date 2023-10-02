@@ -5,46 +5,46 @@ using System.Collections.Generic;
 
 public partial class CharacterController : CharacterBody3D
 {
-	[Export]
-	public Human PowerHuman;
-	public string PowerHumanAction = "power_human";
-	[Export]
-	public bool IsPowerHumanUnlock
-	{
-		get => isPowerUnlock[PowerEnum.Human];
-		set => isPowerUnlock[PowerEnum.Human] = value;
-	}
+    [Export]
+    public Human PowerHuman;
+    public string PowerHumanAction = "power_human";
+    [Export]
+    public bool IsPowerHumanUnlock
+    {
+        get => isPowerUnlock[PowerEnum.Human];
+        set => isPowerUnlock[PowerEnum.Human] = value;
+    }
 
-	[Export]
-	public Fish PowerFish;
-	public string PowerFishAction = "power_fish";
-	[Export]
-	public bool IsPowerFishUnlock
-	{
-		get => isPowerUnlock[PowerEnum.Fish];
-		set => isPowerUnlock[PowerEnum.Fish] = value;
-	}
+    [Export]
+    public Fish PowerFish;
+    public string PowerFishAction = "power_fish";
+    [Export]
+    public bool IsPowerFishUnlock
+    {
+        get => isPowerUnlock[PowerEnum.Fish];
+        set => isPowerUnlock[PowerEnum.Fish] = value;
+    }
 
-	[Export]
-	public Fly PowerFly;
-	public string PowerFlyAction = "power_fly";
-	[Export]
-	public bool IsPowerFlyUnlock
-	{
-		get => isPowerUnlock[PowerEnum.Fly];
-		set => isPowerUnlock[PowerEnum.Fly] = value;
-	}
+    [Export]
+    public Fly PowerFly;
+    public string PowerFlyAction = "power_fly";
+    [Export]
+    public bool IsPowerFlyUnlock
+    {
+        get => isPowerUnlock[PowerEnum.Fly];
+        set => isPowerUnlock[PowerEnum.Fly] = value;
+    }
 
 
-	[Export]
-	public Ghost PowerGhost;
-	public string PowerGhostAction = "power_ghost";
-	[Export]
-	public bool IsPowerGhostUnlock
-	{
-		get => isPowerUnlock[PowerEnum.Ghost];
-		set => isPowerUnlock[PowerEnum.Ghost] = value;
-	}
+    [Export]
+    public Ghost PowerGhost;
+    public string PowerGhostAction = "power_ghost";
+    [Export]
+    public bool IsPowerGhostUnlock
+    {
+        get => isPowerUnlock[PowerEnum.Ghost];
+        set => isPowerUnlock[PowerEnum.Ghost] = value;
+    }
 
 	//[Export]
 	//public CpuParticles2D UnlockPowerParticle;
@@ -57,29 +57,29 @@ public partial class CharacterController : CharacterBody3D
 		{ PowerEnum.Ghost, false }
 	};
 
-	private Dictionary<PowerEnum, Power> powerByEnum;
+    private Dictionary<PowerEnum, Power> powerByEnum;
 
-	[Export]
-	public Area3D DamageDetector;
+    [Export]
+    public Area3D DamageDetector;
 
-	[Export]
-	public Timer DamageTakenTimer;
+    [Export]
+    public Timer DamageTakenTimer;
 
-	[Export]
-	public Area3D VortexDetector;
+    [Export]
+    public Area3D VortexDetector;
 
-	[Export]
-	public AudioStream DeathSoundEffect;
+    [Export]
+    public AudioStream DeathSoundEffect;
 
 
-	private Power currentPower;
-	private bool invulernability = false;
-	private int health = 100;
+    private Power currentPower;
+    private bool invulernability = false;
+    private int health = 100;
 
 	private bool hasTeleport = false;
 	private float forcedZ;
 
-	//private Power selectedPower;
+    //private Power selectedPower;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
@@ -117,51 +117,53 @@ public partial class CharacterController : CharacterBody3D
 			GD.PrintErr("CharacterController: DamageTakenTimer is null");
 		}
 
-		powerByEnum = new Dictionary<PowerEnum, Power>()
-		{
-			{ PowerEnum.Human, PowerHuman },
-			{ PowerEnum.Fish, PowerFish },
-			{ PowerEnum.Fly, PowerFly },
-			{ PowerEnum.Ghost, PowerGhost }
-		};
-		//_rakoonStatesLabel = GD.Load<Label>("Panel/Etats");
-	}
+        powerByEnum = new Dictionary<PowerEnum, Power>()
+        {
+            { PowerEnum.Human, PowerHuman },
+            { PowerEnum.Fish, PowerFish },
+            { PowerEnum.Fly, PowerFly },
+            { PowerEnum.Ghost, PowerGhost }
+        };
+        //_rakoonStatesLabel = GD.Load<Label>("Panel/Etats");
+    }
 
-	private void SelectPower(Power newPower)
-	{
-		currentPower.Exit(this);
-		currentPower = newPower;
-		_rakoonStatesLabel.Text = newPower.PowerLabel;
-		currentPower.Init(this);
-	}
+    private void SelectPower(Power newPower)
+    {
+        currentPower.Exit(this);
+        currentPower = newPower;
+				if(_rakoonStatesLabel != null) {
+        _rakoonStatesLabel.Text = newPower.PowerLabel;
+				}
+        currentPower.Init(this);
+    }
 
-	public override void _Input(InputEvent @event)
-	{
-		if (currentPower.CanChange(this))
-		{
+    public override void _Input(InputEvent @event)
+    {
+        if (currentPower.CanChange(this))
+        {
 
-			if (@event.IsActionReleased(PowerHumanAction) && isPowerUnlock[PowerEnum.Human])
-			{
-				SelectPower(PowerHuman);
-				GD.Print("Human");
-			}
-			else if (@event.IsActionReleased(PowerFlyAction) && isPowerUnlock[PowerEnum.Fly])
-			{
-				SelectPower(PowerFly);
-				GD.Print("Fly");
-			}
-			else if (@event.IsActionReleased(PowerFishAction) && isPowerUnlock[PowerEnum.Fish])
-			{
-				SelectPower(PowerFish);
-				GD.Print("Fish");
-			}
-			else if (@event.IsActionReleased(PowerGhostAction) && isPowerUnlock[PowerEnum.Ghost])
-			{
-				SelectPower(PowerGhost);
-				GD.Print("Ghost");
-			}
-		}
-	}
+            if (@event.IsActionReleased(PowerHumanAction) && isPowerUnlock[PowerEnum.Human])
+            {
+                SelectPower(PowerHuman);
+                GD.Print("Human");
+            }
+            else if (@event.IsActionReleased(PowerFlyAction) && isPowerUnlock[PowerEnum.Fly])
+            {
+                SelectPower(PowerFly);
+                GD.Print("Fly");
+            }
+            else if (@event.IsActionReleased(PowerFishAction) && isPowerUnlock[PowerEnum.Fish])
+            {
+                SelectPower(PowerFish);
+                GD.Print("Fish");
+            }
+            else if (@event.IsActionReleased(PowerGhostAction) && isPowerUnlock[PowerEnum.Ghost])
+            {
+                SelectPower(PowerGhost);
+                GD.Print("Ghost");
+            }
+        }
+    }
 
 	public override void _Process(double delta)
 	{
@@ -180,13 +182,13 @@ public partial class CharacterController : CharacterBody3D
 			TakeDamage(damageTaken);
 		}
 
-		if (!hasTeleport && VortexDetector.HasOverlappingAreas())
-		{
-			hasTeleport = true;
-			GD.Print("Vortex");
-			LoadNewLevel("res://scenes/VortexTravel.tscn");
-		}
-	}
+        if (!hasTeleport && VortexDetector.HasOverlappingAreas())
+        {
+            hasTeleport = true;
+            GD.Print("Vortex");
+            LoadNewLevel("res://scenes/VortexTravel.tscn");
+        }
+    }
 
 	public async void Reset()
 	{
@@ -200,40 +202,40 @@ public partial class CharacterController : CharacterBody3D
 		invulernability = false;
 	}
 
-	public void TakeDamage(int amount)
-	{
-		if (invulernability)
-		{
-			return;
-		}
-		health -= amount;
-		invulernability = true;
-		GD.Print("Check ", health);
-		if (health <= 0)
-		{
-			GD.Print("Mort");
-			GameManager.OnPlayerRespawn(this);
-			GameManager.PlaySoundEffect(DeathSoundEffect);
-		}
-		else
-		{
-			DamageTakenTimer.Start();
-		}
-	}
+    public void TakeDamage(int amount)
+    {
+        if (invulernability)
+        {
+            return;
+        }
+        health -= amount;
+        invulernability = true;
+        GD.Print("Check ", health);
+        if (health <= 0)
+        {
+            GD.Print("Mort");
+            GameManager.OnPlayerRespawn(this);
+            GameManager.PlaySoundEffect(DeathSoundEffect);
+        }
+        else
+        {
+            DamageTakenTimer.Start();
+        }
+    }
 
-	public override void _PhysicsProcess(double delta)
-	{
-		if (currentPower != null)
-		{
-			currentPower.MoveCharacter(this, delta);
-		}
-	}
+    public override void _PhysicsProcess(double delta)
+    {
+        if (currentPower != null)
+        {
+            currentPower.MoveCharacter(this, delta);
+        }
+    }
 
-	public void _OnDamageTakenTimerTimeout()
-	{
-		invulernability = false;
-		GD.Print("Can take damage");
-	}
+    public void _OnDamageTakenTimerTimeout()
+    {
+        invulernability = false;
+        GD.Print("Can take damage");
+    }
 
 	public void UnlockPower(PowerEnum power)
 	{
@@ -242,11 +244,13 @@ public partial class CharacterController : CharacterBody3D
 		//UnlockPowerParticle.Emitting = true;
 	}
 
-	private void LoadNewLevel(string path)
-	{
-		Level level = GetParent() as Level;
-		GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad++];
-		GD.Print("currentSceneName: ", GetTree().CurrentScene.Name, " ", GameManager.SceneToLoad, " ", GameManager.NextScene);
-		GetTree().ChangeSceneToFile(path);
-	}
+    private void LoadNewLevel(string path)
+    {
+        Level level = GetParent() as Level;
+        //GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad++]; // On fait pas ca ca marche pas en gdscirpt !!!!
+        GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad];
+        GameManager.SceneToLoad++;
+        GD.Print("currentSceneName: ", GetTree().CurrentScene.Name, " ", GameManager.SceneToLoad, " ", GameManager.NextScene);
+        GetTree().ChangeSceneToFile(path);
+    }
 }

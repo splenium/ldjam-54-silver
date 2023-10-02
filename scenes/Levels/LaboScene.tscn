@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bumcdmvd7ixqg"]
+[gd_scene load_steps=19 format=3 uid="uid://bumcdmvd7ixqg"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_qvpa6"]
 [ext_resource type="AudioStream" uid="uid://sygfgtatf6ri" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="11_qvavh"]
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="12_27u8p"]
 [ext_resource type="PackedScene" uid="uid://cdb8xqvybjof" path="res://assets/Prefabs/labo/glass_pipe.tscn" id="13_nxapa"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/water_abyss.tscn" id="14_474ug"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gjm3u"]
 
@@ -159,6 +160,12 @@ transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 30.8
 [node name="PipeStraight14" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
 transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 30.8306, -14.5976, 0)
 
+[node name="PipeStraight16" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 30.8306, -24.9256, 0)
+
+[node name="PipeStraight17" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
+transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 30.8306, -28.0357, 0)
+
 [node name="PipeStraight15" parent="GameLayer/PipeSecond" instance=ExtResource("6_0igmi")]
 transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 30.8306, -17.9127, 0)
 
@@ -215,6 +222,9 @@ transform = Transform3D(-36, -3.14722e-06, 0, 3.14722e-06, -36, 0, 0, 0, 1, 16.2
 
 [node name="PipeEnd3" parent="GameLayer/PipeSecond" instance=ExtResource("7_evvvk")]
 transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 1, 31.0022, -21.5561, 0)
+
+[node name="Water" parent="GameLayer" instance=ExtResource("14_474ug")]
+transform = Transform3D(3.655, 0, 0, 0, 1.985, 0, 0, 0, 1.935, 46.8863, -24.0019, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9158, -54.5457, 0)
