@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=24 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_tyxh0"]
 [ext_resource type="AudioStream" uid="uid://bjp8y250kq4n4" path="res://assets/Sounds/Songs/Aqua.mp3" id="2_267br"]
@@ -42,6 +42,7 @@ point_count = 10
 script = ExtResource("1_tyxh0")
 LevelSound = ExtResource("2_267br")
 DefaultCheckpoint = NodePath("Abyss/CheckpointArea")
+NextLevelNumber = 2
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("13_bvndj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0904, 53.7924, 0)

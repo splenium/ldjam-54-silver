@@ -99,6 +99,7 @@ albedo_texture = ExtResource("23_7c1w1")
 script = ExtResource("1_ic4qb")
 LevelSound = ExtResource("2_6o5do")
 DefaultCheckpoint = NodePath("CheckpointArea")
+NextLevelNumber = 3
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_qlhiq")]
 IsPowerHumanUnlock = true

@@ -54,6 +54,7 @@ albedo_texture = ExtResource("19_urygm")
 script = ExtResource("1_qvpa6")
 LevelSound = ExtResource("2_qsi0h")
 DefaultCheckpoint = NodePath("CheckpointArea")
+NextLevelNumber = 0
 
 [node name="CheckpointArea" parent="." node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("3_fuf4c")]
 SpawnPoint = NodePath("Spawn")
