@@ -6,8 +6,6 @@ public partial class Level : Node3D
     [Export]
     public AudioStream LevelSound;
     [Export]
-    public Resource NextScene;
-    [Export]
     public Checkpoint DefaultCheckpoint;
     [Export]
     public float VolumeDb = 0f;

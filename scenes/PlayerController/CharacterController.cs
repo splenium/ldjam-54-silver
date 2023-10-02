@@ -245,8 +245,8 @@ public partial class CharacterController : CharacterBody3D
 	private void LoadNewLevel(string path)
 	{
 		Level level = GetParent() as Level;
-		GameManager.NextScene = level.NextScene.ResourcePath;
-		GD.Print("currentSceneName: ", GetTree().CurrentScene.Name);
+		GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad++];
+		GD.Print("currentSceneName: ", GetTree().CurrentScene.Name, " ", GameManager.SceneToLoad, " ", GameManager.NextScene);
 		GetTree().ChangeSceneToFile(path);
 	}
 }

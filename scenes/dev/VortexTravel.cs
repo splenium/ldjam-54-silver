@@ -51,7 +51,7 @@ public partial class VortexTravel : Node3D
             TravelPercent = time / duration;
             await ToSignal(GetTree().CreateTimer(delay), "timeout");
         }
-        GD.Print("Travel anim finished, loading scene...", NextScenePath);
+        GD.Print("Travel anim finished, loading scene...", GameManager.NextScene);
         GetTree().ChangeSceneToFile(GameManager.NextScene);
     }
 }

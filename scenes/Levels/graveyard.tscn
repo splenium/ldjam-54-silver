@@ -1,10 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://bjrxx0g68e18x"]
+[gd_scene load_steps=26 format=3 uid="uid://bjrxx0g68e18x"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_2xoni"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_m1iqt"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_dnp53"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="3_3521m"]
-[ext_resource type="PackedScene" uid="uid://b17vcnmok5kix" path="res://scenes/Levels/AbyssScene.tscn" id="3_jtbn2"]
 [ext_resource type="AudioStream" uid="uid://bclrgxrqgjqa0" path="res://assets/Sounds/Songs/Cimetiere.mp3" id="4_75pdb"]
 [ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="4_n1t4r"]
 [ext_resource type="PackedScene" uid="uid://bavh3ckhsnifc" path="res://assets/Prefabs/graveyard/dino.tscn" id="4_oksl1"]
@@ -39,7 +38,6 @@ albedo_texture = ExtResource("22_cb1ys")
 [node name="graveyard" type="Node3D" node_paths=PackedStringArray("DefaultCheckpoint") groups=["level"]]
 script = ExtResource("1_2xoni")
 LevelSound = ExtResource("4_75pdb")
-NextScene = ExtResource("3_jtbn2")
 DefaultCheckpoint = NodePath("CheckpointArea2")
 VolumeDb = -5.0
 
