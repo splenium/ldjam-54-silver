@@ -1,0 +1,138 @@
+[gd_scene load_steps=15 format=3 uid="uid://b67fjcbka8i2f"]
+
+[ext_resource type="Texture2D" uid="uid://b85wr6cnww4yd" path="res://assets/Textures/Labo/Rakoon_Coma_-1.png" id="1_53hkw"]
+[ext_resource type="Texture2D" uid="uid://c7mrgup4wfy8d" path="res://assets/Textures/Labo/Rakoon_Coma_-2.png" id="2_105e1"]
+[ext_resource type="Texture2D" uid="uid://cv1j3iw7f4xum" path="res://assets/Textures/Labo/Rakoon_Coma_-3.png" id="3_uhjwe"]
+[ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="4_t28ha"]
+[ext_resource type="Script" path="res://assets/Hovering.cs" id="5_o4xkj"]
+[ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="6_edigi"]
+[ext_resource type="Texture2D" uid="uid://c88ca13328aot" path="res://assets/Textures/Labo/Rakoon_Coma_-4.png" id="7_3nott"]
+[ext_resource type="Texture2D" uid="uid://bnw5uy4ahpegs" path="res://assets/Textures/Labo/Rakoon_Coma_-5.png" id="8_nj05c"]
+[ext_resource type="Texture2D" uid="uid://cvktenn2ap81t" path="res://assets/Textures/Labo/Rakoon_Coma_-6.png" id="9_hoh7t"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_52028"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_aychl"]
+
+[sub_resource type="Animation" id="Animation_ujjh6"]
+resource_name = "up_and_down"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.53, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-15, -0.25, 0, 0.25, 0, 15, -0.25, 0, 0.25, 0, -15, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.53, 3)
+}
+
+[sub_resource type="Animation" id="Animation_pa8tg"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gftln"]
+_data = {
+"RESET": SubResource("Animation_pa8tg"),
+"up_and_down": SubResource("Animation_ujjh6")
+}
+
+[node name="RakoonComa" type="Node3D"]
+
+[node name="Shadow" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+offset = Vector2(0, 10)
+double_sided = false
+texture = ExtResource("1_53hkw")
+
+[node name="Bubble" type="Sprite3D" parent="."]
+visible = false
+double_sided = false
+texture = ExtResource("2_105e1")
+
+[node name="Water" type="Sprite3D" parent="."]
+double_sided = false
+texture = ExtResource("3_uhjwe")
+
+[node name="SkyBG" type="CSGMesh3D" parent="Water"]
+transform = Transform3D(10, 0, 0, 0, 16.66, 0, 0, 0, 1, 0, 0, -0.1)
+visible = false
+sorting_offset = 50.0
+mesh = SubResource("QuadMesh_52028")
+material = ExtResource("4_t28ha")
+script = ExtResource("5_o4xkj")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="LightRays01" type="CSGMesh3D" parent="Water"]
+transform = Transform3D(10, 0, 0, 0, 16.66, 0, 0, 0, 1, 0, 0, 0.1)
+sorting_offset = 50.0
+mesh = SubResource("QuadMesh_aychl")
+material = ExtResource("6_edigi")
+script = ExtResource("5_o4xkj")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="LightRays02" type="CSGMesh3D" parent="Water"]
+transform = Transform3D(10, 0, 0, 0, 16.66, 0, 0, 0, 1, 0, 0, 0.1)
+sorting_offset = 50.0
+mesh = SubResource("QuadMesh_aychl")
+material = ExtResource("6_edigi")
+script = ExtResource("5_o4xkj")
+Speed = 2.0
+Amplitude = 0.005
+
+[node name="Tank" type="Sprite3D" parent="."]
+modulate = Color(0.431373, 0.368627, 0.713726, 1)
+double_sided = false
+texture = ExtResource("7_3nott")
+
+[node name="Plat" type="Sprite3D" parent="."]
+modulate = Color(0.431373, 0.368627, 0.713726, 1)
+double_sided = false
+texture = ExtResource("8_nj05c")
+
+[node name="TopPipe" type="Sprite3D" parent="."]
+modulate = Color(0.431373, 0.368627, 0.713726, 1)
+double_sided = false
+texture = ExtResource("9_hoh7t")
+
+[node name="BodyMouvement" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gftln")
+}
