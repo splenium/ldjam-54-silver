@@ -103,12 +103,6 @@ public partial class GameManager : Node
     {
         var playerController = (CharacterController)player;
         playerController.GlobalPosition = lastCheckpoint.SpawnPoint.GlobalPosition;
-        ResetAfterFrame(playerController);
-    }
-
-    private static async void ResetAfterFrame(CharacterController player)
-    {
-        await player.ToSignal(player.GetTree(), "idle_frame"); // Need to wait one frame before reset all state (looping death else)
-        player.Reset();
+        playerController.Reset();
     }
 }

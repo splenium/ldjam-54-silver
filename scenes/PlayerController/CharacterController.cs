@@ -74,6 +74,7 @@ public partial class CharacterController : CharacterBody3D
     private int health = 100;
 
     private bool hasTeleport = false;
+    private float forcedZ;
 
     //private Power selectedPower;
 
@@ -84,6 +85,7 @@ public partial class CharacterController : CharacterBody3D
     public override void _Ready()
     {
         base._Ready();
+        forcedZ = this.GlobalPosition.Z;
         currentPower = PowerHuman;
         currentPower.Init(this);
         if (PowerHuman == null)
@@ -162,6 +164,7 @@ public partial class CharacterController : CharacterBody3D
 
     public override void _Process(double delta)
     {
+        this.GlobalPosition = new Vector3(this.GlobalPosition.X, this.GlobalPosition.Y, forcedZ);
         if (!invulernability && DamageDetector.HasOverlappingAreas())
         {
             int damageTaken = GameManager.DefaultAmountOfDamage;
@@ -184,8 +187,13 @@ public partial class CharacterController : CharacterBody3D
         }
     }
 
-    public void Reset()
+    public async void Reset()
     {
+        // Wait 10 frames to avoid the player multi death
+        for (int i = 0; i < 10; i++)
+        {
+            await ToSignal(GetTree(), "process_frame");
+        }
         health = GameManager.MaxHealth;
         DamageTakenTimer.Stop();
         invulernability = false;
