@@ -2,6 +2,7 @@ shader_type spatial;
 render_mode unshaded, blend_mix;
 
 uniform sampler2D _voronoiseTex;
+uniform vec4 _color : source_color = vec4(1.);
 
 #define sat(a) clamp(a, 0., 1.)
 
@@ -52,6 +53,6 @@ void fragment() {
 	cola.xyz += colb.xyz;
 	vec3 outCol = cola.xyz*1.5;
 	outCol = mix(outCol, vec3(1.)*(outCol.x+outCol.y+outCol.z)/3., .5);
-	ALBEDO = outCol;
-	ALPHA = cola.a;
+	ALBEDO = outCol*_color.xyz;
+	ALPHA = cola.a*_color.w;
 }
