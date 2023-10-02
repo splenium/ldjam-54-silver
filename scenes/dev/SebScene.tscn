@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bvu2s2q0oqyiw"]
+[gd_scene load_steps=31 format=3 uid="uid://bvu2s2q0oqyiw"]
 
 [ext_resource type="PackedScene" uid="uid://b2qnjj4q7bmss" path="res://assets/Prefabs/vortex_travel_anim.tscn" id="1_4vhh4"]
 [ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="1_818dc"]
@@ -6,9 +6,10 @@
 [ext_resource type="Material" uid="uid://cevwxtcp37nen" path="res://assets/Materials/Clouds/SkyIslandsBGMat.tres" id="1_xd3yq"]
 [ext_resource type="Script" path="res://assets/Hovering.cs" id="2_njwye"]
 [ext_resource type="Material" uid="uid://d35otdohndue5" path="res://assets/Materials/Rock02Mat.tres" id="3_go02m"]
-[ext_resource type="Material" path="res://assets/Materials/DoctorPunk.tres" id="3_sl62w"]
-[ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/Clouds/CloudMat.tres" id="4_ifijn"]
+[ext_resource type="Material" uid="uid://c8o2gti7npy26" path="res://assets/Materials/DoctorPunk.tres" id="3_sl62w"]
+[ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/CloudMat.tres" id="4_ifijn"]
 [ext_resource type="Material" uid="uid://dljll6fqoob5q" path="res://assets/Materials/Rock03Mat.tres" id="4_xkfjv"]
+[ext_resource type="PackedScene" uid="uid://bdm8xiupqcdao" path="res://scenes/cloud.tscn" id="5_g5ery"]
 [ext_resource type="PackedScene" uid="uid://nm2sr4lmlw7d" path="res://assets/Rocks/rock_00.tscn" id="5_l8viv"]
 [ext_resource type="PackedScene" uid="uid://bmhh7ku8pp5ul" path="res://assets/Rocks/rock_01.tscn" id="6_3qrg0"]
 [ext_resource type="PackedScene" uid="uid://c57gr1e2oucuk" path="res://assets/Rocks/rock_02.tscn" id="7_26c7r"]
@@ -18,11 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://h1bjyb8mpmo2" path="res://scenes/PlayerController/RaKoonAvatar.tscn" id="13_of5xy"]
 [ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="13_t3sxh"]
 [ext_resource type="PackedScene" uid="uid://1j402scygycu" path="res://assets/Fish/FishPrefab.tscn" id="15_s0v4d"]
-[ext_resource type="PackedScene" uid="uid://dw1fon23wnduo" path="res://assets/Prefabs/labo/background_laboratory.tscn" id="16_33jpe"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/background_laboratory.tscn" id="16_33jpe"]
 [ext_resource type="PackedScene" uid="uid://b6l40hdajspul" path="res://assets/Prefabs/dna.tscn" id="21_3i0re"]
 [ext_resource type="PackedScene" uid="uid://b5kt0qi8enc7p" path="res://assets/Particles/get_dna_particle.tscn" id="22_y6vwf"]
 [ext_resource type="PackedScene" uid="uid://cs30kb25itfdt" path="res://assets/Particles/explode_particle.tscn" id="23_c0hwu"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/bomb.tscn" id="24_mgek1"]
+[ext_resource type="PackedScene" uid="uid://bpr26nm017exs" path="res://assets/Prefabs/bomb.tscn" id="24_mgek1"]
 [ext_resource type="Material" uid="uid://2xm8v6u45jb0" path="res://assets/Shaders/RaKoon/RakonWingMat.tres" id="24_x0wm6"]
 [ext_resource type="PackedScene" uid="uid://cljg31i83ncu7" path="res://assets/Prefabs/vortex_anim.tscn" id="25_5dv4w"]
 
@@ -63,13 +64,7 @@ script = ExtResource("2_njwye")
 Speed = 2.0
 Amplitude = 0.005
 
-[node name="Cloud" type="CSGMesh3D" parent="SceneIslands"]
-transform = Transform3D(3.22027, 0, 0, 0, 3.22027, 0, 0, 0, 1, -0.0860417, -0.240632, 0.155598)
-mesh = SubResource("QuadMesh_qs0ii")
-material = ExtResource("4_ifijn")
-script = ExtResource("2_njwye")
-Speed = 2.0
-Amplitude = 0.005
+[node name="Cloud" parent="SceneIslands" instance=ExtResource("5_g5ery")]
 
 [node name="Cloud2" type="CSGMesh3D" parent="SceneIslands"]
 transform = Transform3D(3.90738, 0, 0, 0, 4.15085, 0, 0, 0, 1, -0.0860417, -0.240632, -0.272767)
