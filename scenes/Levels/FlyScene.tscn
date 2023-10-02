@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bdaojckf405t1"]
+[gd_scene load_steps=46 format=3 uid="uid://bdaojckf405t1"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
 [ext_resource type="AudioStream" uid="uid://c3c6v6d2jabsw" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://b5kba0ahv2m1s" path="res://scenes/dev/UI/Player/Power_icons_off/triton_off.png" id="29_jbago"]
 [ext_resource type="PackedScene" uid="uid://bdm8xiupqcdao" path="res://scenes/cloud.tscn" id="30_r46xj"]
 [ext_resource type="Material" uid="uid://cojkc4x7vek57" path="res://assets/Materials/Clouds/CloudFlyMat.tres" id="31_iqc4m"]
+[ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="32_6hkvu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4m4ox"]
 size = Vector3(0.11869, 0.872872, 22.2889)
@@ -623,3 +624,13 @@ material = ExtResource("31_iqc4m")
 transform = Transform3D(255.426, 0, 0, 0, 255.426, 0, 0, 0, 1, 20.9707, -67.4916, -10.916)
 sorting_offset = 150.0
 material = ExtResource("31_iqc4m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("32_6hkvu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
