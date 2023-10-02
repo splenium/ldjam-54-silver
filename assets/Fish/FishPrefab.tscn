@@ -16,36 +16,43 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxg2g"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(0.294118, 0.482353, 0.509804, 1)
 albedo_texture = ExtResource("3_lybpn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtbti"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(0.294118, 0.482353, 0.509804, 1)
 albedo_texture = ExtResource("5_wtlsk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8oju"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(0.294118, 0.482353, 0.509804, 1)
 albedo_texture = ExtResource("6_27r5b")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15g4v"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(0.294118, 0.482353, 0.509804, 1)
 albedo_texture = ExtResource("7_kr2d7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yoynq"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(0.294118, 0.482353, 0.509804, 1)
 albedo_texture = ExtResource("8_sseon")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akv2n"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(0.294118, 0.482353, 0.509804, 1)
 albedo_texture = ExtResource("9_noc58")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5c83"]
 transparency = 1
 shading_mode = 0
+albedo_color = Color(0.294118, 0.482353, 0.509804, 1)
 albedo_texture = ExtResource("10_u0m6i")
 
 [sub_resource type="Animation" id="Animation_h740b"]
@@ -109,8 +116,8 @@ mesh = SubResource("QuadMesh_kfl4q")
 material = SubResource("StandardMaterial3D_yxg2g")
 
 [node name="Light" type="CSGMesh3D" parent="AntenaParent/Antena"]
-transform = Transform3D(0.439296, 0, 0, 0, 0.439296, 0, 0, 0, 1, 0.405597, 0.11901, 0.0409898)
-sorting_offset = 10.0
+transform = Transform3D(0.439296, 0, 0, 0, 0.439296, 0, 0, 0, 1, 0.405597, 0.11901, 0.0625862)
+sorting_offset = 200.0
 mesh = SubResource("QuadMesh_kfl4q")
 material = ExtResource("4_tji0y")
 
