@@ -1,7 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://cecjb644ptse5"]
+[gd_scene load_steps=44 format=3 uid="uid://cecjb644ptse5"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_qvpa6"]
-[ext_resource type="AudioStream" uid="uid://cqh60dfoyljq7" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
+[ext_resource type="AudioStream" uid="uid://sygfgtatf6ri" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_umr85"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="3_b8ktn"]
 [ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="3_fuf4c"]
@@ -11,19 +11,21 @@
 [ext_resource type="PackedScene" uid="uid://bg23uknq8tfnl" path="res://assets/Prefabs/labo/pipe_direction.tscn" id="7_om5uh"]
 [ext_resource type="Texture2D" uid="uid://b2vnex87uvvb5" path="res://assets/Textures/Labo/Acid_Puddle_3.png" id="10_7ax1p"]
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="12_27u8p"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/labo_rock.tscn" id="12_qfl84"]
+[ext_resource type="PackedScene" uid="uid://b8qs4aal6rgc0" path="res://assets/Prefabs/labo/labo_rock.tscn" id="12_qfl84"]
 [ext_resource type="PackedScene" uid="uid://cdb8xqvybjof" path="res://assets/Prefabs/labo/glass_pipe.tscn" id="13_nxapa"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/water_abyss.tscn" id="14_474ug"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/glass_pipe_straight.tscn" id="14_mcc2e"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/background_laboratory.tscn" id="15_2ftgi"]
+[ext_resource type="PackedScene" uid="uid://cbkelh6dh2hpe" path="res://assets/Prefabs/labo/glass_pipe_straight.tscn" id="14_mcc2e"]
+[ext_resource type="PackedScene" uid="uid://dw1fon23wnduo" path="res://assets/Prefabs/labo/background_laboratory.tscn" id="15_2ftgi"]
 [ext_resource type="PackedScene" uid="uid://ddhpxwdtfedwg" path="res://assets/Prefabs/moving_fish.tscn" id="16_fbl4v"]
-[ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="18_bicr0"]
-[ext_resource type="Texture2D" uid="uid://dad7xwipgqpld" path="res://assets/Textures/Labo/Scientist_1.png" id="19_5m372"]
+[ext_resource type="Script" path="res://assets/Scripts/labo/EndDetector.cs" id="17_8315s"]
 [ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="20_6qha1"]
 [ext_resource type="Texture2D" uid="uid://5o6nrueppwqm" path="res://scenes/dev/UI/Player/Power_on/racoon_on.png" id="20_g5etc"]
 [ext_resource type="Texture2D" uid="uid://112q4klae1vl" path="res://assets/Textures/Labo/Tableau périodique.png" id="20_iy547"]
 [ext_resource type="Texture2D" uid="uid://c00p7i4u0838g" path="res://scenes/dev/UI/Player/Power_icons_off/wings_off.png" id="21_jnx1n"]
+[ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="22_0gpab"]
 [ext_resource type="Texture2D" uid="uid://be82ov5jbieuw" path="res://scenes/dev/UI/Player/Power_icons_off/ghost_off.png" id="22_pbkah"]
+[ext_resource type="Texture2D" uid="uid://cbd1fupn8jato" path="res://assets/Textures/Labo/Decor_labo.png" id="22_rg17v"]
+[ext_resource type="Texture2D" uid="uid://dad7xwipgqpld" path="res://assets/Textures/Labo/Scientist_1.png" id="23_0lrp3"]
 [ext_resource type="Texture2D" uid="uid://b5kba0ahv2m1s" path="res://scenes/dev/UI/Player/Power_icons_off/triton_off.png" id="23_rsma0"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gjm3u"]
@@ -67,26 +69,36 @@ point_count = 3
 [sub_resource type="BoxShape3D" id="BoxShape3D_cj8ei"]
 size = Vector3(3387.83, 17.8482, 224.205)
 
-[sub_resource type="Curve3D" id="Curve3D_y4xkm"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 73.565, 7.155, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0, 0)
-}
-point_count = 3
-
-[sub_resource type="QuadMesh" id="QuadMesh_nr76k"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vcbpm"]
-transparency = 1
-shading_mode = 0
-albedo_texture = ExtResource("19_5m372")
-
 [sub_resource type="QuadMesh" id="QuadMesh_bxp0h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipalk"]
 transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("20_iy547")
+
+[sub_resource type="QuadMesh" id="QuadMesh_bfbha"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfh1i"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("22_rg17v")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rfdev"]
+size = Vector3(2.95742, 2.63057, 7.32653)
+
+[sub_resource type="Curve3D" id="Curve3D_y4xkm"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 80.195, 7.155, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="QuadMesh" id="QuadMesh_8olxg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2hyj"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("23_0lrp3")
 
 [node name="LaboScene" type="Node3D" node_paths=PackedStringArray("DefaultCheckpoint")]
 script = ExtResource("1_qvpa6")
@@ -105,7 +117,7 @@ current = true
 ToFollow = NodePath("../CharacterBody3D")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_b8ktn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.772771, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1246, -27.5342, 0)
 IsPowerHumanUnlock = true
 IsPowerFishUnlock = true
 IsPowerFlyUnlock = true
@@ -464,7 +476,7 @@ curve = SubResource("Curve3D_vrtmt")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9158, -54.5457, 0)
-collision_layer = 32
+collision_layer = 128
 collision_mask = 0
 script = ExtResource("12_27u8p")
 
@@ -483,26 +495,16 @@ texture = ExtResource("20_6qha1")
 [node name="Background" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3153, 0, -75.4731)
 
-[node name="Path3D" type="Path3D" parent="Background"]
-transform = Transform3D(1.61847, 0, 0, 0, 1.61847, 0, 0, 0, 1, -33.1734, -56.2063, 0)
-curve = SubResource("Curve3D_y4xkm")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Background/Path3D"]
-rotation_mode = 0
-script = ExtResource("18_bicr0")
-PlayOnFlyModeUnlock = false
-Reverse = false
-
-[node name="Scientist" type="CSGMesh3D" parent="Background/Path3D/PathFollow3D"]
-transform = Transform3D(124.549, 0, 0, 0, 124.549, 0, 0, 0, 1, 0, -13.9109, 0)
-mesh = SubResource("QuadMesh_nr76k")
-material = SubResource("StandardMaterial3D_vcbpm")
-
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Background"]
 transform = Transform3D(129.367, 0, 0, 0, 106.588, 0, 0, 0, 1, 54.8286, 11.4961, -21.8194)
 sorting_offset = -10.0
 mesh = SubResource("QuadMesh_bxp0h")
 material = SubResource("StandardMaterial3D_ipalk")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Background"]
+transform = Transform3D(317.036, 0, 0, 0, 175.971, 0, 0, 0, 1, 40.6671, -80.2772, 0)
+mesh = SubResource("QuadMesh_bfbha")
+material = SubResource("StandardMaterial3D_kfh1i")
 
 [node name="Power_icons" type="Control" parent="."]
 layout_mode = 3
@@ -589,3 +591,27 @@ offset_bottom = -47.475
 theme_override_font_sizes/font_size = 30
 text = "4"
 horizontal_alignment = 1
+
+[node name="CreepyDoctor" type="Node3D" parent="."]
+
+[node name="EndDetector" type="Area3D" parent="CreepyDoctor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5139, -33.7859, 0)
+script = ExtResource("17_8315s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CreepyDoctor/EndDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.564221, 1.17913, 0)
+shape = SubResource("BoxShape3D_rfdev")
+
+[node name="Path3D" type="Path3D" parent="CreepyDoctor"]
+transform = Transform3D(1.61847, 0, 0, 0, 1.61847, 0, 0, 0, 1, -158.885, -56.2063, -75.4731)
+curve = SubResource("Curve3D_y4xkm")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CreepyDoctor/Path3D"]
+rotation_mode = 0
+script = ExtResource("22_0gpab")
+PlayOnFlyModeUnlock = false
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CreepyDoctor/Path3D/PathFollow3D"]
+transform = Transform3D(138.964, 0, 0, 0, 138.964, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_8olxg")
+material = SubResource("StandardMaterial3D_i2hyj")
