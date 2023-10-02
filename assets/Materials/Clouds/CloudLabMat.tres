@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bqmsp2v7acipc"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/Cloud.gdshader" id="1_smyam"]
+[ext_resource type="Texture2D" uid="uid://cvi6lb45d7dvj" path="res://assets/Textures/Voronoise.png" id="2_eb8en"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_smyam")
+shader_parameter/_color = Color(0.266667, 0.831373, 0.866667, 0.584314)
+shader_parameter/_voronoiseTex = ExtResource("2_eb8en")
