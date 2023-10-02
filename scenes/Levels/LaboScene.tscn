@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cecjb644ptse5"]
+[gd_scene load_steps=48 format=3 uid="uid://cecjb644ptse5"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_qvpa6"]
 [ext_resource type="AudioStream" uid="uid://sygfgtatf6ri" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bg23uknq8tfnl" path="res://assets/Prefabs/labo/pipe_direction.tscn" id="7_om5uh"]
 [ext_resource type="Texture2D" uid="uid://b2vnex87uvvb5" path="res://assets/Textures/Labo/Acid_Puddle_3.png" id="10_7ax1p"]
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="12_27u8p"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/labo_rock.tscn" id="12_qfl84"]
+[ext_resource type="PackedScene" uid="uid://b8qs4aal6rgc0" path="res://assets/Prefabs/labo/labo_rock.tscn" id="12_qfl84"]
 [ext_resource type="PackedScene" uid="uid://cdb8xqvybjof" path="res://assets/Prefabs/labo/glass_pipe.tscn" id="13_nxapa"]
-[ext_resource type="PackedScene" uid="uid://1ji2t3u75r1o" path="res://assets/Prefabs/water_abyss.tscn" id="14_474ug"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/glass_pipe_straight.tscn" id="14_mcc2e"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/background_laboratory.tscn" id="15_2ftgi"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/water_abyss.tscn" id="14_474ug"]
+[ext_resource type="PackedScene" uid="uid://cbkelh6dh2hpe" path="res://assets/Prefabs/labo/glass_pipe_straight.tscn" id="14_mcc2e"]
+[ext_resource type="PackedScene" uid="uid://dw1fon23wnduo" path="res://assets/Prefabs/labo/background_laboratory.tscn" id="15_2ftgi"]
 [ext_resource type="PackedScene" uid="uid://ddhpxwdtfedwg" path="res://assets/Prefabs/moving_fish.tscn" id="16_fbl4v"]
 [ext_resource type="Script" path="res://assets/Scripts/labo/EndDetector.cs" id="17_8315s"]
 [ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="20_6qha1"]
@@ -27,8 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://cbd1fupn8jato" path="res://assets/Textures/Labo/Decor_labo.png" id="22_rg17v"]
 [ext_resource type="Texture2D" uid="uid://dad7xwipgqpld" path="res://assets/Textures/Labo/Scientist_1.png" id="23_0lrp3"]
 [ext_resource type="Texture2D" uid="uid://b5kba0ahv2m1s" path="res://scenes/dev/UI/Player/Power_icons_off/triton_off.png" id="23_rsma0"]
-[ext_resource type="PackedScene" uid="uid://bdm8xiupqcdao" path="res://scenes/cloud.tscn" id="28_c36df"]
-[ext_resource type="Material" uid="uid://bqmsp2v7acipc" path="res://assets/Materials/Clouds/CloudLabMat.tres" id="29_y6oln"]
+[ext_resource type="PackedScene" path="res://scenes/cloud.tscn" id="28_c36df"]
+[ext_resource type="Texture2D" uid="uid://bjrrxk4cb2wnr" path="res://scenes/dev/UI/Credits.png" id="29_pj68m"]
+[ext_resource type="Material" path="res://assets/Materials/Clouds/CloudLabMat.tres" id="29_y6oln"]
 [ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="30_casi5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gjm3u"]
@@ -120,7 +121,7 @@ current = true
 ToFollow = NodePath("../CharacterBody3D")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_b8ktn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1246, -27.5342, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.419774, -0.465185, 0)
 IsPowerHumanUnlock = true
 IsPowerFishUnlock = true
 IsPowerFlyUnlock = true
@@ -615,9 +616,10 @@ horizontal_alignment = 1
 
 [node name="CreepyDoctor" type="Node3D" parent="."]
 
-[node name="EndDetector" type="Area3D" parent="CreepyDoctor"]
+[node name="EndDetector" type="Area3D" parent="CreepyDoctor" node_paths=PackedStringArray("credit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5139, -33.7859, 0)
 script = ExtResource("17_8315s")
+credit = NodePath("../../Credit")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CreepyDoctor/EndDetector"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.564221, 1.17913, 0)
@@ -650,3 +652,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Credit" type="TextureRect" parent="."]
+visible = false
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.150024
+offset_bottom = -0.199951
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_pj68m")
+expand_mode = 2
