@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cecjb644ptse5"]
+[gd_scene load_steps=49 format=3 uid="uid://cecjb644ptse5"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_qvpa6"]
 [ext_resource type="AudioStream" uid="uid://sygfgtatf6ri" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cbd1fupn8jato" path="res://assets/Textures/Labo/Decor_labo.png" id="22_rg17v"]
 [ext_resource type="Texture2D" uid="uid://dad7xwipgqpld" path="res://assets/Textures/Labo/Scientist_1.png" id="23_0lrp3"]
 [ext_resource type="Texture2D" uid="uid://b5kba0ahv2m1s" path="res://scenes/dev/UI/Player/Power_icons_off/triton_off.png" id="23_rsma0"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/rakoon_coma.tscn" id="25_jgkou"]
 [ext_resource type="PackedScene" path="res://scenes/cloud.tscn" id="28_c36df"]
 [ext_resource type="Texture2D" uid="uid://bjrrxk4cb2wnr" path="res://scenes/dev/UI/Credits.png" id="29_pj68m"]
 [ext_resource type="Material" path="res://assets/Materials/Clouds/CloudLabMat.tres" id="29_y6oln"]
@@ -615,6 +616,9 @@ text = "4"
 horizontal_alignment = 1
 
 [node name="CreepyDoctor" type="Node3D" parent="."]
+
+[node name="RakoonComa" parent="CreepyDoctor" instance=ExtResource("25_jgkou")]
+transform = Transform3D(0.577416, 0, 0, 0, 0.577416, 0, 0, 0, 1, 6.94428, -27.3871, 0)
 
 [node name="EndDetector" type="Area3D" parent="CreepyDoctor" node_paths=PackedStringArray("credit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5139, -33.7859, 0)
