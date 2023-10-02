@@ -1,7 +1,7 @@
 [gd_scene load_steps=49 format=3 uid="uid://cecjb644ptse5"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_qvpa6"]
-[ext_resource type="AudioStream" uid="uid://sygfgtatf6ri" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
+[ext_resource type="AudioStream" uid="uid://cqh60dfoyljq7" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_umr85"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="3_b8ktn"]
 [ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="3_fuf4c"]
@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bg23uknq8tfnl" path="res://assets/Prefabs/labo/pipe_direction.tscn" id="7_om5uh"]
 [ext_resource type="Texture2D" uid="uid://b2vnex87uvvb5" path="res://assets/Textures/Labo/Acid_Puddle_3.png" id="10_7ax1p"]
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="12_27u8p"]
-[ext_resource type="PackedScene" uid="uid://b8qs4aal6rgc0" path="res://assets/Prefabs/labo/labo_rock.tscn" id="12_qfl84"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/labo_rock.tscn" id="12_qfl84"]
 [ext_resource type="PackedScene" uid="uid://cdb8xqvybjof" path="res://assets/Prefabs/labo/glass_pipe.tscn" id="13_nxapa"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/water_abyss.tscn" id="14_474ug"]
-[ext_resource type="PackedScene" uid="uid://cbkelh6dh2hpe" path="res://assets/Prefabs/labo/glass_pipe_straight.tscn" id="14_mcc2e"]
-[ext_resource type="PackedScene" uid="uid://dw1fon23wnduo" path="res://assets/Prefabs/labo/background_laboratory.tscn" id="15_2ftgi"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/glass_pipe_straight.tscn" id="14_mcc2e"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/background_laboratory.tscn" id="15_2ftgi"]
 [ext_resource type="PackedScene" uid="uid://ddhpxwdtfedwg" path="res://assets/Prefabs/moving_fish.tscn" id="16_fbl4v"]
 [ext_resource type="Script" path="res://assets/Scripts/labo/EndDetector.cs" id="17_8315s"]
 [ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="20_6qha1"]
@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cbd1fupn8jato" path="res://assets/Textures/Labo/Decor_labo.png" id="22_rg17v"]
 [ext_resource type="Texture2D" uid="uid://dad7xwipgqpld" path="res://assets/Textures/Labo/Scientist_1.png" id="23_0lrp3"]
 [ext_resource type="Texture2D" uid="uid://b5kba0ahv2m1s" path="res://scenes/dev/UI/Player/Power_icons_off/triton_off.png" id="23_rsma0"]
-[ext_resource type="PackedScene" uid="uid://dmg7ox3op6rxn" path="res://assets/Prefabs/labo/rakoon_coma.tscn" id="25_jgkou"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/rakoon_coma.tscn" id="25_jgkou"]
 [ext_resource type="PackedScene" path="res://scenes/cloud.tscn" id="28_c36df"]
 [ext_resource type="Texture2D" uid="uid://bjrrxk4cb2wnr" path="res://scenes/dev/UI/Credits.png" id="29_pj68m"]
 [ext_resource type="Material" path="res://assets/Materials/Clouds/CloudLabMat.tres" id="29_y6oln"]
@@ -529,6 +529,61 @@ transform = Transform3D(317.036, 0, 0, 0, 175.971, 0, 0, 0, 1, 40.6671, -80.2772
 mesh = SubResource("QuadMesh_bfbha")
 material = SubResource("StandardMaterial3D_kfh1i")
 
+[node name="CreepyDoctor" type="Node3D" parent="."]
+
+[node name="RakoonComa" parent="CreepyDoctor" instance=ExtResource("25_jgkou")]
+transform = Transform3D(0.577416, 0, 0, 0, 0.577416, 0, 0, 0, 1, 6.94428, -27.3871, 0)
+
+[node name="EndDetector" type="Area3D" parent="CreepyDoctor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5139, -33.7859, 0)
+script = ExtResource("17_8315s")
+credit = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CreepyDoctor/EndDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.564221, 1.17913, 0)
+shape = SubResource("BoxShape3D_rfdev")
+
+[node name="Path3D" type="Path3D" parent="CreepyDoctor"]
+transform = Transform3D(1.61847, 0, 0, 0, 1.61847, 0, 0, 0, 1, -158.885, -56.2063, -75.4731)
+curve = SubResource("Curve3D_y4xkm")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="CreepyDoctor/Path3D"]
+rotation_mode = 0
+script = ExtResource("22_0gpab")
+PlayOnFlyModeUnlock = false
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CreepyDoctor/Path3D/PathFollow3D"]
+transform = Transform3D(138.964, 0, 0, 0, 138.964, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_8olxg")
+material = SubResource("StandardMaterial3D_i2hyj")
+
+[node name="Cloud" parent="." instance=ExtResource("28_c36df")]
+transform = Transform3D(143.367, 0, 0, 0, 136.086, 0, 0, 0, 1, 42.8401, -18.8619, 0.155598)
+material = ExtResource("29_y6oln")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("30_casi5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credit" type="TextureRect" parent="."]
+visible = false
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.150024
+offset_bottom = -0.199951
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_pj68m")
+expand_mode = 2
+
 [node name="Power_icons" type="Control" parent="."]
 layout_mode = 3
 anchor_right = 0.157
@@ -538,12 +593,12 @@ offset_top = 184.0
 offset_right = -91.864
 offset_bottom = 0.264008
 
-[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
+[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
 position = Vector2(30, 30)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("20_g5etc")
+texture = ExtResource("22_pbkah")
 
-[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
+[node name="Label" type="Label" parent="Power_icons/GhostOff"]
 anchors_preset = -1
 anchor_left = 0.774
 anchor_top = 0.732
@@ -596,12 +651,12 @@ text = "3
 "
 horizontal_alignment = 1
 
-[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
+[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
 position = Vector2(30, 180)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("22_pbkah")
+texture = ExtResource("20_g5etc")
 
-[node name="Label" type="Label" parent="Power_icons/GhostOff"]
+[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
 anchors_preset = -1
 anchor_left = 0.774
 anchor_top = 0.732
@@ -614,58 +669,3 @@ offset_bottom = -47.475
 theme_override_font_sizes/font_size = 30
 text = "4"
 horizontal_alignment = 1
-
-[node name="CreepyDoctor" type="Node3D" parent="."]
-
-[node name="RakoonComa" parent="CreepyDoctor" instance=ExtResource("25_jgkou")]
-transform = Transform3D(0.577416, 0, 0, 0, 0.577416, 0, 0, 0, 1, 6.94428, -27.3871, 0)
-
-[node name="EndDetector" type="Area3D" parent="CreepyDoctor" node_paths=PackedStringArray("credit")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5139, -33.7859, 0)
-script = ExtResource("17_8315s")
-credit = NodePath("../../Credit")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CreepyDoctor/EndDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.564221, 1.17913, 0)
-shape = SubResource("BoxShape3D_rfdev")
-
-[node name="Path3D" type="Path3D" parent="CreepyDoctor"]
-transform = Transform3D(1.61847, 0, 0, 0, 1.61847, 0, 0, 0, 1, -158.885, -56.2063, -75.4731)
-curve = SubResource("Curve3D_y4xkm")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="CreepyDoctor/Path3D"]
-rotation_mode = 0
-script = ExtResource("22_0gpab")
-PlayOnFlyModeUnlock = false
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="CreepyDoctor/Path3D/PathFollow3D"]
-transform = Transform3D(138.964, 0, 0, 0, 138.964, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("QuadMesh_8olxg")
-material = SubResource("StandardMaterial3D_i2hyj")
-
-[node name="Cloud" parent="." instance=ExtResource("28_c36df")]
-transform = Transform3D(143.367, 0, 0, 0, 136.086, 0, 0, 0, 1, 42.8401, -18.8619, 0.155598)
-material = ExtResource("29_y6oln")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = ExtResource("30_casi5")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Credit" type="TextureRect" parent="."]
-visible = false
-top_level = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.150024
-offset_bottom = -0.199951
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("29_pj68m")
-expand_mode = 2

@@ -1,7 +1,7 @@
 [gd_scene load_steps=46 format=3 uid="uid://bdaojckf405t1"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
-[ext_resource type="AudioStream" uid="uid://c3c6v6d2jabsw" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
+[ext_resource type="AudioStream" uid="uid://ci8d3loueh2s7" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_qlhiq"]
 [ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="4_27gc2"]
 [ext_resource type="PackedScene" uid="uid://cljg31i83ncu7" path="res://assets/Prefabs/vortex_anim.tscn" id="4_n1qjr"]
@@ -531,6 +531,25 @@ position = Vector2(91.75, 81.25)
 scale = Vector2(0.635231, 0.628405)
 texture = ExtResource("23_crks4")
 
+[node name="Cloud" parent="." instance=ExtResource("30_r46xj")]
+transform = Transform3D(255.426, 0, 0, 0, 255.426, 0, 0, 0, 1, 20.9707, -67.4916, 0.155598)
+material = ExtResource("31_iqc4m")
+
+[node name="Cloud2" parent="." instance=ExtResource("30_r46xj")]
+transform = Transform3D(255.426, 0, 0, 0, 255.426, 0, 0, 0, 1, 20.9707, -67.4916, -10.916)
+sorting_offset = 150.0
+material = ExtResource("31_iqc4m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("32_6hkvu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Power_icons" type="Control" parent="."]
 layout_mode = 3
 anchor_right = 0.157
@@ -540,12 +559,12 @@ offset_top = 184.0
 offset_right = -91.864
 offset_bottom = 0.264008
 
-[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
+[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
 position = Vector2(30, 30)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("26_4so7b")
+texture = ExtResource("28_qmx03")
 
-[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
+[node name="Label" type="Label" parent="Power_icons/GhostOff"]
 anchors_preset = -1
 anchor_left = 0.774
 anchor_top = 0.732
@@ -598,12 +617,12 @@ text = "3
 "
 horizontal_alignment = 1
 
-[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
+[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
 position = Vector2(30, 180)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("28_qmx03")
+texture = ExtResource("26_4so7b")
 
-[node name="Label" type="Label" parent="Power_icons/GhostOff"]
+[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
 anchors_preset = -1
 anchor_left = 0.774
 anchor_top = 0.732
@@ -616,22 +635,3 @@ offset_bottom = -47.475
 theme_override_font_sizes/font_size = 30
 text = "4"
 horizontal_alignment = 1
-
-[node name="Cloud" parent="." instance=ExtResource("30_r46xj")]
-transform = Transform3D(255.426, 0, 0, 0, 255.426, 0, 0, 0, 1, 20.9707, -67.4916, 0.155598)
-material = ExtResource("31_iqc4m")
-
-[node name="Cloud2" parent="." instance=ExtResource("30_r46xj")]
-transform = Transform3D(255.426, 0, 0, 0, 255.426, 0, 0, 0, 1, 20.9707, -67.4916, -10.916)
-sorting_offset = 150.0
-material = ExtResource("31_iqc4m")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = ExtResource("32_6hkvu")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2

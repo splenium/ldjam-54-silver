@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_tyxh0"]
-[ext_resource type="AudioStream" uid="uid://jai6f6em3a64" path="res://assets/Sounds/Songs/Aqua.mp3" id="2_267br"]
+[ext_resource type="AudioStream" uid="uid://bjp8y250kq4n4" path="res://assets/Sounds/Songs/Aqua.mp3" id="2_267br"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/water_abyss.tscn" id="4_piyot"]
 [ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="6_g6kci"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="9_d5e16"]
@@ -455,6 +455,16 @@ position = Vector2(91.75, 81.25)
 scale = Vector2(0.635231, 0.628405)
 texture = ExtResource("21_pcfjq")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("26_06rcd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Power_icons" type="Control" parent="."]
 layout_mode = 3
 anchor_right = 0.157
@@ -464,12 +474,12 @@ offset_top = 184.0
 offset_right = -91.864
 offset_bottom = 0.264008
 
-[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
+[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
 position = Vector2(30, 30)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("23_4r0il")
+texture = ExtResource("24_seaf0")
 
-[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
+[node name="Label" type="Label" parent="Power_icons/GhostOff"]
 anchors_preset = -1
 anchor_left = 0.774
 anchor_top = 0.732
@@ -522,12 +532,12 @@ text = "3
 "
 horizontal_alignment = 1
 
-[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
+[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
 position = Vector2(30, 180)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("24_seaf0")
+texture = ExtResource("23_4r0il")
 
-[node name="Label" type="Label" parent="Power_icons/GhostOff"]
+[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
 anchors_preset = -1
 anchor_left = 0.774
 anchor_top = 0.732
@@ -540,13 +550,3 @@ offset_bottom = -47.475
 theme_override_font_sizes/font_size = 30
 text = "4"
 horizontal_alignment = 1
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = ExtResource("26_06rcd")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2

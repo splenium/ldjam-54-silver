@@ -80,12 +80,12 @@ offset_top = 184.0
 offset_right = -91.864
 offset_bottom = 0.264008
 
-[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
+[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
 position = Vector2(30, 30)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_yr8uc")
+texture = ExtResource("10_u2e87")
 
-[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
+[node name="Label" type="Label" parent="Power_icons/GhostOff"]
 anchors_preset = -1
 anchor_left = 0.774
 anchor_top = 0.732
@@ -138,12 +138,12 @@ text = "3
 "
 horizontal_alignment = 1
 
-[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
+[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
 position = Vector2(30, 180)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("10_u2e87")
+texture = ExtResource("8_yr8uc")
 
-[node name="Label" type="Label" parent="Power_icons/GhostOff"]
+[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
 anchors_preset = -1
 anchor_left = 0.774
 anchor_top = 0.732
