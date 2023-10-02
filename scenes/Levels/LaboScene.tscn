@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bumcdmvd7ixqg"]
+[gd_scene load_steps=20 format=3 uid="uid://cecjb644ptse5"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_qvpa6"]
-[ext_resource type="AudioStream" uid="uid://sygfgtatf6ri" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
+[ext_resource type="AudioStream" uid="uid://cqh60dfoyljq7" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_umr85"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="3_b8ktn"]
 [ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="3_fuf4c"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="12_27u8p"]
 [ext_resource type="PackedScene" uid="uid://cdb8xqvybjof" path="res://assets/Prefabs/labo/glass_pipe.tscn" id="13_nxapa"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/water_abyss.tscn" id="14_474ug"]
+[ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="15_4yjbn"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gjm3u"]
 
@@ -234,3 +235,8 @@ script = ExtResource("12_27u8p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_cj8ei")
+
+[node name="Rakoon_Power" type="Sprite2D" parent="."]
+position = Vector2(91.75, 81.25)
+scale = Vector2(0.635231, 0.628405)
+texture = ExtResource("15_4yjbn")

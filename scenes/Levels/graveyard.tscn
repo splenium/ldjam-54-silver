@@ -194,7 +194,7 @@ transform = Transform3D(1043.13, 0, 0, 0, 517.438, 0, 0, 0, 1, 21.853, -108.55, 
 mesh = SubResource("QuadMesh_33io8")
 material = SubResource("StandardMaterial3D_a4cga")
 
-[node name="RakoonHead" type="Sprite2D" parent="."]
-position = Vector2(76.3078, 76.0127)
-scale = Vector2(0.5245, 0.575776)
+[node name="Rakoon_Power" type="Sprite2D" parent="."]
+position = Vector2(91.75, 81.25)
+scale = Vector2(0.635231, 0.628405)
 texture = ExtResource("22_lkcxd")

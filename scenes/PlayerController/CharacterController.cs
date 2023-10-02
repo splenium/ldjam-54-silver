@@ -85,13 +85,11 @@ public partial class CharacterController : CharacterBody3D
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
-	[Export]
-	private Sprite2D Rakoon_Power;
-
-	private Texture2D racoon_base_texture;
-	private Texture2D racoon_wing_texture;
-	private Texture2D racoon_ghost_texture;
-	private Texture2D racoon_triton_texture;
+	private Sprite2D rakoon_Power;
+	private Texture2D rakoon_base_texture;
+	private Texture2D rakoon_wing_texture;
+	private Texture2D rakoon_ghost_texture;
+	private Texture2D rakoon_triton_texture;
 
 
 	public override void _Ready()
@@ -133,17 +131,37 @@ public partial class CharacterController : CharacterBody3D
 			{ PowerEnum.Fly, PowerFly },
 			{ PowerEnum.Ghost, PowerGhost }
 		};
-		racoon_base_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png");
-		racoon_wing_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/rakoon_wing.png");
-		racoon_ghost_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/rakoon_ghost.png");
-		racoon_triton_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/rakoon_triton.png");
+
+		rakoon_Power = GetParent().GetNode<Sprite2D>("Rakoon_Power");
+		rakoon_base_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png");
+		rakoon_wing_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/rakoon_wing.png");
+		rakoon_ghost_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/rakoon_ghost.png");
+		rakoon_triton_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/rakoon_triton.png");
 	}
 
 	private void SelectPower(Power newPower)
 	{
 		currentPower.Exit(this);
 		currentPower = newPower;
-		
+		GD.Print(newPower.PowerLabel);
+
+		if (newPower.PowerLabel == "RaKoon")
+		{
+			rakoon_Power.Texture = rakoon_base_texture;
+		}
+		if (newPower.PowerLabel == "Fishkoon")
+		{
+			rakoon_Power.Texture = rakoon_triton_texture;
+		}
+		if (newPower.PowerLabel == "Flykoon") 
+		{ 
+			rakoon_Power.Texture = rakoon_wing_texture; 
+		}
+		if (newPower.PowerLabel == "Gostkoon") 
+		{ 
+			rakoon_Power.Texture = rakoon_ghost_texture; 
+		}
+
 		currentPower.Init(this);
 	}
 
@@ -154,25 +172,25 @@ public partial class CharacterController : CharacterBody3D
 			if (@event.IsActionReleased(PowerHumanAction) && isPowerUnlock[PowerEnum.Human])
 			{
 				SelectPower(PowerHuman);
-				Rakoon_Power.Texture = racoon_base_texture;
+
 				GD.Print("Human");
 			}
 			else if (@event.IsActionReleased(PowerFlyAction) && isPowerUnlock[PowerEnum.Fly])
 			{
 				SelectPower(PowerFly);
-				Rakoon_Power.Texture = racoon_wing_texture;
+
 				GD.Print("Fly");
 			}
 			else if (@event.IsActionReleased(PowerFishAction) && isPowerUnlock[PowerEnum.Fish])
 			{
 				SelectPower(PowerFish);
-				Rakoon_Power.Texture = racoon_triton_texture;
+
 				GD.Print("Fish");
 			}
 			else if (@event.IsActionReleased(PowerGhostAction) && isPowerUnlock[PowerEnum.Ghost])
 			{
 				SelectPower(PowerGhost);
-				Rakoon_Power.Texture = racoon_ghost_texture;
+
 				GD.Print("Ghost");
 			}
 		}
