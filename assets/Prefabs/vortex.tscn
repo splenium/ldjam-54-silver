@@ -9,6 +9,7 @@ radius = 0.938056
 
 [node name="VortexAnimation" parent="." instance=ExtResource("1_5p33g")]
 transform = Transform3D(0.415858, 0, 0, 0, 0.415858, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = 150.0
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 256

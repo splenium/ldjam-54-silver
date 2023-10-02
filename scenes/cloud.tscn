@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdm8xiupqcdao"]
+
+[ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/CloudMat.tres" id="1_rf1d1"]
+[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_iapy1"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
+
+[node name="Cloud" type="CSGMesh3D"]
+transform = Transform3D(3.22027, 0, 0, 0, 3.22027, 0, 0, 0, 1, -0.0860417, -0.240632, 0.155598)
+mesh = SubResource("QuadMesh_qs0ii")
+material = ExtResource("1_rf1d1")
+script = ExtResource("2_iapy1")
+Speed = 2.0
+Amplitude = 0.005

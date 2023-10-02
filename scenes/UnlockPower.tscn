@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgj0n06q1fhte"]
+[gd_scene load_steps=10 format=3 uid="uid://bgj0n06q1fhte"]
 
 [ext_resource type="Script" path="res://scenes/UnlockPower.cs" id="1_pkdks"]
 [ext_resource type="AudioStream" uid="uid://f550fcn3knfd" path="res://assets/Sounds/172005__blue2107__oh-yeah.mp3" id="2_3wvpn"]
 [ext_resource type="Texture2D" uid="uid://bf5nil75ohsau" path="res://assets/Test/PowerMaterial/purple_white.png" id="2_434wc"]
 [ext_resource type="PackedScene" uid="uid://b6l40hdajspul" path="res://assets/Prefabs/dna.tscn" id="3_7hvur"]
+[ext_resource type="Material" uid="uid://dhbf8nuymy81q" path="res://assets/Fish/FishLightMat.tres" id="5_gmg1d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ohf0s"]
 
@@ -12,6 +13,8 @@ albedo_texture = ExtResource("2_434wc")
 
 [sub_resource type="QuadMesh" id="QuadMesh_q1s2q"]
 material = SubResource("StandardMaterial3D_rpbyx")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gfypt"]
 
 [node name="UnlockPower" type="Area3D"]
 collision_layer = 0
@@ -29,3 +32,8 @@ mesh = SubResource("QuadMesh_q1s2q")
 
 [node name="DNA" parent="." instance=ExtResource("3_7hvur")]
 transform = Transform3D(0.219754, 0, 0, 0, 0.219754, 0, 0, 0, 1, -0.00685924, 4.76837e-07, -0.191338)
+
+[node name="Light" type="CSGMesh3D" parent="."]
+transform = Transform3D(2.40482, 0, 0, 0, 2.40482, 0, 0, 0, 1, 0, 0, -0.01)
+mesh = SubResource("QuadMesh_gfypt")
+material = ExtResource("5_gmg1d")

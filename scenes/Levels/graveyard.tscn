@@ -1,12 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://bjrxx0g68e18x"]
+[gd_scene load_steps=28 format=3 uid="uid://bjrxx0g68e18x"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_2xoni"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_m1iqt"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_dnp53"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="3_3521m"]
-[ext_resource type="AudioStream" uid="uid://drcd14w2koeif" path="res://assets/Sounds/Songs/Cimetiere.mp3" id="4_75pdb"]
+[ext_resource type="AudioStream" uid="uid://bclrgxrqgjqa0" path="res://assets/Sounds/Songs/Cimetiere.mp3" id="4_75pdb"]
 [ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="4_n1t4r"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/graveyard/dino.tscn" id="4_oksl1"]
+[ext_resource type="PackedScene" uid="uid://bavh3ckhsnifc" path="res://assets/Prefabs/graveyard/dino.tscn" id="4_oksl1"]
 [ext_resource type="PackedScene" uid="uid://fa27lkyj3wa7" path="res://assets/Prefabs/rocks/flat_rock_2.tscn" id="5_652ma"]
 [ext_resource type="PackedScene" uid="uid://doiucep0m80t1" path="res://assets/Prefabs/graveyard/pillory.tscn" id="6_y8d85"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="7_e2s7j"]
@@ -17,15 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://duiqbyhuvxb7v" path="res://assets/Prefabs/vortex.tscn" id="12_psa0m"]
 [ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="13_on7le"]
 [ext_resource type="PackedScene" uid="uid://5sk85n3veo0o" path="res://assets/Textures/graveyard/cemetery_2.tscn" id="16_bpv66"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/graveyard/reverse_tree.tscn" id="18_l218n"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="19_gq5en"]
+[ext_resource type="PackedScene" uid="uid://b0ix6en3173nk" path="res://assets/Prefabs/graveyard/reverse_tree.tscn" id="18_l218n"]
+[ext_resource type="PackedScene" uid="uid://8l8ep2gwc1i0" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="19_gq5en"]
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="21_45mk3"]
 [ext_resource type="Texture2D" uid="uid://b5nkw674mex7f" path="res://assets/Textures/Background/Illustration_sans_titre.png" id="22_cb1ys"]
 [ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="22_lkcxd"]
-[ext_resource type="Texture2D" uid="uid://5o6nrueppwqm" path="res://scenes/dev/UI/Player/Power_on/racoon_on.png" id="23_ppqbr"]
-[ext_resource type="Texture2D" uid="uid://c00p7i4u0838g" path="res://scenes/dev/UI/Player/Power_icons_off/wings_off.png" id="24_sfhj6"]
-[ext_resource type="Texture2D" uid="uid://be82ov5jbieuw" path="res://scenes/dev/UI/Player/Power_icons_off/ghost_off.png" id="25_h7kep"]
-[ext_resource type="Texture2D" uid="uid://b5kba0ahv2m1s" path="res://scenes/dev/UI/Player/Power_icons_off/triton_off.png" id="26_o5eyr"]
+[ext_resource type="PackedScene" uid="uid://bdm8xiupqcdao" path="res://scenes/cloud.tscn" id="23_g1kro"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0m60g"]
 size = Vector3(0.151892, 1, 5.82228)
@@ -108,18 +105,19 @@ omni_range = 98.531
 
 [node name="CliffRock" parent="GameLayer" instance=ExtResource("3_3521m")]
 transform = Transform3D(15.1367, 0, 0, 0, 15.1367, 0, 0, 0, 1, 2.14499, 0.025305, -0.00264688)
+sorting_offset = -100.0
 
 [node name="FlatRock1" parent="GameLayer" instance=ExtResource("4_n1t4r")]
 transform = Transform3D(9.38845, 0, 0, 0, 9.38845, 0, 0, 0, 1, 6.81492, -1.4121, 0)
-sorting_offset = -10.0
+sorting_offset = -100.0
 
 [node name="FlatRock2" parent="GameLayer" instance=ExtResource("5_652ma")]
 transform = Transform3D(8.72869, 0, 0, 0, 8.72869, 0, 0, 0, 7.5, 15.167, -3.70662, 0)
-sorting_offset = -8.0
+sorting_offset = -100.0
 
 [node name="FlatRock4" parent="GameLayer" instance=ExtResource("5_652ma")]
 transform = Transform3D(-12.9562, 1.06656, 0, 1.06656, 12.9562, 0, 0, 0, 1.074, 30.4735, -22.3721, 0)
-sorting_offset = -13.0
+sorting_offset = -100.0
 
 [node name="TriangleRock2" parent="GameLayer" instance=ExtResource("7_e2s7j")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 22.8282, -5.89522, 0)
@@ -129,6 +127,7 @@ transform = Transform3D(9.96368, -0.851561, 0, 0.851561, 9.96368, 0, 0, 0, 10, 2
 
 [node name="CliffRock2" parent="GameLayer" instance=ExtResource("3_3521m")]
 transform = Transform3D(-3.96434, 14.6083, 0, -14.6083, -3.96434, 0, 0, 0, 1, 44.9771, -23.0283, -0.0557756)
+sorting_offset = -100.0
 
 [node name="Vortex" parent="GameLayer" instance=ExtResource("12_psa0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.7754, -17.3814, 0)
@@ -138,6 +137,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4544, 0, 0)
 
 [node name="Pillory" parent="GameLayer/BundleGrid" instance=ExtResource("6_y8d85")]
 transform = Transform3D(8.36697, 0, 0, 0, 8.36697, 0, 0, 0, 1, 5.38547, -0.376605, 0)
+sorting_offset = -100.0
 
 [node name="UnlockPower" parent="GameLayer/BundleGrid/Pillory" instance=ExtResource("7_e478l")]
 transform = Transform3D(0.119518, 0, 0, 0, 0.119518, 0, 0, 0, 1, -0.1821, 0.0391123, 0)
@@ -162,9 +162,11 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5.6373
 transform = Transform3D(0.999923, -0.0124091, 0, 0.0124091, 0.999923, 0, 0, 0, 1, 12.0855, -20.2328, -1.43791)
 
 [node name="Cemetery2" parent="GameLayer" instance=ExtResource("16_bpv66")]
+sorting_offset = -50.0
 
 [node name="Tree1" parent="GameLayer" instance=ExtResource("19_gq5en")]
 transform = Transform3D(6.91613, -3.59694, 0, 3.59694, 6.91613, 0, 0, 0, 1, -2.98902, 7.10104, 0)
+sorting_offset = -100.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="GameLayer/Tree1"]
 
@@ -173,13 +175,13 @@ transform = Transform3D(1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0, 1, 0.110083
 shape = SubResource("BoxShape3D_0m60g")
 
 [node name="ReverseTree" parent="GameLayer" instance=ExtResource("18_l218n")]
+sorting_offset = -100.0
 
 [node name="Decors" type="Node3D" parent="GameLayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.903992)
 
 [node name="Tree1" parent="GameLayer/Decors" instance=ExtResource("19_gq5en")]
 transform = Transform3D(7.79556, 0, 0, 0, 7.79556, 0, 0, 0, 1, 14.4912, 1.43052, 0.578369)
-sorting_offset = -15.0
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9158, -37.7755, 0)
@@ -203,88 +205,9 @@ position = Vector2(91.75, 81.25)
 scale = Vector2(0.635231, 0.628405)
 texture = ExtResource("22_lkcxd")
 
-[node name="Power_icons" type="Control" parent="."]
-layout_mode = 3
-anchor_right = 0.157
-anchor_bottom = 0.657
-offset_left = 25.0
-offset_top = 184.0
-offset_right = -91.864
-offset_bottom = 0.264008
+[node name="Cloud" parent="." instance=ExtResource("23_g1kro")]
+transform = Transform3D(109.212, 0, 0, 0, 109.212, 0, 0, 0, 1, 19.585, -25.8015, -2.08151)
 
-[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
-position = Vector2(30, 30)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("23_ppqbr")
-
-[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
-anchors_preset = -1
-anchor_left = 0.774
-anchor_top = 0.732
-anchor_right = 1.195
-anchor_bottom = 1.205
-offset_left = -47.53
-offset_top = -47.54
-offset_right = -47.525
-offset_bottom = -47.475
-theme_override_font_sizes/font_size = 30
-text = "1"
-horizontal_alignment = 1
-
-[node name="WingsOff" type="Sprite2D" parent="Power_icons"]
-position = Vector2(30, 80)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("24_sfhj6")
-
-[node name="Label" type="Label" parent="Power_icons/WingsOff"]
-anchors_preset = -1
-anchor_left = 0.774
-anchor_top = 0.732
-anchor_right = 1.195
-anchor_bottom = 1.205
-offset_left = -47.53
-offset_top = -47.54
-offset_right = -47.525
-offset_bottom = -47.475
-theme_override_font_sizes/font_size = 30
-text = "2
-"
-horizontal_alignment = 1
-
-[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
-position = Vector2(30, 130)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("25_h7kep")
-
-[node name="Label" type="Label" parent="Power_icons/GhostOff"]
-anchors_preset = -1
-anchor_left = 0.774
-anchor_top = 0.732
-anchor_right = 1.195
-anchor_bottom = 1.205
-offset_left = -47.53
-offset_top = -47.54
-offset_right = -47.525
-offset_bottom = -47.475
-theme_override_font_sizes/font_size = 30
-text = "3"
-horizontal_alignment = 1
-
-[node name="TritonOff" type="Sprite2D" parent="Power_icons"]
-position = Vector2(30, 180)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("26_o5eyr")
-
-[node name="Label" type="Label" parent="Power_icons/TritonOff"]
-anchors_preset = -1
-anchor_left = 0.774
-anchor_top = 0.732
-anchor_right = 1.195
-anchor_bottom = 1.205
-offset_left = -47.53
-offset_top = -47.54
-offset_right = -47.525
-offset_bottom = -47.475
-theme_override_font_sizes/font_size = 30
-text = "4"
-horizontal_alignment = 1
+[node name="Cloud2" parent="." instance=ExtResource("23_g1kro")]
+transform = Transform3D(140.124, 0, 0, 0, 140.124, 0, 0, 0, 1, 17.9136, -25.9376, 2.61859)
+sorting_offset = 100.0

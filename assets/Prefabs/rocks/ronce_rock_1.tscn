@@ -87,7 +87,10 @@ transform = Transform3D(0.675807, 0.667671, 0, -0.667671, 0.675807, 0, 0, 0, 0.9
 shape = SubResource("BoxShape3D_64u25")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 0
 script = ExtResource("1_4j8iy")
+AmountOfDamage = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(0.987908, 0.155038, 0, -0.155038, 0.987908, 0, 0, 0, 1, -0.284389, 0.137991, 0)

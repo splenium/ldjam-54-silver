@@ -10,5 +10,6 @@ albedo_texture = ExtResource("1_e531w")
 
 [node name="Tree1" type="CSGMesh3D"]
 transform = Transform3D(7.79556, 0, 0, 0, 7.79556, 0, 0, 0, 1, 0, 0, 0)
+sorting_offset = -50.0
 mesh = SubResource("QuadMesh_hdsgo")
 material = SubResource("StandardMaterial3D_03epr")
