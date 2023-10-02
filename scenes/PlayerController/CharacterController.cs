@@ -83,8 +83,15 @@ public partial class CharacterController : CharacterBody3D
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+
 	[Export]
-	private Label _rakoonStatesLabel;
+	private Sprite2D Rakoon_Power;
+
+	private readonly string _rakoon_base_path = "res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png";
+	private readonly string _rakoon_ghost_path = "res://scenes/dev/UI/Player/Faces_with_power/rakoon_ghost.png";
+	private readonly string _rakoon_triton_path = "res://scenes/dev/UI/Player/Faces_with_power/rakoon_triton.png";
+	private readonly string _rakoon_wing_path = "res://scenes/dev/UI/Player/Faces_with_power/rakoon_wing.png";
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -127,15 +134,30 @@ public partial class CharacterController : CharacterBody3D
         //_rakoonStatesLabel = GD.Load<Label>("Panel/Etats");
     }
 
-    private void SelectPower(Power newPower)
-    {
-        currentPower.Exit(this);
-        currentPower = newPower;
-				if(_rakoonStatesLabel != null) {
-        _rakoonStatesLabel.Text = newPower.PowerLabel;
-				}
-        currentPower.Init(this);
-    }
+	private void SelectPower(Power newPower)
+	{
+		currentPower.Exit(this);
+		currentPower = newPower;
+		switch (currentPower.PowerLabel)
+		{
+			case "power_human":
+				Texture2D newTexture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png");
+				Rakoon_Power.Texture = newTexture;
+				break;
+			case "power_fish":
+				Texture2D power_fish_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/rakoon_triton.png");
+				Rakoon_Power.Texture = power_fish_texture;
+				break;
+			case "power_fly":
+				Rakoon_Power.Texture = GD.Load<Texture2D>(_rakoon_wing_path);
+				break;
+			case "power_ghost":
+				Rakoon_Power.Texture = GD.Load<Texture2D>(_rakoon_ghost_path);
+				break;
+		}
+		
+		currentPower.Init(this);
+	}
 
     public override void _Input(InputEvent @event)
     {

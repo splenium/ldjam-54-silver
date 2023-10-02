@@ -14,7 +14,7 @@ grow_begin = 0.0
 grow_end = 0.0
 thickness = 0
 
-[node name="StartingMenu" type="Control" node_paths=PackedStringArray("CreditsControl", "BoxContainer")]
+[node name="StartingMenu" type="Control" node_paths=PackedStringArray("CreditsControl")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +28,6 @@ grow_vertical = 2
 script = ExtResource("1_6lhjk")
 StartingScene = ExtResource("2_kvdrg")
 CreditsControl = NodePath("Control")
-BoxContainer = NodePath("VBoxContainer2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
