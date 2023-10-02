@@ -1,7 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://cecjb644ptse5"]
+[gd_scene load_steps=39 format=3 uid="uid://cecjb644ptse5"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_qvpa6"]
-[ext_resource type="AudioStream" uid="uid://sygfgtatf6ri" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
+[ext_resource type="AudioStream" uid="uid://cqh60dfoyljq7" path="res://assets/Sounds/Songs/Labo.mp3" id="2_qsi0h"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="2_umr85"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="3_b8ktn"]
 [ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="3_fuf4c"]
@@ -11,16 +11,20 @@
 [ext_resource type="PackedScene" uid="uid://bg23uknq8tfnl" path="res://assets/Prefabs/labo/pipe_direction.tscn" id="7_om5uh"]
 [ext_resource type="Texture2D" uid="uid://b2vnex87uvvb5" path="res://assets/Textures/Labo/Acid_Puddle_3.png" id="10_7ax1p"]
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="12_27u8p"]
-[ext_resource type="PackedScene" uid="uid://b8qs4aal6rgc0" path="res://assets/Prefabs/labo/labo_rock.tscn" id="12_qfl84"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/labo_rock.tscn" id="12_qfl84"]
 [ext_resource type="PackedScene" uid="uid://cdb8xqvybjof" path="res://assets/Prefabs/labo/glass_pipe.tscn" id="13_nxapa"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/water_abyss.tscn" id="14_474ug"]
-[ext_resource type="PackedScene" uid="uid://cbkelh6dh2hpe" path="res://assets/Prefabs/labo/glass_pipe_straight.tscn" id="14_mcc2e"]
-[ext_resource type="PackedScene" uid="uid://dw1fon23wnduo" path="res://assets/Prefabs/labo/background_laboratory.tscn" id="15_2ftgi"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/glass_pipe_straight.tscn" id="14_mcc2e"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/labo/background_laboratory.tscn" id="15_2ftgi"]
 [ext_resource type="PackedScene" uid="uid://ddhpxwdtfedwg" path="res://assets/Prefabs/moving_fish.tscn" id="16_fbl4v"]
 [ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="18_bicr0"]
 [ext_resource type="Texture2D" uid="uid://dad7xwipgqpld" path="res://assets/Textures/Labo/Scientist_1.png" id="19_5m372"]
 [ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="20_6qha1"]
+[ext_resource type="Texture2D" uid="uid://5o6nrueppwqm" path="res://scenes/dev/UI/Player/Power_on/racoon_on.png" id="20_g5etc"]
 [ext_resource type="Texture2D" uid="uid://112q4klae1vl" path="res://assets/Textures/Labo/Tableau périodique.png" id="20_iy547"]
+[ext_resource type="Texture2D" uid="uid://c00p7i4u0838g" path="res://scenes/dev/UI/Player/Power_icons_off/wings_off.png" id="21_jnx1n"]
+[ext_resource type="Texture2D" uid="uid://be82ov5jbieuw" path="res://scenes/dev/UI/Player/Power_icons_off/ghost_off.png" id="22_pbkah"]
+[ext_resource type="Texture2D" uid="uid://b5kba0ahv2m1s" path="res://scenes/dev/UI/Player/Power_icons_off/triton_off.png" id="23_rsma0"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gjm3u"]
 
@@ -88,7 +92,6 @@ albedo_texture = ExtResource("20_iy547")
 script = ExtResource("1_qvpa6")
 LevelSound = ExtResource("2_qsi0h")
 DefaultCheckpoint = NodePath("CheckpointArea")
-NextLevelNumber = 0
 
 [node name="CheckpointArea" parent="." node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("3_fuf4c")]
 SpawnPoint = NodePath("Spawn")
@@ -500,3 +503,89 @@ transform = Transform3D(129.367, 0, 0, 0, 106.588, 0, 0, 0, 1, 54.8286, 11.4961,
 sorting_offset = -10.0
 mesh = SubResource("QuadMesh_bxp0h")
 material = SubResource("StandardMaterial3D_ipalk")
+
+[node name="Power_icons" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.157
+anchor_bottom = 0.657
+offset_left = 25.0
+offset_top = 184.0
+offset_right = -91.864
+offset_bottom = 0.264008
+
+[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 30)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_g5etc")
+
+[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="TritonOff" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 80)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_rsma0")
+
+[node name="Label" type="Label" parent="Power_icons/TritonOff"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "2"
+horizontal_alignment = 1
+
+[node name="WingsOff" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 130)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_jnx1n")
+
+[node name="Label" type="Label" parent="Power_icons/WingsOff"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 180)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_pbkah")
+
+[node name="Label" type="Label" parent="Power_icons/GhostOff"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "4"
+horizontal_alignment = 1

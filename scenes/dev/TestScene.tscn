@@ -25,6 +25,8 @@ ToFollow = NodePath("../CharacterBody3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7189, 0, 0)
 IsPowerHumanUnlock = true
 IsPowerFishUnlock = true
+IsPowerFlyUnlock = true
+IsPowerGhostUnlock = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.592308, 0.805711, 0, -0.805711, 0.592308, 0, 7.73916, 7.64032)
@@ -97,8 +99,27 @@ theme_override_font_sizes/font_size = 30
 text = "1"
 horizontal_alignment = 1
 
-[node name="WingsOff" type="Sprite2D" parent="Power_icons"]
+[node name="TritonOff" type="Sprite2D" parent="Power_icons"]
 position = Vector2(30, 80)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_bqix1")
+
+[node name="Label" type="Label" parent="Power_icons/TritonOff"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "2"
+horizontal_alignment = 1
+
+[node name="WingsOff" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 130)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_paj70")
 
@@ -113,35 +134,16 @@ offset_top = -47.54
 offset_right = -47.525
 offset_bottom = -47.475
 theme_override_font_sizes/font_size = 30
-text = "2
+text = "3
 "
 horizontal_alignment = 1
 
 [node name="GhostOff" type="Sprite2D" parent="Power_icons"]
-position = Vector2(30, 130)
+position = Vector2(30, 180)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_u2e87")
 
 [node name="Label" type="Label" parent="Power_icons/GhostOff"]
-anchors_preset = -1
-anchor_left = 0.774
-anchor_top = 0.732
-anchor_right = 1.195
-anchor_bottom = 1.205
-offset_left = -47.53
-offset_top = -47.54
-offset_right = -47.525
-offset_bottom = -47.475
-theme_override_font_sizes/font_size = 30
-text = "3"
-horizontal_alignment = 1
-
-[node name="TritonOff" type="Sprite2D" parent="Power_icons"]
-position = Vector2(30, 180)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_bqix1")
-
-[node name="Label" type="Label" parent="Power_icons/TritonOff"]
 anchors_preset = -1
 anchor_left = 0.774
 anchor_top = 0.732

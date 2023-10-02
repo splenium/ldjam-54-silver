@@ -151,12 +151,24 @@ public partial class CharacterController : CharacterBody3D
 
         wingsOff = GetParent().GetNode<Sprite2D>("Power_icons/WingsOff");
         wingsOn = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Power_on/wings_on.png");
+        if (isPowerUnlock[PowerEnum.Fly])
+        {
+            wingsOff.Texture = wingsOn;
+        }
 
         ghostOff = GetParent().GetNode<Sprite2D>("Power_icons/GhostOff");
         ghostOn = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Power_on/ghost_on.png");
+        if (isPowerUnlock[PowerEnum.Ghost])
+        {
+            ghostOff.Texture = ghostOn;
+        }
 
         tritonOff = GetParent().GetNode<Sprite2D>("Power_icons/TritonOff");
         tritonOn = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Power_on/triton_on.png");
+        if (isPowerUnlock[PowerEnum.Fish])
+        {
+            tritonOff.Texture = tritonOn;
+        }
     }
 
 	private void SelectPower(Power newPower)
