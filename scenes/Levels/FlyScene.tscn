@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bdaojckf405t1"]
+[gd_scene load_steps=37 format=3 uid="uid://bdaojckf405t1"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
 [ext_resource type="AudioStream" uid="uid://c3c6v6d2jabsw" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
@@ -20,6 +20,9 @@
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="17_5kkkm"]
 [ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="18_wvb40"]
 [ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="19_mobml"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
+[ext_resource type="Texture2D" uid="uid://mpyvxdyanc1" path="res://assets/Textures/Nuage/1/nuage_-1.png" id="22_pt53c"]
+[ext_resource type="Texture2D" uid="uid://b5nkw674mex7f" path="res://assets/Textures/Background/Illustration_sans_titre.png" id="23_7c1w1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4m4ox"]
 size = Vector3(0.11869, 0.872872, 22.2889)
@@ -45,6 +48,13 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve3D" id="Curve3D_xbjrt"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.0263252, -0.204689, -0.0265361, 32.1209, -19.0016, -1.37939),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [sub_resource type="Curve3D" id="Curve3D_petv7"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, -6.125, 4.585, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -12.13, -0.477, -0.094, -12.835, 0, 0, 0, 0, 0, -15.8641, -7.67709, -0.357422, 4.235, -11, 0, 0, 0, 0, 0, 0, 0),
@@ -54,7 +64,7 @@ point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_qi1b0"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, -6.125, 4.585, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -12.13, -0.477, -0.094, -12.835, 0, 0, 0, 0, 0, -15.8641, -7.67709, -0.357422, 4.235, -11, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedVector3Array(0, 0, 0, -6.125, 4.585, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -12.13, -0.477, -0.094, -12.835, 0, 0, 0, 0, 0, -16.109, -7.677, -0.357, 4.235, -11, 0, 0, 0, 0, 0, 0, 0),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -62,11 +72,37 @@ point_count = 4
 [sub_resource type="BoxShape3D" id="BoxShape3D_tvi1f"]
 size = Vector3(3387.83, 17.8482, 224.205)
 
+[sub_resource type="Curve3D" id="Curve3D_0506t"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -500, 0, 0, 0, 0, 0, 0, 0, 0, 500, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_5mjvn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlwim"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("22_pt53c")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fdabl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hp628"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("23_7c1w1")
+
 [node name="FlyScene" type="Node3D" node_paths=PackedStringArray("DefaultCheckpoint")]
 script = ExtResource("1_ic4qb")
 LevelSound = ExtResource("2_6o5do")
 NextScene = ExtResource("3_8st7c")
 DefaultCheckpoint = NodePath("CheckpointArea")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_qlhiq")]
+IsPowerHumanUnlock = true
+IsPowerFishUnlock = true
+IsPowerGhostUnlock = true
 
 [node name="CheckpointArea" parent="." node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_27gc2")]
 transform = Transform3D(4.725, 0, 0, 0, 4.725, 0, 0, 0, 4.725, 0, -3.46989, 0)
@@ -76,14 +112,8 @@ SpawnPoint = NodePath("SpawnPoint")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66472, -1.10619, 0)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("4_obfiy")]
-transform = Transform3D(1, 0, 0, 0, 0.980574, 0.196151, 0, -0.196151, 0.980574, 2.94312, 2, 17.7572)
+transform = Transform3D(1, 0, 0, 0, 0.980574, 0.196151, 0, -0.196151, 0.980574, 2.94312, 2, 15.6877)
 ToFollow = NodePath("../CharacterBody3D")
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_qlhiq")]
-IsPowerHumanUnlock = true
-IsPowerFishUnlock = true
-IsPowerFlyUnlock = true
-IsPowerGhostUnlock = true
 
 [node name="VortexAnim" parent="." instance=ExtResource("4_n1qjr")]
 transform = Transform3D(0.402202, 0, 0, 0, 0.402202, 0, 0, 0, 1, 0, 0.420532, 0)
@@ -192,6 +222,22 @@ speed = 0.23
 [node name="RoundRock2" parent="GameLayer/Path3D4/PathFollow3D" instance=ExtResource("19_mobml")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 
+[node name="Path3D6" type="Path3D" parent="GameLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.038, -53.5579, 0)
+curve = SubResource("Curve3D_xbjrt")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D6"]
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 0, 0, 0)
+progress = 18.4891
+rotation_mode = 0
+cubic_interp = false
+loop = false
+script = ExtResource("18_wvb40")
+speed = 0.23
+
+[node name="HighRock" parent="GameLayer/Path3D6/PathFollow3D" instance=ExtResource("8_8nu4s")]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+
 [node name="Path3D2" type="Path3D" parent="GameLayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7612, -3.89774, 0)
 curve = SubResource("Curve3D_petv7")
@@ -208,7 +254,7 @@ Reverse = false
 transform = Transform3D(16.27, 0, 0, 0, 16.27, 0, 0, 0, 16.27, 0, -0.0809288, 0.151729)
 
 [node name="Path3D5" type="Path3D" parent="GameLayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7612, -51.9598, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.7836, -37.3491, 0)
 curve = SubResource("Curve3D_qi1b0")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D5"]
@@ -216,11 +262,11 @@ transform = Transform3D(0.999861, 0, 0, 0, 0.999932, 0, 0, 0, 0.999979, 0, 0, 0)
 progress = 30.857
 rotation_mode = 0
 script = ExtResource("18_wvb40")
-speed = 0.1
+speed = -0.1
 Reverse = false
 
-[node name="RoundRock1" parent="GameLayer/Path3D5/PathFollow3D" instance=ExtResource("7_r7847")]
-transform = Transform3D(16.27, 0, 0, 0, 16.27, 0, 0, 0, 16.27, 0, -0.0809288, 0.151729)
+[node name="SmallRock2" parent="GameLayer/Path3D5/PathFollow3D" instance=ExtResource("20_7g17g")]
+transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, 0, 0, -0.334603)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9158, -150.038, 0)
@@ -230,3 +276,90 @@ script = ExtResource("17_5kkkm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_tvi1f")
+
+[node name="BackgroundNuage01" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -79.2067)
+
+[node name="Path3D" type="Path3D" parent="BackgroundNuage01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6499, -29.3172, 0)
+curve = SubResource("Curve3D_0506t")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="BackgroundNuage01/Path3D"]
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 40.178, 68.3834, 0)
+progress = 197.52
+rotation_mode = 0
+cubic_interp = false
+loop = false
+script = ExtResource("18_wvb40")
+speed = 0.005
+PlayOnFlyModeUnlock = false
+Reverse = false
+
+[node name="Nuage02" type="CSGMesh3D" parent="BackgroundNuage01/Path3D/PathFollow3D"]
+transform = Transform3D(79.4017, 0, 0, 0, 79.4017, 0, 0, 0, 28.755, -26.435, -18.9249, 0)
+mesh = SubResource("QuadMesh_5mjvn")
+material = SubResource("StandardMaterial3D_mlwim")
+
+[node name="Nuage04" type="CSGMesh3D" parent="BackgroundNuage01/Path3D/PathFollow3D"]
+transform = Transform3D(79.4017, 0, 0, 0, 79.4017, 0, 0, 0, 28.755, 52.3345, -30.3513, 0)
+mesh = SubResource("QuadMesh_5mjvn")
+material = SubResource("StandardMaterial3D_mlwim")
+
+[node name="Nuage03" type="CSGMesh3D" parent="BackgroundNuage01/Path3D/PathFollow3D"]
+transform = Transform3D(79.4017, 0, 0, 0, 79.4017, 0, 0, 0, 28.755, -462.485, -18.9249, 0)
+mesh = SubResource("QuadMesh_5mjvn")
+material = SubResource("StandardMaterial3D_mlwim")
+
+[node name="Nuage05" type="CSGMesh3D" parent="BackgroundNuage01/Path3D/PathFollow3D"]
+transform = Transform3D(79.4017, 0, 0, 0, 79.4017, 0, 0, 0, 28.755, -383.716, -30.3513, 0)
+mesh = SubResource("QuadMesh_5mjvn")
+material = SubResource("StandardMaterial3D_mlwim")
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="BackgroundNuage01/Path3D"]
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, -242.015, 68.3834, 0)
+progress = 197.52
+rotation_mode = 0
+cubic_interp = false
+loop = false
+script = ExtResource("18_wvb40")
+speed = 0.015
+PlayOnFlyModeUnlock = false
+Reverse = false
+
+[node name="Nuage01" type="CSGMesh3D" parent="BackgroundNuage01/Path3D/PathFollow3D2"]
+transform = Transform3D(79.4017, 0, 0, 0, 79.4017, 0, 0, 0, 28.755, 0, 0, 0)
+mesh = SubResource("QuadMesh_5mjvn")
+material = SubResource("StandardMaterial3D_mlwim")
+
+[node name="Nuage03" type="CSGMesh3D" parent="BackgroundNuage01/Path3D/PathFollow3D2"]
+transform = Transform3D(79.4017, 0, 0, 0, 79.4017, 0, 0, 0, 28.755, 24.2178, -53.2039, 0)
+mesh = SubResource("QuadMesh_5mjvn")
+material = SubResource("StandardMaterial3D_mlwim")
+
+[node name="Nuage05" type="CSGMesh3D" parent="BackgroundNuage01/Path3D/PathFollow3D2"]
+transform = Transform3D(79.4017, 0, 0, 0, 79.4017, 0, 0, 0, 28.755, 92.5601, 11.4262, 0)
+mesh = SubResource("QuadMesh_5mjvn")
+material = SubResource("StandardMaterial3D_mlwim")
+
+[node name="Nuage02" type="CSGMesh3D" parent="BackgroundNuage01/Path3D/PathFollow3D2"]
+transform = Transform3D(79.4017, 0, 0, 0, 79.4017, 0, 0, 0, 28.755, 499.239, 0, 0)
+mesh = SubResource("QuadMesh_5mjvn")
+material = SubResource("StandardMaterial3D_mlwim")
+
+[node name="Nuage04" type="CSGMesh3D" parent="BackgroundNuage01/Path3D/PathFollow3D2"]
+transform = Transform3D(79.4017, 0, 0, 0, 79.4017, 0, 0, 0, 28.755, 523.457, -53.2039, 0)
+mesh = SubResource("QuadMesh_5mjvn")
+material = SubResource("StandardMaterial3D_mlwim")
+
+[node name="Nuage06" type="CSGMesh3D" parent="BackgroundNuage01/Path3D/PathFollow3D2"]
+transform = Transform3D(79.4017, 0, 0, 0, 79.4017, 0, 0, 0, 28.755, 591.799, 11.4262, 0)
+mesh = SubResource("QuadMesh_5mjvn")
+material = SubResource("StandardMaterial3D_mlwim")
+
+[node name="Background" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -269.921)
+
+[node name="Background" type="CSGMesh3D" parent="Background"]
+transform = Transform3D(741.673, 0, 0, 0, 320.67, 0, 0, 0, 143.543, 0, -191.9, 128.853)
+mesh = SubResource("QuadMesh_fdabl")
+material = SubResource("StandardMaterial3D_hp628")
