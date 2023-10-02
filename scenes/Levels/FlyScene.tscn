@@ -1,9 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://bdaojckf405t1"]
+[gd_scene load_steps=36 format=3 uid="uid://bdaojckf405t1"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
 [ext_resource type="AudioStream" uid="uid://c3c6v6d2jabsw" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_qlhiq"]
-[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="4_27gc2"]
+[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/Checkpoint.tscn" id="4_27gc2"]
 [ext_resource type="PackedScene" uid="uid://cljg31i83ncu7" path="res://assets/Prefabs/vortex_anim.tscn" id="4_n1qjr"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="4_obfiy"]
 [ext_resource type="PackedScene" uid="uid://8l8ep2gwc1i0" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="7_1rq4q"]
@@ -19,7 +19,8 @@
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="17_5kkkm"]
 [ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="18_wvb40"]
 [ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="19_mobml"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
+[ext_resource type="PackedScene" uid="uid://2kdeoux4tqc" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
+[ext_resource type="Texture2D" uid="uid://mpyvxdyanc1" path="res://assets/Textures/Nuage/1/nuage_-1.png" id="22_pt53c"]
 [ext_resource type="Texture2D" uid="uid://b5nkw674mex7f" path="res://assets/Textures/Background/Illustration_sans_titre.png" id="23_7c1w1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4m4ox"]
@@ -82,6 +83,7 @@ point_count = 2
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlwim"]
 transparency = 1
 shading_mode = 0
+albedo_texture = ExtResource("22_pt53c")
 
 [sub_resource type="QuadMesh" id="QuadMesh_fdabl"]
 
