@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="4_t28ha"]
 [ext_resource type="Script" path="res://assets/Hovering.cs" id="5_o4xkj"]
 [ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="6_edigi"]
-[ext_resource type="Texture2D" uid="uid://c88ca13328aot" path="res://assets/Textures/Labo/Rakoon_Coma_-4.png" id="7_3nott"]
+[ext_resource type="Texture2D" uid="uid://dyh0n7i45drxs" path="res://assets/Textures/Labo/Rakoon_Coma_Full_Tank.png" id="7_evar6"]
 [ext_resource type="Texture2D" uid="uid://bnw5uy4ahpegs" path="res://assets/Textures/Labo/Rakoon_Coma_-5.png" id="8_nj05c"]
 [ext_resource type="Texture2D" uid="uid://cvktenn2ap81t" path="res://assets/Textures/Labo/Rakoon_Coma_-6.png" id="9_hoh7t"]
 [ext_resource type="Script" path="res://assets/Prefabs/labo/BodyMouvement.cs" id="10_4ffc0"]
@@ -14,6 +14,31 @@
 [sub_resource type="QuadMesh" id="QuadMesh_52028"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_aychl"]
+
+[sub_resource type="Animation" id="Animation_pa8tg"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_ujjh6"]
 resource_name = "up_and_down"
@@ -40,31 +65,6 @@ tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(-15, -0.25, 0, 0.25, 0, 15, -0.25, 0, 0.25, 0, -15, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.53, 3)
-}
-
-[sub_resource type="Animation" id="Animation_pa8tg"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Shadow:offset:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Shadow:offset:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(10, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gftln"]
@@ -119,17 +119,19 @@ Speed = 2.0
 Amplitude = 0.005
 
 [node name="Tank" type="Sprite3D" parent="."]
-modulate = Color(0.431373, 0.368627, 0.713726, 1)
+modulate = Color(0.803922, 0.788235, 0.945098, 1)
 double_sided = false
-texture = ExtResource("7_3nott")
+texture = ExtResource("7_evar6")
 
 [node name="Plat" type="Sprite3D" parent="."]
+visible = false
 modulate = Color(0.431373, 0.368627, 0.713726, 1)
 double_sided = false
 texture = ExtResource("8_nj05c")
 
 [node name="TopPipe" type="Sprite3D" parent="."]
-modulate = Color(0.431373, 0.368627, 0.713726, 1)
+visible = false
+modulate = Color(0.835294, 0.729412, 0.996078, 1)
 double_sided = false
 texture = ExtResource("9_hoh7t")
 
