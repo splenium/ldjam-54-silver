@@ -4,11 +4,14 @@ using System.Linq;
 public partial class GameManager : Node
 {
     private static Control pauseMenu;
-    private static List<Checkpoint> checkpoints = new List<Checkpoint>();
+    private static List<Checkpoint> checkpoints;
     private static Checkpoint lastCheckpoint = null;
 
     public static AudioStreamPlayer AudioMusic = null;
-    public static AudioStreamPlayer[] AudioEffect = null;
+    public static AudioStreamPlayer[] MyAudioEffect = null;
+
+    private static GameManager instance;
+    public static CharacterController MyPlayer = null;
 
     private static int simultaneousAudioEffect = 10;
 
@@ -19,12 +22,9 @@ public partial class GameManager : Node
 
     public override void _Ready()
     {
+        instance = this;
         InitAudio();
-        checkpoints.AddRange(GetTree().GetNodesInGroup("checkpoint").Select(x => (Checkpoint)x));
-        foreach (var checkpoint in checkpoints)
-        {
-            checkpoint.BodyEntered += (Node3D player) => OnCheckpointEnter(checkpoint);
-        }
+
         ProcessMode = ProcessModeEnum.Always;
         pauseMenu = (Control)GetParent().FindChild("PauseMenu", true, false);
         if (pauseMenu == null)
@@ -35,6 +35,17 @@ public partial class GameManager : Node
         }
     }
 
+    public static void InitializeCheckpoint(Checkpoint defaultCheckpoint)
+    {
+        checkpoints = new List<Checkpoint>();
+        checkpoints.AddRange(instance.GetTree().GetNodesInGroup("checkpoint").Select(x => (Checkpoint)x));
+        OnCheckpointEnter(defaultCheckpoint);
+        foreach (var checkpoint in checkpoints)
+        {
+            checkpoint.BodyEntered += (Node3D player) => OnCheckpointEnter(checkpoint);
+        }
+    }
+
     public void InitAudio()
     {
         AudioMusic = new AudioStreamPlayer();
@@ -42,12 +53,12 @@ public partial class GameManager : Node
         GD.Print("AudioMusic: " + AudioMusic + AudioMusic.VolumeDb);
         AddChild(AudioMusic);
 
-        AudioEffect = new AudioStreamPlayer[simultaneousAudioEffect];
+        MyAudioEffect = new AudioStreamPlayer[simultaneousAudioEffect];
         for (int i = 0; i < simultaneousAudioEffect; i++)
         {
-            AudioEffect[i] = new AudioStreamPlayer();
-            AudioEffect[i].Name = "AudioEffect" + i;
-            AddChild(GameManager.AudioEffect[i]);
+            MyAudioEffect[i] = new AudioStreamPlayer();
+            MyAudioEffect[i].Name = "MyAudioEffect" + i;
+            AddChild(GameManager.MyAudioEffect[i]);
         }
     }
 
@@ -61,7 +72,7 @@ public partial class GameManager : Node
 
     public static bool PlaySoundEffect(AudioStream audioStream, float volume = 0, float time = 0)
     {
-        foreach (AudioStreamPlayer audioSrc in AudioEffect)
+        foreach (AudioStreamPlayer audioSrc in MyAudioEffect)
         {
             if (!audioSrc.Playing)
             {
@@ -103,12 +114,6 @@ public partial class GameManager : Node
     {
         var playerController = (CharacterController)player;
         playerController.GlobalPosition = lastCheckpoint.SpawnPoint.GlobalPosition;
-        ResetAfterFrame(playerController);
-    }
-
-    private static async void ResetAfterFrame(CharacterController player)
-    {
-        await player.ToSignal(player.GetTree(), "idle_frame"); // Need to wait one frame before reset all state (looping death else)
-        player.Reset();
+        playerController.Reset();
     }
 }

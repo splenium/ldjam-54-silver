@@ -89,11 +89,3 @@ namespace LudumDare54Silver.scenes.PlayerController.Power
         }
     }
 }
-
-public enum PowerEnum
-{
-    Human,
-    Fish,
-    Fly,
-    Ghost
-}

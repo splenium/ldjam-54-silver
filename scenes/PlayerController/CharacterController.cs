@@ -46,13 +46,16 @@ public partial class CharacterController : CharacterBody3D
 		set => isPowerUnlock[PowerEnum.Ghost] = value;
 	}
 
-	private Dictionary<PowerEnum, bool> isPowerUnlock = new Dictionary<PowerEnum, bool>()
-	{
-		{ PowerEnum.Human, true },
-		{ PowerEnum.Fish, false },
-		{ PowerEnum.Fly, false },
-		{ PowerEnum.Ghost, false }
-	};
+    //[Export]
+    //public CpuParticles2D UnlockPowerParticle;
+
+    private Dictionary<PowerEnum, bool> isPowerUnlock = new Dictionary<PowerEnum, bool>()
+    {
+        { PowerEnum.Human, true },
+        { PowerEnum.Fish, false },
+        { PowerEnum.Fly, false },
+        { PowerEnum.Ghost, false }
+    };
 
 	private Dictionary<PowerEnum, Power> powerByEnum;
 
@@ -73,43 +76,46 @@ public partial class CharacterController : CharacterBody3D
 	private bool invulernability = false;
 	private int health = 100;
 
-	private bool hasTeleport = false;
+    private bool hasTeleport = false;
+    private float forcedZ;
 
 	//private Power selectedPower;
 
-	// Get the gravity from the project settings to be synced with RigidBody nodes.
-	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
-	[Export]
-	private Label _rakoonStatesLabel;
-	public override void _Ready()
-	{
-		base._Ready();
-		currentPower = PowerHuman;
-		currentPower.Init(this);
-		if (PowerHuman == null)
-		{
-			GD.PrintErr("CharacterController: PowerHuman is null");
-		}
-		if (PowerFish == null)
-		{
-			GD.PrintErr("CharacterController: PowerFish is null");
-		}
-		if (PowerFly == null)
-		{
-			GD.PrintErr("CharacterController: PowerFly is null");
-		}
-		if (PowerGhost == null)
-		{
-			GD.PrintErr("CharacterController: PowerGhost is null");
-		}
-		if (DamageDetector == null)
-		{
-			GD.PrintErr("CharacterController: DamageDetector is null");
-		}
-		if (DamageTakenTimer == null)
-		{
-			GD.PrintErr("CharacterController: DamageTakenTimer is null");
-		}
+    // Get the gravity from the project settings to be synced with RigidBody nodes.
+    public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+    [Export]
+    private Label _rakoonStatesLabel;
+    public override void _Ready()
+    {
+        base._Ready();
+        GameManager.MyPlayer = this;
+        forcedZ = this.GlobalPosition.Z;
+        currentPower = PowerHuman;
+        currentPower.Init(this);
+        if (PowerHuman == null)
+        {
+            GD.PrintErr("CharacterController: PowerHuman is null");
+        }
+        if (PowerFish == null)
+        {
+            GD.PrintErr("CharacterController: PowerFish is null");
+        }
+        if (PowerFly == null)
+        {
+            GD.PrintErr("CharacterController: PowerFly is null");
+        }
+        if (PowerGhost == null)
+        {
+            GD.PrintErr("CharacterController: PowerGhost is null");
+        }
+        if (DamageDetector == null)
+        {
+            GD.PrintErr("CharacterController: DamageDetector is null");
+        }
+        if (DamageTakenTimer == null)
+        {
+            GD.PrintErr("CharacterController: DamageTakenTimer is null");
+        }
 
 		powerByEnum = new Dictionary<PowerEnum, Power>()
 		{
@@ -160,21 +166,22 @@ public partial class CharacterController : CharacterBody3D
 		}
 	}
 
-	public override void _Process(double delta)
-	{
-		if (!invulernability && DamageDetector.HasOverlappingAreas())
-		{
-			int damageTaken = GameManager.DefaultAmountOfDamage;
-			foreach (Area3D area in DamageDetector.GetOverlappingAreas())
-			{
-				if (area is CustomDamage)
-				{
-					damageTaken = (area as CustomDamage).AmountOfDamage;
-				}
-			}
-			GD.Print("Vie: ", health, "Moins: ", damageTaken);
-			TakeDamage(damageTaken);
-		}
+    public override void _Process(double delta)
+    {
+        this.GlobalPosition = new Vector3(this.GlobalPosition.X, this.GlobalPosition.Y, forcedZ);
+        if (!invulernability && DamageDetector.HasOverlappingAreas())
+        {
+            int damageTaken = GameManager.DefaultAmountOfDamage;
+            foreach (Area3D area in DamageDetector.GetOverlappingAreas())
+            {
+                if (area is CustomDamage)
+                {
+                    damageTaken = (area as CustomDamage).AmountOfDamage;
+                }
+            }
+            GD.Print("Vie: ", health, "Moins: ", damageTaken);
+            TakeDamage(damageTaken);
+        }
 
 		if (!hasTeleport && VortexDetector.HasOverlappingAreas())
 		{
@@ -184,12 +191,17 @@ public partial class CharacterController : CharacterBody3D
 		}
 	}
 
-	public void Reset()
-	{
-		health = GameManager.MaxHealth;
-		DamageTakenTimer.Stop();
-		invulernability = false;
-	}
+    public async void Reset()
+    {
+        // Wait 10 frames to avoid the player multi death
+        for (int i = 0; i < 10; i++)
+        {
+            await ToSignal(GetTree(), "process_frame");
+        }
+        health = GameManager.MaxHealth;
+        DamageTakenTimer.Stop();
+        invulernability = false;
+    }
 
 	public void TakeDamage(int amount)
 	{
@@ -226,11 +238,12 @@ public partial class CharacterController : CharacterBody3D
 		GD.Print("Can take damage");
 	}
 
-	public void UnlockPower(PowerEnum power)
-	{
-		isPowerUnlock[power] = true;
-		SelectPower(powerByEnum[power]);
-	}
+    public void UnlockPower(PowerEnum power)
+    {
+        isPowerUnlock[power] = true;
+        SelectPower(powerByEnum[power]);
+        //UnlockPowerParticle.Emitting = true;
+    }
 
 	private void LoadNewLevel(string path)
 	{

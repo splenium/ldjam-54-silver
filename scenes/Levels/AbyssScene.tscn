@@ -3,15 +3,16 @@
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_tyxh0"]
 [ext_resource type="Script" path="res://assets/Hovering.cs" id="2_7v4yc"]
 [ext_resource type="AudioStream" uid="uid://jai6f6em3a64" path="res://assets/Sounds/Songs/Aqua.mp3" id="2_267br"]
+[ext_resource type="PackedScene" uid="uid://bdaojckf405t1" path="res://scenes/Levels/FlyScene.tscn" id="3_u3y20"]
 [ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="6_g6kci"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="9_d5e16"]
 [ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="9_xxpnm"]
 [ext_resource type="PackedScene" uid="uid://cfmpjoge2fq70" path="res://assets/Prefabs/rocks/round_rock_1.tscn" id="10_0xoww"]
 [ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="10_ya163"]
 [ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="11_kaorx"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="11_x3ou6"]
+[ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="11_x3ou6"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_1.tscn" id="12_3t6ba"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/moving_fish.tscn" id="12_x5gt4"]
+[ext_resource type="PackedScene" uid="uid://ddhpxwdtfedwg" path="res://assets/Prefabs/moving_fish.tscn" id="12_x5gt4"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="13_bvndj"]
 [ext_resource type="PackedScene" uid="uid://duiqbyhuvxb7v" path="res://assets/Prefabs/vortex.tscn" id="13_eej2v"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="13_g7n7f"]
@@ -20,7 +21,6 @@
 [ext_resource type="Material" uid="uid://bilv08qhv513l" path="res://assets/Materials/BackgroundWallMat.tres" id="15_8qahw"]
 [ext_resource type="PackedScene" uid="uid://bgj0n06q1fhte" path="res://scenes/UnlockPower.tscn" id="15_a5vqh"]
 [ext_resource type="Material" uid="uid://6ruug3uhe6dt" path="res://assets/Materials/ConcreteMat.tres" id="16_we5u8"]
-[ext_resource type="PackedScene" uid="uid://bjrxx0g68e18x" path="res://scenes/Levels/graveyard.tscn" id="19_6d6aa"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_3.tscn" id="19_avl3v"]
 [ext_resource type="PackedScene" uid="uid://cljg31i83ncu7" path="res://assets/Prefabs/vortex_anim.tscn" id="21_xlwu7"]
 
@@ -51,10 +51,11 @@ point_count = 10
 transparency = 1
 albedo_color = Color(0.627451, 1, 1, 0.431373)
 
-[node name="SebScene" type="Node3D"]
+[node name="SebScene" type="Node3D" node_paths=PackedStringArray("DefaultCheckpoint")]
 script = ExtResource("1_tyxh0")
 LevelSound = ExtResource("2_267br")
-NextScene = ExtResource("19_6d6aa")
+NextScene = ExtResource("3_u3y20")
+DefaultCheckpoint = NodePath("Abyss/CheckpointArea")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("13_bvndj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0904, 53.7924, 0)

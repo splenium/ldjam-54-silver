@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bjrxx0g68e18x"]
+[gd_scene load_steps=27 format=3 uid="uid://bjrxx0g68e18x"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_2xoni"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_m1iqt"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ix6en3173nk" path="res://assets/Prefabs/graveyard/reverse_tree.tscn" id="18_l218n"]
 [ext_resource type="PackedScene" uid="uid://8l8ep2gwc1i0" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="19_gq5en"]
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="21_45mk3"]
+[ext_resource type="Texture2D" uid="uid://b5nkw674mex7f" path="res://assets/Textures/Background/Illustration_sans_titre.png" id="22_cb1ys"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0m60g"]
 size = Vector3(0.151892, 1, 5.82228)
@@ -28,10 +29,18 @@ size = Vector3(0.151892, 1, 5.82228)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fvldb"]
 size = Vector3(1447.9, 17.8482, 43.6294)
 
-[node name="graveyard" type="Node3D" groups=["level"]]
+[sub_resource type="QuadMesh" id="QuadMesh_33io8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4cga"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("22_cb1ys")
+
+[node name="graveyard" type="Node3D" node_paths=PackedStringArray("DefaultCheckpoint") groups=["level"]]
 script = ExtResource("1_2xoni")
 LevelSound = ExtResource("4_75pdb")
 NextScene = ExtResource("3_jtbn2")
+DefaultCheckpoint = NodePath("CheckpointArea2")
 VolumeDb = -5.0
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("1_m1iqt")]
@@ -45,6 +54,13 @@ IsPowerHumanUnlock = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 7)
 spot_range = 14.1454
 spot_angle = 72.1121
+
+[node name="CheckpointArea2" parent="." node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("13_on7le")]
+transform = Transform3D(5.77404, 0, 0, 0, 5.77404, 0, 0, 0, 1, -0.227501, 20.3556, 0)
+SpawnPoint = NodePath("SpawnPoint")
+
+[node name="SpawnPoint" type="Node3D" parent="CheckpointArea2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231537, -2.45279, 0)
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -92,10 +108,6 @@ transform = Transform3D(15.1367, 0, 0, 0, 15.1367, 0, 0, 0, 1, 2.14499, 0.025305
 [node name="FlatRock1" parent="GameLayer" instance=ExtResource("4_n1t4r")]
 transform = Transform3D(9.38845, 0, 0, 0, 9.38845, 0, 0, 0, 1, 6.81492, -1.4121, 0)
 sorting_offset = -10.0
-
-[node name="FlatRock3" parent="GameLayer" instance=ExtResource("4_n1t4r")]
-transform = Transform3D(-14, -2.11394e-06, -8.74228e-08, -2.11394e-06, 14, 0, -1.22392e-06, -1.84807e-13, 1, 7.1441, -4.78592, 0)
-sorting_offset = -9.0
 
 [node name="FlatRock2" parent="GameLayer" instance=ExtResource("5_652ma")]
 transform = Transform3D(8.72869, 0, 0, 0, 8.72869, 0, 0, 0, 7.5, 15.167, -3.70662, 0)
@@ -158,8 +170,15 @@ shape = SubResource("BoxShape3D_0m60g")
 
 [node name="ReverseTree" parent="GameLayer" instance=ExtResource("18_l218n")]
 
+[node name="Decors" type="Node3D" parent="GameLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.903992)
+
+[node name="Tree1" parent="GameLayer/Decors" instance=ExtResource("19_gq5en")]
+transform = Transform3D(7.79556, 0, 0, 0, 7.79556, 0, 0, 0, 1, 14.4912, 1.43052, 0.578369)
+sorting_offset = -15.0
+
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9158, -55.7539, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9158, -37.7755, 0)
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("21_45mk3")
@@ -167,9 +186,10 @@ script = ExtResource("21_45mk3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_fvldb")
 
-[node name="BackgroundDecorLayer" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.903992)
+[node name="BackgroundLayer" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -223.184)
 
-[node name="Tree1" parent="BackgroundDecorLayer" instance=ExtResource("19_gq5en")]
-transform = Transform3D(7.79556, 0, 0, 0, 7.79556, 0, 0, 0, 1, 14.4912, 1.43052, 0.578369)
-sorting_offset = -15.0
+[node name="Background" type="CSGMesh3D" parent="BackgroundLayer"]
+transform = Transform3D(1043.13, 0, 0, 0, 517.438, 0, 0, 0, 1, 21.853, -108.55, 19.1714)
+mesh = SubResource("QuadMesh_33io8")
+material = SubResource("StandardMaterial3D_a4cga")
