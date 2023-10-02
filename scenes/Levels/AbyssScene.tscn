@@ -1,25 +1,27 @@
-[gd_scene load_steps=29 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=31 format=3 uid="uid://b17vcnmok5kix"]
 
+[ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_tyxh0"]
 [ext_resource type="Script" path="res://assets/Hovering.cs" id="2_7v4yc"]
-[ext_resource type="PackedScene" uid="uid://ddcwgvsbfvspb" path="res://assets/Prefabs/rocks/high_rock.tscn" id="6_g6kci"]
+[ext_resource type="AudioStream" uid="uid://jai6f6em3a64" path="res://assets/Sounds/Songs/Aqua.mp3" id="2_267br"]
+[ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="6_g6kci"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="9_d5e16"]
 [ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="9_xxpnm"]
-[ext_resource type="PackedScene" uid="uid://cu6ackaeydlfq" path="res://assets/Prefabs/rocks/round_rock_1.tscn" id="10_0xoww"]
+[ext_resource type="PackedScene" uid="uid://cfmpjoge2fq70" path="res://assets/Prefabs/rocks/round_rock_1.tscn" id="10_0xoww"]
 [ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="10_ya163"]
-[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/Checkpoint.tscn" id="11_kaorx"]
-[ext_resource type="PackedScene" uid="uid://c1u6u3y2vwrb1" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="11_x3ou6"]
-[ext_resource type="PackedScene" uid="uid://oj24k1fqxnu4" path="res://assets/Prefabs/rocks/small_rock_1.tscn" id="12_3t6ba"]
-[ext_resource type="PackedScene" uid="uid://dr7dnvxx3vg4j" path="res://assets/Prefabs/moving_fish.tscn" id="12_x5gt4"]
+[ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="11_kaorx"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="11_x3ou6"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_1.tscn" id="12_3t6ba"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/moving_fish.tscn" id="12_x5gt4"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="13_bvndj"]
 [ext_resource type="PackedScene" uid="uid://duiqbyhuvxb7v" path="res://assets/Prefabs/vortex.tscn" id="13_eej2v"]
-[ext_resource type="PackedScene" uid="uid://2kdeoux4tqc" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="13_g7n7f"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="13_g7n7f"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="14_j8xgx"]
 [ext_resource type="PackedScene" uid="uid://cb01jbet33cp1" path="res://assets/Prefabs/grid/vertical_grid.tscn" id="14_qf5nq"]
 [ext_resource type="Material" uid="uid://bilv08qhv513l" path="res://assets/Materials/BackgroundWallMat.tres" id="15_8qahw"]
 [ext_resource type="PackedScene" uid="uid://bgj0n06q1fhte" path="res://scenes/UnlockPower.tscn" id="15_a5vqh"]
 [ext_resource type="Material" uid="uid://6ruug3uhe6dt" path="res://assets/Materials/ConcreteMat.tres" id="16_we5u8"]
 [ext_resource type="PackedScene" uid="uid://bjrxx0g68e18x" path="res://scenes/Levels/graveyard.tscn" id="19_6d6aa"]
-[ext_resource type="PackedScene" uid="uid://b366ihuo6l2x" path="res://assets/Prefabs/rocks/small_rock_3.tscn" id="19_avl3v"]
+[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_3.tscn" id="19_avl3v"]
 [ext_resource type="PackedScene" uid="uid://cljg31i83ncu7" path="res://assets/Prefabs/vortex_anim.tscn" id="21_xlwu7"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_574u7"]
@@ -50,6 +52,13 @@ transparency = 1
 albedo_color = Color(0.627451, 1, 1, 0.431373)
 
 [node name="SebScene" type="Node3D"]
+script = ExtResource("1_tyxh0")
+LevelSound = ExtResource("2_267br")
+NextScene = ExtResource("19_6d6aa")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("13_bvndj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0904, 53.7924, 0)
+IsPowerGhostUnlock = true
 
 [node name="Abyss" type="Node3D" parent="."]
 
@@ -417,13 +426,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 curve = SubResource("Curve3D_2pvvu")
 
 [node name="GroundGrid" parent="Abyss" instance=ExtResource("14_qf5nq")]
-transform = Transform3D(-7.23423e-08, -1.655, 0, 1.655, -7.23423e-08, 0, 0, 0, 1.655, 30.7293, -24.7094, -0.464643)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 30.7293, -24.4035, -1.43791)
 
 [node name="Vortex" parent="Abyss" instance=ExtResource("13_eej2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6905, -26.5225, 0)
 
 [node name="UnlockPower" parent="Abyss" instance=ExtResource("15_a5vqh")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.8887, 41.3376, 0)
+transform = Transform3D(6.12, 0, 0, 0, 6.12, 0, 0, 0, 6.12, -15.534, 44.649, 0)
 power = 1
 
 [node name="Background" type="Node3D" parent="."]
@@ -468,11 +477,6 @@ material = ExtResource("16_we5u8")
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 11.986, 0.00497195, 0.00961852, -0.00138998)
 sorting_offset = 100.0
 material = SubResource("StandardMaterial3D_dqnb8")
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("13_bvndj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0904, 53.7924, 0)
-IsPowerGhostUnlock = true
-NextScene = ExtResource("19_6d6aa")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("14_j8xgx")]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -24.2205, 53.8599, 8)

@@ -38,29 +38,35 @@ public partial class GameManager : Node
     public void InitAudio()
     {
         AudioMusic = new AudioStreamPlayer();
-        GD.Print("AudioMusic: " + AudioMusic.Name);
-        GetTree().Root.AddChild(GameManager.AudioMusic);
+        AudioMusic.Name = "AudioMusicMain";
+        GD.Print("AudioMusic: " + AudioMusic + AudioMusic.VolumeDb);
+        AddChild(AudioMusic);
 
         AudioEffect = new AudioStreamPlayer[simultaneousAudioEffect];
         for (int i = 0; i < simultaneousAudioEffect; i++)
         {
             AudioEffect[i] = new AudioStreamPlayer();
-            GetTree().Root.AddChild(GameManager.AudioEffect[i]);
+            AudioEffect[i].Name = "AudioEffect" + i;
+            AddChild(GameManager.AudioEffect[i]);
         }
     }
 
-    public static void PlayMusic(AudioStream audioStream, float time = 0)
+    public static void PlayMusic(AudioStream audioStream, float volume = 0, float time = 0)
     {
+        AudioMusic.Stop();
         AudioMusic.Stream = audioStream;
+        AudioMusic.VolumeDb = volume;
         AudioMusic.Play(time);
     }
 
-    public static bool PlaySoundEffect(AudioStream audioStream, float time = 0)
+    public static bool PlaySoundEffect(AudioStream audioStream, float volume = 0, float time = 0)
     {
         foreach (AudioStreamPlayer audioSrc in AudioEffect)
         {
             if (!audioSrc.Playing)
             {
+                GD.Print("Play once ", audioStream.ResourceName);
+                audioSrc.VolumeDb = volume;
                 audioSrc.Stream = audioStream;
                 audioSrc.Play(time);
                 return true;
@@ -96,7 +102,13 @@ public partial class GameManager : Node
     public static void OnPlayerRespawn(CharacterBody3D player)
     {
         var playerController = (CharacterController)player;
-        playerController.Reset();
         playerController.GlobalPosition = lastCheckpoint.SpawnPoint.GlobalPosition;
+        ResetAfterFrame(playerController);
+    }
+
+    private static async void ResetAfterFrame(CharacterController player)
+    {
+        await player.ToSignal(player.GetTree(), "idle_frame"); // Need to wait one frame before reset all state (looping death else)
+        player.Reset();
     }
 }

@@ -1,6 +1,6 @@
-using System.Collections.Generic;
 using Godot;
 using LudumDare54Silver.scenes.PlayerController.Power;
+using System.Collections.Generic;
 
 
 public partial class CharacterController : CharacterBody3D
@@ -66,10 +66,7 @@ public partial class CharacterController : CharacterBody3D
     public Area3D VortexDetector;
 
     [Export]
-    public Resource NextScene;
-
-    [Signal]
-    public delegate void PlayerDiedEventHandler();
+    public AudioStream DeathSoundEffect;
 
 
     private Power currentPower;
@@ -190,7 +187,8 @@ public partial class CharacterController : CharacterBody3D
     public void Reset()
     {
         health = GameManager.MaxHealth;
-        // invulernability = false;
+        DamageTakenTimer.Stop();
+        invulernability = false;
     }
 
     public void TakeDamage(int amount)
@@ -200,18 +198,16 @@ public partial class CharacterController : CharacterBody3D
             return;
         }
         health -= amount;
+        invulernability = true;
         GD.Print("Check ", health);
         if (health <= 0)
         {
             GD.Print("Mort");
-            DamageTakenTimer.Stop();
-            EmitSignal(nameof(PlayerDiedEventHandler));
             GameManager.OnPlayerRespawn(this);
+            GameManager.PlaySoundEffect(DeathSoundEffect);
         }
         else
         {
-            GD.Print("Tranquille");
-            invulernability = true;
             DamageTakenTimer.Start();
         }
     }
@@ -238,7 +234,8 @@ public partial class CharacterController : CharacterBody3D
 
     private void LoadNewLevel(string path)
     {
-        GameManager.NextScene = NextScene.ResourcePath;
+        Level level = GetParent() as Level;
+        GameManager.NextScene = level.NextScene.ResourcePath;
         GD.Print("currentSceneName: ", GetTree().CurrentScene.Name);
         GetTree().ChangeSceneToFile(path);
     }

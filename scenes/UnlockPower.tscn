@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgj0n06q1fhte"]
+[gd_scene load_steps=8 format=3 uid="uid://bgj0n06q1fhte"]
 
 [ext_resource type="Script" path="res://scenes/UnlockPower.cs" id="1_pkdks"]
+[ext_resource type="AudioStream" uid="uid://f550fcn3knfd" path="res://assets/Sounds/172005__blue2107__oh-yeah.mp3" id="2_3wvpn"]
 [ext_resource type="Texture2D" uid="uid://bf5nil75ohsau" path="res://assets/Test/PowerMaterial/purple_white.png" id="2_434wc"]
 [ext_resource type="PackedScene" uid="uid://b6l40hdajspul" path="res://assets/Prefabs/dna.tscn" id="3_7hvur"]
 
@@ -17,6 +18,7 @@ collision_layer = 0
 collision_mask = 128
 script = ExtResource("1_pkdks")
 power = 2
+GetPowerSound = ExtResource("2_3wvpn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ohf0s")
