@@ -131,7 +131,9 @@ public partial class CharacterController : CharacterBody3D
     {
         currentPower.Exit(this);
         currentPower = newPower;
+				if(_rakoonStatesLabel != null) {
         _rakoonStatesLabel.Text = newPower.PowerLabel;
+				}
         currentPower.Init(this);
     }
 
