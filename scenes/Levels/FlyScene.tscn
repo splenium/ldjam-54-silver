@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bdaojckf405t1"]
+[gd_scene load_steps=39 format=3 uid="uid://bdaojckf405t1"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
 [ext_resource type="AudioStream" uid="uid://ci8d3loueh2s7" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="4_obfiy"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="7_1rq4q"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="7_7mstk"]
-[ext_resource type="PackedScene" uid="uid://cfmpjoge2fq70" path="res://assets/Prefabs/rocks/round_rock_1.tscn" id="7_r7847"]
 [ext_resource type="PackedScene" uid="uid://bync7ve5hgthl" path="res://assets/Prefabs/rocks/high_rock.tscn" id="8_8nu4s"]
 [ext_resource type="PackedScene" uid="uid://bb88gut16novv" path="res://assets/Prefabs/rocks/triangle_rock_1.tscn" id="8_85xnk"]
 [ext_resource type="PackedScene" uid="uid://fa27lkyj3wa7" path="res://assets/Prefabs/rocks/flat_rock_2.tscn" id="8_sarw3"]
@@ -19,7 +18,10 @@
 [ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="17_5kkkm"]
 [ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="18_wvb40"]
 [ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="19_mobml"]
-[ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
+[ext_resource type="PackedScene" uid="uid://2kdeoux4tqc" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
+[ext_resource type="PackedScene" uid="uid://cit38600ld0bf" path="res://assets/Prefabs/rocks/ronce_rock_1.tscn" id="20_q0d6v"]
+[ext_resource type="PackedScene" uid="uid://c8hr021ps6kxh" path="res://assets/Prefabs/rocks/ronce_rock_2.tscn" id="21_6x68i"]
+[ext_resource type="PackedScene" uid="uid://chv16tknq2slg" path="res://assets/Prefabs/rocks/ronce_rock_3.tscn" id="22_aao76"]
 [ext_resource type="Texture2D" uid="uid://mpyvxdyanc1" path="res://assets/Textures/Nuage/1/nuage_-1.png" id="22_pt53c"]
 [ext_resource type="Texture2D" uid="uid://b5nkw674mex7f" path="res://assets/Textures/Background/Illustration_sans_titre.png" id="23_7c1w1"]
 [ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="23_crks4"]
@@ -36,7 +38,14 @@ point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_r7rsu"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16.466, -12.188, -1.127),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14.5743, -13.9462, -1.12695),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_ow4w5"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -13.8776, -3.86041, 0, 0, 0, 0, 0, 0, 0, 16.1224, -1.86041, -1),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -101,7 +110,6 @@ DefaultCheckpoint = NodePath("CheckpointArea")
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_qlhiq")]
 IsPowerHumanUnlock = true
 IsPowerFishUnlock = true
-IsPowerFlyUnlock = true
 IsPowerGhostUnlock = true
 
 [node name="CheckpointArea" parent="." node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_27gc2")]
@@ -112,7 +120,7 @@ SpawnPoint = NodePath("SpawnPoint")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66472, -1.10619, 0)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("4_obfiy")]
-transform = Transform3D(1, 0, 0, 0, 0.980574, 0.196151, 0, -0.196151, 0.980574, 2.94312, -3.77661, 85.4349)
+transform = Transform3D(1, 0, 0, 0, 0.980574, 0.196151, 0, -0.196151, 0.980574, 2.943, -3.777, 18.494)
 current = true
 ToFollow = NodePath("../CharacterBody3D")
 
@@ -205,6 +213,22 @@ speed = 0.375
 
 [node name="RoundRock2" parent="GameLayer/Path3D3/PathFollow3D" instance=ExtResource("19_mobml")]
 
+[node name="Path3D8" type="Path3D" parent="GameLayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87757, -47.1396, 0)
+curve = SubResource("Curve3D_ow4w5")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D8"]
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 14.8385, -10.9833, -1.01561)
+progress = 18.4891
+rotation_mode = 0
+cubic_interp = false
+loop = false
+script = ExtResource("18_wvb40")
+speed = 0.375
+
+[node name="RonceRock45" parent="GameLayer/Path3D8/PathFollow3D" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.85501, 1.51621, 0, -1.51621, 7.85501, 0, 0, 0, 8, -27.1049, 9.45427, 1.01561)
+
 [node name="Path3D4" type="Path3D" parent="GameLayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5771, -56.8412, 0)
 curve = SubResource("Curve3D_4sgsf")
@@ -248,8 +272,23 @@ script = ExtResource("18_wvb40")
 speed = 0.1
 Reverse = false
 
-[node name="RoundRock1" parent="GameLayer/Path3D2/PathFollow3D" instance=ExtResource("7_r7847")]
-transform = Transform3D(16.27, 0, 0, 0, 16.27, 0, 0, 0, 16.27, 0, -0.0809288, 0.151729)
+[node name="RonceRock45" parent="GameLayer/Path3D2/PathFollow3D" instance=ExtResource("21_6x68i")]
+transform = Transform3D(9.35385, 6.18722, 0, -6.18722, 9.35385, 0, 0, 0, 11.215, 0, 0.112155, 0.152)
+
+[node name="Path3D7" type="Path3D" parent="GameLayer"]
+transform = Transform3D(-0.831528, 0.555483, 0, -0.555483, -0.831528, 0, 0, 0, 1, 21.0868, -39.9616, 0)
+curve = SubResource("Curve3D_petv7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D7"]
+transform = Transform3D(0.999861, 0, 0, 0, 0.999932, 0, 0, 0, 0.999979, -14.1538, -7.89887, -0.326562)
+progress = 30.857
+rotation_mode = 0
+script = ExtResource("18_wvb40")
+speed = 0.1
+Reverse = false
+
+[node name="RonceRock44" parent="GameLayer/Path3D7/PathFollow3D" instance=ExtResource("22_aao76")]
+transform = Transform3D(-6.65315, -4.44448, 0, 4.44417, -6.65267, 0, 0, 0, 8.00017, -0.0185833, 5.61066, 0.326569)
 
 [node name="Path3D5" type="Path3D" parent="GameLayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.7836, -37.3491, 0)
@@ -265,6 +304,143 @@ Reverse = false
 
 [node name="SmallRock2" parent="GameLayer/Path3D5/PathFollow3D" instance=ExtResource("20_7g17g")]
 transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, 0, 0, -0.334603)
+
+[node name="Border" type="Node3D" parent="GameLayer"]
+
+[node name="RonceRock1" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -24.7246, -134.292, 0)
+
+[node name="RonceRock2" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 66.4482, -144.415, 0)
+
+[node name="RonceRock3" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 52.1692, 13.419, 0)
+
+[node name="RonceRock4" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -33.8681, -121.688, 0)
+
+[node name="RonceRock5" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.62932, 2.40698, 0, -2.40698, 7.62932, 0, 0, 0, 8, -38.667, -97.3517, 0)
+
+[node name="RonceRock6" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -40.9035, -85.311, 0)
+
+[node name="RonceRock38" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 77.7729, -94.7129, 0)
+
+[node name="RonceRock7" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -35.0234, -111.051, 0)
+
+[node name="RonceRock8" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -38.9433, -73.0396, 0)
+
+[node name="RonceRock9" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -41.6532, -60.4353, 0)
+
+[node name="RonceRock10" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.62932, 2.40698, 0, -2.40698, 7.62932, 0, 0, 0, 8, -28.2135, -36.0045, 0)
+
+[node name="RonceRock11" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -30.575, -23.5427, 0)
+
+[node name="RonceRock12" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -33.5888, -54.3485, 0)
+
+[node name="RonceRock19" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -25.8159, -45.8172, 0)
+
+[node name="RonceRock13" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.91607, 1.15582, 0, -1.15582, 7.91607, 0, 0, 0, 8, -38.1808, -15.5825, 0)
+
+[node name="RonceRock14" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, -41.3037, -2.52548, 0)
+
+[node name="RonceRock15" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.99337, -0.325658, 0, 0.325658, 7.99337, 0, 0, 0, 8, -28.5199, 16.7198, 0)
+
+[node name="RonceRock16" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(7.99806, -0.176054, 0, 0.176054, 7.99806, 0, 0, 0, 8, -20.1118, 22.093, 0)
+
+[node name="RonceRock17" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(7.99459, -0.294266, 0, 0.294266, 7.99459, 0, 0, 0, 8, -35.8265, 7.8666, 0)
+
+[node name="HighRock2" parent="GameLayer/Border" instance=ExtResource("8_8nu4s")]
+transform = Transform3D(6.05359, 5.23011, 0, -5.23011, 6.05359, 0, 0, 0, 8, 81.4171, -20.566, 0)
+
+[node name="RonceRock26" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.62932, 2.40698, 0, -2.40698, 7.62932, 0, 0, 0, 8, 74.1325, -50.5206, 0)
+
+[node name="RonceRock35" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.85498, 1.51633, 0, -1.51633, 7.85498, 0, 0, 0, 8, -17.1494, -63.4397, 0)
+
+[node name="RonceRock44" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.85498, 1.51633, 0, -1.51633, 7.85498, 0, 0, 0, 8, -3.76595, -30.9516, 0)
+
+[node name="RonceRock34" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.62932, 2.40698, 0, -2.40698, 7.62932, 0, 0, 0, 8, 74.4873, -70.2113, 0)
+
+[node name="RonceRock27" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 77.8224, -38.4101, 0)
+
+[node name="RonceRock28" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 75.8772, -83.3233, 0)
+
+[node name="RonceRock39" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 69.0617, -131.589, 0)
+
+[node name="RonceRock40" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.9926, -0.344073, 0, 0.344073, 7.9926, 0, 0, 0, 8, 72.1341, -108.153, 0)
+
+[node name="RonceRock41" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 68.0761, -120.132, 0)
+
+[node name="RonceRock42" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -20.7981, -145.144, 0)
+
+[node name="RonceRock29" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 77.9441, -60.4763, 0)
+
+[node name="RonceRock30" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.60091, -2.49523, 0, 2.49523, 7.60091, 0, 0, 0, 8, 68.9707, -29.6831, 0)
+
+[node name="RonceRock43" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.60091, -2.49523, 0, 2.49523, 7.60091, 0, 0, 0, 8, 58.6521, -26.2095, 0)
+
+[node name="RonceRock31" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, 65.8492, -17.3769, 0)
+
+[node name="RonceRock36" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, 40.8367, 12.9574, 0)
+
+[node name="RonceRock37" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(6.67224, 4.41375, 0, -4.41375, 6.67224, 0, 0, 0, 8, 51.8351, -18.0865, 0)
+
+[node name="RonceRock32" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.99337, -0.325658, 0, 0.325658, 7.99337, 0, 0, 0, 8, 61.5293, -4.16817, 0)
+
+[node name="RonceRock33" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(7.99459, -0.294266, 0, 0.294266, 7.99459, 0, 0, 0, 8, 59.5886, 4.86471, 0)
+
+[node name="RonceRock18" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(7.99459, -0.294266, 0, 0.294266, 7.99459, 0, 0, 0, 8, -8.81101, 20.0947, 0)
+
+[node name="RonceRock20" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.99337, -0.325658, 0, 0.325658, 7.99337, 0, 0, 0, 8, 1.44108, 16.7198, 0)
+
+[node name="RonceRock21" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(7.99806, -0.176054, 0, 0.176054, 7.99806, 0, 0, 0, 8, 9.8492, 22.093, 0)
+
+[node name="RonceRock22" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(7.99459, -0.294266, 0, 0.294266, 7.99459, 0, 0, 0, 8, 21.15, 20.0947, 0)
+
+[node name="RonceRock23" parent="GameLayer/Border" instance=ExtResource("20_q0d6v")]
+transform = Transform3D(7.99876, -0.140596, 0, 0.140596, 7.99876, 0, 0, 0, 8, 32.2661, 20.1148, 0)
+
+[node name="RonceRock24" parent="GameLayer/Border" instance=ExtResource("21_6x68i")]
+transform = Transform3D(7.99999, 0.00907607, 0, -0.00907607, 7.99999, 0, 0, 0, 8, 40.7963, 25.292, 0)
+
+[node name="RonceRock25" parent="GameLayer/Border" instance=ExtResource("22_aao76")]
+transform = Transform3D(7.99925, -0.109184, 0, 0.109184, 7.99925, 0, 0, 0, 8, 52.0478, 23.0327, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9158, -150.038, 0)

@@ -44,13 +44,13 @@ public partial class Fly : Power
 
 
     // Get the gravity from the project settings to be synced with RigidBody nodes.
-    public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle() * 2;
+    public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
     public override void MoveCharacter(CharacterBody3D character, double delta)
     {
         Vector3 velocity = character.Velocity;
 
-        float gravityForce = gravity * (float)delta;
+        float gravityForce = gravity * (float)delta * 2;
 
         // Add the gravity.
         if (!character.IsOnFloor())

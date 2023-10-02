@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://but40s5gb663d"
-path.s3tc="res://.godot/imported/Glass_pipes_1.png-3b936b70819302a40e7ed2675658cf00.s3tc.ctex"
+uid="uid://bunu0hm2e0a48"
+path.s3tc="res://.godot/imported/Roches_tubes_1.png-178df1815edcad8ce1436877fda26204.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Textures/Labo/Glass_pipes_1.png"
-dest_files=["res://.godot/imported/Glass_pipes_1.png-3b936b70819302a40e7ed2675658cf00.s3tc.ctex"]
+source_file="res://assets/Textures/Labo/Roches_tubes_1.png"
+dest_files=["res://.godot/imported/Roches_tubes_1.png-178df1815edcad8ce1436877fda26204.s3tc.ctex"]
 
 [params]
 

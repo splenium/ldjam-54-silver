@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8qs4aal6rgc0"]
+
+[ext_resource type="Texture2D" uid="uid://d0yhqwi1arnf3" path="res://assets/Textures/Labo/Roches_tubes_3.png" id="1_cb23u"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_yp47r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_leusm"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_cb23u")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ww5wt"]
+size = Vector3(0.671743, 0.0911952, 6.55824)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7m15a"]
+size = Vector3(0.370655, 0.0911952, 6.55824)
+
+[node name="LaboRock" type="CSGMesh3D"]
+transform = Transform3D(6.55221, 0, 0, 0, 6.55221, 0, 0, 0, 1, 19.0671, -5.57125, 0)
+sorting_offset = -2.0
+mesh = SubResource("QuadMesh_yp47r")
+material = SubResource("StandardMaterial3D_leusm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0542917, -0.217345, 0)
+shape = SubResource("BoxShape3D_ww5wt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.890602, 0.454783, 0, -0.454783, 0.890602, 0, 0, 0, 1, -0.199069, -0.304815, 0)
+shape = SubResource("BoxShape3D_7m15a")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.875498, -0.483221, 0, 0.483221, 0.875498, 0, 0, 0, 1, 0.0844531, -0.289734, 0)
+shape = SubResource("BoxShape3D_7m15a")

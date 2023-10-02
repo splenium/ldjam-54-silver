@@ -47,16 +47,16 @@ public partial class CharacterController : CharacterBody3D
 		set => isPowerUnlock[PowerEnum.Ghost] = value;
 	}
 
-	//[Export]
-	//public CpuParticles2D UnlockPowerParticle;
+    //[Export]
+    //public CpuParticles2D UnlockPowerParticle;
 
-	private Dictionary<PowerEnum, bool> isPowerUnlock = new Dictionary<PowerEnum, bool>()
-	{
-		{ PowerEnum.Human, true },
-		{ PowerEnum.Fish, false },
-		{ PowerEnum.Fly, false },
-		{ PowerEnum.Ghost, false }
-	};
+    private Dictionary<PowerEnum, bool> isPowerUnlock = new Dictionary<PowerEnum, bool>()
+    {
+        { PowerEnum.Human, true },
+        { PowerEnum.Fish, false },
+        { PowerEnum.Fly, false },
+        { PowerEnum.Ghost, false }
+    };
 
 	private Dictionary<PowerEnum, Power> powerByEnum;
 
@@ -66,8 +66,11 @@ public partial class CharacterController : CharacterBody3D
 	[Export]
 	public Timer DamageTakenTimer;
 
-	[Export]
-	public Area3D VortexDetector;
+    [Export]
+    public Timer BlinkTimer;
+
+    [Export]
+    public Area3D VortexDetector;
 
 	[Export]
 	public AudioStream DeathSoundEffect;
@@ -77,52 +80,47 @@ public partial class CharacterController : CharacterBody3D
 	private bool invulernability = false;
 	private int health = 100;
 
-	private bool hasTeleport = false;
-	private float forcedZ;
+    private bool hasTeleport = false;
+    private float forcedZ;
+    private bool visibleState = true;
 
 	//private Power selectedPower;
 
-	// Get the gravity from the project settings to be synced with RigidBody nodes.
-	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
-
-	private Sprite2D rakoon_Power;
-	private Texture2D rakoon_base_texture;
-	private Texture2D rakoon_wing_texture;
-	private Texture2D rakoon_ghost_texture;
-	private Texture2D rakoon_triton_texture;
-
-
-	public override void _Ready()
-	{
-		base._Ready();
-		GameManager.MyPlayer = this;
-		forcedZ = this.GlobalPosition.Z;
-		currentPower = PowerHuman;
-		currentPower.Init(this);
-		if (PowerHuman == null)
-		{
-			GD.PrintErr("CharacterController: PowerHuman is null");
-		}
-		if (PowerFish == null)
-		{
-			GD.PrintErr("CharacterController: PowerFish is null");
-		}
-		if (PowerFly == null)
-		{
-			GD.PrintErr("CharacterController: PowerFly is null");
-		}
-		if (PowerGhost == null)
-		{
-			GD.PrintErr("CharacterController: PowerGhost is null");
-		}
-		if (DamageDetector == null)
-		{
-			GD.PrintErr("CharacterController: DamageDetector is null");
-		}
-		if (DamageTakenTimer == null)
-		{
-			GD.PrintErr("CharacterController: DamageTakenTimer is null");
-		}
+    // Get the gravity from the project settings to be synced with RigidBody nodes.
+    public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+    [Export]
+    private Label _rakoonStatesLabel;
+    public override void _Ready()
+    {
+        base._Ready();
+        GameManager.MyPlayer = this;
+        forcedZ = this.GlobalPosition.Z;
+        currentPower = PowerHuman;
+        currentPower.Init(this);
+        if (PowerHuman == null)
+        {
+            GD.PrintErr("CharacterController: PowerHuman is null");
+        }
+        if (PowerFish == null)
+        {
+            GD.PrintErr("CharacterController: PowerFish is null");
+        }
+        if (PowerFly == null)
+        {
+            GD.PrintErr("CharacterController: PowerFly is null");
+        }
+        if (PowerGhost == null)
+        {
+            GD.PrintErr("CharacterController: PowerGhost is null");
+        }
+        if (DamageDetector == null)
+        {
+            GD.PrintErr("CharacterController: DamageDetector is null");
+        }
+        if (DamageTakenTimer == null)
+        {
+            GD.PrintErr("CharacterController: DamageTakenTimer is null");
+        }
 
 		powerByEnum = new Dictionary<PowerEnum, Power>()
 		{
@@ -139,31 +137,16 @@ public partial class CharacterController : CharacterBody3D
 		rakoon_triton_texture = GD.Load<Texture2D>("res://scenes/dev/UI/Player/Faces_with_power/rakoon_triton.png");
 	}
 
-	private void SelectPower(Power newPower)
-	{
-		currentPower.Exit(this);
-		currentPower = newPower;
-		GD.Print(newPower.PowerLabel);
-
-		if (newPower.PowerLabel == "RaKoon")
-		{
-			rakoon_Power.Texture = rakoon_base_texture;
-		}
-		if (newPower.PowerLabel == "Fishkoon")
-		{
-			rakoon_Power.Texture = rakoon_triton_texture;
-		}
-		if (newPower.PowerLabel == "Flykoon") 
-		{ 
-			rakoon_Power.Texture = rakoon_wing_texture; 
-		}
-		if (newPower.PowerLabel == "Gostkoon") 
-		{ 
-			rakoon_Power.Texture = rakoon_ghost_texture; 
-		}
-
-		currentPower.Init(this);
-	}
+    private void SelectPower(Power newPower)
+    {
+        currentPower.Exit(this);
+        currentPower = newPower;
+        if (_rakoonStatesLabel != null)
+        {
+            _rakoonStatesLabel.Text = newPower.PowerLabel;
+        }
+        currentPower.Init(this);
+    }
 
 	public override void _Input(InputEvent @event)
 	{
@@ -196,63 +179,74 @@ public partial class CharacterController : CharacterBody3D
 		}
 	}
 
-	public override void _Process(double delta)
-	{
-		this.GlobalPosition = new Vector3(this.GlobalPosition.X, this.GlobalPosition.Y, forcedZ);
-		if (!invulernability && DamageDetector.HasOverlappingAreas())
-		{
-			int damageTaken = GameManager.DefaultAmountOfDamage;
-			foreach (Area3D area in DamageDetector.GetOverlappingAreas())
-			{
-				if (area is CustomDamage)
-				{
-					damageTaken = (area as CustomDamage).AmountOfDamage;
-				}
-			}
-			GD.Print("Vie: ", health, "Moins: ", damageTaken);
-			TakeDamage(damageTaken);
-		}
+    public override void _Process(double delta)
+    {
+        this.GlobalPosition = new Vector3(this.GlobalPosition.X, this.GlobalPosition.Y, forcedZ);
+        if (!invulernability && DamageDetector.HasOverlappingAreas())
+        {
+            int damageTaken = GameManager.DefaultAmountOfDamage;
+            foreach (Area3D area in DamageDetector.GetOverlappingAreas())
+            {
+                if (area is CustomDamage)
+                {
+                    damageTaken = (area as CustomDamage).AmountOfDamage;
+                }
+            }
+            GD.Print("Vie: ", health, "Moins: ", damageTaken);
+            TakeDamage(damageTaken);
+        }
 
-		if (!hasTeleport && VortexDetector.HasOverlappingAreas())
-		{
-			hasTeleport = true;
-			GD.Print("Vortex");
-			LoadNewLevel("res://scenes/VortexTravel.tscn");
-		}
-	}
+        if (!hasTeleport && VortexDetector.HasOverlappingAreas())
+        {
+            hasTeleport = true;
+            GD.Print("Vortex");
+            LoadNewLevel("res://scenes/VortexTravel.tscn");
+        }
 
-	public async void Reset()
-	{
-		// Wait 10 frames to avoid the player multi death
-		for (int i = 0; i < 10; i++)
-		{
-			await ToSignal(GetTree(), "process_frame");
-		}
-		health = GameManager.MaxHealth;
-		DamageTakenTimer.Stop();
-		invulernability = false;
-	}
+        if (invulernability)
+        {
+            this.currentPower.Visible = this.visibleState;
+        }
+        else
+        {
+            this.currentPower.Visible = true;
+        }
+    }
 
-	public void TakeDamage(int amount)
-	{
-		if (invulernability)
-		{
-			return;
-		}
-		health -= amount;
-		invulernability = true;
-		GD.Print("Check ", health);
-		if (health <= 0)
-		{
-			GD.Print("Mort");
-			GameManager.OnPlayerRespawn(this);
-			GameManager.PlaySoundEffect(DeathSoundEffect);
-		}
-		else
-		{
-			DamageTakenTimer.Start();
-		}
-	}
+    public async void Reset()
+    {
+        // Wait 10 frames to avoid the player multi death
+        for (int i = 0; i < 10; i++)
+        {
+            await ToSignal(GetTree(), "process_frame");
+        }
+        health = GameManager.MaxHealth;
+        DamageTakenTimer.Stop();
+        invulernability = false;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        if (invulernability)
+        {
+            return;
+        }
+        health -= amount;
+        invulernability = true;
+
+        GD.Print("Check ", health);
+        if (health <= 0)
+        {
+            GD.Print("Mort");
+            GameManager.OnPlayerRespawn(this);
+            GameManager.PlaySoundEffect(DeathSoundEffect);
+        }
+        else
+        {
+            DamageTakenTimer.Start();
+            BlinkTimer.Start();
+        }
+    }
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -268,20 +262,35 @@ public partial class CharacterController : CharacterBody3D
 		GD.Print("Can take damage");
 	}
 
-	public void UnlockPower(PowerEnum power)
-	{
-		isPowerUnlock[power] = true;
-		SelectPower(powerByEnum[power]);
-		//UnlockPowerParticle.Emitting = true;
-	}
+    public void UnlockPower(PowerEnum power)
+    {
+        isPowerUnlock[power] = true;
+        SelectPower(powerByEnum[power]);
+        //UnlockPowerParticle.Emitting = true;
+    }
 
-	private void LoadNewLevel(string path)
-	{
-		Level level = GetParent() as Level;
-		//GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad++]; // On fait pas ca ca marche pas en gdscirpt !!!!
-		GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad];
-		GameManager.SceneToLoad++;
-		GD.Print("currentSceneName: ", GetTree().CurrentScene.Name, " ", GameManager.SceneToLoad, " ", GameManager.NextScene);
-		GetTree().ChangeSceneToFile(path);
-	}
+    private void LoadNewLevel(string path)
+    {
+        Level level = GetParent() as Level;
+        //GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad++]; // On fait pas ca ca marche pas en gdscirpt !!!!
+        GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad];
+        GameManager.SceneToLoad++;
+        GD.Print("currentSceneName: ", GetTree().CurrentScene.Name, " ", GameManager.SceneToLoad, " ", GameManager.NextScene);
+        GetTree().ChangeSceneToFile(path);
+    }
+
+    public void _OnBlinkTimerTimeout()
+    {
+        GD.Print("Change VISIBLE");
+        this.visibleState = !this.visibleState;
+
+        if (invulernability)
+        {
+            BlinkTimer.Start();
+        }
+        else
+        {
+            this.visibleState = true;
+        }
+    }
 }
