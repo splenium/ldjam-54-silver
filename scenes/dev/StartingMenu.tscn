@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://o3eje0au3pu8"]
+[gd_scene load_steps=9 format=3 uid="uid://o3eje0au3pu8"]
 
 [ext_resource type="Script" path="res://scenes/dev/StartingMenu.cs" id="1_6lhjk"]
+[ext_resource type="PackedScene" uid="uid://bjrxx0g68e18x" path="res://scenes/Levels/graveyard.tscn" id="2_kvdrg"]
 [ext_resource type="Texture2D" uid="uid://071dl0433mep" path="res://scenes/dev/UI/button.png" id="4_4g3iy"]
 [ext_resource type="Texture2D" uid="uid://dkb0j0gd8i3aq" path="res://scenes/dev/UI/MenuIcon.png" id="4_fiw1k"]
 [ext_resource type="FontFile" uid="uid://cqdve6tquq85u" path="res://assets/FontStyle/ariblk.ttf" id="4_lv1b4"]
@@ -25,6 +26,7 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6lhjk")
+StartingScene = ExtResource("2_kvdrg")
 CreditsControl = NodePath("Control")
 BoxContainer = NodePath("VBoxContainer2")
 
