@@ -290,14 +290,14 @@ public partial class CharacterController : CharacterBody3D
 	}
 
 	private void LoadNewLevel(string path)
-	{
-		Level level = GetParent() as Level;
-		//GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad++]; // On fait pas ca ca marche pas en gdscirpt !!!!
-		GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad];
-		GameManager.SceneToLoad++;
-		GD.Print("currentSceneName: ", GetTree().CurrentScene.Name, " ", GameManager.SceneToLoad, " ", GameManager.NextScene);
-		GetTree().ChangeSceneToFile(path);
-	}
+    {
+        Level level = GetParent() as Level;
+        //GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad++]; // On fait pas ca ca marche pas en gdscirpt !!!!
+        GameManager.SceneToLoad = level.NextLevelNumber;
+        GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad];
+        GD.Print("currentSceneName: ", GetTree().CurrentScene.Name, " ", GameManager.SceneToLoad, " ", GameManager.NextScene);
+        GetTree().ChangeSceneToFile(path);
+    }
 
 	public void _OnBlinkTimerTimeout()
 	{
