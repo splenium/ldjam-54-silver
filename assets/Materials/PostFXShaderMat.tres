@@ -10,5 +10,5 @@ shader_parameter/_vignetteSharp = 0.032
 shader_parameter/_vignetteOpacity = 1.0
 shader_parameter/_bloomRadius = 0.59
 shader_parameter/_bloomPow = 0.541
-shader_parameter/_bloomOpacity = 1.0
+shader_parameter/_bloomOpacity = 0.53
 shader_parameter/_noiseTex = ExtResource("2_dalnv")
