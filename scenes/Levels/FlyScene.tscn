@@ -21,7 +21,7 @@
 [ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="18_wvb40"]
 [ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="19_mobml"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
-[ext_resource type="Texture2D" uid="uid://mpyvxdyanc1" path="res://assets/Textures/Nuage/1/nuage_-1.png" id="22_pt53c"]
+[ext_resource type="Texture2D" path="res://assets/Textures/Nuage/1/nuage_-1.png" id="22_pt53c"]
 [ext_resource type="Texture2D" uid="uid://b5nkw674mex7f" path="res://assets/Textures/Background/Illustration_sans_titre.png" id="23_7c1w1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4m4ox"]
@@ -102,6 +102,7 @@ DefaultCheckpoint = NodePath("CheckpointArea")
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_qlhiq")]
 IsPowerHumanUnlock = true
 IsPowerFishUnlock = true
+IsPowerFlyUnlock = true
 IsPowerGhostUnlock = true
 
 [node name="CheckpointArea" parent="." node_paths=PackedStringArray("SpawnPoint") instance=ExtResource("4_27gc2")]
@@ -112,7 +113,8 @@ SpawnPoint = NodePath("SpawnPoint")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66472, -1.10619, 0)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("ToFollow") instance=ExtResource("4_obfiy")]
-transform = Transform3D(1, 0, 0, 0, 0.980574, 0.196151, 0, -0.196151, 0.980574, 2.94312, 2, 15.6877)
+transform = Transform3D(1, 0, 0, 0, 0.980574, 0.196151, 0, -0.196151, 0.980574, 2.94312, -3.77661, 85.4349)
+current = true
 ToFollow = NodePath("../CharacterBody3D")
 
 [node name="VortexAnim" parent="." instance=ExtResource("4_n1qjr")]
@@ -179,7 +181,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6499, -29.3172, 0)
 curve = SubResource("Curve3D_i2n38")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D"]
-transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 0, 0, 0)
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, -18.2639, 2.64718, -1.12695)
 progress = 18.4891
 rotation_mode = 0
 cubic_interp = false
@@ -195,7 +197,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0169811, -69.9438, 0)
 curve = SubResource("Curve3D_r7rsu")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D3"]
-transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 0, 0, 0)
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 14.8385, -10.9834, -1.01561)
 progress = 18.4891
 rotation_mode = 0
 cubic_interp = false
@@ -211,7 +213,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.5771, -56.8412, 0)
 curve = SubResource("Curve3D_4sgsf")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D4"]
-transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 0, 0, 0)
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, -18.0348, -4.04053, -0.516407)
 progress = 18.4891
 rotation_mode = 0
 cubic_interp = false
@@ -227,7 +229,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.038, -53.5579, 0)
 curve = SubResource("Curve3D_xbjrt")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D6"]
-transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 0, 0, 0)
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 15.9023, -9.40727, -0.682907)
 progress = 18.4891
 rotation_mode = 0
 cubic_interp = false
@@ -243,7 +245,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7612, -3.89774, 0)
 curve = SubResource("Curve3D_petv7")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D2"]
-transform = Transform3D(0.999861, 0, 0, 0, 0.999932, 0, 0, 0, 0.999979, 0, 0, 0)
+transform = Transform3D(0.999861, 0, 0, 0, 0.999932, 0, 0, 0, 0.999979, -14.1538, -7.89886, -0.326562)
 progress = 30.857
 rotation_mode = 0
 script = ExtResource("18_wvb40")
@@ -258,7 +260,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.7836, -37.3491, 0)
 curve = SubResource("Curve3D_qi1b0")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="GameLayer/Path3D5"]
-transform = Transform3D(0.999861, 0, 0, 0, 0.999932, 0, 0, 0, 0.999979, 0, 0, 0)
+transform = Transform3D(0.999861, 0, 0, 0, 0.999932, 0, 0, 0, 0.999979, -14.5189, -7.88357, -0.328713)
 progress = 30.857
 rotation_mode = 0
 script = ExtResource("18_wvb40")
@@ -285,7 +287,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6499, -29.3172, 0)
 curve = SubResource("Curve3D_0506t")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="BackgroundNuage01/Path3D"]
-transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, 40.178, 68.3834, 0)
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, -302.48, 0, 0)
 progress = 197.52
 rotation_mode = 0
 cubic_interp = false
@@ -316,7 +318,7 @@ mesh = SubResource("QuadMesh_5mjvn")
 material = SubResource("StandardMaterial3D_mlwim")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="BackgroundNuage01/Path3D"]
-transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, -242.015, 68.3834, 0)
+transform = Transform3D(0.999858, 0, 0, 0, 0.99994, 0, 0, 0, 0.999995, -302.48, 0, 0)
 progress = 197.52
 rotation_mode = 0
 cubic_interp = false

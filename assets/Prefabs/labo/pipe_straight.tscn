@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://de071bnvds28a"]
+
+[ext_resource type="Texture2D" uid="uid://bnmb3fbjrnudg" path="res://assets/Textures/Labo/Tuyau_lab_mur_2.png" id="1_dn04m"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0vy66"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdw82"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_dn04m")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3b3yv"]
+size = Vector3(0.0431156, 0.0928602, 1)
+
+[node name="PipeStraight" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.963, -4.666, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043, -0.297, 0)
+sorting_offset = -2.0
+mesh = SubResource("QuadMesh_0vy66")
+material = SubResource("StandardMaterial3D_kdw82")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00110149, 0.0121078, 0)
+shape = SubResource("BoxShape3D_3b3yv")
