@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b17vcnmok5kix"]
+[gd_scene load_steps=29 format=3 uid="uid://b17vcnmok5kix"]
 
 [ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_tyxh0"]
 [ext_resource type="AudioStream" uid="uid://bjp8y250kq4n4" path="res://assets/Sounds/Songs/Aqua.mp3" id="2_267br"]
@@ -21,6 +21,10 @@
 [ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_3.tscn" id="19_avl3v"]
 [ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="21_pcfjq"]
 [ext_resource type="PackedScene" uid="uid://cljg31i83ncu7" path="res://assets/Prefabs/vortex_anim.tscn" id="21_xlwu7"]
+[ext_resource type="Texture2D" uid="uid://b5kba0ahv2m1s" path="res://scenes/dev/UI/Player/Power_icons_off/triton_off.png" id="22_nd8c1"]
+[ext_resource type="Texture2D" uid="uid://5o6nrueppwqm" path="res://scenes/dev/UI/Player/Power_on/racoon_on.png" id="23_4r0il"]
+[ext_resource type="Texture2D" uid="uid://be82ov5jbieuw" path="res://scenes/dev/UI/Player/Power_icons_off/ghost_off.png" id="24_seaf0"]
+[ext_resource type="Texture2D" uid="uid://c00p7i4u0838g" path="res://scenes/dev/UI/Player/Power_icons_off/wings_off.png" id="25_1gl0u"]
 
 [sub_resource type="Curve3D" id="Curve3D_xmn3l"]
 _data = {
@@ -447,3 +451,89 @@ transform = Transform3D(0.259188, 0, 0, 0, 0.259188, 0, 0, 0, 1, -24.162, 50.29,
 position = Vector2(91.75, 81.25)
 scale = Vector2(0.635231, 0.628405)
 texture = ExtResource("21_pcfjq")
+
+[node name="Power_icons" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.157
+anchor_bottom = 0.657
+offset_left = 25.0
+offset_top = 184.0
+offset_right = -91.864
+offset_bottom = 0.264008
+
+[node name="RacoonOn" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 30)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_4r0il")
+
+[node name="Label" type="Label" parent="Power_icons/RacoonOn"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+
+[node name="WingsOff" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 80)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("25_1gl0u")
+
+[node name="Label" type="Label" parent="Power_icons/WingsOff"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "2
+"
+horizontal_alignment = 1
+
+[node name="GhostOff" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 130)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_seaf0")
+
+[node name="Label" type="Label" parent="Power_icons/GhostOff"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "3"
+horizontal_alignment = 1
+
+[node name="TritonOff" type="Sprite2D" parent="Power_icons"]
+position = Vector2(30, 180)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_nd8c1")
+
+[node name="Label" type="Label" parent="Power_icons/TritonOff"]
+anchors_preset = -1
+anchor_left = 0.774
+anchor_top = 0.732
+anchor_right = 1.195
+anchor_bottom = 1.205
+offset_left = -47.53
+offset_top = -47.54
+offset_right = -47.525
+offset_bottom = -47.475
+theme_override_font_sizes/font_size = 30
+text = "4"
+horizontal_alignment = 1
