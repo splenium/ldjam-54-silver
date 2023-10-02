@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b67fjcbka8i2f"]
+[gd_scene load_steps=16 format=3 uid="uid://b67fjcbka8i2f"]
 
 [ext_resource type="Texture2D" uid="uid://b85wr6cnww4yd" path="res://assets/Textures/Labo/Rakoon_Coma_-1.png" id="1_53hkw"]
 [ext_resource type="Texture2D" uid="uid://c7mrgup4wfy8d" path="res://assets/Textures/Labo/Rakoon_Coma_-2.png" id="2_105e1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c88ca13328aot" path="res://assets/Textures/Labo/Rakoon_Coma_-4.png" id="7_3nott"]
 [ext_resource type="Texture2D" uid="uid://bnw5uy4ahpegs" path="res://assets/Textures/Labo/Rakoon_Coma_-5.png" id="8_nj05c"]
 [ext_resource type="Texture2D" uid="uid://cvktenn2ap81t" path="res://assets/Textures/Labo/Rakoon_Coma_-6.png" id="9_hoh7t"]
+[ext_resource type="Script" path="res://assets/Prefabs/labo/BodyMouvement.cs" id="10_4ffc0"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_52028"]
 
@@ -136,3 +137,4 @@ texture = ExtResource("9_hoh7t")
 libraries = {
 "": SubResource("AnimationLibrary_gftln")
 }
+script = ExtResource("10_4ffc0")
