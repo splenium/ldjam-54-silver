@@ -31,6 +31,7 @@ StartingScene = ExtResource("2_kvdrg")
 CreditsControl = NodePath("Control")
 Box = NodePath("VBoxContainer2")
 LevelSound = ExtResource("3_vwnse")
+VolumeDb = -5.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
