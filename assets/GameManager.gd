@@ -32,10 +32,11 @@ func _ready():
 func InitializeCheckpoint(defaultCheckpoint: Checkpoint) -> void:
     checkpoints = []
     checkpoints.append_array(get_tree().get_nodes_in_group("checkpoint"))
-    OnCheckpointEnter(defaultCheckpoint)
+    if defaultCheckpoint != null:
+        OnCheckpointEnter(defaultCheckpoint)
     for checkpoint in checkpoints:
         # we unbind the argument send be the signal (that would be the player) to bind the checkpoint instead
-        checkpoint.body_entered.connect(OnCheckpointEnter.unbind(1).bind(checkpoint))
+        checkpoint.body_entered.connect(OnCheckpointEnter.bind(checkpoint).unbind(1))
 
 func InitAudio() -> void:
     AudioMusic = AudioStreamPlayer.new()

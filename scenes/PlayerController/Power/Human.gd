@@ -7,7 +7,7 @@ class_name Human
 var Gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func MoveCharacter(character: CharacterBody3D, delta: float) -> void:
-    var velocity = character.Velocity
+    var velocity = character.velocity
     var gravityForce = Gravity * delta
 
     if not character.is_on_floor():
@@ -23,11 +23,11 @@ func MoveCharacter(character: CharacterBody3D, delta: float) -> void:
     if direction != Vector3.ZERO:
         velocity.x = direction.x * Speed
     else:
-        velocity.x = move_toward(character.Velocity.x, 0, Speed)
+        velocity.x = move_toward(character.velocity.x, 0, Speed)
 
     raKoonAvatar.SetFace((randi() % 5) as Enums.EFaceState)
 
-    character.Velocity = velocity
-    character.MoveAndSlide()
+    character.velocity = velocity
+    character.move_and_slide()
 
     SetRaKoonAvatarAnimation(velocity)

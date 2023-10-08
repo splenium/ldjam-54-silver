@@ -39,12 +39,7 @@ var isPowerUnlock = {
     Enums.Power.Ghost: false,
 }
 
-var powerByEnum = {
-    Enums.Power.Human: PowerHuman,
-    Enums.Power.Fish: PowerFish,
-    Enums.Power.Fly: PowerFly,
-    Enums.Power.Ghost: PowerGhost,
-}
+var powerByEnum: Dictionary
 
 var currentPower: Power
 var invulernability: bool = false
@@ -73,6 +68,12 @@ var tritonOn: Texture2D
 func _ready():
     GameManager.MyPlayer = self
     forcedZ = self.global_position.z
+    powerByEnum = {
+        Enums.Power.Human: PowerHuman,
+        Enums.Power.Fish: PowerFish,
+        Enums.Power.Fly: PowerFly,
+        Enums.Power.Ghost: PowerGhost,
+    }
     currentPower = PowerHuman
     currentPower.Init(self)
     if PowerHuman == null:
@@ -203,7 +204,7 @@ func LoadNewLevel(path: String) -> void:
     GameManager.SceneToLoad = level.NextLevelNumber
     GameManager.NextScene = GameManager.AllScenePath[GameManager.SceneToLoad]
     print("currentSceneName: ", get_tree().current_scene.name, " ", GameManager.SceneToLoad, " ", GameManager.NextScene)
-    get_tree().change_scene_to(path)
+    get_tree().change_scene_to_file(path)
 
 func _OnBlinkTimerTimeout() -> void:
     print("Change VISIBLE")

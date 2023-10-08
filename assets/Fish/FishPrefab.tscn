@@ -95,11 +95,11 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_x8osg"]
 radius = 0.299532
 
-[node name="Fish" type="Area3D" node_paths=PackedStringArray("objects", "attack_animation")]
-collision_mask = 65
+[node name="Fish" type="Area3D" node_paths=PackedStringArray("attack_animation")]
+collision_layer = 0
+collision_mask = 128
 script = ExtResource("1_1k7rd")
 light_color = Color(0.4, 0.262745, 0.4, 1)
-objects = [NodePath("AntenaParent/Antena"), NodePath("FinTop"), NodePath("FinBackParent/FinBack"), NodePath("BodyBack"), NodePath("BodyTop"), NodePath("JawJoint/BodyJaw"), NodePath("JawJoint/BodyJaw/FinJoint/FinBottom")]
 attack_animation = NodePath("JawJoint/AttackAnimationPlayer")
 
 [node name="AntenaParent" type="Node3D" parent="."]

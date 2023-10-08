@@ -47,12 +47,12 @@ func MoveCharacter(character: CharacterBody3D, delta: float) -> void:
 func Init(c: CharacterBody3D) -> void:
     super.Init(c)
     raKoonAvatar.IsGhost = true
-    c.set_collision_mask_bit(2, false)
+    c.set_collision_mask_value(2, false)
 
 func Exit(c: CharacterBody3D) -> void:
     super.Exit(c)
     raKoonAvatar.IsGhost = false
-    c.set_collision_mask_bit(2, true)
+    c.set_collision_mask_value(2, true)
 
 func CanChange(_c: CharacterBody3D) -> bool:
     return IsCollidingObject()

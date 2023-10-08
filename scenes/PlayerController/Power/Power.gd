@@ -1,4 +1,4 @@
-﻿extends Node3D
+extends Node3D
 
 class_name Power
 
@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 func Init(_character: CharacterBody3D) -> void:
     process_mode = PROCESS_MODE_INHERIT
     visible = true
-    raKoonAvatar.light_color = LightColor
+    raKoonAvatar.LightColor = LightColor
 
 func MoveCharacter(_character: CharacterBody3D, _delta: float) -> void:
     pass
@@ -42,7 +42,7 @@ func SetRaKoonAvatarAnimation(velocity: Vector3) -> void:
         raKoonAvatar.IsLeft = false
     elif velocity.x < 0:
         raKoonAvatar.IsLeft = true
-    raKoonAvatar.is_moving = not velocity.is_zero_approx()
+    raKoonAvatar.IsMoving = not velocity.is_zero_approx()
 
 func WaterBehavior(gravityForce: float, velocity: Vector3, _delta: float) -> Vector3:
     if InWater():

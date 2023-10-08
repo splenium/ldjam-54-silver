@@ -5,7 +5,6 @@ class_name MaterialAnimation
 var sens = true
 
 func _ready():
-    super._ready()
     play()
 
 func _process(_delta):
