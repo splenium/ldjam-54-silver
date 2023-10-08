@@ -14,11 +14,12 @@ point_count = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1163, -13.8958, 0)
 curve = SubResource("Curve3D_bywup")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="."]
+[node name="PathFollow3D" type="PathFollow3D" parent="." node_paths=PackedStringArray("fish_avatar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8837, 0.895769, 0)
 rotation_mode = 0
 script = ExtResource("1_d6w1y")
+fish_avatar = NodePath("Fish")
+speed = null
 
-[node name="Fish" parent="PathFollow3D" node_paths=PackedStringArray("Objects") instance=ExtResource("2_tu2qc")]
+[node name="Fish" parent="PathFollow3D" instance=ExtResource("2_tu2qc")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-Objects = [null, null, null, null, null, null, null]

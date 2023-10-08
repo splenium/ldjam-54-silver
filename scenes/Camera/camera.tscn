@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdivpru8xvcqp"]
 
-[ext_resource type="Script" path="res://scenes/Camera/CameraManagment.cs" id="1_37fc7"]
+[ext_resource type="Script" path="res://scenes/Camera/CameraManagment.gd" id="1_37fc7"]
 
 [node name="Camera" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.980574, 0.196151, 0, -0.196151, 0.980574, 2.94312, 2, 8.66575)

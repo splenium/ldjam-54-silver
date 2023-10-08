@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://cit38600ld0bf"]
 
-[ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="1_4j8iy"]
+[ext_resource type="Script" path="res://assets/Scripts/CustomDamage.gd" id="1_4j8iy"]
 [ext_resource type="Shader" path="res://assets/Shaders/Rock.gdshader" id="1_hmr5x"]
 [ext_resource type="Texture2D" uid="uid://dmy2yo5pktr1s" path="res://assets/Textures/Rocks/RocherRonce1.png" id="2_3gvde"]
-[ext_resource type="Script" path="res://assets/Hovering.cs" id="3_7n2tm"]
+[ext_resource type="Script" path="res://assets/Hovering.gd" id="3_7n2tm"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
 

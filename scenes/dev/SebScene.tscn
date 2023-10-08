@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://bxuggearypihf" path="res://assets/Materials/Rock01Mat.tres" id="1_818dc"]
 [ext_resource type="Material" uid="uid://pfk887ida80" path="res://assets/Materials/Rock00Mat.tres" id="1_kfxe6"]
 [ext_resource type="Material" uid="uid://cevwxtcp37nen" path="res://assets/Materials/Clouds/SkyIslandsBGMat.tres" id="1_xd3yq"]
-[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_njwye"]
+[ext_resource type="Script" path="res://assets/Hovering.gd" id="2_njwye"]
 [ext_resource type="Material" uid="uid://d35otdohndue5" path="res://assets/Materials/Rock02Mat.tres" id="3_go02m"]
 [ext_resource type="Material" uid="uid://c8o2gti7npy26" path="res://assets/Materials/DoctorPunk.tres" id="3_sl62w"]
 [ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/CloudMat.tres" id="4_ifijn"]

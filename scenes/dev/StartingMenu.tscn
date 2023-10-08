@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://o3eje0au3pu8"]
 
-[ext_resource type="Script" path="res://scenes/dev/StartingMenu.cs" id="1_6lhjk"]
+[ext_resource type="Script" path="res://scenes/dev/StartingMenu.gd" id="1_6lhjk"]
 [ext_resource type="PackedScene" uid="uid://bjrxx0g68e18x" path="res://scenes/Levels/graveyard.tscn" id="2_kvdrg"]
 [ext_resource type="Texture2D" uid="uid://071dl0433mep" path="res://scenes/dev/UI/button.png" id="4_4g3iy"]
 [ext_resource type="Texture2D" uid="uid://dkb0j0gd8i3aq" path="res://scenes/dev/UI/MenuIcon.png" id="4_fiw1k"]
@@ -14,7 +14,7 @@ grow_begin = 0.0
 grow_end = 0.0
 thickness = 0
 
-[node name="StartingMenu" type="Control" node_paths=PackedStringArray("CreditsControl")]
+[node name="StartingMenu" type="Control" node_paths=PackedStringArray("CreditsControl", "Box")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +28,7 @@ grow_vertical = 2
 script = ExtResource("1_6lhjk")
 StartingScene = ExtResource("2_kvdrg")
 CreditsControl = NodePath("Control")
+Box = NodePath("VBoxContainer2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdm8xiupqcdao"]
 
 [ext_resource type="Material" uid="uid://b5u4nommy4jx3" path="res://assets/Materials/CloudMat.tres" id="1_rf1d1"]
-[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_iapy1"]
+[ext_resource type="Script" path="res://assets/Hovering.gd" id="2_iapy1"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
 

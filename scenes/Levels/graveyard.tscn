@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://bjrxx0g68e18x"]
 
-[ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_2xoni"]
+[ext_resource type="Script" path="res://assets/Scripts/Level.gd" id="1_2xoni"]
 [ext_resource type="PackedScene" uid="uid://bdivpru8xvcqp" path="res://scenes/Camera/camera.tscn" id="1_m1iqt"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_dnp53"]
 [ext_resource type="PackedScene" uid="uid://cuqngsngyeab1" path="res://assets/Prefabs/rocks/cliff_rock.tscn" id="3_3521m"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://5sk85n3veo0o" path="res://assets/Textures/graveyard/cemetery_2.tscn" id="16_bpv66"]
 [ext_resource type="PackedScene" uid="uid://b0ix6en3173nk" path="res://assets/Prefabs/graveyard/reverse_tree.tscn" id="18_l218n"]
 [ext_resource type="PackedScene" uid="uid://8l8ep2gwc1i0" path="res://assets/Prefabs/graveyard/tree_1.tscn" id="19_gq5en"]
-[ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="21_45mk3"]
+[ext_resource type="Script" path="res://assets/Scripts/CustomDamage.gd" id="21_45mk3"]
 [ext_resource type="Texture2D" uid="uid://b5nkw674mex7f" path="res://assets/Textures/Background/Illustration_sans_titre.png" id="22_cb1ys"]
 [ext_resource type="Texture2D" uid="uid://dstceugxyt0am" path="res://scenes/dev/UI/Player/Faces_with_power/racoon_base.png" id="22_lkcxd"]
 [ext_resource type="PackedScene" path="res://scenes/cloud.tscn" id="23_g1kro"]

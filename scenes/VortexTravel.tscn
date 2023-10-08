@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5340gv2mgayt"]
 
-[ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_mgied"]
+[ext_resource type="Script" path="res://assets/Scripts/Level.gd" id="1_mgied"]
 [ext_resource type="Material" uid="uid://cq6ff316iqldq" path="res://assets/Materials/PostFXShaderMat.tres" id="1_p06xh"]
 [ext_resource type="AudioStream" uid="uid://cayivirncrxda" path="res://assets/Sounds/13698__acclivity__shark01.wav" id="2_qryns"]
 [ext_resource type="PackedScene" uid="uid://b2qnjj4q7bmss" path="res://assets/Prefabs/vortex_travel_anim.tscn" id="2_tnkk8"]

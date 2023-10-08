@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://assets/Shaders/Rock.gdshader" id="1_oabrs"]
 [ext_resource type="Texture2D" uid="uid://dpwemcwwdnctm" path="res://assets/Textures/Rocks/Roches.png" id="2_aoxs1"]
-[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_ckomv"]
+[ext_resource type="Script" path="res://assets/Hovering.gd" id="2_ckomv"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
 

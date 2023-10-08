@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bgj0n06q1fhte"]
 
-[ext_resource type="Script" path="res://scenes/UnlockPower.cs" id="1_pkdks"]
+[ext_resource type="Script" path="res://scenes/UnlockPower.gd" id="1_pkdks"]
 [ext_resource type="AudioStream" uid="uid://f550fcn3knfd" path="res://assets/Sounds/172005__blue2107__oh-yeah.mp3" id="2_3wvpn"]
 [ext_resource type="Texture2D" uid="uid://bf5nil75ohsau" path="res://assets/Test/PowerMaterial/purple_white.png" id="2_434wc"]
 [ext_resource type="PackedScene" uid="uid://b6l40hdajspul" path="res://assets/Prefabs/dna.tscn" id="3_7hvur"]

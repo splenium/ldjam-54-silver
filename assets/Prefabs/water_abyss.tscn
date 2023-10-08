@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://1ji2t3u75r1o"]
 
 [ext_resource type="Material" uid="uid://cmrgu55n2foir" path="res://assets/Materials/Abyss/AbyssBG.tres" id="1_un2g2"]
-[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_f4lj8"]
+[ext_resource type="Script" path="res://assets/Hovering.gd" id="2_f4lj8"]
 [ext_resource type="Material" uid="uid://w8luwihx2cxk" path="res://assets/Materials/Abyss/LightRaysMat.tres" id="3_1jge5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_574u7"]

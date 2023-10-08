@@ -7,12 +7,12 @@ class_name StartingMenu
 @export var Box: BoxContainer
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file(StartingScene.resource_path)
+    get_tree().change_scene_to_file(StartingScene.resource_path)
 
 func _on_credits_button_pressed():
-	CreditsControl.visible = true
-	Box.visible = false
+    CreditsControl.visible = true
+    Box.visible = false
 
 func _on_back_button_pressed():
-	CreditsControl.visible = false
-	Box.visible = true
+    CreditsControl.visible = false
+    Box.visible = true

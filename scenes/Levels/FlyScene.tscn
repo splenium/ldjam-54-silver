@@ -1,6 +1,6 @@
 [gd_scene load_steps=46 format=3 uid="uid://bdaojckf405t1"]
 
-[ext_resource type="Script" path="res://assets/Scripts/Level.cs" id="1_ic4qb"]
+[ext_resource type="Script" path="res://assets/Scripts/Level.gd" id="1_ic4qb"]
 [ext_resource type="AudioStream" uid="uid://c3c6v6d2jabsw" path="res://assets/Sounds/Songs/Nuage_1.mp3" id="2_6o5do"]
 [ext_resource type="PackedScene" uid="uid://bjwiwl42jtnld" path="res://scenes/PlayerController/Character.tscn" id="2_qlhiq"]
 [ext_resource type="PackedScene" uid="uid://d2a0djlko57o0" path="res://scenes/checkpoint.tscn" id="4_27gc2"]
@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cq6v2etphhni" path="res://assets/Prefabs/rocks/flat_rock_1.tscn" id="9_1fsf8"]
 [ext_resource type="PackedScene" uid="uid://bgj0n06q1fhte" path="res://scenes/UnlockPower.tscn" id="12_rtldl"]
 [ext_resource type="PackedScene" uid="uid://ba1spgb6o1um" path="res://assets/Prefabs/grid/ground_grid.tscn" id="13_f6p48"]
-[ext_resource type="Script" path="res://assets/Scripts/CustomDamage.cs" id="17_5kkkm"]
-[ext_resource type="Script" path="res://assets/Scripts/FollowPath.cs" id="18_wvb40"]
+[ext_resource type="Script" path="res://assets/Scripts/CustomDamage.gd" id="17_5kkkm"]
+[ext_resource type="Script" path="res://assets/Scripts/FollowPath.gd" id="18_wvb40"]
 [ext_resource type="PackedScene" uid="uid://bcp6tsly4i1st" path="res://assets/Prefabs/rocks/round_rock_2.tscn" id="19_mobml"]
 [ext_resource type="PackedScene" path="res://assets/Prefabs/rocks/small_rock_2.tscn" id="20_7g17g"]
 [ext_resource type="PackedScene" uid="uid://cit38600ld0bf" path="res://assets/Prefabs/rocks/ronce_rock_1.tscn" id="20_q0d6v"]

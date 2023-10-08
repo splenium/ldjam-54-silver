@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://h1bjyb8mpmo2"]
 
-[ext_resource type="Script" path="res://scenes/dev/RaKoonAvatar.cs" id="1_8pl2y"]
+[ext_resource type="Script" path="res://scenes/dev/RaKoonAvatar.gd" id="1_8pl2y"]
 [ext_resource type="Texture2D" uid="uid://bpxkh3ciaskcx" path="res://assets/Textures/RaKoon/rakoon_ohface_bkg.png" id="3_xit7x"]
 [ext_resource type="Texture2D" uid="uid://b3qfsys17thnc" path="res://assets/Textures/RaKoon/rakoon_ohface_outline.png" id="4_disl6"]
 [ext_resource type="Texture2D" uid="uid://cakp4raxgglre" path="res://assets/Textures/RaKoon/rakoon_ohface_hightlight.png" id="5_k2leh"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c75ywfup3lng4" path="res://assets/Textures/RaKoon/rakoon_shocked-1.png" id="12_hdmes"]
 [ext_resource type="Texture2D" uid="uid://du1pq6fjon64k" path="res://assets/Textures/RaKoon/rakoon_shocked-3.png" id="13_m0vqg"]
 [ext_resource type="Texture2D" uid="uid://r1odbc7ovewa" path="res://assets/Textures/RaKoon/rakoon_shocked-2.png" id="14_72ifo"]
-[ext_resource type="Script" path="res://assets/Hovering.cs" id="15_8o03j"]
+[ext_resource type="Script" path="res://assets/Hovering.gd" id="15_8o03j"]
 [ext_resource type="Shader" path="res://assets/Shaders/RaKoon/RaKoonHead.gdshader" id="16_xrsie"]
 [ext_resource type="Shader" path="res://assets/Shaders/RaKoon/RaKoonBody.gdshader" id="18_hejbd"]
 [ext_resource type="Texture2D" uid="uid://c20gul0kfaifi" path="res://assets/Textures/RaKoon/rakoon_suit.png" id="19_rncvf"]

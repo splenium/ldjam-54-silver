@@ -69,7 +69,7 @@
 [ext_resource type="Texture2D" uid="uid://blgvi43b535qm" path="res://assets/Textures/DNA/img59.png" id="67_s2ntv"]
 [ext_resource type="Texture2D" uid="uid://dnf27ssx8ttgm" path="res://assets/Textures/DNA/img60.png" id="68_p1f5l"]
 [ext_resource type="Texture2D" uid="uid://dopd7goes71e8" path="res://assets/Textures/DNA/img61.png" id="69_yjfy5"]
-[ext_resource type="Script" path="res://assets/Scripts/MaterialAnimation.cs" id="70_322ja"]
+[ext_resource type="Script" path="res://assets/Scripts/MaterialAnimation.gd" id="70_322ja"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_powy6"]
 

@@ -23,10 +23,10 @@ var DefaultAmountOfDamage: int = 50
 func _ready():
     InitAudio()
     process_mode = PROCESS_MODE_ALWAYS
-    pauseMenu = get_parent().find_node("PauseMenu", true, false) as Control
+    pauseMenu = get_parent().find_child("PauseMenu", true, false) as Control
     if pauseMenu == null:
         var pauseMenuScene = load("res://scenes/HUD/pause_menu.tscn") as PackedScene
-        pauseMenu = pauseMenuScene.instance() as Control
+        pauseMenu = pauseMenuScene.instantiate() as Control
         add_child(pauseMenu)
 
 func InitializeCheckpoint(defaultCheckpoint: Checkpoint) -> void:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bpr26nm017exs"]
 
 [ext_resource type="Texture2D" uid="uid://esfdqkt102lb" path="res://assets/Textures/Bomb/bombes-head.png" id="1_dqo6v"]
-[ext_resource type="Script" path="res://scenes/dev/ShakeRotation.cs" id="2_wxwci"]
+[ext_resource type="Script" path="res://scenes/dev/ShakeRotation.gd" id="2_wxwci"]
 [ext_resource type="Material" uid="uid://dxdji0emkp10m" path="res://assets/Materials/BombChain.tres" id="3_n0ngt"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5a6uc"]

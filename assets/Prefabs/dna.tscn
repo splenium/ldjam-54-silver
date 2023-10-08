@@ -63,7 +63,7 @@
 [ext_resource type="Texture2D" uid="uid://blgvi43b535qm" path="res://assets/Textures/DNA/img59.png" id="61_q4pu6"]
 [ext_resource type="Texture2D" uid="uid://dnf27ssx8ttgm" path="res://assets/Textures/DNA/img60.png" id="62_aw02m"]
 [ext_resource type="Texture2D" uid="uid://dopd7goes71e8" path="res://assets/Textures/DNA/img61.png" id="63_6utnw"]
-[ext_resource type="Script" path="res://assets/Scripts/MaterialAnimation.cs" id="64_7mqga"]
+[ext_resource type="Script" path="res://assets/Scripts/MaterialAnimation.gd" id="64_7mqga"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r72mm"]
 animations = [{

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxscqj70gmv5x"]
 
-[ext_resource type="Script" path="res://scenes/dev/StartingMenu.cs" id="1_lx7v6"]
+[ext_resource type="Script" path="res://scenes/dev/StartingMenu.gd" id="1_lx7v6"]
 [ext_resource type="PackedScene" uid="uid://cmojig8xnpdv1" path="res://scenes/dev/TestScene.tscn" id="2_anf7h"]
 [ext_resource type="FontFile" uid="uid://bd68enjsgi778" path="res://assets/FontStyle/Geosteam-eJap.ttf" id="3_rnoq7"]
 [ext_resource type="FontFile" uid="uid://mg8l38ygan5q" path="res://assets/FontStyle/JackOfGears.ttf" id="4_jkfla"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bync7ve5hgthl"]
 
 [ext_resource type="Material" uid="uid://dljll6fqoob5q" path="res://assets/Materials/Rock03Mat.tres" id="1_hkk4k"]
-[ext_resource type="Script" path="res://assets/Hovering.cs" id="2_ymd53"]
+[ext_resource type="Script" path="res://assets/Hovering.gd" id="2_ymd53"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qs0ii"]
 

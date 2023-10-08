@@ -63,7 +63,7 @@
 [ext_resource type="Texture2D" uid="uid://br68hfmqocnwm" path="res://assets/Textures/Vortex/img59.png" id="61_guyp6"]
 [ext_resource type="Texture2D" uid="uid://dnlf6wfpqnnye" path="res://assets/Textures/Vortex/img60.png" id="62_m8qad"]
 [ext_resource type="Texture2D" uid="uid://dyaxat8m46fy" path="res://assets/Textures/Vortex/img61.png" id="63_fyyv5"]
-[ext_resource type="Script" path="res://assets/Scripts/MaterialAnimation.cs" id="64_coma2"]
+[ext_resource type="Script" path="res://assets/Scripts/MaterialAnimation.gd" id="64_coma2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nl6m6"]
 animations = [{
