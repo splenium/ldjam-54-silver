@@ -14,11 +14,10 @@ func _process(_delta):
     for child in objects:
         child.material.set("albedo_color", light_color)
     if (has_overlapping_bodies()):
-        var overlapping_bodies = get_overlapping_bodies()
-        var player = overlapping_bodies.filter(func(body: Node3D): body.is_class("CharacterController"))
-        if (player.size() > 0):
+        var player = get_overlapping_bodies()[0] as CharacterController
+        if (player != null):
             attack_animation.play("attack")
-            player[0].take_damage(50)
+            player.TakeDamage(50)
 
 func facing_direction(is_right: bool):
     var scaleX = abs(scale.x)

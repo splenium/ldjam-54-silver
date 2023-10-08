@@ -6,6 +6,12 @@ class_name StartingMenu
 @export var CreditsControl: Control
 @export var Box: BoxContainer
 
+@export var LevelSound: AudioStream
+@export var VolumeDb: float = 0.0
+
+func _ready():
+    GameManager.PlayMusic(LevelSound, VolumeDb)
+
 func _on_start_button_pressed():
     get_tree().change_scene_to_file(StartingScene.resource_path)
 

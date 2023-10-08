@@ -20,6 +20,5 @@ rotation_mode = 0
 script = ExtResource("1_d6w1y")
 fish_avatar = NodePath("Fish")
 
-[node name="Fish" parent="PathFollow3D" node_paths=PackedStringArray("attack_animation") instance=ExtResource("2_tu2qc")]
+[node name="Fish" parent="PathFollow3D" instance=ExtResource("2_tu2qc")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
-attack_animation = NodePath("")
